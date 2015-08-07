@@ -1,0 +1,38 @@
+# Style & Quality Overrides
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+
+Style/Copyright:
+  Enabled: true
+  Notice: 'Copyright (\(C\) )?2015 Twitter, Inc.'
+  AutocorrectNotice: "# Copyright (C) 2015 Twitter, Inc.\n"
+  Exclude:
+    - Gemfile
+
+Style/GuardClause:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/Documentation:
+ Enabled: true
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false

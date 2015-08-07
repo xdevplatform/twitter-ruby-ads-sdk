@@ -1,0 +1,44 @@
+language: ruby
+
+rvm:
+  - 2.0.0
+  - 2.1.0
+  - 2.2.0
+  - jruby-head # JRuby 9k, requires JDK7+
+
+jdk:
+  - oraclejdk7
+  - openjdk7
+  - oraclejdk8
+
+install: CI=true ruby -S bundle install --without development
+script: bundle exec rake spec:ci
+
+matrix:
+  allow_failures:
+    - ruby-head
+exclude:
+    - rvm: 2.0.0
+      jdk: openjdk7
+    - rvm: 2.0.0
+      jdk: oraclejdk7
+    - rvm: 2.0.0
+      jdk: oraclejdk8
+    - rvm: 2.1.0
+      jdk: openjdk7
+    - rvm: 2.1.0
+      jdk: oraclejdk7
+    - rvm: 2.1.0
+      jdk: oraclejdk8
+    - rvm: 2.2.0
+      jdk: openjdk7
+    - rvm: 2.2.0
+      jdk: oraclejdk7
+    - rvm: 2.2.0
+      jdk: oraclejdk8
+    - rvm: ruby-head
+      jdk: openjdk7
+    - rvm: ruby-head
+      jdk: oraclejdk7
+    - rvm: ruby-head
+      jdk: oraclejdk8
