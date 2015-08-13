@@ -1,10 +1,10 @@
 # Copyright (C) 2015 Twitter, Inc.
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
-require File.expand_path('../lib/twitter/ads/version', __FILE__)
+require File.expand_path('../lib/twitter-ads/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'twitter-ads'
-  s.version     = Twitter::Ads::VERSION
+  s.version     = TwitterAds::VERSION
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
   s.authors     = ['Brandon Black', 'Emma Lam']
