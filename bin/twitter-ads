@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'twitter'
+rescue LoadError
+end
+
+$LOAD_PATH.push File.join(File.dirname(__FILE__), '..', 'lib')
+require 'twitter-ads'
+
+# load up a ready-to-go client instance if .twurlrc is setup
+if File.exists?(File.expand_path('~/.twurlrc'))
+  require 'yaml'
+  twurl_config    = YAML.load(File.read(File.expand_path('~/.twurlrc')))
+  profile_name    = twurl_config['configuration']['default_profile'][0]
+  profile_key     = twurl_config['configuration']['default_profile'][1]
+  default_profile = twurl_config['profiles'][profile_name][profile_key]
+  CLIENT = TwitterAds::Client.new(
+    default_profile['consumer_key'],
+    default_profile['consumer_secret'],
+    default_profile['token'],
+    default_profile['secret'],
+  )
+end
+
+begin
+  require 'pry'
+  KLASS = Pry
+rescue LoadError
+  require 'irb'
+  KLASS = IRB
+end
+
+KLASS.start(__FILE__)
