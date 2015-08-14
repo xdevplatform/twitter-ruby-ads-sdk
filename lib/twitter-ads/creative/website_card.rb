@@ -3,7 +3,7 @@
 module TwitterAds
   module Creative
 
-    class LeadGen
+    class WebsiteCard
 
       include TwitterAds::DSL
       include TwitterAds::Resource
@@ -31,8 +31,8 @@ module TwitterAds
       property :custom_key_name
       property :custom_key_email
 
-      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/cards/lead_gen' # @api private
-      RESOURCE            = '/0/accounts/%{account_id}/cards/lead_gen/%{id}' # @api private
+      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/cards/website' # @api private
+      RESOURCE            = '/0/accounts/%{account_id}/cards/website/%{id}' # @api private
 
       def initialize(account)
         @account = account
