@@ -1,14 +1,83 @@
-# Twitter Ads API Ruby SDK
-
-A Twitter supported and maintained Ads API SDK for Ruby.
-
 ## Getting Started
 
-## Compatibility
+##### Installation
+```bash
+# installing the latest signed release
+gem install twitter-ads
+```
+
+##### Quick Start
+```ruby
+require 'twitter-ads'
+
+# initialize the client
+client = TwitterAds::Client.new(
+  CONSUMER_KEY,
+  CONSUMER_SECRET,
+  ACCESS_TOKEN,
+  ACCESS_TOKEN_SECRET
+)
+
+# load the advertiser account instance
+account = client.accounts('c3won9gy')
+
+# load and update a specific campaign
+campaign = account.campaigns('4m0gjms')
+campaign.paused = true
+campaign.save
+
+# iterate through campaigns
+account.campaigns.each do |camp|
+  # do stuff
+end
+```
+
+##### Command Line Helper
+```bash
+# The twitter-ads command launches an interactive session for testing purposes
+# with a client instance automatically loaded from your .twurlrc file.
+
+~ ❯ twitter-ads
+2.0.0 (twitter-ads):0 > CLIENT
+=> #<TwitterAds::Client:0x70101526238580 consumer_key="Fy90KQy57152sn5Mv7axji9409">
+2.0.0 (twitter-ads):0 > CLIENT.accounts.first
+=> #<TwitterAds::Account:0x70101527905720 id="4lvtcum">
+```
+For more help please see our [Examples and Guides](https://github.com/twitterdev/twitter-ruby-ads-sdk/tree/master/examples) or check the online [Reference Documentation](http://twitterdev.github.io/twitter-ruby-ads-sdk/reference/index.html).
+
+## Compatibility & Versioning
+
+This project is designed to work with Ruby 2.0.0 or greater. While it may work on other version of Ruby, below are the platform and runtime versions we officially support and regularly test against.
+
+Platform | Versions
+-------- | --------
+MRI | 2.0.0, 2.1.x, 2.2.x
+JRuby | 1.7.x, 9.0.0.0 (JDK7, JDK8, OpenJDK)
+Rubinius | 2.4.x, 2.5.x
+
+All releases adhere to strict [sematic versioning](http://semver.org). For Example, major.minor.patch-pre (aka. stick.carrot.oops-peek).
 
 ## Development
+If you'd like to contribute to the project or try an unreleased development version of this project locally, you can do so quite easily by following the examples below.
+```bash
+# clone the repository
+git clone git@github.com:twitterdev/twitter-ruby-ads-sdk.git
+cd twitter-ruby-ads-sdk
+
+# install dependencies
+bundle install
+
+rake docs # building documentation
+rake spec # run all tests
+
+# installing a local unsigned release
+gem build twitter-ads.gemspec & gem install twitter-ads-X.X.X.gem
+```
+We love community contributions! If you're planning to send us a pull request, please make sure read our [Contributing Guidelines](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/CONTRIBUTING.md) first.
 
 ## Feedback and Bug Reports
+- Found an issue? Please open up a [GitHub issue](https://github.com/twitterdev/twitter-ruby-ads-sdk/issues) or even better yet [send us](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/CONTRIBUTING.md)  a pull request.
+- Have a question? Want to discuss a new feature? Come chat with us in the [Twitter Community Forums](https://twittercommunity.com/c/advertiser-api).
 
 ## License
 
