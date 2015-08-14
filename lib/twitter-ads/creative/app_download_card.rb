@@ -3,7 +3,7 @@
 module TwitterAds
   module Creative
 
-    class ImageAppDownload
+    class AppDownloadCard
 
       include TwitterAds::DSL
       include TwitterAds::Resource
@@ -26,10 +26,11 @@ module TwitterAds
       property :googleplay_app_id
       property :googleplay_deep_link
       property :app_cta
-      property :wide_app_image_media_id
+      property :custom_icon_media_id
+      property :custom_app_description
 
-      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/cards/image_app_download' # @api private
-      RESOURCE            = '/0/accounts/%{account_id}/cards/image_app_download/%{id}' # @api private
+      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/cards/app_download' # @api private
+      RESOURCE            = '/0/accounts/%{account_id}/cards/app_download/%{id}' # @api private
 
       def initialize(account)
         @account = account
