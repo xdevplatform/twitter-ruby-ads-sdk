@@ -76,8 +76,8 @@ gem build twitter-ads.gemspec & gem install twitter-ads-X.X.X.gem
 We love community contributions! If you're planning to send us a pull request, please make sure read our [Contributing Guidelines](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/CONTRIBUTING.md) first.
 
 ## Feedback and Bug Reports
-- Found an issue? Please open up a [GitHub issue](https://github.com/twitterdev/twitter-ruby-ads-sdk/issues) or even better yet [send us](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/CONTRIBUTING.md)  a pull request.
-- Have a question? Want to discuss a new feature? Come chat with us in the [Twitter Community Forums](https://twittercommunity.com/c/advertiser-api).
+Found an issue? Please open up a [GitHub issue](https://github.com/twitterdev/twitter-ruby-ads-sdk/issues) or even better yet [send us](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/CONTRIBUTING.md) a pull request.<br/>
+Have a question? Want to discuss a new feature? Come chat with us in the [Twitter Community Forums](https://twittercommunity.com/c/advertiser-api).
 
 ## License
 
