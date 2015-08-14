@@ -25,12 +25,14 @@ module TwitterAds
     # Deletes the current object instance depending on the presence of `object.id`.
     #
     # @example
-    #   object.delete
+    #   object.delete!
+    #
+    # Note: calls to this method are destructive and irreverisble for most API objects.
     #
     # @return [self] Returns the instance refreshed from the API.
     #
     # @since 0.1.0
-    def delete
+    def delete!
       resource = self.class::RESOURCE % { account_id: account.id, id: id }
       response = Request.new(account.client, :delete, resource).perform
       from_response(response.body[:data])

@@ -13,14 +13,16 @@ module TwitterAds
       # Reloads all attributes for the current object instance from the API.
       #
       # @example
-      #   object.reload
+      #   object.reload!
+      #
+      # Note: calls to this method dispose of any unsaved data on the object instance.
       #
       # @param opts [Hash] An optional Hash of extended request options.
       #
       # @return [self] The reloaded instance of the current object.
       #
       # @since 0.1.0
-      def reload(opts={})
+      def reload!(opts={})
         resource = self.class::RESOURCE % { account_id: account.id, id: id }
         response = Request.new(account.client, :get, resource, params: opts).perform
         from_response(response.body[:data])
