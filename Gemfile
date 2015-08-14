@@ -28,6 +28,6 @@ group :development do
   gem 'ruby-prof', platforms: :mri
 
   gem 'yard'
-  # gem 'git'
-  # gem 'kramdown'
+  gem 'git'
+  gem 'redcarpet'
 end
