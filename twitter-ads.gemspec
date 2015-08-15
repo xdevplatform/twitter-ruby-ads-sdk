@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'multi_json', '~> 1.11'
   s.add_dependency 'oauth', '~> 0.4'
 
-  s.add_development_dependency 'bundler', '~> 1.7'
+  s.add_development_dependency 'bundler', '~> 1.6'
 
   s.files = Dir.glob('{bin,lib}/**/*')
   s.files += %w(twitter-ads.gemspec LICENSE README.md CONTRIBUTING.md Rakefile)
