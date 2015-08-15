@@ -31,7 +31,3 @@ end
 # RSpec Setup
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
-
-# Coveralls Setup
-require 'coveralls/rake/task'
-Coveralls::RakeTask.new
