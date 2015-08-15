@@ -11,8 +11,8 @@ jdk:
   - openjdk7
   - oraclejdk8
 
-install: CI=true ruby -S bundle install --without development
-script: bundle exec rake spec:ci
+install: ruby -S bundle install --without development
+script: bundle exec rake
 
 matrix:
   allow_failures:
