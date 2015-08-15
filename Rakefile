@@ -14,7 +14,7 @@ end
 
 # Default Rake Task
 if ENV['CI']
-  task default: ['spec', 'coveralls:push'] # 'features'
+  task default: ['spec'] # 'features'
   Bundler.require(:default, :testing)
 else
   task default: ['spec'] # 'features'
