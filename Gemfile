@@ -10,6 +10,7 @@ group :development, :test do
   gem 'cucumber'
   gem 'coveralls', require: false
   gem 'webmock'
+  gem 'codeclimate-test-reporter'
 end
 
 group :development do

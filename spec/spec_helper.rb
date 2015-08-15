@@ -1,11 +1,11 @@
 # Copyright (C) 2015 Twitter, Inc.
 
 require 'simplecov'
-require 'coveralls'
+require 'codeclimate-test-reporter'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
+  CodeClimate::TestReporter::Formatter
 ]
 
 SimpleCov.start do
@@ -17,7 +17,7 @@ require 'rubocop'
 require 'faker'
 
 require 'webmock/rspec'
-WebMock.disable_net_connect!(allow: 'coveralls.io')
+WebMock.disable_net_connect!(allow: 'codeclimate.com')
 
 require 'twitter-ads'
 include TwitterAds
