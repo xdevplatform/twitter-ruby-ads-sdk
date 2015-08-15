@@ -17,7 +17,7 @@ script: bundle exec rake
 matrix:
   allow_failures:
     - ruby-head
-exclude:
+  exclude:
     - rvm: 2.0.0
       jdk: openjdk7
     - rvm: 2.0.0
