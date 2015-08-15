@@ -8,7 +8,6 @@ group :development, :test do
   gem 'rubocop', '0.30'
   gem 'rspec'
   gem 'cucumber'
-  gem 'coveralls', require: false
   gem 'webmock'
   gem 'codeclimate-test-reporter'
 end
