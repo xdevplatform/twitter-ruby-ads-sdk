@@ -3,12 +3,12 @@
 module TwitterAds
   module Analytics
 
-    CLASS_IDENTIFIERS = {
+    CLASS_ID_MAP = {
       'TwitterAds::PromotedTweet' => :tweet_ids,
-      'TwitterAds::LineItem' => :line_item_ids,
+      'TwitterAds::LineItem'      => :line_item_ids,
     }
 
-    private_constant :CLASS_IDENTIFIERS
+    private_constant :CLASS_ID_MAP
 
     def self.included(klass)
       klass.send :include, InstanceMethods
@@ -66,7 +66,7 @@ module TwitterAds
 
         # set default metric values
         end_time          = opts.fetch(:end_time, Time.now)
-        start_time        = opts.fetch(:start_time, end_time - 86_400) # 7 days ago
+        start_time        = opts.fetch(:start_time, end_time - 604_800) # 7 days ago
         granularity       = opts.fetch(:granularity, :hour)
         segmentation_type = opts.fetch(:segmentation_type, nil)
 
@@ -77,7 +77,7 @@ module TwitterAds
           granularity: granularity.to_s.upcase
         }
         params[:segmentation_type] = segmentation_type.to_s.upcase if segmentation_type
-        params[CLASS_IDENTIFIERS[self.name]] = ids.join(',')
+        params[CLASS_ID_MAP[self.name]] = ids.join(',')
 
         resource = self::RESOURCE_STATS % { account_id: account.id }
         response = Request.new(account.client, :get, resource, params: params).perform
