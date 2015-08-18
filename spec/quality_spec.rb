@@ -10,6 +10,6 @@ describe 'Code Style & Quality', :quality do
     pending
     result = silence { RuboCop::CLI.new.run([]) }
     expect(result).to eq(0)
-  end
+  end unless RUBY_ENGINE =~ /rbx/
 
 end

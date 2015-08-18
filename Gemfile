@@ -9,25 +9,23 @@ group :development, :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'webmock'
-  gem 'codeclimate-test-reporter'
+  gem 'codeclimate-test-reporter', platforms: :mri
 end
 
 group :development do
   gem 'pry-nav', require: true
-  gem 'pry-rescue'
+  gem 'pry-rescue', require: true
 
   gem 'rb-fchange', require: false # Windows
   gem 'rb-fsevent', require: false # OS X
   gem 'rb-inotify', require: false # Linux
   gem 'terminal-notifier-guard'
 
-  gem 'guard-bundler'
+  gem 'guard-bundler',  platforms: :mri
   gem 'guard-rspec', platforms: :mri
-  gem 'guard-jruby-rspec', platforms: :jruby
-
   gem 'ruby-prof', platforms: :mri
 
+  gem 'redcarpet', platforms: :mri
   gem 'yard'
   gem 'git'
-  gem 'redcarpet'
 end

@@ -1,16 +1,18 @@
 # Copyright (C) 2015 Twitter, Inc.
 
-require 'simplecov'
-require 'codeclimate-test-reporter'
+unless RUBY_PLATFORM =~ /java/ || RUBY_ENGINE =~ /rbx/
+  require 'simplecov'
+  require 'codeclimate-test-reporter'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  CodeClimate::TestReporter::Formatter
-]
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    CodeClimate::TestReporter::Formatter
+  ]
 
-SimpleCov.start do
-  add_filter '/spec/'
-  minimum_coverage(85.00)
+  SimpleCov.start do
+    add_filter '/spec/'
+    minimum_coverage(85.00)
+  end
 end
 
 require 'rubocop'
