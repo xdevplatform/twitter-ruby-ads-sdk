@@ -72,29 +72,18 @@ module TwitterAds
       str << ">"
     end
 
-    # Reloads all attributes in the current object instance from the API.
-    #
-    # @param opts [Hash] A Hash of API request options.
-    #
-    # @return [Account] The reloaded current instance.
-    #
-    # @since 0.1.0
-    def reload(opts={})
-      response = Request.new(client, :get, "/0/accounts/#{id}", params: opts).perform
-      from_response(response.body[:data])
-    end
-
     # Returns a collection of features available to the current account.
     #
     # @return [Array] The list of features enabled for the account.
     #
     # @since 0.1.0
     def features
+      validate_loaded
       response = Request.new(client, :get, "/0/accounts/#{id}/features").perform
       response.body[:data]
     end
 
-    # Returns a collection of promotable users avaiable to the current account.
+    # Returns a collection of promotable users available to the current account.
     #
     # @param id [String] The PromotableUser ID value.
     # @param opts [Hash] A Hash of extended options.
@@ -105,24 +94,10 @@ module TwitterAds
     #
     # @since 0.1.0
     def promotable_users(id = nil, opts = {})
-      id ? PromotableUser.load(self, id) : PromotableUser.all(self, opts)
+      load_resource(PromotableUser, id, opts)
     end
 
-    # Returns a collection of promoted tweets avaiable to the current account.
-    #
-    # @param id [String] The PromotedTweet ID value.
-    # @param opts [Hash] A Hash of extended options.
-    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
-    # @option opts [String] :sort_by The object param to sort the API response by.
-    #
-    # @return A Cursor or object instance.
-    #
-    # @since 0.1.0
-    def promoted_tweets(id = nil, opts = {})
-      id ? PromotedTweet.load(self, id) : PromotedTweet.all(self, opts)
-    end
-
-    # Returns a collection of funding instruments avaiable to the current account.
+    # Returns a collection of funding instruments available to the current account.
     #
     # @param id [String] The FundingInstrument ID value.
     # @param opts [Hash] A Hash of extended options.
@@ -133,10 +108,10 @@ module TwitterAds
     #
     # @since 0.1.0
     def funding_instruments(id = nil, opts = {})
-      id ? FundingInstrument.load(self, id) : FundingInstrument.all(self, opts)
+      load_resource(FundingInstrument, id, opts)
     end
 
-    # Returns a collection of campaigns avaiable to the current account.
+    # Returns a collection of campaigns available to the current account.
     #
     # @param id [String] The Campaign ID value.
     # @param opts [Hash] A Hash of extended options.
@@ -147,10 +122,10 @@ module TwitterAds
     #
     # @since 0.1.0
     def campaigns(id = nil, opts = {})
-      id ? Campaign.load(self, id) : Campaign.all(self, opts)
+      load_resource(Campaign, id, opts)
     end
 
-    # Returns a collection of line items avaiable to the current account.
+    # Returns a collection of line items available to the current account.
     #
     # @param id [String] The LineItem ID value.
     # @param opts [Hash] A Hash of extended options.
@@ -161,7 +136,20 @@ module TwitterAds
     #
     # @since 0.1.0
     def line_items(id = nil, opts = {})
-      id ? LineItem.load(self, id) : LineItem.all(self, opts)
+      load_resource(LineItem, id, opts)
+    end
+
+    private
+
+    def load_resource(klass, id = nil, opts = {})
+      validate_loaded
+      id ? klass.load(self, id) : klass.all(self, opts)
+    end
+
+    def validate_loaded
+      raise ArgumentError.new(
+        "Error! #{self.class} object not yet initialized, " \
+        "call #{self.class}.load first") unless @id
     end
 
   end
