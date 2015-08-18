@@ -1,7 +1,6 @@
 # Copyright (C) 2015 Twitter, Inc.
 
 require 'spec_helper'
-require 'pry-nav'
 
 describe TwitterAds::Account do
 

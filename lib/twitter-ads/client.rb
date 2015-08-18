@@ -41,7 +41,7 @@ module TwitterAds
       "#<#{self.class.name}:0x#{object_id} consumer_key=\"#{@consumer_key}\">"
     end
 
-    # Returns a collection of advertiser Accounts avaiable to the current access token.
+    # Returns a collection of advertiser Accounts available to the current access token.
     #
     # @example
     #   client.accounts
