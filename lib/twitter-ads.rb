@@ -29,6 +29,7 @@ require 'twitter-ads/line_item'
 require 'twitter-ads/promotable_user'
 require 'twitter-ads/targeting_criteria'
 
+require 'twitter-ads/creative/card'
 require 'twitter-ads/creative/app_download_card'
 require 'twitter-ads/creative/image_app_download_card'
 require 'twitter-ads/creative/lead_gen_card'
