@@ -22,9 +22,9 @@ module TwitterAds
       property :tweet_id, read_only: true
       property :paused, type: :bool, read_only: true
 
-      RESOURCE_COLLECTION = '/0/accounts/%{account}/promoted_tweets' # @api private
-      RESOURCE_STATS      = '/0/stats/accounts/%{account}/promoted_tweets' # @api private
-      RESOURCE            = '/0/accounts/%{account}/promoted_tweets/%{id}' # @api private
+      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/promoted_tweets' # @api private
+      RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/promoted_tweets' # @api private
+      RESOURCE            = '/0/accounts/%{account_id}/promoted_tweets/%{id}' # @api private
 
       def initialize(account)
         @account = account
