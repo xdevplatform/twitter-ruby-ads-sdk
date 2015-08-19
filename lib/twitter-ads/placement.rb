@@ -24,7 +24,7 @@ module TwitterAds
       def valid_combinations(client, product_type)
         resource = '/0/line_items/placements'
         params   = { product_type: product_type }
-        response = TwitterAds::Request.new(client, :get, resource, params: params ).perform
+        response = TwitterAds::Request.new(client, :get, resource, params: params).perform
         response.body[:data][0][:placements]
       end
 

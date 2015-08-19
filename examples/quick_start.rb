@@ -1,3 +1,5 @@
+# Copyright (C) 2015 Twitter, Inc.
+
 require 'twitter-ads'
 
 CONSUMER_KEY        = 'your consumer key'
@@ -20,7 +22,7 @@ account = client.accounts(ADS_ACCOUNT)
 # create your campaign
 campaign = TwitterAds::Campaign.new(account)
 campaign.funding_instrument_id = account.funding_instruments.first.id
-campaign.daily_budget_amount_local_micro = 1000000
+campaign.daily_budget_amount_local_micro = 1_000_000
 campaign.name       = 'my first campaign'
 campaign.paused     = true
 campaign.start_time = Time.now.utc
@@ -33,7 +35,7 @@ line_item.name                   = 'my first ad'
 line_item.product_type           = TwitterAds::Product::PROMOTED_TWEETS
 line_item.placements             = [TwitterAds::Placement::ALL_ON_TWITTER]
 line_item.objective              = TwitterAds::Objective::TWEET_ENGAGEMENTS
-line_item.bid_amount_local_micro = 10000
+line_item.bid_amount_local_micro = 10_000
 line_item.paused                 = true
 line_item.save
 
@@ -43,4 +45,3 @@ targeting_criteria.line_item_id = line_item.id
 targeting_criteria.targeting_type = 'LOCATION'
 targeting_criteria.targeting_value = '00a8b25e420adc94'
 targeting_criteria.save
-

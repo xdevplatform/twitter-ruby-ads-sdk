@@ -12,8 +12,6 @@ module TwitterAds
       self
     end
 
-    private
-
     class << self
 
       # Returns an appropriately typed Error object based from an API response.
@@ -25,22 +23,22 @@ module TwitterAds
       # @since 0.1.0
       # @api private
       def from_response(object)
-        error_class = if object.code == 400
-          TwitterAds::BadRequest
+        if object.code == 400
+          error_class = TwitterAds::BadRequest
         elsif object.code == 401
-          TwitterAds::NotAuthorized
+          error_class = TwitterAds::NotAuthorized
         elsif object.code == 403
-          TwitterAds::Forbidden
+          error_class = TwitterAds::Forbidden
         elsif object.code == 404
-          TwitterAds::NotFound
+          error_class = TwitterAds::NotFound
         elsif object.code == 429
-          TwitterAds::RateLimit
+          error_class = TwitterAds::RateLimit
         elsif object.code == 500
-          TwitterAds::ServerError
+          error_class = TwitterAds::ServerError
         elsif object.code == 503
-          TwitterAds::ServiceUnavailable
+          error_class = TwitterAds::ServiceUnavailable
         else
-          self # fallback, unknown error
+          error_class = self # fallback, unknown error
         end
         error_class.new(object)
       end

@@ -12,12 +12,12 @@ module TwitterAds
     #
     # @since 0.1.0
     def save
-      response = if @id
+      if @id
         resource = self.class::RESOURCE % { account_id: account.id, id: id }
-        Request.new(account.client, :put, resource, params: to_params).perform
+        response = Request.new(account.client, :put, resource, params: to_params).perform
       else
         resource = self.class::RESOURCE_COLLECTION % { account_id: account.id }
-        Request.new(account.client, :post, resource, params: to_params).perform
+        response = Request.new(account.client, :post, resource, params: to_params).perform
       end
       from_response(response.body[:data])
     end

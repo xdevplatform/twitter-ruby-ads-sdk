@@ -5,7 +5,7 @@ module TwitterAds
 
     CLASS_ID_MAP = {
       'TwitterAds::PromotedTweet' => :tweet_ids,
-      'TwitterAds::LineItem'      => :line_item_ids,
+      'TwitterAds::LineItem'      => :line_item_ids
     }
 
     private_constant :CLASS_ID_MAP
@@ -35,7 +35,7 @@ module TwitterAds
       # @see https://dev.twitter.com/ads/analytics/metrics-and-segmentation
       # @since 0.1.0
       def stats(metrics, opts = {})
-        self.class.stats(account, [self.id], metrics, opts)
+        self.class.stats(account, [id], metrics, opts)
       end
 
     end
@@ -63,7 +63,6 @@ module TwitterAds
       # @see https://dev.twitter.com/ads/analytics/metrics-and-segmentation
       # @since 0.1.0
       def stats(account, ids, metrics, opts = {})
-
         # set default metric values
         end_time          = opts.fetch(:end_time, Time.now)
         start_time        = opts.fetch(:start_time, end_time - 604_800) # 7 days ago
@@ -77,7 +76,7 @@ module TwitterAds
           granularity: granularity.to_s.upcase
         }
         params[:segmentation_type] = segmentation_type.to_s.upcase if segmentation_type
-        params[CLASS_ID_MAP[self.name]] = ids.join(',')
+        params[CLASS_ID_MAP[name]] = ids.join(',')
 
         resource = self::RESOURCE_STATS % { account_id: account.id }
         response = Request.new(account.client, :get, resource, params: params).perform

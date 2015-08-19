@@ -69,7 +69,7 @@ module TwitterAds
     def inspect
       str = "#<#{self.class.name}:0x#{object_id}"
       str << " id=\"#{@id}\"" if @id
-      str << ">"
+      str << '>'
     end
 
     # Returns a collection of features available to the current account.

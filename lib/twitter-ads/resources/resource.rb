@@ -22,7 +22,7 @@ module TwitterAds
       # @return [self] The reloaded instance of the current object.
       #
       # @since 0.1.0
-      def reload!(opts={})
+      def reload!(opts = {})
         resource = self.class::RESOURCE % { account_id: account.id, id: id }
         response = Request.new(account.client, :get, resource, params: opts).perform
         from_response(response.body[:data])
@@ -40,7 +40,7 @@ module TwitterAds
         str = "#<#{self.class.name}:0x#{object_id}"
         str << " id=\"#{@id}\"" if @id
         str << " deleted=\"true\"" if @deleted
-        str << ">"
+        str << '>'
       end
 
     end
@@ -59,7 +59,7 @@ module TwitterAds
       # @since 0.1.0
       # @see Cursor
       # @see https://dev.twitter.com/ads/basics/sorting Sorting
-      def all(account, opts={})
+      def all(account, opts = {})
         resource = self::RESOURCE_COLLECTION % { account_id: account.id }
         request = Request.new(account.client, :get, resource, params: opts)
         Cursor.new(self, request, init_with: [account])
@@ -76,7 +76,7 @@ module TwitterAds
       # @return [self] The object instance for the specified resource.
       #
       # @since 0.1.0
-      def load(account, id, opts={})
+      def load(account, id, opts = {})
         resource = self::RESOURCE % { account_id: account.id, id: id }
         response = Request.new(account.client, :get, resource, params: opts).perform
         new(account).from_response(response.body[:data])

@@ -1,3 +1,5 @@
+# Copyright (C) 2015 Twitter, Inc.
+
 require 'twitter-ads'
 
 CONSUMER_KEY        = 'your consumer key'
@@ -22,10 +24,10 @@ account = client.accounts(ADS_ACCOUNT)
 
 resource = "/0/accounts/#{account.id}/features"
 params   = { feature_keys: 'AGE_TARGETING,CPI_CHARGING' }
-request  = TwitterAds::Request.new(client, :get, resource, params: params)
 
-# execute the request
-response = request.perform
+# build and execute the request
+response = TwitterAds::Request.new(client, :get, resource, params: params).perform
+response['data'].first
 
 # you can also manually construct requests to be
 # used in TwitterAds::Cursor object.
@@ -37,5 +39,5 @@ cursor   = TwitterAds::Cursor.new(nil, request)
 
 # execute requests and iterate cursor until exhausted
 cursor.each do |item|
-  # do something
+  puts item['name']
 end

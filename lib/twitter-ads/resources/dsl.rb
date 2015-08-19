@@ -21,10 +21,11 @@ module TwitterAds
       # @since 0.1.0
       def from_response(object)
         self.class.properties.each do |name, type|
-          value = if type == :time && object[name] && !object[name].empty?
-            Time.parse(object[name])
+          value = nil
+          if type == :time && object[name] && !object[name].empty?
+            value = Time.parse(object[name])
           elsif type == :bool && object[name]
-            Utils.to_bool(object[name])
+            value = TwitterAds::Utils.to_bool(object[name])
           end
           instance_variable_set("@#{name}", value || object[name])
         end
@@ -42,14 +43,14 @@ module TwitterAds
         self.class.properties.each do |name, type|
           value = send(name)
           next unless value
-          params[name] = if type == :time
-            value.iso8601
+          if type == :time
+            params[name] = value.iso8601
           elsif type == :bool
-            !!value
+            params[name] = TwitterAds::Utils.to_bool(value)
           elsif value.is_a?(Array)
-            value.join(',')
+            params[name] = value.join(',')
           else
-            value
+            params[name] = value
           end
         end
         params

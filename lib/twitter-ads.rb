@@ -1,3 +1,4 @@
+# rubocop:disable Style/FileName
 # Copyright (C) 2015 Twitter, Inc.
 
 require 'time'
@@ -36,3 +37,4 @@ require 'twitter-ads/creative/lead_gen_card'
 require 'twitter-ads/creative/promoted_account'
 require 'twitter-ads/creative/promoted_tweet'
 require 'twitter-ads/creative/website_card'
+# rubocop:enable Style/FileName

@@ -85,7 +85,7 @@ describe TwitterAds::Utils do
 
     context 'with a nested collection of objects' do
 
-      let(:nested) { { 'key1' => 'foo', 'key2' => [ { 'key3' => 1 } ] } }
+      let(:nested) { { 'key1' => 'foo', 'key2' => [{ 'key3' => 1 }] } }
 
       it 'successfully converts the collection of objects keys to symbols' do
         result = subject.symbolize!(nested)
