@@ -12,7 +12,25 @@ module TwitterAds
       self
     end
 
+    def inspect
+      str = "#<#{self.class.name}:0x#{object_id}"
+      str << " code=#{@response.code}" if @response && @response.code
+      str << " details=\"#{@details}\"" if @details
+      str << '>'
+    end
+    alias_method :to_s, :inspect
+
     class << self
+
+      ERRORS = {
+        400 => 'TwitterAds::BadRequest',
+        401 => 'TwitterAds::NotAuthorized',
+        403 => 'TwitterAds::Forbidden',
+        404 => 'TwitterAds::NotFound',
+        429 => 'TwitterAds::RateLimit',
+        500 => 'TwitterAds::ServerError',
+        503 => 'TwitterAds::ServiceUnavailable'
+      }
 
       # Returns an appropriately typed Error object based from an API response.
       #
@@ -23,24 +41,8 @@ module TwitterAds
       # @since 0.1.0
       # @api private
       def from_response(object)
-        if object.code == 400
-          error_class = TwitterAds::BadRequest
-        elsif object.code == 401
-          error_class = TwitterAds::NotAuthorized
-        elsif object.code == 403
-          error_class = TwitterAds::Forbidden
-        elsif object.code == 404
-          error_class = TwitterAds::NotFound
-        elsif object.code == 429
-          error_class = TwitterAds::RateLimit
-        elsif object.code == 500
-          error_class = TwitterAds::ServerError
-        elsif object.code == 503
-          error_class = TwitterAds::ServiceUnavailable
-        else
-          error_class = self # fallback, unknown error
-        end
-        error_class.new(object)
+        return class_eval(ERRORS[object.code]).new(object) if ERRORS.key?(object.code)
+        new(object) # fallback, unknown error
       end
 
     end
