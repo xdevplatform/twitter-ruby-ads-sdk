@@ -4,6 +4,7 @@
 require 'time'
 require 'oauth'
 require 'multi_json'
+require 'forwardable'
 
 require 'twitter-ads/version'
 require 'twitter-ads/utils'

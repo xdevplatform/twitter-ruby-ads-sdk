@@ -4,7 +4,19 @@ module TwitterAds
   class Cursor
 
     include ::Enumerable
+    extend ::Forwardable
 
+    def_delegators :@collection, :first, :[]
+
+    # Creates a new Cursor instance.
+    #
+    # @param klass [String] The object class the contained by the Cursor instance.
+    # @param request [Request] The Request object instance.
+    # @param opts [Hash] A Hash of extended options.
+    #
+    # @return [Cursor] The new Cursor instance.
+    #
+    # @since 0.1.0
     def initialize(klass, request, opts = {})
       @klass      = klass
       @client     = request.client
@@ -16,12 +28,29 @@ module TwitterAds
       self
     end
 
+    # Method to fetch the next page only.
+    #
+    # @return [Array] A collection containing the next page of objects.
+    #
+    # @since 0.1.0
+    def next
+      return @collection unless @next_cursor
+      current_size = @collection.size - 1
+      fetch_next
+      @collection[current_size..-1]
+    end
+
+    # Method to iterate through all items until the Cursor is exhausted.
+    #
+    # @return [Cursor] The current Cursor instance.
+    #
+    # @since 0.1.0
     def each(offset = 0)
       return to_enum(:each, offset) unless block_given?
       @collection[offset..-1].each { |element| yield(element) }
       unless exhausted?
         offset = [@collection.size, offset].max
-        perform_next
+        fetch_next
         each(offset, &Proc.new)
       end
       self
@@ -55,12 +84,14 @@ module TwitterAds
     #
     # @return [String] The inspection string.
     def inspect
-      "#<#{self.class.name}:0x#{object_id} count=#{size} exhausted=#{exhausted?}>"
+      "#<#{self.class.name}:0x#{object_id} " \
+      "count=#{size} fetched=#{@collection.size} " \
+      "exhausted=#{exhausted?}>"
     end
 
     private
 
-    def perform_next
+    def fetch_next
       return unless @next_cursor
       opts = @options.dup
       opts[:params] = opts.fetch(:params, {}).merge!(cursor: @next_cursor)
