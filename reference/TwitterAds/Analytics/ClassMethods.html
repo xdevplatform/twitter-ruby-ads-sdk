@@ -116,7 +116,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>Pulls a list of metrics for a specified set of object IDs.</div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Pulls a list of metrics for a specified set of object IDs.</p>
+</div></span>
   
 </li>
 
@@ -141,7 +143,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    Pulls a list of metrics for a specified set of object IDs.
+    
+<p>Pulls a list of metrics for a specified set of object IDs.</p>
+
 
   </div>
 </div>
@@ -169,7 +173,9 @@
       
       
         &mdash;
-        <div class='inline'>The Account object instance.</div>
+        <div class='inline'>
+<p>The Account object instance.</p>
+</div>
       
     </li>
   
@@ -183,7 +189,9 @@
       
       
         &mdash;
-        <div class='inline'>A collection of object IDs being targeted.</div>
+        <div class='inline'>
+<p>A collection of object IDs being targeted.</p>
+</div>
       
     </li>
   
@@ -197,7 +205,9 @@
       
       
         &mdash;
-        <div class='inline'>A collection of valid metrics to be fetched.</div>
+        <div class='inline'>
+<p>A collection of valid metrics to be fetched.</p>
+</div>
       
     </li>
   
@@ -213,7 +223,9 @@
       
       
         &mdash;
-        <div class='inline'>An optional Hash of extended options.</div>
+        <div class='inline'>
+<p>An optional Hash of extended options.</p>
+</div>
       
     </li>
   
@@ -238,7 +250,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>The starting time to use (default: 7 days ago).</div>
+            &mdash; <div class='inline'>
+<p>The starting time to use (default: 7 days ago).</p>
+</div>
           
         </li>
       
@@ -249,7 +263,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>The end time to use (default: now).</div>
+            &mdash; <div class='inline'>
+<p>The end time to use (default: now).</p>
+</div>
           
         </li>
       
@@ -260,7 +276,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>The granularity to use (default: :hour).</div>
+            &mdash; <div class='inline'>
+<p>The granularity to use (default: :hour).</p>
+</div>
           
         </li>
       
@@ -271,7 +289,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>The segmentation type to use (default: none).</div>
+            &mdash; <div class='inline'>
+<p>The segmentation type to use (default: none).</p>
+</div>
           
         </li>
       
@@ -289,7 +309,9 @@
       
       
         &mdash;
-        <div class='inline'>The collection of stats requested.</div>
+        <div class='inline'>
+<p>The collection of stats requested.</p>
+</div>
       
     </li>
   
@@ -310,7 +332,9 @@
       
       
         
-        <div class='inline'>0.1.0</div>
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
       
     </li>
   
@@ -341,17 +365,15 @@
 81
 82
 83
-84
-85</pre>
+84</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/analytics.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stats'>stats</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='comma'>,</span> <span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span> <span class='id identifier rubyid_metrics'>metrics</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-
   <span class='comment'># set default metric values
 </span>  <span class='id identifier rubyid_end_time'>end_time</span>          <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:end_time</span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_start_time'>start_time</span>        <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:start_time</span><span class='comma'>,</span> <span class='id identifier rubyid_end_time'>end_time</span> <span class='op'>-</span> <span class='int'>86_400</span><span class='rparen'>)</span> <span class='comment'># 7 days ago
+  <span class='id identifier rubyid_start_time'>start_time</span>        <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:start_time</span><span class='comma'>,</span> <span class='id identifier rubyid_end_time'>end_time</span> <span class='op'>-</span> <span class='int'>604_800</span><span class='rparen'>)</span> <span class='comment'># 7 days ago
 </span>  <span class='id identifier rubyid_granularity'>granularity</span>       <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:granularity</span><span class='comma'>,</span> <span class='symbol'>:hour</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_segmentation_type'>segmentation_type</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:segmentation_type</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
 
@@ -362,7 +384,7 @@
     <span class='label'>granularity:</span> <span class='id identifier rubyid_granularity'>granularity</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span>
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:segmentation_type</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_segmentation_type'>segmentation_type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span> <span class='kw'>if</span> <span class='id identifier rubyid_segmentation_type'>segmentation_type</span>
-  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='const'>CLASS_IDENTIFIERS</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ids'>ids</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='const'>CLASS_ID_MAP</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ids'>ids</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_resource'>resource</span> <span class='op'>=</span> <span class='kw'>self</span><span class='op'>::</span><span class='const'>RESOURCE_STATS</span> <span class='op'>%</span> <span class='lbrace'>{</span> <span class='label'>account_id:</span> <span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_perform'>perform</span>
@@ -378,7 +400,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Aug 14 00:10:29 2015 by
+  Generated on Tue Aug 18 23:57:06 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

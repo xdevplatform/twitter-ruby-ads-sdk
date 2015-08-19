@@ -116,7 +116,9 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>Helper for managing properties for the current class.</div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Helper for managing properties for the current class.</p>
+</div></span>
   
 </li>
 
@@ -138,7 +140,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>Resource property declaration helper.</div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Resource property declaration helper.</p>
+</div></span>
   
 </li>
 
@@ -167,7 +171,9 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-Helper for managing properties for the current class.
+
+<p>Helper for managing properties for the current class.</p>
+
 
   </div>
 </div>
@@ -184,7 +190,9 @@ Helper for managing properties for the current class.
       
       
         &mdash;
-        <div class='inline'>A Hash of properties declared in the current class.</div>
+        <div class='inline'>
+<p>A Hash of properties declared in the current class.</p>
+</div>
       
     </li>
   
@@ -198,7 +206,9 @@ Helper for managing properties for the current class.
       
       
         
-        <div class='inline'>0.1.0</div>
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
       
     </li>
   
@@ -210,12 +220,12 @@ Helper for managing properties for the current class.
       <pre class="lines">
 
 
-91
 92
-93</pre>
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/dsl.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/dsl.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_properties'>properties</span>
   <span class='ivar'>@properties</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -236,7 +246,9 @@ Helper for managing properties for the current class.
   
 </h3><div class="docstring">
   <div class="discussion">
-    Resource property declaration helper.
+    
+<p>Resource property declaration helper.</p>
+
 
   </div>
 </div>
@@ -268,7 +280,9 @@ Helper for managing properties for the current class.
       
       
         &mdash;
-        <div class='inline'>The name of the property.</div>
+        <div class='inline'>
+<p>The name of the property.</p>
+</div>
       
     </li>
   
@@ -284,7 +298,9 @@ Helper for managing properties for the current class.
       
       
         &mdash;
-        <div class='inline'>A Hash of extended options to be applied to the property (Optional).</div>
+        <div class='inline'>
+<p>A Hash of extended options to be applied to the property (Optional).</p>
+</div>
       
     </li>
   
@@ -301,7 +317,9 @@ Helper for managing properties for the current class.
       
       
         &mdash;
-        <div class='inline'>The property name.</div>
+        <div class='inline'>
+<p>The property name.</p>
+</div>
       
     </li>
   
@@ -315,7 +333,9 @@ Helper for managing properties for the current class.
       
       
         
-        <div class='inline'>0.1.0</div>
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
       
     </li>
   
@@ -327,14 +347,14 @@ Helper for managing properties for the current class.
       <pre class="lines">
 
 
-79
 80
 81
 82
-83</pre>
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/dsl.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/dsl.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_property'>property</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_properties'>properties</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:type</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -351,7 +371,7 @@ Helper for managing properties for the current class.
 </div>
 
     <div id="footer">
-  Generated on Fri Aug 14 00:10:29 2015 by
+  Generated on Tue Aug 18 23:57:06 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

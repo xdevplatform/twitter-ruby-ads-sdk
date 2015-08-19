@@ -116,7 +116,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>Returns a Cursor instance for a given resource.</div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a Cursor instance for a given resource.</p>
+</div></span>
   
 </li>
 
@@ -138,7 +140,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>Returns an object instance for a given resource.</div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an object instance for a given resource.</p>
+</div></span>
   
 </li>
 
@@ -163,7 +167,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    Returns a Cursor instance for a given resource.
+    
+<p>Returns a Cursor instance for a given resource.</p>
+
 
   </div>
 </div>
@@ -181,7 +187,9 @@
       
       
         &mdash;
-        <div class='inline'>The Account object instance.</div>
+        <div class='inline'>
+<p>The Account object instance.</p>
+</div>
       
     </li>
   
@@ -197,7 +205,9 @@
       
       
         &mdash;
-        <div class='inline'>An optional Hash of extended options.</div>
+        <div class='inline'>
+<p>An optional Hash of extended options.</p>
+</div>
       
     </li>
   
@@ -218,7 +228,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>Indicates if deleted items should be included.</div>
+            &mdash; <div class='inline'>
+<p>Indicates if deleted items should be included.</p>
+</div>
           
         </li>
       
@@ -229,7 +241,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>The object param to sort the API response by.</div>
+            &mdash; <div class='inline'>
+<p>The object param to sort the API response by.</p>
+</div>
           
         </li>
       
@@ -247,7 +261,9 @@
       
       
         &mdash;
-        <div class='inline'>A Cusor object ready to iterate through the API response.</div>
+        <div class='inline'>
+<p>A Cusor object ready to iterate through the API response.</p>
+</div>
       
     </li>
   
@@ -270,7 +286,9 @@
       
       
         
-        <div class='inline'>0.1.0</div>
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
       
     </li>
   
@@ -282,16 +300,16 @@
       <pre class="lines">
 
 
-60
-61
 62
 63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 62</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resource'>resource</span> <span class='op'>=</span> <span class='kw'>self</span><span class='op'>::</span><span class='const'>RESOURCE_COLLECTION</span> <span class='op'>%</span> <span class='lbrace'>{</span> <span class='label'>account_id:</span> <span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='const'>Cursor</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_request'>request</span><span class='comma'>,</span> <span class='label'>init_with:</span> <span class='lbracket'>[</span><span class='id identifier rubyid_account'>account</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -312,7 +330,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    Returns an object instance for a given resource.
+    
+<p>Returns an object instance for a given resource.</p>
+
 
   </div>
 </div>
@@ -330,7 +350,9 @@
       
       
         &mdash;
-        <div class='inline'>The Account object instance.</div>
+        <div class='inline'>
+<p>The Account object instance.</p>
+</div>
       
     </li>
   
@@ -344,7 +366,9 @@
       
       
         &mdash;
-        <div class='inline'>The ID of the specific object to be loaded.</div>
+        <div class='inline'>
+<p>The ID of the specific object to be loaded.</p>
+</div>
       
     </li>
   
@@ -360,7 +384,9 @@
       
       
         &mdash;
-        <div class='inline'>An optional Hash of extended options.</div>
+        <div class='inline'>
+<p>An optional Hash of extended options.</p>
+</div>
       
     </li>
   
@@ -383,7 +409,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>Indicates if deleted items should be included.</div>
+            &mdash; <div class='inline'>
+<p>Indicates if deleted items should be included.</p>
+</div>
           
         </li>
       
@@ -394,7 +422,9 @@
             
           </span>
           
-            &mdash; <div class='inline'>The object param to sort the API response by.</div>
+            &mdash; <div class='inline'>
+<p>The object param to sort the API response by.</p>
+</div>
           
         </li>
       
@@ -412,7 +442,9 @@
       
       
         &mdash;
-        <div class='inline'>The object instance for the specified resource.</div>
+        <div class='inline'>
+<p>The object instance for the specified resource.</p>
+</div>
       
     </li>
   
@@ -426,7 +458,9 @@
       
       
         
-        <div class='inline'>0.1.0</div>
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
       
     </li>
   
@@ -438,16 +472,16 @@
       <pre class="lines">
 
 
-77
-78
 79
 80
-81</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 79</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resource'>resource</span> <span class='op'>=</span> <span class='kw'>self</span><span class='op'>::</span><span class='const'>RESOURCE</span> <span class='op'>%</span> <span class='lbrace'>{</span> <span class='label'>account_id:</span> <span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_perform'>perform</span>
   <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from_response'>from_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='symbol'>:data</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -462,7 +496,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Aug 14 00:10:29 2015 by
+  Generated on Tue Aug 18 23:57:06 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>

@@ -116,7 +116,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>Returns an inspection string for the current object instance.</div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an inspection string for the current object instance.</p>
+</div></span>
   
 </li>
 
@@ -124,7 +126,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#reload-instance_method" title="#reload (instance method)">- (self) <strong>reload</strong>(opts = {}) </a>
+      <a href="#reload%21-instance_method" title="#reload! (instance method)">- (self) <strong>reload!</strong>(opts = {}) </a>
     
 
     
@@ -138,7 +140,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>Reloads all attributes for the current object instance from the API.</div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Reloads all attributes for the current object instance from the API.</p>
+</div></span>
   
 </li>
 
@@ -163,7 +167,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    Returns an inspection string for the current object instance.
+    
+<p>Returns an inspection string for the current object instance.</p>
+
 
   </div>
 </div>
@@ -188,7 +194,9 @@
       
       
         &mdash;
-        <div class='inline'>The object instance details.</div>
+        <div class='inline'>
+<p>The object instance details.</p>
+</div>
       
     </li>
   
@@ -202,7 +210,9 @@
       
       
         
-        <div class='inline'>0.1.0</div>
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
       
     </li>
   
@@ -214,21 +224,21 @@
       <pre class="lines">
 
 
-37
-38
 39
 40
 41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='id identifier rubyid_str'>str</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_object_id'>object_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> id=\&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@id</span>
   <span class='id identifier rubyid_str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> deleted=\&quot;true\&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@deleted</span>
-  <span class='id identifier rubyid_str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -236,9 +246,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="reload-instance_method">
+  <h3 class="signature " id="reload!-instance_method">
   
-    - (<tt>self</tt>) <strong>reload</strong>(opts = {}) 
+    - (<tt>self</tt>) <strong>reload!</strong>(opts = {}) 
   
 
   
@@ -246,7 +256,12 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    Reloads all attributes for the current object instance from the API.
+    
+<p>Reloads all attributes for the current object instance from the API.</p>
+
+<p>Note: calls to this method dispose of any unsaved data on the object
+instance.</p>
+
 
   </div>
 </div>
@@ -256,7 +271,7 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_reload'>reload</span></code></pre>
+      <pre class="example code"><code><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_reload!'>reload!</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -274,7 +289,9 @@
       
       
         &mdash;
-        <div class='inline'>An optional Hash of extended request options.</div>
+        <div class='inline'>
+<p>An optional Hash of extended request options.</p>
+</div>
       
     </li>
   
@@ -291,7 +308,9 @@
       
       
         &mdash;
-        <div class='inline'>The reloaded instance of the current object.</div>
+        <div class='inline'>
+<p>The reloaded instance of the current object.</p>
+</div>
       
     </li>
   
@@ -305,7 +324,9 @@
       
       
         
-        <div class='inline'>0.1.0</div>
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
       
     </li>
   
@@ -317,16 +338,16 @@
       <pre class="lines">
 
 
-23
-24
 25
 26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_reload'>reload</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_reload!'>reload!</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resource'>resource</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='op'>::</span><span class='const'>RESOURCE</span> <span class='op'>%</span> <span class='lbrace'>{</span> <span class='label'>account_id:</span> <span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='symbol'>:get</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_perform'>perform</span>
   <span class='id identifier rubyid_from_response'>from_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='symbol'>:data</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -341,7 +362,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Aug 14 00:10:29 2015 by
+  Generated on Tue Aug 18 23:57:06 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>
