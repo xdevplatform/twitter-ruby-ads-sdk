@@ -56,7 +56,7 @@ MRI | 2.0.0, 2.1.x, 2.2.x
 JRuby | 1.7.x, 9.0.0.0 (JDK7, JDK8, OpenJDK)
 Rubinius | 2.4.x, 2.5.x
 
-All releases adhere to strict [sematic versioning](http://semver.org). For Example, major.minor.patch-pre (aka. stick.carrot.oops-peek).
+All releases adhere to strict [semantic versioning](http://semver.org). For Example, major.minor.patch-pre (aka. stick.carrot.oops-peek).
 
 ## Development
 If you'd like to contribute to the project or try an unreleased development version of this project locally, you can do so quite easily by following the examples below.
