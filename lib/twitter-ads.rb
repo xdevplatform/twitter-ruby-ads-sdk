@@ -30,6 +30,7 @@ require 'twitter-ads/funding_instrument'
 require 'twitter-ads/line_item'
 require 'twitter-ads/promotable_user'
 require 'twitter-ads/targeting_criteria'
+require 'twitter-ads/app_list'
 
 require 'twitter-ads/creative/card'
 require 'twitter-ads/creative/app_download_card'

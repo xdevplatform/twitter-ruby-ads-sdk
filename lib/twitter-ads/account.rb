@@ -139,6 +139,18 @@ module TwitterAds
       load_resource(LineItem, id, opts)
     end
 
+    # Returns a collection of app lists available to the current account.
+    #
+    # @param id [String] The AppList ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A List or object instance.
+    def app_lists(id = nil, opts = {})
+      load_resource(AppList, id, opts)
+    end
+
     private
 
     def load_resource(klass, id = nil, opts = {})
