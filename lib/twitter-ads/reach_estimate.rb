@@ -9,8 +9,13 @@ module TwitterAds
       #
       # @example
       #   TwitterAds::ReachEstimate.fetch(
-      #     account, "PROMOTED_TWEETS", "WEBSITE_CLICKS", 12,
-      #     similar_to_followers_of_user: "12", gender: "2")
+      #     account,
+      #     'PROMOTED_TWEETS',
+      #     'WEBSITE_CLICKS',
+      #     2153688540,
+      #     similar_to_followers_of_user: 2153688540,
+      #     gender: 2
+      #   )
       #
       # @param client [Client] The Client object instance.
       # @param account [Account] The Ads Account instance for this request.
@@ -41,7 +46,7 @@ module TwitterAds
       #
       # @return [Hash] A hash containing count and infinite_bid_count.
       #
-      # @since 0.3.0
+      # @since 0.2.0
       # @see https://dev.twitter.com/ads/reference/get/accounts/%3Aaccount_id/reach_estimate
       def fetch(account, product_type, objective, user_id, opts = {})
         resource = "/0/accounts/#{account.id}/reach_estimate"
