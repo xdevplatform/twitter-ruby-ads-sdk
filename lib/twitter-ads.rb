@@ -1,5 +1,6 @@
 # rubocop:disable Style/FileName
 # Copyright (C) 2015 Twitter, Inc.
+# rubocop:enable Style/FileName
 
 require 'time'
 require 'oauth'
@@ -25,13 +26,14 @@ require 'twitter-ads/placement'
 require 'twitter-ads/objective'
 
 require 'twitter-ads/account'
+require 'twitter-ads/app_list'
 require 'twitter-ads/campaign'
 require 'twitter-ads/funding_instrument'
 require 'twitter-ads/line_item'
 require 'twitter-ads/promotable_user'
-require 'twitter-ads/targeting_criteria'
-require 'twitter-ads/app_list'
 require 'twitter-ads/reach_estimate'
+require 'twitter-ads/targeting_criteria'
+require 'twitter-ads/tweet'
 
 require 'twitter-ads/creative/card'
 require 'twitter-ads/creative/app_download_card'
@@ -40,4 +42,3 @@ require 'twitter-ads/creative/lead_gen_card'
 require 'twitter-ads/creative/promoted_account'
 require 'twitter-ads/creative/promoted_tweet'
 require 'twitter-ads/creative/website_card'
-# rubocop:enable Style/FileName
