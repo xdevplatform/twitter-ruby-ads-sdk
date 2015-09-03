@@ -18,6 +18,10 @@ Metrics/CyclomaticComplexity:
 Metrics/PerceivedComplexity:
   Max: 20
 
+Metrics/ParameterLists:
+  Max: 10
+  CountKeywordArgs: true
+
 Style/Copyright:
   Enabled: true
   Notice: 'Copyright (\(C\) )?2015 Twitter, Inc.'

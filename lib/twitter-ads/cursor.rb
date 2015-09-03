@@ -28,6 +28,16 @@ module TwitterAds
       self
     end
 
+    # Exhausts the Cursor then returns the last object in the collection.
+    #
+    # @return [Object] The last object in the collection.
+    #
+    # @since 0.2.0
+    def last
+      each {}
+      @collection.last
+    end
+
     # Method to fetch the next page only.
     #
     # @return [Array] A collection containing the next page of objects.
@@ -71,7 +81,7 @@ module TwitterAds
     #
     # @since 0.1.0
     def count
-      @total_count
+      @total_count || @collection.size
     end
     alias_method :size, :count
 
@@ -100,7 +110,7 @@ module TwitterAds
 
     def from_response(response)
       @next_cursor = response.body[:next_cursor]
-      @total_count ||= response.body[:total_count].to_i
+      @total_count = response.body[:total_count].to_i if response.body.key?(:total_count)
       response.body.fetch(:data, []).each do |object|
         if @klass && @klass.method_defined?(:from_response)
           @collection << @klass.new(
