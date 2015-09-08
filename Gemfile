@@ -24,8 +24,11 @@ group :development do
   gem 'guard-bundler',  platforms: :mri
   gem 'guard-rspec', platforms: :mri
   gem 'ruby-prof', platforms: :mri
+end
 
+group :release do
   gem 'redcarpet', platforms: :mri
   gem 'yard'
   gem 'git'
+  gem 'colorize'
 end
