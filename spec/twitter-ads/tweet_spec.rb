@@ -28,13 +28,10 @@ describe TwitterAds::Tweet do
       stub_fixture(:get, :tweet_preview, /#{resource_collection}.*/)
     end
 
-    context 'with an id specified' do
+    context 'with an id value specified' do
 
-      it 'loads preview of the specified tweet' do
-
-        id = 123_456
-
-        params = { id: id }
+      it 'successfully returns a preview of the specified tweet' do
+        params = { id: 634798319504617472 }
         result = subject.preview(account, params)
         expect(result.size).not_to be_nil
         expect(result).to all(include(:platform, :preview))
@@ -44,13 +41,35 @@ describe TwitterAds::Tweet do
 
     context 'when previewing a new tweet' do
 
-      it 'returns preview' do
+      it 'url encodes the status content' do
+        params = { status: 'Hello World!', card_id: '19v69' }
+        expect(URI).to receive(:escape).at_least(:once).and_call_original
+        result = subject.preview(account, params)
+        expect(result.size).not_to be_nil
+        expect(result).to all(include(:platform, :preview))
+      end
 
-        status = 'Hello World!'
-        card_id = 'pfs'
+      it 'allows a single value for the media_ids param' do
+        resource = "/0/accounts/#{account.id}/tweet/preview"
+        expected = { status: 'Hello%20World!', media_ids: 634458428836962304 }
 
-        params = { status: status, card_id: card_id }
+        expect(TwitterAds::Request).to receive(:new).with(
+          account.client, :get, resource, params: expected).and_call_original
 
+        params = { status: 'Hello World!', media_ids: 634458428836962304 }
+        result = subject.preview(account, params)
+        expect(result.size).not_to be_nil
+        expect(result).to all(include(:platform, :preview))
+      end
+
+      it 'allows an array of vaues for the media_ids param' do
+        resource = "/0/accounts/#{account.id}/tweet/preview"
+        expected = { status: 'Hello%20World!', media_ids: '634458428836962304,634458428836962305' }
+
+        expect(TwitterAds::Request).to receive(:new).with(
+          account.client, :get, resource, params: expected).and_call_original
+
+        params = { status: 'Hello World!', media_ids: [634458428836962304, 634458428836962305] }
         result = subject.preview(account, params)
         expect(result.size).not_to be_nil
         expect(result).to all(include(:platform, :preview))
