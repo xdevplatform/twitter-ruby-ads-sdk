@@ -8,11 +8,11 @@ module TwitterAds
 
     class << self
 
-      # Method to return preview of a tweet, either new or existing
+      # Returns an HTML preview of a tweet, either new or existing
       #
-      # @client [Client] The Client object instance.
+      # @param client [Client] The Client object instance.
       # @param account [Account] The Account object instance.
-      # @param opts = {} [Hash] A hash of options. :id indicates ID of existing tweet to preview
+      # @param opts [Hash] A hash of options. :id indicates ID of existing tweet to preview
       #
       # @return [Array] An array containing platforms & their respective tweet previews
       def preview(account, opts = {})
