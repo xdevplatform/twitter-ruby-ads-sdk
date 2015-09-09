@@ -50,10 +50,8 @@ module TwitterAds
       # @see https://dev.twitter.com/ads/reference/get/accounts/%3Aaccount_id/reach_estimate
       def fetch(account, product_type, objective, user_id, opts = {})
         resource = "/0/accounts/#{account.id}/reach_estimate"
-        params   = { product_type: product_type, objective: objective,
-                     user_id: user_id }
-        response = TwitterAds::Request.new(
-          account.client, :get, resource, params: params.merge(opts)).perform
+        params = { product_type: product_type, objective: objective, user_id: user_id }.merge!(opts)
+        response = TwitterAds::Request.new(account.client, :get, resource, params: params).perform
         response.body[:data]
       end
 

@@ -22,6 +22,9 @@ Metrics/ParameterLists:
   Max: 10
   CountKeywordArgs: true
 
+Style/NumericLiterals:
+  Enabled: false
+
 Style/Copyright:
   Enabled: true
   Notice: 'Copyright (\(C\) )?2015 Twitter, Inc.'
