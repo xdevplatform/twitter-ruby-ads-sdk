@@ -3,8 +3,12 @@
 module TwitterAds
   module Tweet
 
+    # cannot instaniate Tweet, only including class methods for stats
+    extend TwitterAds::Analytics::ClassMethods
+
     RESOURCE_COLLECTION = '/0/accounts/%{account_id}/tweet/preview' # @api private
-    RESOURCE = '/0/accounts/%{account_id}/tweet/preview/%{id}' # @api private
+    RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/organic_tweets' # @api private
+    RESOURCE            = '/0/accounts/%{account_id}/tweet/preview/%{id}' # @api private
 
     class << self
 

@@ -28,7 +28,7 @@ describe TwitterAds::Tweet do
       stub_fixture(:get, :tweet_preview, /#{resource_collection}.*/)
     end
 
-    context 'with an id value specified' do
+    context 'with an existing tweet id' do
 
       it 'successfully returns a preview of the specified tweet' do
         params = { id: 634798319504617472 }
