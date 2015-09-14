@@ -4,11 +4,10 @@ module TwitterAds
   module Analytics
 
     CLASS_ID_MAP = {
-      'TwitterAds::PromotedTweet' => :tweet_ids,
-      'TwitterAds::LineItem'      => :line_item_ids
-    }
-
-    private_constant :CLASS_ID_MAP
+      'TwitterAds::LineItem'     => :line_item_ids,
+      'TwitterAds::OrganicTweet' => :tweet_ids,
+      'TwitterAds::Tweet'        => :tweet_ids
+    } # @api private
 
     def self.included(klass)
       klass.send :include, InstanceMethods
@@ -76,7 +75,7 @@ module TwitterAds
           granularity: granularity.to_s.upcase
         }
         params[:segmentation_type] = segmentation_type.to_s.upcase if segmentation_type
-        params[CLASS_ID_MAP[name]] = ids.join(',')
+        params[TwitterAds::Analytics::CLASS_ID_MAP[name]] = ids.join(',')
 
         resource = self::RESOURCE_STATS % { account_id: account.id }
         response = Request.new(account.client, :get, resource, params: params).perform
