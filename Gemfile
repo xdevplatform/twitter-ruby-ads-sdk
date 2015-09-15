@@ -21,7 +21,7 @@ group :development do
   gem 'rb-inotify', require: false # Linux
   gem 'terminal-notifier-guard'
 
-  gem 'guard-bundler',  platforms: :mri
+  gem 'guard-bundler', platforms: :mri
   gem 'guard-rspec', platforms: :mri
   gem 'ruby-prof', platforms: :mri
 end

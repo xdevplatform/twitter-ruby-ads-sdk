@@ -14,19 +14,19 @@ module TwitterAds
       delete: Net::HTTP::Delete
     }
 
-    API_BASE  = 'https://ads-api.twitter.com'
+    DEFAULT_DOMAIN = 'https://ads-api.twitter.com'
 
-    private_constant :API_BASE, :HTTP_METHOD
+    private_constant :DEFAULT_DOMAIN, :HTTP_METHOD
 
     # Creates a new Request object instance.
     #
     # @example
-    #   request = Request.new(@client, '/0/accounts', :get)
+    #   request = Request.new(@client, :get, '/0/accounts')
     #
-    # @param client [Client] [description]
-    # @param method [Symbol] [description]
-    # @param resource [String] [description]
-    # @param opts={} [Hash] [description]
+    # @param client [Client] The Client object instance.
+    # @param method [Symbol] The HTTP method to be used.
+    # @param resource [String] The resource path for the request.
+    # @param opts [Hash] An optional Hash of extended options.
     #
     # @since 0.1.0
     #
@@ -42,8 +42,7 @@ module TwitterAds
     # Executes the current Request object.
     #
     # @example
-    #   request  = Request.new(client, :get, '/0/accounts')
-    #   response = request.perform
+    #   request = Request.new(client, :get, '/0/accounts').perform
     #
     # @since  1.0.0
     #
@@ -58,7 +57,8 @@ module TwitterAds
 
     def oauth_request
       request  = http_request
-      consumer = OAuth::Consumer.new(@client.consumer_key, @client.consumer_secret, site: API_BASE)
+      domain   = @options.fetch(:domain, DEFAULT_DOMAIN)
+      consumer = OAuth::Consumer.new(@client.consumer_key, @client.consumer_secret, site: domain)
       token    = OAuth::AccessToken.new(consumer, @client.access_token, @client.access_token_secret)
       request.oauth!(consumer.http, consumer, token)
       response = consumer.http.request(request)
@@ -66,17 +66,22 @@ module TwitterAds
     end
 
     def http_request
-      request_url = @resource
+      request_url  = @resource
       request_url += "?#{URI.encode_www_form(@options[:params])}" if @options[:params]
-      request = HTTP_METHOD[@method].new(request_url)
-
-      @options[:headers].each { |header, value| request[header] = value } if @options[:headers]
+      request      = HTTP_METHOD[@method].new(request_url)
       request.body = @options[:body] if @options[:body]
 
-      request['User-Agent'] = "twitter-ads version: #{TwitterAds::VERSION} " \
-                              "platform: #{RUBY_ENGINE} #{RUBY_VERSION} (#{RUBY_PLATFORM})"
+      @options[:headers].each { |header, value| request[header] = value } if @options[:headers]
+      request['user-agent'] = user_agent
+
       request
     end
+
+    def user_agent
+      "twitter-ads version: #{TwitterAds::VERSION} " \
+      "platform: #{RUBY_ENGINE} #{RUBY_VERSION} (#{RUBY_PLATFORM})"
+    end
+
   end
 
 end
