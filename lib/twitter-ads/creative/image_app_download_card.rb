@@ -28,10 +28,8 @@ module TwitterAds
       property :app_cta
       property :wide_app_image_media_id
 
-      # @api private
-      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/cards/image_app_download'
-      # @api private
-      RESOURCE            = '/0/accounts/%{account_id}/cards/image_app_download/%{id}'
+      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/cards/image_app_download' # @api private
+      RESOURCE = '/0/accounts/%{account_id}/cards/image_app_download/%{id}' # @api private
 
       def initialize(account)
         @account = account
