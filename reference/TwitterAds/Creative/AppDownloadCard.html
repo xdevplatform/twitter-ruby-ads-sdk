@@ -73,12 +73,10 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName"><span class='object_link'><a href="Card.html" title="TwitterAds::Creative::Card (class)">Card</a></span></span>
+      <span class="inheritName">Object</span>
       
         <ul class="fullTree">
           <li>Object</li>
-          
-            <li class="next"><span class='object_link'><a href="Card.html" title="TwitterAds::Creative::Card (class)">Card</a></span></li>
           
             <li class="next">TwitterAds::Creative::AppDownloadCard</li>
           
@@ -92,11 +90,15 @@
     
   
     
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../DSL.html" title="TwitterAds::DSL (module)">DSL</a></span>, <span class='object_link'><a href="../Persistence.html" title="TwitterAds::Persistence (module)">Persistence</a></span>, <span class='object_link'><a href="../Resource.html" title="TwitterAds::Resource (module)">Resource</a></span></dd>
+      
+    
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/twitter-ads/creative/app_download_card.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/twitter-ads/creative/app_download_card.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -148,25 +150,80 @@
 
 
 
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#account-instance_method" title="#account (instance method)">- (Object) <strong>account</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute account.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
-  <h2>Instance Attribute Summary</h2>
-  
-  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Card.html" title="TwitterAds::Creative::Card (class)">Card</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Card.html#account-instance_method" title="TwitterAds::Creative::Card#account (method)">#account</a></span></p>
-
 
 
   
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (AppDownloadCard) <strong>initialize</strong>(account) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
   
   
   
   
   
-  <h2>Method Summary</h2>
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Card.html" title="TwitterAds::Creative::Card (class)">Card</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Card.html#initialize-instance_method" title="TwitterAds::Creative::Card#initialize (method)">#initialize</a></span></p>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of AppDownloadCard.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
 
   
   
@@ -203,15 +260,104 @@
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
-    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="Card.html#initialize-instance_method" title="TwitterAds::Creative::Card#initialize (method)">TwitterAds::Creative::Card</a></span></p>
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="TwitterAds::Creative::AppDownloadCard (class)">AppDownloadCard</a></span></tt>) <strong>initialize</strong>(account) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of AppDownloadCard</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/creative/app_download_card.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='rparen'>)</span>
+  <span class='ivar'>@account</span> <span class='op'>=</span> <span class='id identifier rubyid_account'>account</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
   
 </div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="account-instance_method">
+  
+    - (<tt>Object</tt>) <strong>account</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute account</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/creative/app_download_card.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_account'>account</span>
+  <span class='ivar'>@account</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 14 18:24:16 2015 by
+  Generated on Mon Sep 14 21:21:29 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>
