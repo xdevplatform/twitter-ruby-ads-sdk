@@ -32,10 +32,12 @@ module TwitterAds
     #
     # @return [Request] The Request object instance.
     def initialize(client, method, resource, opts = {})
-      @client   = client
-      @method   = method
-      @resource = resource
-      @options  = opts
+      @client       = client
+      @method       = method
+      @resource     = resource
+      @options      = opts
+      @sandbox_mode = @client.options.fetch(:sandbox, false)
+      @logger       = (@sandbox_mode || @client.options.fetch(:enable_logger, false)) ? Logger.new(STDOUT) : nil
       self
     end
 
@@ -57,12 +59,16 @@ module TwitterAds
 
     def oauth_request
       request  = http_request
-      domain   = @options.fetch(:domain, DEFAULT_DOMAIN)
+      default_domain = @sandbox_mode ? SANDBOX_DOMAIN : DEFAULT_DOMAIN
+      domain   = @options.fetch(:domain, default_domain)
       consumer = OAuth::Consumer.new(@client.consumer_key, @client.consumer_secret, site: domain)
       token    = OAuth::AccessToken.new(consumer, @client.access_token, @client.access_token_secret)
+      @logger.info "[Twitter Ads API Request] (#{request.method}) #{domain}#{request.path}" if @logger
       request.oauth!(consumer.http, consumer, token)
       response = consumer.http.request(request)
-      Response.new(response.code, response.each {}, response.body)
+      tw_response = Response.new(response.code, response.each {}, response.body)
+      @logger.info "[Twitter Ads API Response] (#{tw_response.code}) #{tw_response.body.key?(:errors) ?  tw_response.body[:errors].first[:message] : tw_response.body[:data]}" if @logger
+      tw_response
     end
 
     def http_request
