@@ -37,7 +37,8 @@ module TwitterAds
       @resource     = resource
       @options      = opts
       @sandbox_mode = @client.options.fetch(:sandbox, false)
-      @logger       = (@sandbox_mode || @client.options.fetch(:enable_logger, false)) ? Logger.new(STDOUT) : nil
+      enable_logger = @client.options.fetch(:enable_logger, false)
+      @logger       = Logger.new(STDOUT) if @sandbox_mode || enable_logger
       self
     end
 
@@ -63,11 +64,17 @@ module TwitterAds
       domain   = @options.fetch(:domain, default_domain)
       consumer = OAuth::Consumer.new(@client.consumer_key, @client.consumer_secret, site: domain)
       token    = OAuth::AccessToken.new(consumer, @client.access_token, @client.access_token_secret)
-      @logger.info "[Twitter Ads API Request] (#{request.method}) #{domain}#{request.path}" if @logger
+      request_url = "#{domain}#{request.path}"
+      @logger.info "[Twitter Ads API Request] (#{request.method}) #{request_url}" if @logger
       request.oauth!(consumer.http, consumer, token)
       response = consumer.http.request(request)
       tw_response = Response.new(response.code, response.each {}, response.body)
-      @logger.info "[Twitter Ads API Response] (#{tw_response.code}) #{tw_response.body.key?(:errors) ?  tw_response.body[:errors].first[:message] : tw_response.body[:data]}" if @logger
+      if tw_response.body.key?(:errors)
+        response_data = tw_response.body[:errors].first[:message]
+      else
+        response_data = tw_response.body[:data]
+      end
+      @logger.info "[Twitter Ads API Response] (#{tw_response.code}) #{response_data}" if @logger
       tw_response
     end
 

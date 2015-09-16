@@ -22,7 +22,7 @@ module TwitterAds
     # @since 0.1.0
     #
     # @return [Client] The newly created client instance.
-    def initialize(consumer_key, consumer_secret, access_token, access_token_secret, opts={})
+    def initialize(consumer_key, consumer_secret, access_token, access_token_secret, opts = {})
       @consumer_key        = consumer_key
       @consumer_secret     = consumer_secret
       @access_token        = access_token
