@@ -5,10 +5,12 @@ module TwitterAds
   # The Ads API Client class which functions as a
   # container for basic API consumer information.
   class Client
+
     attr_accessor :consumer_key,
                   :consumer_secret,
                   :access_token,
-                  :access_token_secret
+                  :access_token_secret,
+                  :options
 
     # Creates a new Ads API client instance.
     #
@@ -17,14 +19,19 @@ module TwitterAds
     # @param access_token nil [String] The access token value.
     # @param access_token_secret nil [String] The access token secret value.
     #
+    # @param opts [Hash] An optional Hash of extended options.
+    # @option opts [Boolean] :sandbox When true, enables sandbox mode for all requests.
+    # @option opts [Boolean] :trace When true, enables verbose request tracing for all requests.
+    #
     # @since 0.1.0
     #
     # @return [Client] The newly created client instance.
-    def initialize(consumer_key, consumer_secret, access_token, access_token_secret)
+    def initialize(consumer_key, consumer_secret, access_token, access_token_secret, opts = {})
       @consumer_key        = consumer_key
       @consumer_secret     = consumer_secret
       @access_token        = access_token
       @access_token_secret = access_token_secret
+      @options             = opts
       validate
       self
     end

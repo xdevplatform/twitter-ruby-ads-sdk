@@ -15,8 +15,9 @@ module TwitterAds
     }
 
     DEFAULT_DOMAIN = 'https://ads-api.twitter.com'
+    SANDBOX_DOMAIN = 'https://ads-api-sandbox.twitter.com'
 
-    private_constant :DEFAULT_DOMAIN, :HTTP_METHOD
+    private_constant :DEFAULT_DOMAIN, :SANDBOX_DOMAIN, :HTTP_METHOD
 
     # Creates a new Request object instance.
     #
@@ -26,16 +27,19 @@ module TwitterAds
     # @param client [Client] The Client object instance.
     # @param method [Symbol] The HTTP method to be used.
     # @param resource [String] The resource path for the request.
+    #
     # @param opts [Hash] An optional Hash of extended options.
+    # @option opts [String] :domain Forced override for default domain to use for the request. This
+    #   value will also override :sandbox mode on the client.
     #
     # @since 0.1.0
     #
     # @return [Request] The Request object instance.
     def initialize(client, method, resource, opts = {})
-      @client   = client
-      @method   = method
-      @resource = resource
-      @options  = opts
+      @client       = client
+      @method       = method
+      @resource     = resource
+      @options      = opts
       self
     end
 
@@ -55,19 +59,28 @@ module TwitterAds
 
     private
 
+    def domain
+      @client.options[:domain] || (@client.options[:sandbox] ? SANDBOX_DOMAIN : DEFAULT_DOMAIN)
+    end
+
     def oauth_request
       request  = http_request
-      domain   = @options.fetch(:domain, DEFAULT_DOMAIN)
       consumer = OAuth::Consumer.new(@client.consumer_key, @client.consumer_secret, site: domain)
       token    = OAuth::AccessToken.new(consumer, @client.access_token, @client.access_token_secret)
+
+      consumer.http.set_debug_output(STDOUT) if @client.options[:trace]
       request.oauth!(consumer.http, consumer, token)
+
       response = consumer.http.request(request)
       Response.new(response.code, response.each {}, response.body)
     end
 
     def http_request
       request_url  = @resource
-      request_url += "?#{URI.encode_www_form(@options[:params])}" if @options[:params]
+      if @options[:params] && @options[:params].size > 0
+        request_url += "?#{URI.encode_www_form(@options[:params])}"
+      end
+
       request      = HTTP_METHOD[@method].new(request_url)
       request.body = @options[:body] if @options[:body]
 
