@@ -18,9 +18,9 @@ module TwitterAds
       property :updated_at, type: :time, read_only: true
       property :deleted, type: :bool, read_only: true
 
-      property :line_item_id, read_only: true
-      property :user_id, read_only: true
-      property :paused, type: :bool, read_only: true
+      property :line_item_id
+      property :user_id
+      property :paused, type: :bool
 
       RESOURCE_COLLECTION = '/0/accounts/%{account_id}/promoted_accounts' # @api private
       RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/promoted_accounts' # @api private

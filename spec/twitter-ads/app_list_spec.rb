@@ -20,6 +20,12 @@ describe TwitterAds::AppList do
 
   let(:account) { client.accounts.first }
 
+  # check model properties
+  subject { described_class.new(account) }
+  read  = %w(id apps name)
+  write = []
+  include_examples 'object property check', read, write
+
   describe '#create' do
 
     let(:app_list) { TwitterAds::AppList.new(account) }
