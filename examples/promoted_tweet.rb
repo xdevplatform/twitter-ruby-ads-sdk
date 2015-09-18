@@ -29,9 +29,9 @@ tweet_params = { status: 'There can be only one...' }
 tweet1 = TwitterAds::Request.new(client, :post, resource, params: tweet_params).perform
 
 # promote the tweet using our line item
-promoted_tweet = TwitterAds::PromotedTweet.new(account).new
+promoted_tweet = TwitterAds::Creative::PromotedTweet.new(account)
 promoted_tweet.line_item_id = line_item.id
-promoted_tweet.tweet_id     = tweet1[:data][:id]
+promoted_tweet.tweet_id     = tweet1.body[:data][:id]
 promoted_tweet.save
 
 # create request for a nullcasted tweet with a website card
@@ -40,7 +40,7 @@ tweet_params = { status: "Fine. There can be two. #{website_card.preview_url}" }
 tweet2 = TwitterAds::Request.new(client, :post, resource, params: tweet_params).perform
 
 # promote the tweet using our line item
-promoted_tweet = TwitterAds::PromotedTweet.new(account).new
+promoted_tweet = TwitterAds::Creative::PromotedTweet.new(account)
 promoted_tweet.line_item_id = line_item.id
-promoted_tweet.tweet_id     = tweet2[:data][:id]
+promoted_tweet.tweet_id     = tweet2.body[:data][:id]
 promoted_tweet.save

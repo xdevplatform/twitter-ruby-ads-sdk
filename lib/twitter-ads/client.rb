@@ -10,7 +10,8 @@ module TwitterAds
                   :consumer_secret,
                   :access_token,
                   :access_token_secret,
-                  :options
+                  :options,
+                  :logger
 
     # Creates a new Ads API client instance.
     #
@@ -34,6 +35,17 @@ module TwitterAds
       @options             = opts
       validate
       self
+    end
+
+    # Returns the Logger instance for request logging.
+    #
+    # @since 0.2.0
+    #
+    # @return [Logger] The logger instance.
+    def logger
+      @logger ||= Logger.new(STDOUT)
+      @logger.progname = 'twitter-ads' unless @logger.progname
+      @logger
     end
 
     # Returns an inspection string for the current Client instance.
