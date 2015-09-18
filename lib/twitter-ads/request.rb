@@ -36,10 +36,10 @@ module TwitterAds
     #
     # @return [Request] The Request object instance.
     def initialize(client, method, resource, opts = {})
-      @client       = client
-      @method       = method
-      @resource     = resource
-      @options      = opts
+      @client   = client
+      @method   = method
+      @resource = resource
+      @options  = opts
       self
     end
 
@@ -67,16 +67,17 @@ module TwitterAds
       request  = http_request
       consumer = OAuth::Consumer.new(@client.consumer_key, @client.consumer_secret, site: domain)
       token    = OAuth::AccessToken.new(consumer, @client.access_token, @client.access_token_secret)
-
-      consumer.http.set_debug_output(STDOUT) if @client.options[:trace]
       request.oauth!(consumer.http, consumer, token)
 
+      write_log(request) if @client.options[:trace]
       response = consumer.http.request(request)
+      write_log(response) if @client.options[:trace]
+
       Response.new(response.code, response.each {}, response.body)
     end
 
     def http_request
-      request_url  = @resource
+      request_url = @resource
       if @options[:params] && @options[:params].size > 0
         request_url += "?#{URI.encode_www_form(@options[:params])}"
       end
@@ -93,6 +94,16 @@ module TwitterAds
     def user_agent
       "twitter-ads version: #{TwitterAds::VERSION} " \
       "platform: #{RUBY_ENGINE} #{RUBY_VERSION} (#{RUBY_PLATFORM})"
+    end
+
+    def write_log(object)
+      if object.respond_to?(:code)
+        @client.logger.info("Status: #{object.code} #{object.message}")
+      else
+        @client.logger.info("Send: #{object.method} #{domain}#{@resource} #{@options[:params]}")
+      end
+      object.each { |header| @client.logger.info("Header: #{header}: #{object[header]}") }
+      @client.logger.info("Body: #{object.body}") if object.body && object.body.size > 0
     end
 
   end
