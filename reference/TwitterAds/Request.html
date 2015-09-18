@@ -402,6 +402,35 @@
   
 </ul>
 
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:domain</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Forced override for default domain to use for the request. This value will
+also override :sandbox mode on the client.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
 <p class="tag_title">Since:</p>
 <ul class="since">
   
@@ -425,16 +454,16 @@
       <pre class="lines">
 
 
-34
-35
-36
-37
 38
 39
-40</pre>
+40
+41
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span>   <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -700,14 +729,14 @@
       <pre class="lines">
 
 
-50
-51
-52
-53
-54</pre>
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_perform'>perform</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_oauth_request'>oauth_request</span>
@@ -724,7 +753,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 14 21:21:29 2015 by
+  Generated on Thu Sep 17 23:57:28 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>
