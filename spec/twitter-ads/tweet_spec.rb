@@ -62,7 +62,7 @@ describe TwitterAds::Tweet do
         expect(result).to all(include(:platform, :preview))
       end
 
-      it 'allows an array of vaues for the media_ids param' do
+      it 'allows an array of values for the media_ids param' do
         resource = "/0/accounts/#{account.id}/tweet/preview"
         expected = { status: 'Hello%20World!', media_ids: '634458428836962304,634458428836962305' }
 
