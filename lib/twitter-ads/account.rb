@@ -151,6 +151,22 @@ module TwitterAds
       load_resource(AppList, id, opts)
     end
 
+    # Returns the most recent promotable Tweets created by one or more specified Twitter users.
+    #
+    # @param ids [Array] An Array of Twitter user IDs.
+    # @param opts [Hash] A Hash of extended options.
+    #
+    # @return [Array] An Array of Tweet objects.
+    #
+    # @since 0.2.3
+    def scoped_timeline(ids, opts = {})
+      ids      = ids.join(',') if ids.is_a?(Array)
+      params   = { user_ids: ids }.merge!(opts)
+      request  = Request.new(client, :get, "/0/accounts/#{id}/scoped_timeline", params: params)
+      response = request.perform
+      response.body[:data]
+    end
+
     private
 
     def load_resource(klass, id = nil, opts = {})

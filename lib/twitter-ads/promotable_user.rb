@@ -10,6 +10,7 @@ module TwitterAds
 
     property :id, read_only: true
     property :promotable_user_type, read_only: true
+    property :user_id, read_only: true
     property :created_at, type: :time, read_only: true
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
