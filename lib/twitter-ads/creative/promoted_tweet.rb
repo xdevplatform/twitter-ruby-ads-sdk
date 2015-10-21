@@ -19,7 +19,7 @@ module TwitterAds
       property :deleted, type: :bool, read_only: true
 
       property :line_item_id
-      property :tweet_id
+      property :tweet_ids
       property :paused, type: :bool
 
       RESOURCE_COLLECTION = '/0/accounts/%{account_id}/promoted_tweets' # @api private
