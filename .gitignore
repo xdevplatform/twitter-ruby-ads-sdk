@@ -7,6 +7,7 @@
 /test/version_tmp/
 /tmp/
 /features/shared
+.DS_Store
 
 # Documentation
 /.yardoc/
