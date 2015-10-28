@@ -31,6 +31,30 @@ module TwitterAds
         self
       end
 
+      # Saves or updates the current object instance depending on the presence of `object.id`.
+      #
+      # @example
+      #   object.save
+      #
+      # @return [self] Returns the instance refreshed from the API.
+      #
+      # Note: override to handle the inconsistency of the promoted tweet endpoint.
+      #
+      # @since 0.2.4
+      def save
+        params = to_params
+        params[:tweet_ids] = *params.delete(:tweet_id) if params.key?(:tweet_id)
+        if @id
+          resource = self.class::RESOURCE % { account_id: account.id, id: id }
+          response = Request.new(account.client, :put, resource, params: params).perform
+          from_response(response.body[:data])
+        else
+          resource = self.class::RESOURCE_COLLECTION % { account_id: account.id }
+          response = Request.new(account.client, :post, resource, params: params).perform
+          from_response(response.body[:data].first)
+        end
+      end
+
     end
 
   end
