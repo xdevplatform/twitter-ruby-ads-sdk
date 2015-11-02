@@ -9,7 +9,7 @@ module TwitterAds
 
     attr_reader :account
 
-    property :id, read_only: true
+    property :id
     property :reasons_not_servable, read_only: true
     property :servable, read_only: true
     property :deleted, type: :bool, read_only: true

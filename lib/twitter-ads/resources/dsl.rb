@@ -20,6 +20,7 @@ module TwitterAds
       #
       # @since 0.1.0
       def from_response(object)
+        object = object[0] if object.is_a? Array
         self.class.properties.each do |name, type|
           value = nil
           if type == :time && object[name] && !object[name].empty?
