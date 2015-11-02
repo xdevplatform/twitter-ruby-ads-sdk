@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.version     = TwitterAds::VERSION
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
-  s.authors     = ['Brandon Black', 'Emma Lam', 'Bernd Verst', 'Helen Zeng']
-  s.email       = ['bblack@twitter.com']
+  s.authors     = ['Brandon Black']
+  s.email       = ['brandonmblack@gmail.com']
   s.homepage    = 'https://github.com/twitterdev/twitter-ruby-ads-sdk'
   s.description = 'The officially supported Twitter Ads API SDK for Ruby.'
   s.summary     = s.description
