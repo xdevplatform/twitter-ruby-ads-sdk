@@ -4,17 +4,24 @@ module TwitterAds
 
   class Error < StandardError
 
-    attr_reader :response, :details
+    attr_reader :code, :headers, :response, :details
 
-    def initialize(object)
-      @response = object
-      @details  = object.body[:errors] if object.body[:errors]
+    def initialize(*args)
+      if args.size == 1 && args[0].respond_to?(:body) && args[0].respond_to?(:code)
+        @response = args[0]
+        @code     = args[0].code
+        @details  = args[0].body[:errors] if args[0].body[:errors]
+      elsif args.size == 3
+        @response = args[0]
+        @details  = args[1]
+        @code     = args[2]
+      end
       self
     end
 
     def inspect
       str = "#<#{self.class.name}:0x#{object_id}"
-      str << " code=#{@response.code}" if @response && @response.code
+      str << " code=#{@code}" if @code
       str << " details=\"#{@details}\"" if @details
       str << '>'
     end
