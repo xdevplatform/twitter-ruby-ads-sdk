@@ -42,8 +42,13 @@ module TwitterAds
       #
       # @since 0.2.4
       def save
+        # manually check for missing params (due to API discrepancy)
+        validate
+
+        # convert to `tweet_ids` param
         params = to_params
         params[:tweet_ids] = *params.delete(:tweet_id) if params.key?(:tweet_id)
+
         if @id
           resource = self.class::RESOURCE % { account_id: account.id, id: id }
           response = Request.new(account.client, :put, resource, params: params).perform
@@ -53,6 +58,26 @@ module TwitterAds
           response = Request.new(account.client, :post, resource, params: params).perform
           from_response(response.body[:data].first)
         end
+      end
+
+      private
+
+      def validate
+        details = []
+
+        unless @line_item_id
+          details << { code: 'MISSING_PARAMETER',
+                       message: '"line_item_id" is a required parameter',
+                       parameter: 'line_item_id' }
+        end
+
+        unless @tweet_id
+          details << { code: 'MISSING_PARAMETER',
+                       message: '"tweet_id" is a required parameter',
+                       parameter: 'tweet_id' }
+        end
+
+        raise TwitterAds::ClientError.new(nil, details, 400) unless details.size == 0
       end
 
     end
