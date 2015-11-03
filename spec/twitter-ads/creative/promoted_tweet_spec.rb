@@ -26,4 +26,20 @@ describe TwitterAds::Creative::PromotedTweet do
   write = %w(line_item_id tweet_id paused)
   include_examples 'object property check', read, write
 
+  describe '#save' do
+
+    it 'raises a client error when missing tweet_id' do
+      expect(subject).to receive(:validate).and_call_original
+      subject.line_item_id = '12345'
+      expect { subject.save }.to raise_error(TwitterAds::ClientError)
+    end
+
+    it 'raises a client error when missing line_item_id' do
+      expect(subject).to receive(:validate).and_call_original
+      subject.tweet_id = 99999999999999999999
+      expect { subject.save }.to raise_error(TwitterAds::ClientError)
+    end
+
+  end
+
 end
