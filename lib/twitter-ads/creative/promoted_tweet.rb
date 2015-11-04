@@ -38,7 +38,7 @@ module TwitterAds
       #
       # @return [self] Returns the instance refreshed from the API.
       #
-      # Note: override to handle the inconsistency of the promoted tweet endpoint.
+      # Note: override to handle the inconsistency of the promoted tweet endpoint. (see REVAPI-5348)
       #
       # @since 0.2.4
       def save
