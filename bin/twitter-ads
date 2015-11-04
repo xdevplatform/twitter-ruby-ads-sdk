@@ -26,6 +26,11 @@ end
 begin
   require 'pry'
   KLASS = Pry
+  version_info = "twitter-ads v#{TwitterAds::VERSION}"
+  KLASS.config.prompt = [
+    proc { "#{version_info} >> " },
+    proc { "#{version_info} ... " }
+  ]
 rescue LoadError
   require 'irb'
   KLASS = IRB

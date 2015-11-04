@@ -39,9 +39,9 @@ end
 # with a client instance automatically loaded from your .twurlrc file.
 
 ~ ❯ twitter-ads
-2.0.0 (twitter-ads):0 > CLIENT
+twitter-ads vX.X.X >> CLIENT
 => #<TwitterAds::Client:0x70101526238580 consumer_key="Fy90KQy57152sn5Mv7axji9409">
-2.0.0 (twitter-ads):0 > CLIENT.accounts.first
+twitter-ads vX.X.X >> CLIENT.accounts.first
 => #<TwitterAds::Account:0x70101527905720 id="4lvtcum">
 ```
 For more help please see our [Examples and Guides](https://github.com/twitterdev/twitter-ruby-ads-sdk/tree/master/examples) or check the online [Reference Documentation](http://twitterdev.github.io/twitter-ruby-ads-sdk/reference/index.html).
