@@ -28,6 +28,5 @@ module TwitterAds
       @account = account
       self
     end
-
   end
 end
