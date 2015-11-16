@@ -29,5 +29,8 @@ module TwitterAds
       self
     end
 
+    def tv_markets(opts = {})
+      TwitterAds::TvMarket.all @account, opts
+    end
   end
 end

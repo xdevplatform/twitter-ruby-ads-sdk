@@ -36,6 +36,8 @@ require 'twitter-ads/reach_estimate'
 require 'twitter-ads/targeting_criteria'
 require 'twitter-ads/tweet'
 
+require 'twitter-ads/targeting_criteria/tv_market'
+
 require 'twitter-ads/creative/app_download_card'
 require 'twitter-ads/creative/image_app_download_card'
 require 'twitter-ads/creative/lead_gen_card'
