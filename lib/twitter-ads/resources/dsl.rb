@@ -42,7 +42,7 @@ module TwitterAds
         params = {}
         self.class.properties.each do |name, type|
           value = instance_variable_get("@#{name}") || send(name)
-          next unless value
+          next if value.nil?
           if type == :time
             params[name] = value.iso8601
           elsif type == :bool
