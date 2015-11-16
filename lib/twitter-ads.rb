@@ -39,6 +39,8 @@ require 'twitter-ads/targeting_criteria'
 require 'twitter-ads/tweet'
 require 'twitter-ads/video'
 
+require 'twitter-ads/targeting_criteria/tv_market.rb'
+
 require 'twitter-ads/creative/app_download_card'
 require 'twitter-ads/creative/image_app_download_card'
 require 'twitter-ads/creative/image_conversation_card'
