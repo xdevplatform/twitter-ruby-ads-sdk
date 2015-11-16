@@ -4,9 +4,10 @@ module TwitterAds
   module Analytics
 
     CLASS_ID_MAP = {
-      'TwitterAds::LineItem'     => :line_item_ids,
-      'TwitterAds::OrganicTweet' => :tweet_ids,
-      'TwitterAds::Tweet'        => :tweet_ids
+      'TwitterAds::LineItem'                => :line_item_ids,
+      'TwitterAds::OrganicTweet'            => :tweet_ids,
+      'TwitterAds::Tweet'                   => :tweet_ids,
+      'TwitterAds::Creative::PromotedTweet' => :promoted_tweet_ids
     } # @api private
 
     def self.included(klass)
