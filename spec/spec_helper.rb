@@ -11,7 +11,7 @@ unless RUBY_PLATFORM =~ /java/ || RUBY_ENGINE =~ /rbx/
 
   SimpleCov.start do
     add_filter '/spec/'
-    minimum_coverage(85.00)
+    minimum_coverage(80.00)
   end
 end
 

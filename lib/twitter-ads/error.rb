@@ -10,7 +10,7 @@ module TwitterAds
       if args.size == 1 && args[0].respond_to?(:body) && args[0].respond_to?(:code)
         @response = args[0]
         @code     = args[0].code
-        @details  = args[0].body[:errors] if args[0].body[:errors]
+        @details  = args[0].body[:errors] if args[0].body.is_a?(Hash) && args[0].body[:errors]
       elsif args.size == 3
         @response = args[0]
         @details  = args[1]
