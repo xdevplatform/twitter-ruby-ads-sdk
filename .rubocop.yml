@@ -3,6 +3,9 @@ AllCops:
   Exclude:
     - 'bin/**/*'
 
+Lint/AssignmentInCondition:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 100
 
