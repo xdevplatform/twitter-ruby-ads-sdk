@@ -28,7 +28,13 @@ module TwitterAds
       @code     = code.to_i
       @headers  = headers
       @raw_body = body
-      @body     = TwitterAds::Utils.symbolize!(MultiJson.load(body))
+
+      # handle non-JSON responses
+      begin
+        @body = TwitterAds::Utils.symbolize!(MultiJson.load(body))
+      rescue MultiJson::ParseError
+        @body = raw_body
+      end
 
       if headers.key?('x-rate-limit-reset')
         @rate_limit           = headers['x-rate-limit-limit'].first

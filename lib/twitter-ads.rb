@@ -21,6 +21,7 @@ require 'twitter-ads/client'
 require 'twitter-ads/cursor'
 require 'twitter-ads/request'
 require 'twitter-ads/response'
+require 'twitter-ads/ton_upload'
 
 require 'twitter-ads/product'
 require 'twitter-ads/placement'
