@@ -39,6 +39,7 @@ require 'twitter-ads/tweet'
 
 require 'twitter-ads/creative/app_download_card'
 require 'twitter-ads/creative/image_app_download_card'
+require 'twitter-ads/creative/image_conversation_card'
 require 'twitter-ads/creative/lead_gen_card'
 require 'twitter-ads/creative/promoted_account'
 require 'twitter-ads/creative/promoted_tweet'
