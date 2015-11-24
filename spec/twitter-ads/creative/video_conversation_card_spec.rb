@@ -23,7 +23,7 @@ describe TwitterAds::Creative::VideoConversationCard do
   # check model properties
   subject { described_class.new(account) }
 
-  read  = %w(
+  read = %w(
     id
     preview_url
     video_url
