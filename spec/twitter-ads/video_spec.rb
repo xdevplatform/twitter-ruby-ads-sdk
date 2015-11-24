@@ -23,7 +23,7 @@ describe TwitterAds::Video do
   # check model properties
   subject { described_class.new(account) }
 
-  read  = %w(
+  read = %w(
     id
     tweeted
     ready_to_tweet

@@ -23,7 +23,7 @@ describe TwitterAds::TailoredAudience do
   # check model properties
   subject { described_class.new(account) }
 
-  read  = %w(
+  read = %w(
     id
     created_at
     updated_at
