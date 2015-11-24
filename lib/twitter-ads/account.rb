@@ -146,9 +146,25 @@ module TwitterAds
     # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
     # @option opts [String] :sort_by The object param to sort the API response by.
     #
-    # @return A List or object instance.
+    # @since 0.2.0
+    #
+    # @return A list or object instance.
     def app_lists(id = nil, opts = {})
       load_resource(AppList, id, opts)
+    end
+
+    # Returns a collection of tailored audiences available to the current account.
+    #
+    # @param id [String] The TailoredAudience ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @since 0.3.0
+    #
+    # @return A Cursor or object instance.
+    def tailored_audiences(id = nil, opts = {})
+      load_resource(TailoredAudience, id, opts)
     end
 
     # Returns the most recent promotable Tweets created by one or more specified Twitter users.
