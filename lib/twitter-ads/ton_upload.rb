@@ -8,10 +8,12 @@ module TwitterAds
     DEFAULT_DOMAIN   = 'https://ton.twitter.com' # @api private
     DEFAULT_RESOURCE = '/1.1/ton/bucket/' # @api private
     DEFAULT_BUCKET   = 'ta_partner' # @api private
+    DEFAULT_EXPIRE   = (Time.now + 10 * 24 * 60 * 60).httpdate # @api private
     MIN_FILE_SIZE    = 1024 * 1024 * 1 # @api private
 
     private_constant :DEFAULT_DOMAIN,
                      :DEFAULT_BUCKET,
+                     :DEFAULT_EXPIRE,
                      :DEFAULT_RESOURCE,
                      :MIN_FILE_SIZE
 
@@ -33,10 +35,6 @@ module TwitterAds
       end
 
       @file_size = File.size(@file_path)
-      unless @file_size >= MIN_FILE_SIZE
-        raise ArgumentError.new(
-          "Error! The specified file must be at least #{MIN_FILE_SIZE / 1024**2} MB.")
-      end
 
       @client    = client
       @bucket    = opts.delete(:bucket) || DEFAULT_BUCKET
@@ -53,21 +51,27 @@ module TwitterAds
     # @since 0.3.0
     #
     # @return [String] The upload location provided by the TON API.
-    def perform(_opts = {})
-      response   = init_chunked_upload
-      chunk_size = response.headers['x-ton-min-chunk-size'][0].to_i
-      location   = response.headers['location'][0]
+    def perform
+      if @file_size < MIN_FILE_SIZE
+        resource = "#{DEFAULT_RESOURCE}#{@bucket}"
+        response = upload(resource, File.read(@file_path))
+        response.headers['location'][0]
+      else
+        response   = init_chunked_upload
+        chunk_size = response.headers['x-ton-min-chunk-size'][0].to_i
+        location   = response.headers['location'][0]
 
-      File.open(@file_path) do |file|
-        bytes_read = 0
-        while bytes = file.read(chunk_size)
-          bytes_start = bytes_read
-          bytes_read += bytes.size
-          upload_chunk(location, chunk_size, bytes, bytes_start, bytes_read)
+        File.open(@file_path) do |file|
+          bytes_read = 0
+          while bytes = file.read(chunk_size)
+            bytes_start = bytes_read
+            bytes_read += bytes.size
+            upload_chunk(location, chunk_size, bytes, bytes_start, bytes_read)
+          end
         end
-      end
 
-      location
+        location
+      end
     end
 
     # Returns an inspection string for the current object instance.
@@ -84,11 +88,23 @@ module TwitterAds
 
     private
 
+    # performs a single chunk upload
+    def upload(resource, bytes)
+      headers = {
+        'x-ton-expires'  => DEFAULT_EXPIRE,
+        'content-length' => @file_size,
+        'content-type'   => content_type
+      }
+      TwitterAds::Request.new(
+        @client, :post, resource, domain:  DEFAULT_DOMAIN, headers: headers, body: bytes).perform
+    end
+
+    # initialization for a multi-chunk upload
     def init_chunked_upload
       headers = {
         'x-ton-content-type'   => content_type,
-        'x-ton-content-length' => File.size(@file_path),
-        'x-ton-expires'        => (Time.now + 10 * 24 * 60 * 60).httpdate,
+        'x-ton-content-length' => @file_size,
+        'x-ton-expires'        => DEFAULT_EXPIRE,
         'content-length'       => 0,
         'content-type'         => content_type
       }
@@ -97,6 +113,7 @@ module TwitterAds
         @client, :post, resource, domain: DEFAULT_DOMAIN, headers: headers).perform
     end
 
+    # uploads a single chunk of a multi-chunk upload
     def upload_chunk(resource, chunk_size, bytes, bytes_start, bytes_read)
       headers = {
         'content-type'   => content_type,
