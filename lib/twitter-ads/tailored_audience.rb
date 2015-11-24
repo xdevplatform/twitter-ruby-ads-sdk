@@ -53,7 +53,7 @@ module TwitterAds
       # Creates a new tailored audience.
       #
       # @example
-      #   audience = TailoredAudience.new(account, '/path/to/file', 'my list', 'EMAIL')
+      #   audience = TailoredAudience.create(account, '/path/to/file', 'my list', 'EMAIL')
       #
       # @param account [Account] The account object instance.
       # @param file_path [String] The path to the file to be uploaded.
