@@ -227,11 +227,46 @@ describe TwitterAds::Account do
 
     context 'without an id specified' do
 
-      it 'succesfullyreturns a Cursor with all App Lists' do
+      it 'succesfully returns a cursor with all app lists' do
         result = account.app_lists
         expect(result.to_a.size).to eq(3)
         expect(result.class).to eq(TwitterAds::Cursor)
         expect(result.first.class).to eq(TwitterAds::AppList)
+        expect(result.first.id).to eq('abc2')
+      end
+
+    end
+
+  end
+
+  describe '#tailored_audiences' do
+
+    before(:each) do
+      resource_collection = "#{ADS_API}/accounts/#{account.id}/tailored_audiences"
+      stub_fixture(:get, :tailored_audiences_all, resource_collection)
+
+      resource = "#{ADS_API}/accounts/#{account.id}/tailored_audiences/abc2"
+      stub_fixture(:get, :tailored_audiences_load, resource)
+    end
+
+    context 'with an id specified' do
+
+      it 'successfully loads the specified tailored audience' do
+        result = account.tailored_audiences('abc2')
+        expect(result).not_to be_nil
+        expect(result.class).to eq(TwitterAds::TailoredAudience)
+        expect(result.id).to eq('abc2')
+      end
+
+    end
+
+    context 'without an id specified' do
+
+      it 'succesfully returns a cursor with all tailored audiences' do
+        result = account.tailored_audiences
+        expect(result.to_a.size).to eq(3)
+        expect(result.class).to eq(TwitterAds::Cursor)
+        expect(result.first.class).to eq(TwitterAds::TailoredAudience)
         expect(result.first.id).to eq('abc2')
       end
 

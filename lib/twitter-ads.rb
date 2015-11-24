@@ -34,6 +34,7 @@ require 'twitter-ads/funding_instrument'
 require 'twitter-ads/line_item'
 require 'twitter-ads/promotable_user'
 require 'twitter-ads/reach_estimate'
+require 'twitter-ads/tailored_audience'
 require 'twitter-ads/targeting_criteria'
 require 'twitter-ads/tweet'
 
