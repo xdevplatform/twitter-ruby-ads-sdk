@@ -41,5 +41,19 @@ module TwitterAds
       self
     end
 
+    # Returns a collection of targeting criteria available to the current account.
+    #
+    # @param id [String] The TargetingCriteria ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @since 0.3.1
+    #
+    # @return A Cursor or object instance.
+    def targeting_criteria(id = nil, opts = {})
+      id ? TargetingCriteria.load(@account, id, opts) : TargetingCriteria.all(account, @id, opts)
+    end
+
   end
 end
