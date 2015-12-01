@@ -33,10 +33,6 @@ module TwitterAds
       end
 
       @file_size = File.size(@file_path)
-      unless @file_size >= MIN_FILE_SIZE
-        raise ArgumentError.new(
-          "Error! The specified file must be at least #{MIN_FILE_SIZE / 1024**2} MB.")
-      end
 
       @client    = client
       @bucket    = opts.delete(:bucket) || DEFAULT_BUCKET
@@ -54,16 +50,34 @@ module TwitterAds
     #
     # @return [String] The upload location provided by the TON API.
     def perform(_opts = {})
-      response   = init_chunked_upload
-      chunk_size = response.headers['x-ton-min-chunk-size'][0].to_i
-      location   = response.headers['location'][0]
+      if @file_size < MIN_FILE_SIZE
+        headers = {
+          'x-ton-expires'        => (Time.now + 10 * 24 * 60 * 60).httpdate,
+          'content-length'       => @file_size,
+          'content-type'         => content_type
+        }
+        resource = "#{DEFAULT_RESOURCE}#{@bucket}"
+        response = TwitterAds::Request.new(@client,
+                                           :post,
+                                           resource,
+                                           domain:  DEFAULT_DOMAIN,
+                                           headers: headers,
+                                           body:    File.read(@file_path)
+                                          ).perform
 
-      File.open(@file_path) do |file|
-        bytes_read = 0
-        while bytes = file.read(chunk_size)
-          bytes_start = bytes_read
-          bytes_read += bytes.size
-          upload_chunk(location, chunk_size, bytes, bytes_start, bytes_read)
+        location   = response.headers['location'][0]
+      else
+        response   = init_chunked_upload
+        chunk_size = response.headers['x-ton-min-chunk-size'][0].to_i
+        location   = response.headers['location'][0]
+
+        File.open(@file_path) do |file|
+          bytes_read = 0
+          while bytes = file.read(chunk_size)
+            bytes_start = bytes_read
+            bytes_read += bytes.size
+            upload_chunk(location, chunk_size, bytes, bytes_start, bytes_read)
+          end
         end
       end
 
