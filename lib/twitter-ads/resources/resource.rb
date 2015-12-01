@@ -23,7 +23,8 @@ module TwitterAds
       #
       # @since 0.1.0
       def reload!(opts = {})
-        params   = opts.merge!(with_deleted: true)
+        return self unless id
+        params   = { with_deleted: true }.merge!(opts)
         resource = self.class::RESOURCE % { account_id: account.id, id: id }
         response = Request.new(account.client, :get, resource, params: params).perform
         from_response(response.body[:data])
@@ -78,7 +79,7 @@ module TwitterAds
       #
       # @since 0.1.0
       def load(account, id, opts = {})
-        params   = opts.merge!(with_deleted: true)
+        params   = { with_deleted: true }.merge!(opts)
         resource = self::RESOURCE % { account_id: account.id, id: id }
         response = Request.new(account.client, :get, resource, params: params).perform
         new(account).from_response(response.body[:data])
