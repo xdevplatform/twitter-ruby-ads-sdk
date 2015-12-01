@@ -10,6 +10,7 @@ group :development, :test do
   gem 'cucumber'
   gem 'webmock'
   gem 'codeclimate-test-reporter', platforms: :mri
+  gem 'simplecov', '0.10' # fix for breaking change in simplecov
 end
 
 group :development do

@@ -43,6 +43,13 @@ module TwitterAds
         self.class.properties.each do |name, type|
           value = instance_variable_get("@#{name}") || send(name)
           next if value.nil?
+
+          # handles unset with empty string
+          if value.respond_to?(:strip) && value.strip == ''
+            params[name] = value.strip
+            next
+          end
+
           if type == :time
             params[name] = value.iso8601
           elsif type == :bool
