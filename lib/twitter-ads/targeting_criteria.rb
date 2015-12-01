@@ -15,6 +15,7 @@ module TwitterAds
     property :deleted, type: :bool, read_only: true
 
     property :name
+    property :localized_name
     property :line_item_id
     property :targeting_type
     property :targeting_value
