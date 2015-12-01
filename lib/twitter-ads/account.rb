@@ -201,7 +201,7 @@ module TwitterAds
 
     def load_resource(klass, id = nil, opts = {})
       validate_loaded
-      id ? klass.load(self, id) : klass.all(self, opts)
+      id ? klass.load(self, id, opts) : klass.all(self, opts)
     end
 
     def validate_loaded
