@@ -70,7 +70,7 @@ module TwitterAds
       #
       # @return [Hash] A hash containing the newly created Tweet object.
       def create(account, status, opts = {})
-        params   = opts.merge!(status: status)
+        params   = { status: status }.merge!(opts)
         resource = RESOURCE_CREATE % { account_id: account.id }
         response = TwitterAds::Request.new(account.client, :post, resource, params: params).perform
         response.body[:data]
