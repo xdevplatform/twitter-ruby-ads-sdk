@@ -41,7 +41,7 @@ module TwitterAds
       self
     end
 
-    # Returns a collection of targeting criteria available to the current account.
+    # Returns a collection of targeting criteria available to the current line item.
     #
     # @param id [String] The TargetingCriteria ID value.
     # @param opts [Hash] A Hash of extended options.
