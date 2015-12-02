@@ -181,7 +181,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#perform-instance_method" title="#perform (instance method)">- (String) <strong>perform</strong>(_opts = {}) </a>
+      <a href="#perform-instance_method" title="#perform (instance method)">- (String) <strong>perform</strong> </a>
     
 
     
@@ -294,8 +294,6 @@
       <pre class="lines">
 
 
-29
-30
 31
 32
 33
@@ -308,12 +306,10 @@
 40
 41
 42
-43
-44
-45</pre>
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/ton_upload.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/ton_upload.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@file_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span>
@@ -322,10 +318,6 @@
   <span class='kw'>end</span>
 
   <span class='ivar'>@file_size</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='lparen'>(</span><span class='ivar'>@file_path</span><span class='rparen'>)</span>
-  <span class='kw'>unless</span> <span class='ivar'>@file_size</span> <span class='op'>&gt;=</span> <span class='const'>MIN_FILE_SIZE</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error! The specified file must be at least </span><span class='embexpr_beg'>#{</span><span class='const'>MIN_FILE_SIZE</span> <span class='op'>/</span> <span class='int'>1024</span><span class='op'>**</span><span class='int'>2</span><span class='embexpr_end'>}</span><span class='tstring_content'> MB.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
 
   <span class='ivar'>@client</span>    <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@bucket</span>    <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:bucket</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>DEFAULT_BUCKET</span>
@@ -404,15 +396,15 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
 82
-83</pre>
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/ton_upload.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/ton_upload.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='id identifier rubyid_str'>str</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_object_id'>object_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -428,7 +420,7 @@
       <div class="method_details ">
   <h3 class="signature " id="perform-instance_method">
   
-    - (<tt>String</tt>) <strong>perform</strong>(_opts = {}) 
+    - (<tt>String</tt>) <strong>perform</strong> 
   
 
   
@@ -494,6 +486,8 @@
       <pre class="lines">
 
 
+54
+55
 56
 57
 58
@@ -509,26 +503,36 @@
 68
 69
 70
-71</pre>
+71
+72
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/ton_upload.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/ton_upload.rb', line 54</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_perform'>perform</span><span class='lparen'>(</span><span class='id identifier rubyid__opts'>_opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span>   <span class='op'>=</span> <span class='id identifier rubyid_init_chunked_upload'>init_chunked_upload</span>
-  <span class='id identifier rubyid_chunk_size'>chunk_size</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x-ton-min-chunk-size</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-  <span class='id identifier rubyid_location'>location</span>   <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>location</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_perform'>perform</span>
+  <span class='kw'>if</span> <span class='ivar'>@file_size</span> <span class='op'>&lt;</span> <span class='const'>MIN_FILE_SIZE</span>
+    <span class='id identifier rubyid_resource'>resource</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>DEFAULT_RESOURCE</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='ivar'>@bucket</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_upload'>upload</span><span class='lparen'>(</span><span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='ivar'>@file_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>location</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_response'>response</span>   <span class='op'>=</span> <span class='id identifier rubyid_init_chunked_upload'>init_chunked_upload</span>
+    <span class='id identifier rubyid_chunk_size'>chunk_size</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>x-ton-min-chunk-size</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+    <span class='id identifier rubyid_location'>location</span>   <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>location</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
 
-  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='ivar'>@file_path</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
-    <span class='id identifier rubyid_bytes_read'>bytes_read</span> <span class='op'>=</span> <span class='int'>0</span>
-    <span class='kw'>while</span> <span class='id identifier rubyid_bytes'>bytes</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_chunk_size'>chunk_size</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_bytes_start'>bytes_start</span> <span class='op'>=</span> <span class='id identifier rubyid_bytes_read'>bytes_read</span>
-      <span class='id identifier rubyid_bytes_read'>bytes_read</span> <span class='op'>+=</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-      <span class='id identifier rubyid_upload_chunk'>upload_chunk</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span> <span class='id identifier rubyid_chunk_size'>chunk_size</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes_start'>bytes_start</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes_read'>bytes_read</span><span class='rparen'>)</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='ivar'>@file_path</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+      <span class='id identifier rubyid_bytes_read'>bytes_read</span> <span class='op'>=</span> <span class='int'>0</span>
+      <span class='kw'>while</span> <span class='id identifier rubyid_bytes'>bytes</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_chunk_size'>chunk_size</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_bytes_start'>bytes_start</span> <span class='op'>=</span> <span class='id identifier rubyid_bytes_read'>bytes_read</span>
+        <span class='id identifier rubyid_bytes_read'>bytes_read</span> <span class='op'>+=</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+        <span class='id identifier rubyid_upload_chunk'>upload_chunk</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span> <span class='id identifier rubyid_chunk_size'>chunk_size</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes_start'>bytes_start</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes_read'>bytes_read</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
     <span class='kw'>end</span>
-  <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_location'>location</span>
+    <span class='id identifier rubyid_location'>location</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -540,7 +544,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Nov 24 01:21:12 2015 by
+  Generated on Tue Dec  1 16:45:53 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.0.0).
 </div>
