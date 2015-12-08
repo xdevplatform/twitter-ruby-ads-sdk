@@ -18,6 +18,8 @@ module TwitterAds
 
     RESOURCE_COLLECTION = '/0/accounts' # @api private
     RESOURCE            = '/0/accounts/%{id}' # @api private
+    FEATURES            = '/0/accounts/%{id}/features' # @api private
+    SCOPED_TIMELINE     = '/0/accounts/%{id}/scoped_timeline' # @api private
 
     def initialize(client)
       @client = client
@@ -38,7 +40,8 @@ module TwitterAds
       #
       # @since 0.1.0
       def load(client, id)
-        response = Request.new(client, :get, "/0/accounts/#{id}").perform
+        resource = RESOURCE % { id: id }
+        response = Request.new(client, :get, resource).perform
         new(client).from_response(response.body[:data])
       end
 
@@ -57,7 +60,7 @@ module TwitterAds
       # @since 0.1.0
       # @see https://dev.twitter.com/ads/basics/sorting Sorting
       def all(client, opts = {})
-        request = Request.new(client, :get, '/0/accounts', params: opts)
+        request = Request.new(client, :get, RESOURCE_COLLECTION, params: opts)
         Cursor.new(self, request, init_with: [client])
       end
 
@@ -79,7 +82,8 @@ module TwitterAds
     # @since 0.1.0
     def features
       validate_loaded
-      response = Request.new(client, :get, "/0/accounts/#{id}/features").perform
+      resource = FEATURES % { id: @id }
+      response = Request.new(client, :get, resource).perform
       response.body[:data]
     end
 
@@ -192,7 +196,8 @@ module TwitterAds
     def scoped_timeline(ids, opts = {})
       ids      = ids.join(',') if ids.is_a?(Array)
       params   = { user_ids: ids }.merge!(opts)
-      request  = Request.new(client, :get, "/0/accounts/#{id}/scoped_timeline", params: params)
+      resource = SCOPED_TIMELINE % { id: @id }
+      request  = Request.new(client, :get, resource, params: params)
       response = request.perform
       response.body[:data]
     end
