@@ -18,6 +18,7 @@ script: bundle exec rake
 branches:
   only:
     - master
+    - stable
 
 matrix:
   exclude:
