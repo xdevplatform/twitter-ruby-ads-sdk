@@ -60,7 +60,7 @@ For the most part, we follow [this][style] community style guide with a
 
 6) Submit your changes!
 
-- Squash your development commits.
+- [Squash](http://eli.thegreenplace.net/2014/02/19/squashing-github-pull-requests-into-a-single-commit) your development commits. Put features in a single clean commit whenever possible or logically split it into a few commits (no development commits). Test coverage can be included in a separate commit if preferred. 
 - Write a [good commit message][commit] for your change.
 - Push to your fork.
 - Submit a [pull request][pr].
