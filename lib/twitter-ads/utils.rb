@@ -11,6 +11,7 @@ module TwitterAds
       #
       # @return [Boolean] The boolean result.
       #
+      # @api private
       # @since 0.1.0
       def to_bool(object)
         (object.to_s.downcase == 'false') ? false : !!object
@@ -23,6 +24,7 @@ module TwitterAds
       #
       # @return [Time] The formatted Time instance.
       #
+      # @api private
       # @since 0.1.0
       def to_time(time, granularity = nil)
         return time.iso8601 unless granularity
@@ -41,6 +43,7 @@ module TwitterAds
       #
       # @return [Object] The symbolized, converted object.
       #
+      # @api private
       # @since 0.1.0
       def symbolize!(object)
         if object.is_a?(Array)
@@ -49,6 +52,21 @@ module TwitterAds
           object.keys.each { |key| object[key.to_sym] = symbolize!(object.delete(key)) }
         end
         object
+      end
+
+      # Creates a deprecation message.
+      #
+      # @param name [String] The name of the object or method being deprecated.
+      # @param replacement [String] The name of the new object or method (optional).
+      #
+      # @api private
+      # @since 0.3.2
+      def deprecated(name, replacement = nil)
+        if replacement
+          warn "[DEPRECATED] #{name} has been deprecated (please use #{replacement})."
+        else
+          warn "[DEPRECATED] #{name} has been deprecated."
+        end
       end
 
     end

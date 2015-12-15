@@ -28,6 +28,13 @@ Metrics/ParameterLists:
   Max: 10
   CountKeywordArgs: true
 
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
 Style/NumericLiterals:
   Enabled: false
 

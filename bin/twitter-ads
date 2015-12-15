@@ -8,6 +8,9 @@ end
 $LOAD_PATH.push File.join(File.dirname(__FILE__), '..', 'lib')
 require 'twitter-ads'
 
+include TwitterAds
+include TwitterAds::Enum
+
 # load up a ready-to-go client instance if .twurlrc is setup
 if File.exists?(File.expand_path('~/.twurlrc'))
   require 'yaml'

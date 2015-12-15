@@ -2,7 +2,9 @@
 
 require 'spec_helper'
 
-describe TwitterAds::Placement do
+include TwitterAds::Enum
+
+describe TwitterAds::LineItem do
 
   let(:client) do
     Client.new(
@@ -13,19 +15,25 @@ describe TwitterAds::Placement do
     )
   end
 
-  describe '#valid_combinations' do
+  describe '#placements' do
 
     before(:each) do
       url = Addressable::Template.new "#{ADS_API}/line_items/placements{?product_type}"
       stub_fixture(:get, :placements, url)
     end
 
-    let(:product_type) { TwitterAds::Product::PROMOTED_TWEETS }
+    let(:product_type) { Product::PROMOTED_TWEETS }
 
     it 'successfully fetches valid placement / product type combinations' do
-      expect(TwitterAds::Utils).to receive(:deprecated).and_call_original
-      expect(TwitterAds::LineItem).to receive(:placements).and_call_original
-      result = silence { subject.valid_combinations(client, product_type) }
+      expect(TwitterAds::Utils).not_to receive(:deprecated)
+      result = silence { described_class.placements(client, product_type) }
+      expect(result.size).not_to be_nil
+      expect(result).to all(be_a(Array))
+    end
+
+    it 'allows product_type to be an optional method argument' do
+      expect(TwitterAds::Utils).not_to receive(:deprecated)
+      result = silence { described_class.placements(client) }
       expect(result.size).not_to be_nil
       expect(result).to all(be_a(Array))
     end

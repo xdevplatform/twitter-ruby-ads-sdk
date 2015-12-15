@@ -41,6 +41,28 @@ module TwitterAds
       self
     end
 
+    class << self
+
+      # Helper method to return a list a valid placement combinations by Product.
+      #
+      # @example
+      #   LineItem.placements(Product::PROMOTED_TWEETS)
+      #
+      # @param product_type [Product] The enum value for the Product type being targeted.
+      #
+      # @return [Array] An array of valid placement combinations.
+      #
+      # @since 0.3.2
+      # @see https://dev.twitter.com/ads/reference/get/line_items/placements
+      def placements(client, product_type = nil)
+        resource = '/0/line_items/placements'
+        params   = { product_type: product_type } if product_type
+        response = TwitterAds::Request.new(client, :get, resource, params: params).perform
+        response.body[:data][0][:placements]
+      end
+
+    end
+
     # Returns a collection of targeting criteria available to the current line item.
     #
     # @param id [String] The TargetingCriteria ID value.
@@ -52,7 +74,7 @@ module TwitterAds
     #
     # @return A Cursor or object instance.
     def targeting_criteria(id = nil, opts = {})
-      id ? TargetingCriteria.load(@account, id, opts) : TargetingCriteria.all(account, @id, opts)
+      id ? TargetingCriteria.load(account, id, opts) : TargetingCriteria.all(account, @id, opts)
     end
 
   end

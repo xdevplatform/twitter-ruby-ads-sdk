@@ -1,6 +1,7 @@
 # Copyright (C) 2015 Twitter, Inc.
 
 require 'twitter-ads'
+include TwitterAds::Enum
 
 CONSUMER_KEY        = 'your consumer key'
 CONSUMER_SECRET     = 'your consumer secret'
@@ -32,9 +33,9 @@ campaign.save
 line_item = TwitterAds::LineItem.new(account)
 line_item.campaign_id            = campaign.id
 line_item.name                   = 'my first ad'
-line_item.product_type           = TwitterAds::Product::PROMOTED_TWEETS
-line_item.placements             = [TwitterAds::Placement::ALL_ON_TWITTER]
-line_item.objective              = TwitterAds::Objective::TWEET_ENGAGEMENTS
+line_item.product_type           = Product::PROMOTED_TWEETS
+line_item.placements             = [Placement::ALL_ON_TWITTER]
+line_item.objective              = Objective::TWEET_ENGAGEMENTS
 line_item.bid_amount_local_micro = 10_000
 line_item.paused                 = true
 line_item.save
