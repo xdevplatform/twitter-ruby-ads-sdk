@@ -1,17 +1,5 @@
 language: ruby
 
-rvm:
-  - 2.0.0
-  - 2.1
-  - 2.2
-  - rbx
-  - jruby-head
-
-jdk:
-  - openjdk7
-  - oraclejdk7
-  - oraclejdk8
-
 install: ruby -S bundle install --without development
 script: bundle exec rake
 
@@ -21,24 +9,19 @@ branches:
     - stable
 
 matrix:
-  exclude:
-    - rvm: rbx
-      jdk: oraclejdk7
-    - rvm: rbx
-      jdk: oraclejdk8
-    - rvm: 2.0.0
-      jdk: oraclejdk7
-    - rvm: 2.0.0
-      jdk: oraclejdk8
-    - rvm: 2.1
-      jdk: oraclejdk7
-    - rvm: 2.1
-      jdk: oraclejdk8
-    - rvm: 2.2
-      jdk: oraclejdk7
-    - rvm: 2.2
-      jdk: oraclejdk8
+  fast_finish: true
+  allow_failures:
     - rvm: ruby-head
-      jdk: oraclejdk7
+  include:
+    - rvm: 2.0.0
+    - rvm: 2.1
+    - rvm: 2.2
     - rvm: ruby-head
+    - rvm: rbx
+    - rvm: jruby-head
+      jdk: openjdk7
+    - rvm: jruby-head
+      jdk: oraclejdk7
+    - rvm: jruby-head
       jdk: oraclejdk8
+
