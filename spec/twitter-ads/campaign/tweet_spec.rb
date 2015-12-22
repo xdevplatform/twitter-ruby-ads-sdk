@@ -41,17 +41,9 @@ describe TwitterAds::Tweet do
 
     context 'when previewing a new tweet' do
 
-      it 'url encodes the status content' do
-        params = { status: 'Hello World!', card_id: '19v69' }
-        expect(URI).to receive(:escape).at_least(:once).and_call_original
-        result = subject.preview(account, params)
-        expect(result.size).not_to be_nil
-        expect(result).to all(include(:platform, :preview))
-      end
-
       it 'allows a single value for the media_ids param' do
         resource = "/0/accounts/#{account.id}/tweet/preview"
-        expected = { status: 'Hello%20World!', media_ids: 634458428836962304 }
+        expected = { status: 'Hello World!', media_ids: 634458428836962304 }
 
         expect(TwitterAds::Request).to receive(:new).with(
           account.client, :get, resource, params: expected).and_call_original
@@ -64,7 +56,7 @@ describe TwitterAds::Tweet do
 
       it 'allows an array of values for the media_ids param' do
         resource = "/0/accounts/#{account.id}/tweet/preview"
-        expected = { status: 'Hello%20World!', media_ids: '634458428836962304,634458428836962305' }
+        expected = { status: 'Hello World!', media_ids: '634458428836962304,634458428836962305' }
 
         expect(TwitterAds::Request).to receive(:new).with(
           account.client, :get, resource, params: expected).and_call_original
