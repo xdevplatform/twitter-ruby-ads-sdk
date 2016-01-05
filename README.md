@@ -52,7 +52,7 @@ This project is designed to work with Ruby 2.0.0 or greater. While it may work o
 
 Platform | Versions
 -------- | --------
-MRI | 2.0.0, 2.1.x, 2.2.x
+MRI | 2.0.0, 2.1.x, 2.2.x, 2.3.x
 JRuby | 1.7.x, 9.0.0.0 (JDK7, JDK8, OpenJDK)
 Rubinius | 2.4.x, 2.5.x
 
