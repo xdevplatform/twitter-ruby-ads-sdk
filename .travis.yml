@@ -16,6 +16,7 @@ matrix:
     - rvm: 2.0.0
     - rvm: 2.1
     - rvm: 2.2
+    - rvm: 2.3.0
     - rvm: ruby-head
     - rvm: rbx
     - rvm: jruby-head
