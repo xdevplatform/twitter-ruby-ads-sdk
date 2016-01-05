@@ -5,7 +5,7 @@ gem 'rake'
 
 group :development, :test do
   gem 'faker'
-  gem 'rubocop', '0.30'
+  gem 'rubocop', '~>0.35'
   gem 'rspec'
   gem 'cucumber'
   gem 'webmock'
