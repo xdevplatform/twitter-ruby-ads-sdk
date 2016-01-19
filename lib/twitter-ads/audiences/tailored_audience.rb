@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -24,10 +25,11 @@ module TwitterAds
     property :targetable, type: :bool, read_only: true
     property :targetable_types, read_only: true
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/tailored_audiences' # @api private
-    RESOURCE = '/0/accounts/%{account_id}/tailored_audiences/%{id}' # @api private
-    RESOURCE_UPDATE = '/0/accounts/%{account_id}/tailored_audience_changes' # @api private
-    GLOBAL_OPT_OUT = '/0/accounts/%{account_id}/tailored_audiences/global_opt_out' # @api private
+    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/tailored_audiences'.freeze # @api private
+    RESOURCE = '/0/accounts/%{account_id}/tailored_audiences/%{id}'.freeze # @api private
+    RESOURCE_UPDATE = '/0/accounts/%{account_id}/tailored_audience_changes'.freeze # @api private
+    GLOBAL_OPT_OUT =
+      '/0/accounts/%{account_id}/tailored_audiences/global_opt_out'.freeze # @api private
 
     LIST_TYPES = %w(
       EMAIL
@@ -35,13 +37,13 @@ module TwitterAds
       TWITTER_ID
       HANDLE
       PHONE_NUMBER
-    )
+    ).freeze
 
     OPERATIONS = %w(
       ADD
       REMOVE
       REPLACE
-    )
+    ).freeze
 
     def initialize(account)
       @account = account
@@ -116,7 +118,7 @@ module TwitterAds
     def update(file_path, list_type, operation = 'ADD')
       upload = TwitterAds::TONUpload.new(account.client, file_path)
       update_audience(self, upload.perform, list_type, operation)
-      self.reload!
+      reload!
     end
 
     # Deletes the current tailored audience instance.

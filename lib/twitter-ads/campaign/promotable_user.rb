@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -15,8 +16,8 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/promotable_users' # @api private
-    RESOURCE            = '/0/accounts/%{account_id}/promotable_users/%{id}' # @api private
+    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/promotable_users'.freeze # @api private
+    RESOURCE            = '/0/accounts/%{account_id}/promotable_users/%{id}'.freeze # @api private
 
     def initialize(account)
       @account = account

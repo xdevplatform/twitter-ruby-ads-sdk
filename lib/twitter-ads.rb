@@ -1,4 +1,5 @@
 # rubocop:disable Style/FileName
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 # rubocop:enable Style/FileName
 

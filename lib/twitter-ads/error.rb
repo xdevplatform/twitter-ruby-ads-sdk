@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -25,7 +26,7 @@ module TwitterAds
       str << " details=\"#{@details}\"" if @details
       str << '>'
     end
-    alias_method :to_s, :inspect
+    alias to_s inspect
 
     class << self
 
@@ -37,7 +38,7 @@ module TwitterAds
         429 => 'TwitterAds::RateLimit',
         500 => 'TwitterAds::ServerError',
         503 => 'TwitterAds::ServiceUnavailable'
-      }
+      }.freeze
 
       # Returns an appropriately typed Error object based from an API response.
       #

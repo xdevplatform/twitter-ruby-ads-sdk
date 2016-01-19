@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -12,10 +13,10 @@ module TwitterAds
       post:   Net::HTTP::Post,
       put:    Net::HTTP::Put,
       delete: Net::HTTP::Delete
-    }
+    }.freeze
 
-    DEFAULT_DOMAIN = 'https://ads-api.twitter.com'
-    SANDBOX_DOMAIN = 'https://ads-api-sandbox.twitter.com'
+    DEFAULT_DOMAIN = 'https://ads-api.twitter.com'.freeze
+    SANDBOX_DOMAIN = 'https://ads-api-sandbox.twitter.com'.freeze
 
     private_constant :DEFAULT_DOMAIN, :SANDBOX_DOMAIN, :HTTP_METHOD
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -16,10 +17,10 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
 
-    RESOURCE_COLLECTION = '/0/accounts' # @api private
-    RESOURCE            = '/0/accounts/%{id}' # @api private
-    FEATURES            = '/0/accounts/%{id}/features' # @api private
-    SCOPED_TIMELINE     = '/0/accounts/%{id}/scoped_timeline' # @api private
+    RESOURCE_COLLECTION = '/0/accounts'.freeze # @api private
+    RESOURCE            = '/0/accounts/%{id}'.freeze # @api private
+    FEATURES            = '/0/accounts/%{id}/features'.freeze # @api private
+    SCOPED_TIMELINE     = '/0/accounts/%{id}/scoped_timeline'.freeze # @api private
 
     def initialize(client)
       @client = client
@@ -70,7 +71,7 @@ module TwitterAds
     #
     # @return [String] The object instance detail.
     def inspect
-      str = "#<#{self.class.name}:0x#{object_id}"
+      str = String.new("#<#{self.class.name}:0x#{object_id}")
       str << " id=\"#{@id}\"" if @id
       str << '>'
     end
