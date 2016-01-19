@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require File.expand_path('../lib/twitter-ads/version', __FILE__)
@@ -30,7 +31,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir.glob('{bin,lib}/**/*')
   s.files += %w(twitter-ads.gemspec LICENSE README.md CONTRIBUTING.md Rakefile)
-  s.test_files    = Dir.glob('{spec,feature}/**/*')
+  s.test_files = Dir.glob('{spec,feature}/**/*')
   s.executables = 'twitter-ads'
   s.require_paths = ['lib']
 end

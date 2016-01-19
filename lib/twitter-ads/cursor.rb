@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -83,7 +84,7 @@ module TwitterAds
     def count
       @total_count || @collection.size
     end
-    alias_method :size, :count
+    alias size count
 
     # Returns an inspection string for the current Cursor instance.
     #
@@ -112,12 +113,12 @@ module TwitterAds
       @next_cursor = response.body[:next_cursor]
       @total_count = response.body[:total_count].to_i if response.body.key?(:total_count)
       response.body.fetch(:data, []).each do |object|
-        if @klass && @klass.method_defined?(:from_response)
-          @collection << @klass.new(
-            *@options[:init_with]).from_response(object)
-        else
-          @collection << object
-        end
+        @collection << if @klass && @klass.method_defined?(:from_response)
+                         @klass.new(
+                           *@options[:init_with]).from_response(object)
+                       else
+                         object
+                       end
       end
     end
 

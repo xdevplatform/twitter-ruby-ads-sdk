@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 # Copyright (Cend 2015 Twitter, Inc.
@@ -6,32 +7,32 @@ module TwitterAds
   module Enum
 
     module Objective
-      APP_ENGAGEMENTS   = 'APP_ENGAGEMENTS'
-      APP_INSTALLS      = 'APP_INSTALLS'
-      FOLLOWERS         = 'FOLLOWERS'
-      LEAD_GENERATION   = 'LEAD_GENERATION'
-      TWEET_ENGAGEMENTS = 'TWEET_ENGAGEMENTS'
-      VIDEO_VIEWS       = 'VIDEO_VIEWS'
-      WEBSITE_CLICKS    = 'WEBSITE_CLICKS'
-      CUSTOM            = 'CUSTOM'
+      APP_ENGAGEMENTS   = 'APP_ENGAGEMENTS'.freeze
+      APP_INSTALLS      = 'APP_INSTALLS'.freeze
+      FOLLOWERS         = 'FOLLOWERS'.freeze
+      LEAD_GENERATION   = 'LEAD_GENERATION'.freeze
+      TWEET_ENGAGEMENTS = 'TWEET_ENGAGEMENTS'.freeze
+      VIDEO_VIEWS       = 'VIDEO_VIEWS'.freeze
+      WEBSITE_CLICKS    = 'WEBSITE_CLICKS'.freeze
+      CUSTOM            = 'CUSTOM'.freeze
     end
 
     # TODO: legacy namespace support, to be removed in v1.0.0 (next major)
     TwitterAds::Objective = TwitterAds::Enum::Objective
 
     module Product
-      PROMOTED_ACCOUNT = 'PROMOTED_ACCOUNT'
-      PROMOTED_TWEETS  = 'PROMOTED_TWEETS'
+      PROMOTED_ACCOUNT = 'PROMOTED_ACCOUNT'.freeze
+      PROMOTED_TWEETS  = 'PROMOTED_TWEETS'.freeze
     end
 
     # TODO: legacy namespace support, to be removed in v1.0.0 (next major)
     TwitterAds::Product = TwitterAds::Enum::Product
 
     module Placement
-      ALL_ON_TWITTER    = 'ALL_ON_TWITTER'
-      TWITTER_SEARCH    = 'TWITTER_SEARCH'
-      TWITTER_TIMELINE  = 'TWITTER_TIMELINE'
-      PUBLISHER_NETWORK = 'PUBLISHER_NETWORK'
+      ALL_ON_TWITTER    = 'ALL_ON_TWITTER'.freeze
+      TWITTER_SEARCH    = 'TWITTER_SEARCH'.freeze
+      TWITTER_TIMELINE  = 'TWITTER_TIMELINE'.freeze
+      PUBLISHER_NETWORK = 'PUBLISHER_NETWORK'.freeze
     end
 
     module Placement
@@ -62,73 +63,73 @@ module TwitterAds
     TwitterAds::Placement = TwitterAds::Enum::Placement
 
     module BidUnit
-      APP_CLICK   = 'APP_CLICK'
-      APP_INSTALL = 'APP_INSTALL'
-      ENGAGEMENT  = 'ENGAGEMENT'
-      FOLLOW      = 'FOLLOW'
-      LEAD        = 'LEAD'
-      LINK_CLICK  = 'LINK_CLICK'
-      VIEW        = 'VIEW'
+      APP_CLICK   = 'APP_CLICK'.freeze
+      APP_INSTALL = 'APP_INSTALL'.freeze
+      ENGAGEMENT  = 'ENGAGEMENT'.freeze
+      FOLLOW      = 'FOLLOW'.freeze
+      LEAD        = 'LEAD'.freeze
+      LINK_CLICK  = 'LINK_CLICK'.freeze
+      VIEW        = 'VIEW'.freeze
     end
 
     module ChargeBy
-      APP_CLICK   = 'APP_CLICK'
-      APP_INSTALL = 'APP_INSTALL'
-      ENGAGEMENT  = 'ENGAGEMENT'
-      FOLLOW      = 'FOLLOW'
-      LEAD        = 'LEAD'
-      LINK_CLICK  = 'LINK_CLICK'
-      VIEW        = 'VIEW'
+      APP_CLICK   = 'APP_CLICK'.freeze
+      APP_INSTALL = 'APP_INSTALL'.freeze
+      ENGAGEMENT  = 'ENGAGEMENT'.freeze
+      FOLLOW      = 'FOLLOW'.freeze
+      LEAD        = 'LEAD'.freeze
+      LINK_CLICK  = 'LINK_CLICK'.freeze
+      VIEW        = 'VIEW'.freeze
     end
 
     module Optimizations
-      DEFAULT             = 'DEFAULT'
-      WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'
+      DEFAULT             = 'DEFAULT'.freeze
+      WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'.freeze
     end
 
     module Granularity
-      HOUR  = 'HOUR'
-      DAY   = 'DAY'
-      TOTAL = 'TOTAL'
+      HOUR  = 'HOUR'.freeze
+      DAY   = 'DAY'.freeze
+      TOTAL = 'TOTAL'.freeze
     end
 
     module AgeBucket
-      AGE_13_TO_17 = 'AGE_13_TO_17'
-      AGE_18_TO_24 = 'AGE_18_TO_24'
-      AGE_25_TO_34 = 'AGE_25_TO_34'
-      AGE_35_TO_44 = 'AGE_35_TO_44'
-      AGE_45_TO_54 = 'AGE_45_TO_54'
-      AGE_55_TO_64 = 'AGE_55_TO_64'
-      AGE_OVER_65  = 'AGE_OVER_65'
+      AGE_13_TO_17 = 'AGE_13_TO_17'.freeze
+      AGE_18_TO_24 = 'AGE_18_TO_24'.freeze
+      AGE_25_TO_34 = 'AGE_25_TO_34'.freeze
+      AGE_35_TO_44 = 'AGE_35_TO_44'.freeze
+      AGE_45_TO_54 = 'AGE_45_TO_54'.freeze
+      AGE_55_TO_64 = 'AGE_55_TO_64'.freeze
+      AGE_OVER_65  = 'AGE_OVER_65'.freeze
     end
 
     module AgeBucketCoarse
-      AGE_18_TO_34 = 'AGE_18_TO_34'
-      AGE_18_TO_49 = 'AGE_18_TO_49'
-      AGE_25_TO_54 = 'AGE_25_TO_54'
-      AGE_OVER_21  = 'AGE_OVER_21'
+      AGE_18_TO_34 = 'AGE_18_TO_34'.freeze
+      AGE_18_TO_49 = 'AGE_18_TO_49'.freeze
+      AGE_25_TO_54 = 'AGE_25_TO_54'.freeze
+      AGE_OVER_21  = 'AGE_OVER_21'.freeze
     end
 
     module Events
-      MUSIC_AND_ENTERTAINMENT = 'MUSIC_AND_ENTERTAINMENT'
-      SPORTS                  = 'SPORTS'
-      HOLIDAY                 = 'HOLIDAY'
-      CONFERENCE              = 'CONFERENCE'
-      OTHER                   = 'OTHER'
+      MUSIC_AND_ENTERTAINMENT = 'MUSIC_AND_ENTERTAINMENT'.freeze
+      SPORTS                  = 'SPORTS'.freeze
+      HOLIDAY                 = 'HOLIDAY'.freeze
+      CONFERENCE              = 'CONFERENCE'.freeze
+      OTHER                   = 'OTHER'.freeze
     end
 
     module TAListTypes
-      EMAIL        = 'EMAIL'
-      DEVICE_ID    = 'DEVICE_ID'
-      TWITTER_ID   = 'TWITTER_ID'
-      HANDLE       = 'HANDLE'
-      PHONE_NUMBER = 'PHONE_NUMBER'
+      EMAIL        = 'EMAIL'.freeze
+      DEVICE_ID    = 'DEVICE_ID'.freeze
+      TWITTER_ID   = 'TWITTER_ID'.freeze
+      HANDLE       = 'HANDLE'.freeze
+      PHONE_NUMBER = 'PHONE_NUMBER'.freeze
     end
 
     module TAOperations
-      ADD = 'ADD'
-      REMOVE  = 'REMOVE'
-      REPLACE = 'REPLACE'
+      ADD = 'ADD'.freeze
+      REMOVE  = 'REMOVE'.freeze
+      REPLACE = 'REPLACE'.freeze
     end
 
   end

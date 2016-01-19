@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -25,8 +26,8 @@ module TwitterAds
       property :description
       property :video_media_id
 
-      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/videos' # @api private
-      RESOURCE            = '/0/accounts/%{account_id}/videos/%{id}' # @api private
+      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/videos'.freeze # @api private
+      RESOURCE            = '/0/accounts/%{account_id}/videos/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 require 'twitter-ads'
@@ -142,7 +143,7 @@ module TwitterAds
         promoted_tweet_timeline_engagement_rate
         promoted_tweet_timeline_impressions
       )
-    }
+    }.freeze
 
     OBJECTIVES = {
       app_engagements: [
@@ -246,7 +247,7 @@ module TwitterAds
         :twitter_audience_platform,
         :other
       ]
-    }
+    }.freeze
 
     # Sets up the object with the correct account and client information.
     #

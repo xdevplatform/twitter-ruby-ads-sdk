@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
@@ -8,7 +9,7 @@ module TwitterAds
       'TwitterAds::OrganicTweet'            => :tweet_ids,
       'TwitterAds::Tweet'                   => :tweet_ids,
       'TwitterAds::Creative::PromotedTweet' => :promoted_tweet_ids
-    } # @api private
+    }.freeze # @api private
 
     def self.included(klass)
       klass.send :include, InstanceMethods
