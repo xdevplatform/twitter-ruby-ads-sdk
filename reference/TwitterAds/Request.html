@@ -94,7 +94,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/twitter-ads/request.rb</dd>
+    <dd class="r2 last">lib/twitter-ads/http/request.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -454,16 +454,16 @@ also override :sandbox mode on the client.</p>
       <pre class="lines">
 
 
-38
 39
 40
 41
 42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/http/request.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_resource'>resource</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span>   <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -510,12 +510,12 @@ also override :sandbox mode on the client.</p>
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/http/request.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -553,12 +553,12 @@ also override :sandbox mode on the client.</p>
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/http/request.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method'>method</span>
   <span class='ivar'>@method</span>
@@ -596,12 +596,12 @@ also override :sandbox mode on the client.</p>
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/http/request.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
   <span class='ivar'>@options</span>
@@ -639,12 +639,12 @@ also override :sandbox mode on the client.</p>
       <pre class="lines">
 
 
-8
 9
-10</pre>
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/http/request.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resource'>resource</span>
   <span class='ivar'>@resource</span>
@@ -730,12 +730,12 @@ also override :sandbox mode on the client.</p>
       <pre class="lines">
 
 
-55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/request.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/http/request.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_perform'>perform</span>
   <span class='id identifier rubyid_handle_error'>handle_error</span><span class='lparen'>(</span><span class='id identifier rubyid_oauth_request'>oauth_request</span><span class='rparen'>)</span>
@@ -750,9 +750,9 @@ also override :sandbox mode on the client.</p>
 </div>
 
     <div id="footer">
-  Generated on Tue Dec  1 16:45:53 2015 by
+  Generated on Wed Jan 20 14:29:32 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

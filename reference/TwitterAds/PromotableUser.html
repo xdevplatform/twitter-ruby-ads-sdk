@@ -98,7 +98,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/twitter-ads/promotable_user.rb</dd>
+    <dd class="r1 last">lib/twitter-ads/campaign/promotable_user.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -124,7 +124,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/0/accounts/%{account_id}/promotable_users</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/0/accounts/%{account_id}/promotable_users</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="RESOURCE-constant" class="">RESOURCE =
           <div class="docstring">
@@ -142,7 +142,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/0/accounts/%{account_id}/promotable_users/%{id}</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/0/accounts/%{account_id}/promotable_users/%{id}</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -275,13 +275,13 @@
       <pre class="lines">
 
 
-21
 22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/promotable_user.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/campaign/promotable_user.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='rparen'>)</span>
   <span class='ivar'>@account</span> <span class='op'>=</span> <span class='id identifier rubyid_account'>account</span>
@@ -325,12 +325,12 @@
       <pre class="lines">
 
 
-9
 10
-11</pre>
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/promotable_user.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/campaign/promotable_user.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_account'>account</span>
   <span class='ivar'>@account</span>
@@ -346,9 +346,9 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Dec  1 16:45:53 2015 by
+  Generated on Wed Jan 20 14:29:32 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

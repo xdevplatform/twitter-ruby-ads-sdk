@@ -300,14 +300,14 @@
       <pre class="lines">
 
 
-64
 65
 66
 67
-68</pre>
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resource'>resource</span> <span class='op'>=</span> <span class='kw'>self</span><span class='op'>::</span><span class='const'>RESOURCE_COLLECTION</span> <span class='op'>%</span> <span class='lbrace'>{</span> <span class='label'>account_id:</span> <span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span> <span class='rbrace'>}</span>
@@ -472,15 +472,15 @@
       <pre class="lines">
 
 
-81
 82
 83
 84
 85
-86</pre>
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span>   <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>with_deleted:</span> <span class='kw'>true</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -498,9 +498,9 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Dec  1 16:45:52 2015 by
+  Generated on Wed Jan 20 14:29:31 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.0.0).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>
