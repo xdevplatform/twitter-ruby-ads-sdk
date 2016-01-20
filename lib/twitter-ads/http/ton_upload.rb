@@ -81,10 +81,7 @@ module TwitterAds
     #
     # @return [String] The object instance detail.
     def inspect
-      str = "#<#{self.class.name}:0x#{object_id}"
-      str << " bucket=\"#{@bucket}\"" if @bucket
-      str << " file=\"#{@file_path}\"" if @file
-      str << '>'
+      "#<#{self.class.name}:0x#{object_id} bucket=\"#{@bucket}\" file=\"#{@file_path}\">"
     end
 
     private
@@ -127,7 +124,7 @@ module TwitterAds
 
     def content_type
       @content_type ||= begin
-        extension = File.extname(@file_path)
+        extension = File.extname(@file_path).downcase
         if extension == '.csv'
           'text/csv'
         elsif extension == '.tsv'
