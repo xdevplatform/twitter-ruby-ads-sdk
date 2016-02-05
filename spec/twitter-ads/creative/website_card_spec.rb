@@ -27,4 +27,11 @@ describe TwitterAds::Creative::WebsiteCard do
   write = %w(name website_title website_url website_cta image_media_id)
   include_examples 'object property check', read, write
 
+  it 'raises a warning message each time website_cta is set' do
+    expect(subject).to receive(:warn).with(
+      "[DEPRECATED] The 'website_cta' property has been deprecated from #{subject.class}. " \
+      'Please see https://t.co/deprecated-website-card-cta for more info.')
+    subject.website_cta = 'anyvalue'
+  end
+
 end

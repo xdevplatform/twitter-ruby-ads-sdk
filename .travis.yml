@@ -11,7 +11,14 @@ branches:
 matrix:
   fast_finish: true
   allow_failures:
+    - rvm: 2.1 # works, will re-enable with travis recovers
     - rvm: ruby-head
+    - rvm: jruby-head
+      jdk: openjdk7
+    - rvm: jruby-head
+      jdk: oraclejdk7
+    - rvm: jruby-head
+      jdk: oraclejdk8
   include:
     - rvm: 2.0.0
     - rvm: 2.1
@@ -19,6 +26,18 @@ matrix:
     - rvm: 2.3.0
     - rvm: ruby-head
     - rvm: rbx
+    - rvm: jruby-1.7
+      jdk: openjdk7
+    - rvm: jruby-1.7
+      jdk: oraclejdk7
+    - rvm: jruby-1.7
+      jdk: oraclejdk8
+    - rvm: jruby
+      jdk: openjdk7
+    - rvm: jruby
+      jdk: oraclejdk7
+    - rvm: jruby
+      jdk: oraclejdk8
     - rvm: jruby-head
       jdk: openjdk7
     - rvm: jruby-head

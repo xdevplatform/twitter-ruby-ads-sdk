@@ -33,7 +33,6 @@ require 'twitter-ads/campaign/campaign'
 require 'twitter-ads/campaign/funding_instrument'
 require 'twitter-ads/campaign/line_item'
 require 'twitter-ads/campaign/promotable_user'
-require 'twitter-ads/campaign/reach_estimate'
 require 'twitter-ads/campaign/targeting_criteria'
 require 'twitter-ads/campaign/tweet'
 
@@ -49,3 +48,5 @@ require 'twitter-ads/creative/video_app_download_card'
 require 'twitter-ads/creative/video_conversation_card'
 require 'twitter-ads/creative/website_card'
 require 'twitter-ads/creative/video'
+
+require 'twitter-ads/targeting/reach_estimate'

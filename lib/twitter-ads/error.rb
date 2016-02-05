@@ -80,11 +80,12 @@ module TwitterAds
   class BadRequest < ClientError; end
 
   class RateLimit < ClientError
-    attr_reader :reset_at
+    attr_reader :reset_at, :retry_after
 
     def initialize(object)
       super object
-      @reset_at = object.rate_limit_reset
+      @retry_after = object.headers['retry-after']
+      @reset_at = object.headers['rate_limit_reset']
       self
     end
   end

@@ -80,7 +80,7 @@ module TwitterAds
 
     def http_request
       request_url = @resource
-      if @options[:params] && @options[:params].size > 0
+      if @options[:params] && !@options[:params].empty?
         request_url += "?#{URI.encode_www_form(@options[:params])}"
       end
 
@@ -108,7 +108,7 @@ module TwitterAds
       object.each { |header| @client.logger.info("Header: #{header}: #{object[header]}") }
 
       # suppresses body content for non-Ads API domains (eg. upload.twitter.com)
-      if object.body && object.body.size > 0
+      if object.body && !object.body.empty?
         if @domain == SANDBOX_DOMAIN || @domain == DEFAULT_DOMAIN
           @client.logger.info("Body: #{object.body}")
         else
