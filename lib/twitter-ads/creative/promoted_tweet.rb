@@ -78,7 +78,7 @@ module TwitterAds
                        parameter: 'tweet_id' }
         end
 
-        raise TwitterAds::ClientError.new(nil, details, 400) unless details.size == 0
+        raise TwitterAds::ClientError.new(nil, details, 400) unless details.empty?
       end
 
     end

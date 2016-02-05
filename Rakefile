@@ -59,7 +59,7 @@ unless ENV['CI']
 
     desc 'Builds and deploys the latest SDK docs'
     task :deploy do
-      if git.status.changed.size > 0
+      unless git.status.changed.empty?
         puts 'Error! Cannot proceeed, you have pending changes.'.colorize(color: :red).bold
         abort
       end
