@@ -52,7 +52,8 @@ module TwitterAds
         # @since 0.1.0
         # @see https://dev.twitter.com/ads/reference/get/line_items/placements
         def valid_combinations(client, product_type)
-          TwitterAds::Utils.deprecated('Placement#valid_combinations', 'LineItem#placements')
+          TwitterAds::Utils.deprecated(
+            'Placement#valid_combinations', replacement: 'LineItem#placements')
           TwitterAds::LineItem.placements(client, product_type)
         end
 
