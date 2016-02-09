@@ -204,7 +204,7 @@ module TwitterAds
       response.body[:data]
     end
 
-    def authenticated_user_access()
+    def authenticated_user_access
       params = {}
       resource = AUTHENTICATED_USER_ACCESS % { id: @id }
       request  = Request.new(client, :get, resource, params: params)
