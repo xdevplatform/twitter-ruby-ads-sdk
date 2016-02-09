@@ -52,6 +52,13 @@ module TwitterAds
       def fetch(account, product_type, objective, user_id, opts = {})
         resource = "/0/accounts/#{account.id}/reach_estimate"
         params = { product_type: product_type, objective: objective, user_id: user_id }.merge!(opts)
+
+        # The response value count is "bid sensitive", we default to bid_type=AUTO here to preserve
+        # expected behavior despite an API change that occurred in December 2015.
+        unless params.keys.include?(:bid_type) || params.keys.include?(:bid_amount_local_micro)
+          params = { bid_type: 'AUTO' }.merge!(params)
+        end
+
         response = TwitterAds::Request.new(account.client, :get, resource, params: params).perform
         response.body[:data]
       end

@@ -14,19 +14,15 @@ module TwitterAds
       TWEET_ENGAGEMENTS = 'TWEET_ENGAGEMENTS'.freeze
       VIDEO_VIEWS       = 'VIDEO_VIEWS'.freeze
       WEBSITE_CLICKS    = 'WEBSITE_CLICKS'.freeze
-      CUSTOM            = 'CUSTOM'.freeze
-    end
 
-    # TODO: legacy namespace support, to be removed in v1.0.0 (next major)
-    TwitterAds::Objective = TwitterAds::Enum::Objective
+      # @deprecated
+      CUSTOM = 'CUSTOM'.freeze
+    end
 
     module Product
       PROMOTED_ACCOUNT = 'PROMOTED_ACCOUNT'.freeze
       PROMOTED_TWEETS  = 'PROMOTED_TWEETS'.freeze
     end
-
-    # TODO: legacy namespace support, to be removed in v1.0.0 (next major)
-    TwitterAds::Product = TwitterAds::Enum::Product
 
     module Placement
       ALL_ON_TWITTER    = 'ALL_ON_TWITTER'.freeze
@@ -52,15 +48,13 @@ module TwitterAds
         # @since 0.1.0
         # @see https://dev.twitter.com/ads/reference/get/line_items/placements
         def valid_combinations(client, product_type)
-          TwitterAds::Utils.deprecated('Placement#valid_combinations', 'LineItem#placements')
+          TwitterAds::Utils.deprecated(
+            'Placement#valid_combinations', replacement: 'LineItem#placements')
           TwitterAds::LineItem.placements(client, product_type)
         end
 
       end
     end
-
-    # TODO: legacy namespace support, to be removed in v1.0.0 (next major)
-    TwitterAds::Placement = TwitterAds::Enum::Placement
 
     module BidUnit
       APP_CLICK   = 'APP_CLICK'.freeze
@@ -116,6 +110,11 @@ module TwitterAds
       HOLIDAY                 = 'HOLIDAY'.freeze
       CONFERENCE              = 'CONFERENCE'.freeze
       OTHER                   = 'OTHER'.freeze
+    end
+
+    module Sentiment
+      ALL = 'ALL'.freeze
+      POSITIVE_ONLY = 'POSITIVE_ONLY'.freeze
     end
 
     module TAListTypes

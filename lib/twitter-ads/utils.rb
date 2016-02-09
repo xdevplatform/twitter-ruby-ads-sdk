@@ -59,15 +59,15 @@ module TwitterAds
       #
       # @param name [String] The name of the object or method being deprecated.
       # @param replacement [String] The name of the new object or method (optional).
+      # @param refer [String] HTTP address with supporting information (optional).
       #
       # @api private
       # @since 0.3.2
-      def deprecated(name, replacement = nil)
-        if replacement
-          warn "[DEPRECATED] #{name} has been deprecated (please use #{replacement})."
-        else
-          warn "[DEPRECATED] #{name} has been deprecated."
-        end
+      def deprecated(name, opts = {})
+        message = String.new("[DEPRECATED] #{name} has been deprecated")
+        message += opts[:replacement] ? " (please use #{opts[:replacement]})." : '.'
+        message += " Please see #{opts[:refer]} for more info." if opts[:refer]
+        warn message
       end
 
     end
