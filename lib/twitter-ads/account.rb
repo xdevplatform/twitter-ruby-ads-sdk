@@ -21,6 +21,7 @@ module TwitterAds
     RESOURCE            = '/0/accounts/%{id}'.freeze # @api private
     FEATURES            = '/0/accounts/%{id}/features'.freeze # @api private
     SCOPED_TIMELINE     = '/0/accounts/%{id}/scoped_timeline'.freeze # @api private
+    AUTHENTICATED_USER_ACCESS = '/0/accounts/%{id}/authenticated_user_access'.freeze # @api private
 
     def initialize(client)
       @client = client
@@ -198,6 +199,14 @@ module TwitterAds
       ids      = ids.join(',') if ids.is_a?(Array)
       params   = { user_ids: ids }.merge!(opts)
       resource = SCOPED_TIMELINE % { id: @id }
+      request  = Request.new(client, :get, resource, params: params)
+      response = request.perform
+      response.body[:data]
+    end
+
+    def authenticated_user_access()
+      params = {}
+      resource = AUTHENTICATED_USER_ACCESS % { id: @id }
       request  = Request.new(client, :get, resource, params: params)
       response = request.perform
       response.body[:data]
