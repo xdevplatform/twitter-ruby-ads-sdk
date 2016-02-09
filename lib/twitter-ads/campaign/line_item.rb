@@ -12,9 +12,9 @@ module TwitterAds
     attr_reader :account
 
     property :id, read_only: true
+    property :deleted, type: :bool, read_only: true
     property :created_at, type: :time, read_only: true
     property :updated_at, type: :time, read_only: true
-    property :deleted, type: :bool, read_only: true
 
     property :name
     property :campaign_id
@@ -40,6 +40,15 @@ module TwitterAds
     def initialize(account)
       @account = account
       self
+    end
+
+    # Overload for CUSTOM objective deprecation warning.
+    # @private
+    def objective=(value)
+      if value == TwitterAds::Objective::CUSTOM
+        TwitterAds::Utils.deprecated('TwitterAds::Objective::CUSTOM')
+      end
+      @objective = value
     end
 
     class << self
