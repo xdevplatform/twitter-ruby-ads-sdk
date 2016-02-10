@@ -150,6 +150,35 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#retry_after-instance_method" title="#retry_after (instance method)">- (Object) <strong>retry_after</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute retry_after.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -248,14 +277,16 @@
 86
 87
 88
-89</pre>
+89
+90</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/twitter-ads/error.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
   <span class='kw'>super</span> <span class='id identifier rubyid_object'>object</span>
-  <span class='ivar'>@reset_at</span> <span class='op'>=</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_rate_limit_reset'>rate_limit_reset</span>
+  <span class='ivar'>@retry_after</span> <span class='op'>=</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>retry-after</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@reset_at</span> <span class='op'>=</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rate_limit_reset</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -311,13 +342,56 @@
 </table>
 </div>
     
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="retry_after-instance_method">
+  
+    - (<tt>Object</tt>) <strong>retry_after</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute retry_after</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/error.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_retry_after'>retry_after</span>
+  <span class='ivar'>@retry_after</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
 </div>
 
     <div id="footer">
-  Generated on Wed Jan 20 14:29:31 2016 by
+  Generated on Tue Feb  9 16:54:04 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.3.0).
 </div>

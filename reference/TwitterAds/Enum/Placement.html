@@ -259,16 +259,18 @@
       <pre class="lines">
 
 
-54
-55
-56
-57</pre>
+50
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/enum.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/enum.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid_combinations'>valid_combinations</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='id identifier rubyid_product_type'>product_type</span><span class='rparen'>)</span>
-  <span class='const'>TwitterAds</span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_deprecated'>deprecated</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Placement#valid_combinations</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LineItem#placements</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='const'>TwitterAds</span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_deprecated'>deprecated</span><span class='lparen'>(</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Placement#valid_combinations</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>replacement:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LineItem#placements</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>TwitterAds</span><span class='op'>::</span><span class='const'>LineItem</span><span class='period'>.</span><span class='id identifier rubyid_placements'>placements</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='id identifier rubyid_product_type'>product_type</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -281,7 +283,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Jan 20 14:29:31 2016 by
+  Generated on Tue Feb  9 16:54:03 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.3.0).
 </div>
