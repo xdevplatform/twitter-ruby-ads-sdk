@@ -39,7 +39,7 @@ module TwitterAds
         resource = opts.key?(:id) ? RESOURCE : RESOURCE_COLLECTION
         resource = resource % { account_id: account.id, id: opts.delete(:id) }
 
-        # url encodes statuss message if present
+        # url encodes status message if present
         opts[:status] = URI.escape(opts[:status]) if opts.key?(:status)
 
         # handles array to string conversion for media IDs
