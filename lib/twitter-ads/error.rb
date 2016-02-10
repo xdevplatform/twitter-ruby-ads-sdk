@@ -21,7 +21,7 @@ module TwitterAds
     end
 
     def inspect
-      str = "#<#{self.class.name}:0x#{object_id}"
+      str = String.new("#<#{self.class.name}:0x#{object_id}")
       str << " code=#{@code}" if @code
       str << " details=\"#{@details}\"" if @details
       str << '>'

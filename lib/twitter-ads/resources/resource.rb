@@ -40,7 +40,7 @@ module TwitterAds
       #
       # @since 0.1.0
       def inspect
-        str = "#<#{self.class.name}:0x#{object_id}"
+        str = String.new("#<#{self.class.name}:0x#{object_id}")
         str << " id=\"#{@id}\"" if @id
         str << ' deleted="true"' if @deleted
         str << '>'
