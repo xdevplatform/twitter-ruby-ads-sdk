@@ -39,6 +39,7 @@ module TwitterAds
 
       @client    = client
       @bucket    = opts.delete(:bucket) || DEFAULT_BUCKET
+      @min_file_size = opts.delete(:min_file_size) || MIN_FILE_SIZE
       @options   = opts
       self
     end
@@ -53,7 +54,7 @@ module TwitterAds
     #
     # @return [String] The upload location provided by the TON API.
     def perform
-      if @file_size < MIN_FILE_SIZE
+      if @file_size < @min_file_size
         resource = "#{DEFAULT_RESOURCE}#{@bucket}"
         response = upload(resource, File.read(@file_path))
         response.headers['location'][0]
