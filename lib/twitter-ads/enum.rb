@@ -76,6 +76,11 @@ module TwitterAds
       VIEW        = 'VIEW'.freeze
     end
 
+    module CreativeType
+      BANNER       = 'BANNER'.freeze
+      INTERSTITIAL = 'INTERSTITIAL'.freeze
+    end
+
     module Optimizations
       DEFAULT             = 'DEFAULT'.freeze
       WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'.freeze
