@@ -18,6 +18,7 @@ matrix:
       jdk: oraclejdk7
     - rvm: jruby-head
       jdk: oraclejdk8
+    - rvm: rbx
   include:
     - rvm: 2.0.0
     - rvm: 2.1
