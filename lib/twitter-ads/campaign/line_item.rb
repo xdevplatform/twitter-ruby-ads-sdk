@@ -33,6 +33,11 @@ module TwitterAds
     property :bid_amount_local_micro
     property :total_budget_amount_local_micro
 
+    # beta (not yet generally available)
+    property :advertiser_user_id
+    property :bid_type
+    property :tracking_tags
+
     RESOURCE_COLLECTION = '/0/accounts/%{account_id}/line_items'.freeze # @api private
     RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/line_items'.freeze # @api private
     RESOURCE            = '/0/accounts/%{account_id}/line_items/%{id}'.freeze # @api private

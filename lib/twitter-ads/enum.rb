@@ -66,6 +66,12 @@ module TwitterAds
       VIEW        = 'VIEW'.freeze
     end
 
+    module BidType
+      MAX    = 'MAX'.freeze
+      AUTO   = 'AUTO'.freeze
+      TARGET = 'TARGET'.freeze
+    end
+
     module ChargeBy
       APP_CLICK   = 'APP_CLICK'.freeze
       APP_INSTALL = 'APP_INSTALL'.freeze
@@ -134,6 +140,10 @@ module TwitterAds
       ADD = 'ADD'.freeze
       REMOVE  = 'REMOVE'.freeze
       REPLACE = 'REPLACE'.freeze
+    end
+
+    module TrackingPartner
+      DOUBLE_CLICK = 'DOUBLE_CLICK'.freeze
     end
 
   end
