@@ -81,6 +81,7 @@ module TwitterAds
       LEAD        = 'LEAD'.freeze
       LINK_CLICK  = 'LINK_CLICK'.freeze
       VIEW        = 'VIEW'.freeze
+      VIEW_3S_100PCT = 'VIEW_3S_100PCT'.freeze
     end
 
     module CreativeType
