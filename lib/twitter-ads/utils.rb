@@ -28,11 +28,8 @@ module TwitterAds
       # @api private
       # @since 0.1.0
       def to_time(time, granularity = nil)
-        return time.iso8601 unless granularity
-        if granularity == :hour
+        if [:hour, :day].include? granularity
           Time.new(time.year, time.month, time.day, time.hour).iso8601
-        elsif granularity == :day
-          Time.new(time.year, time.month, time.day).iso8601
         else
           time.iso8601
         end
