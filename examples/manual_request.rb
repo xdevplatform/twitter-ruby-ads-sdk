@@ -23,7 +23,7 @@ account = client.accounts(ADS_ACCOUNT)
 # using the TwitterAds::Request object you can manually request any
 # twitter ads api resource that you want.
 
-resource = "/0/accounts/#{account.id}/features"
+resource = "/1/accounts/#{account.id}/features"
 params   = { feature_keys: 'AGE_TARGETING,CPI_CHARGING' }
 
 # build and execute the request
@@ -33,7 +33,7 @@ response['data'].first
 # you can also manually construct requests to be
 # used in TwitterAds::Cursor object.
 
-resource = '/0/targeting_criteria/locations'
+resource = '/1/targeting_criteria/locations'
 params   = { location_type: 'CITY', q: 'port' }
 request  = TwitterAds::Request.new(client, :get, resource, params: params)
 cursor   = TwitterAds::Cursor.new(nil, request)

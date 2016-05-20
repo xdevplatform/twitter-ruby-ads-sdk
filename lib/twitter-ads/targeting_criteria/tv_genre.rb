@@ -10,7 +10,7 @@ module TwitterAds
     property :id, read_only: true
     property :name, read_only: true
 
-    RESOURCE_COLLECTION = '/0/targeting_criteria/tv_genres'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/targeting_criteria/tv_genres'.freeze # @api private
 
     def initialize(account)
       @account = account
