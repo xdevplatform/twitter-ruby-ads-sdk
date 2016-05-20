@@ -27,9 +27,9 @@ module TwitterAds
     property :daily_budget_amount_local_micro
     property :total_budget_amount_local_micro
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/campaigns'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/campaigns'.freeze # @api private
     RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/campaigns'.freeze # @api private
-    RESOURCE            = '/0/accounts/%{account_id}/campaigns/%{id}'.freeze # @api private
+    RESOURCE            = '/1/accounts/%{account_id}/campaigns/%{id}'.freeze # @api private
 
     def initialize(account)
       @account = account

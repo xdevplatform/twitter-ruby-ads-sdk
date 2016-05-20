@@ -13,8 +13,8 @@ module TwitterAds
     property :apps, read_only: true
     property :name, read_only: true
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/app_lists'.freeze # @api private
-    RESOURCE            = '/0/accounts/%{account_id}/app_lists/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/app_lists'.freeze # @api private
+    RESOURCE            = '/1/accounts/%{account_id}/app_lists/%{id}'.freeze # @api private
 
     def initialize(account)
       @account = account

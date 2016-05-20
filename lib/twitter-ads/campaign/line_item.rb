@@ -38,9 +38,10 @@ module TwitterAds
     property :bid_type
     property :tracking_tags
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/line_items'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/line_items'.freeze # @api private
     RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/line_items'.freeze # @api private
-    RESOURCE            = '/0/accounts/%{account_id}/line_items/%{id}'.freeze # @api private
+    RESOURCE            = '/1/accounts/%{account_id}/line_items/%{id}'.freeze # @api private
+    RESOURCE_PLACEMENTS = '/1/line_items/placements'.freeze # @api private
 
     def initialize(account)
       @account = account
@@ -70,9 +71,8 @@ module TwitterAds
       # @since 0.3.2
       # @see https://dev.twitter.com/ads/reference/get/line_items/placements
       def placements(client, product_type = nil)
-        resource = '/0/line_items/placements'
         params   = { product_type: product_type } if product_type
-        response = TwitterAds::Request.new(client, :get, resource, params: params).perform
+        response = TwitterAds::Request.new(client, :get, RESOURCE_PLACEMENTS, params: params).perform
         response.body[:data][0][:placements]
       end
 

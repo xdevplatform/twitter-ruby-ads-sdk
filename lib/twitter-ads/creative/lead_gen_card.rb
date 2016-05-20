@@ -32,8 +32,8 @@ module TwitterAds
       property :custom_key_name
       property :custom_key_email
 
-      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/cards/lead_gen'.freeze # @api private
-      RESOURCE            = '/0/accounts/%{account_id}/cards/lead_gen/%{id}'.freeze # @api private
+      RESOURCE_COLLECTION = '/1/accounts/%{account_id}/cards/lead_gen'.freeze # @api private
+      RESOURCE            = '/1/accounts/%{account_id}/cards/lead_gen/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account

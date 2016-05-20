@@ -1,0 +1,15 @@
+./app_store_category.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/app_store_categories'.freeze # @api private
+./behavior.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/behaviors'.freeze # @api private
+./behavior_taxonomy.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/behavior_taxonomies'.freeze # @api private
+./device.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/devices'.freeze # @api private
+./event.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/events'.freeze # @api private
+./interest.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/interests'.freeze # @api private
+./language.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/languages'.freeze # @api private
+./location.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/locations'.freeze # @api private
+./network_operator.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/network_operators'.freeze # @api private
+./platform.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/platforms'.freeze # @api private
+./platform_version.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/platform_versions'.freeze # @api private
+./tv_channel.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/tv_channels'.freeze # @api private
+./tv_genre.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/tv_genres'.freeze # @api private
+./tv_market.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/tv_markets'.freeze # @api private
+./tv_show.rb:    RESOURCE_COLLECTION = '/0/targeting_criteria/tv_shows'.freeze # @api private

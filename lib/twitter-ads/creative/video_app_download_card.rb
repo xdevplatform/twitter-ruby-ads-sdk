@@ -33,8 +33,8 @@ module TwitterAds
       property :video_id
 
       RESOURCE_COLLECTION =
-        '/0/accounts/%{account_id}/cards/video_app_download'.freeze # @api private
-      RESOURCE = '/0/accounts/%{account_id}/cards/video_app_download/%{id}'.freeze # @api private
+        '/1/accounts/%{account_id}/cards/video_app_download'.freeze # @api private
+      RESOURCE = '/1/accounts/%{account_id}/cards/video_app_download/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account

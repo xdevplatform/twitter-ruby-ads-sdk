@@ -25,11 +25,11 @@ module TwitterAds
     property :targetable, type: :bool, read_only: true
     property :targetable_types, read_only: true
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/tailored_audiences'.freeze # @api private
-    RESOURCE = '/0/accounts/%{account_id}/tailored_audiences/%{id}'.freeze # @api private
-    RESOURCE_UPDATE = '/0/accounts/%{account_id}/tailored_audience_changes'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/tailored_audiences'.freeze # @api private
+    RESOURCE = '/1/accounts/%{account_id}/tailored_audiences/%{id}'.freeze # @api private
+    RESOURCE_UPDATE = '/1/accounts/%{account_id}/tailored_audience_changes'.freeze # @api private
     GLOBAL_OPT_OUT =
-      '/0/accounts/%{account_id}/tailored_audiences/global_opt_out'.freeze # @api private
+      '/1/accounts/%{account_id}/tailored_audiences/global_opt_out'.freeze # @api private
 
     LIST_TYPES = %w(
       EMAIL

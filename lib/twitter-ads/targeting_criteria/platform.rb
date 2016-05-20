@@ -12,7 +12,7 @@ module TwitterAds
     property :targeting_value, read_only: true
     property :localized_name, read_only: true
 
-    RESOURCE_COLLECTION = '/0/targeting_criteria/platforms'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/targeting_criteria/platforms'.freeze # @api private
 
     def initialize(account)
       @account = account

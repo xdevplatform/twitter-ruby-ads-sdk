@@ -23,8 +23,8 @@ module TwitterAds
       property :account_media_id
       property :landing_url
 
-      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/media_creatives'.freeze # @api private
-      RESOURCE = '/0/accounts/%{account_id}/media_creatives/%{id}'.freeze # @api private
+      RESOURCE_COLLECTION = '/1/accounts/%{account_id}/media_creatives'.freeze # @api private
+      RESOURCE = '/1/accounts/%{account_id}/media_creatives/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account
