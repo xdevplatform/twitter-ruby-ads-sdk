@@ -6,7 +6,7 @@ gem 'rake'
 
 group :development, :test do
   gem 'faker'
-  gem 'rubocop', '~>0.35'
+  gem 'rubocop', '0.38.0' # locked for style changes
   gem 'rspec'
   gem 'cucumber'
   gem 'webmock'
