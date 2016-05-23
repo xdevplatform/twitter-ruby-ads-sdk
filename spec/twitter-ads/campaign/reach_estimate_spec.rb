@@ -24,7 +24,7 @@ describe TwitterAds::ReachEstimate do
   describe '#fetch' do
 
     let!(:resource) { "#{ADS_API}/accounts/#{account.id}/reach_estimate" }
-    let!(:rel_path) { "/0/accounts/#{account.id}/reach_estimate" }
+    let!(:rel_path) { "/1/accounts/#{account.id}/reach_estimate" }
 
     before(:each) do
       stub_fixture(:get, :reach_estimate, /#{resource}\?.*/)
