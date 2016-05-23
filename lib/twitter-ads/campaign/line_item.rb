@@ -72,7 +72,8 @@ module TwitterAds
       # @see https://dev.twitter.com/ads/reference/get/line_items/placements
       def placements(client, product_type = nil)
         params   = { product_type: product_type } if product_type
-        response = TwitterAds::Request.new(client, :get, RESOURCE_PLACEMENTS, params: params).perform
+        response = TwitterAds::Request.new(client, :get,
+                                           RESOURCE_PLACEMENTS, params: params).perform
         response.body[:data][0][:placements]
       end
 
