@@ -48,15 +48,6 @@ module TwitterAds
       self
     end
 
-    # Overload for CUSTOM objective deprecation warning.
-    # @private
-    def objective=(value)
-      if value == TwitterAds::Objective::CUSTOM
-        TwitterAds::Utils.deprecated('TwitterAds::Objective::CUSTOM')
-      end
-      @objective = value
-    end
-
     class << self
 
       # Helper method to return a list a valid placement combinations by Product.

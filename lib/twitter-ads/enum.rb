@@ -15,8 +15,6 @@ module TwitterAds
       VIDEO_VIEWS       = 'VIDEO_VIEWS'.freeze
       WEBSITE_CLICKS    = 'WEBSITE_CLICKS'.freeze
 
-      # @deprecated
-      CUSTOM = 'CUSTOM'.freeze
     end
 
     module Product

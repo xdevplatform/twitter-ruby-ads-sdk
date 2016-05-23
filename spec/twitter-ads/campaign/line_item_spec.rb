@@ -70,26 +70,4 @@ describe TwitterAds::LineItem do
 
   end
 
-  describe '#objective=' do
-
-    context 'when using TwitterAds::Objective::CUSTOM' do
-
-      it 'raises a warning message' do
-        expect(TwitterAds::Utils).to receive(:deprecated).with('TwitterAds::Objective::CUSTOM')
-        subject.objective = TwitterAds::Objective::CUSTOM
-      end
-
-    end
-
-    context 'when using any object other than TwitterAds::Objective::CUSTOM' do
-
-      it 'does not raise a warning message' do
-        expect(TwitterAds::Utils).not_to receive(:deprecated).with(any_args)
-        subject.objective = TwitterAds::Objective::VIDEO_VIEWS
-      end
-
-    end
-
-  end
-
 end
