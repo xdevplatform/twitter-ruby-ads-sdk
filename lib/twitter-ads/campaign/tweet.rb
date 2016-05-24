@@ -7,10 +7,10 @@ module TwitterAds
     # cannot instaniate Tweet, only including class methods for stats
     extend TwitterAds::Analytics::ClassMethods
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/tweet/preview'.freeze # @api private
-    RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/organic_tweets'.freeze # @api private
-    RESOURCE            = '/0/accounts/%{account_id}/tweet/preview/%{id}'.freeze # @api private
-    RESOURCE_CREATE     = '/0/accounts/%{account_id}/tweet'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/tweet/preview'.freeze # @api private
+    RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
+    RESOURCE            = '/1/accounts/%{account_id}/tweet/preview/%{id}'.freeze # @api private
+    RESOURCE_CREATE     = '/1/accounts/%{account_id}/tweet'.freeze # @api private
 
     class << self
 

@@ -28,7 +28,7 @@ include TwitterAds
 # Require All Support Files
 Dir['./spec/support/*.rb'].sort.each { |file| require file }
 
-ADS_API    = 'https://ads-api.twitter.com/0'.freeze
+ADS_API    = 'https://ads-api.twitter.com/1'.freeze
 TON_API    = 'https://ton.twitter.com'.freeze
 UPLOAD_API = 'https://upload.twitter.com/1.1'.freeze
 

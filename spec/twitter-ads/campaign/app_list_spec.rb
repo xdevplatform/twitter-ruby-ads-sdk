@@ -31,7 +31,7 @@ describe TwitterAds::AppList do
 
     let(:app_list) { TwitterAds::AppList.new(account) }
     let!(:resource) { "#{ADS_API}/accounts/#{account.id}/app_lists" }
-    let!(:rel_path) { "/0/accounts/#{account.id}/app_lists" }
+    let!(:rel_path) { "/1/accounts/#{account.id}/app_lists" }
 
     before(:each) do
       stub_fixture(:post, :app_lists_load, /#{resource}\?.*/)

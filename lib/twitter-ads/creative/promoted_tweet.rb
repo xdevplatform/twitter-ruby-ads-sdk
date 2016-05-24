@@ -23,9 +23,9 @@ module TwitterAds
       property :tweet_id
       property :paused, type: :bool
 
-      RESOURCE_COLLECTION = '/0/accounts/%{account_id}/promoted_tweets'.freeze # @api private
-      RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/promoted_tweets'.freeze # @api private
-      RESOURCE            = '/0/accounts/%{account_id}/promoted_tweets/%{id}'.freeze # @api private
+      RESOURCE_COLLECTION = '/1/accounts/%{account_id}/promoted_tweets'.freeze # @api private
+      RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
+      RESOURCE            = '/1/accounts/%{account_id}/promoted_tweets/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account

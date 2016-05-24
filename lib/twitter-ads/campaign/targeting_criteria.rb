@@ -23,8 +23,8 @@ module TwitterAds
     property :tailored_audience_expansion, type: :bool
     property :tailored_audience_type
 
-    RESOURCE_COLLECTION = '/0/accounts/%{account_id}/targeting_criteria'.freeze # @api private
-    RESOURCE            = '/0/accounts/%{account_id}/targeting_criteria/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/targeting_criteria'.freeze # @api private
+    RESOURCE            = '/1/accounts/%{account_id}/targeting_criteria/%{id}'.freeze # @api private
 
     def initialize(account)
       @account = account

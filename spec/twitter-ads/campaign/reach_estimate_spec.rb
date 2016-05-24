@@ -24,7 +24,7 @@ describe TwitterAds::ReachEstimate do
   describe '#fetch' do
 
     let!(:resource) { "#{ADS_API}/accounts/#{account.id}/reach_estimate" }
-    let!(:rel_path) { "/0/accounts/#{account.id}/reach_estimate" }
+    let!(:rel_path) { "/1/accounts/#{account.id}/reach_estimate" }
 
     before(:each) do
       stub_fixture(:get, :reach_estimate, /#{resource}\?.*/)
@@ -32,22 +32,23 @@ describe TwitterAds::ReachEstimate do
 
     it 'creates proper get request with no optional parameters specified' do
       expected = { product_type: 'PROMOTED_TWEETS', objective: 'WEBSITE_CLICKS',
-                   user_id: 12, bid_type: 'AUTO' }
+                   campaign_daily_budget_amount_local_micro: 30000000, bid_type: 'AUTO' }
       args = [account.client, :get, rel_path, params: expected]
 
       expect(Request).to receive(:new).with(*args).and_call_original
-      TwitterAds::ReachEstimate.fetch(account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 12)
+      TwitterAds::ReachEstimate.fetch(account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 30000000)
     end
 
     it 'creates proper get request when optional paremeters are specified' do
 
       expected = { product_type: 'PROMOTED_TWEETS', objective: 'WEBSITE_CLICKS',
-                   user_id: 12, similar_to_followers_of_user: '12', gender: '2', bid_type: 'AUTO' }
+                   campaign_daily_budget_amount_local_micro: 30000000,
+                   similar_to_followers_of_user: '12', gender: '2', bid_type: 'AUTO' }
       args = [account.client, :get, rel_path, params: expected]
 
       expect(Request).to receive(:new).with(*args).and_call_original
       TwitterAds::ReachEstimate.fetch(
-        account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 12,
+        account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 30000000,
         similar_to_followers_of_user: '12', gender: '2')
 
     end
@@ -56,11 +57,12 @@ describe TwitterAds::ReachEstimate do
 
       it 'defaults bid_type to AUTO for backward compatibility' do
         expected = { product_type: 'PROMOTED_TWEETS', objective: 'WEBSITE_CLICKS',
-                     user_id: 12, bid_type: 'AUTO' }
+                     campaign_daily_budget_amount_local_micro: 30000000,
+                     bid_type: 'AUTO' }
         args = [account.client, :get, rel_path, params: expected]
 
         expect(Request).to receive(:new).with(*args).and_call_original
-        TwitterAds::ReachEstimate.fetch(account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 12)
+        TwitterAds::ReachEstimate.fetch(account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 30000000)
       end
 
     end
@@ -69,12 +71,14 @@ describe TwitterAds::ReachEstimate do
 
       it 'does not default bid_type to AUTO' do
         expected = { product_type: 'PROMOTED_TWEETS', objective: 'WEBSITE_CLICKS',
-                     user_id: 12, bid_type: 'MAX' }
+                     bid_amount_local_micro: 3000000,
+                     campaign_daily_budget_amount_local_micro: 30000000, bid_type: 'MAX' }
         args = [account.client, :get, rel_path, params: expected]
 
         expect(Request).to receive(:new).with(*args).and_call_original
         TwitterAds::ReachEstimate.fetch(
-          account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 12, bid_type: 'MAX')
+          account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 30000000,
+          bid_amount_local_micro: 3000000, bid_type: 'MAX')
       end
 
     end
@@ -83,12 +87,13 @@ describe TwitterAds::ReachEstimate do
 
       it 'does not default bid_type to AUTO' do
         expected = { product_type: 'PROMOTED_TWEETS', objective: 'WEBSITE_CLICKS',
-                     user_id: 12, bid_amount_local_micro: 1500000 }
+                     bid_amount_local_micro: 1500000,
+                     campaign_daily_budget_amount_local_micro: 30000000 }
         args = [account.client, :get, rel_path, params: expected]
 
         expect(Request).to receive(:new).with(*args).and_call_original
         TwitterAds::ReachEstimate.fetch(
-          account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 12, bid_amount_local_micro: 1500000)
+          account, 'PROMOTED_TWEETS', 'WEBSITE_CLICKS', 30000000, bid_amount_local_micro: 1500000)
       end
 
     end

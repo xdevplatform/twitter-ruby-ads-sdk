@@ -13,20 +13,20 @@ module TwitterAds
       #     account,
       #     'PROMOTED_TWEETS',
       #     'WEBSITE_CLICKS',
-      #     2153688540,
+      #     5500000,
+      #     30000000,
       #     similar_to_followers_of_user: 2153688540,
       #     gender: 2
       #   )
       #
       # @param client [Client] The Client object instance.
-      # @param account [Account] The Ads Account instance for this request.
       # @param product_type [String] The product type being targeted.
       # @param objective [String] The objective being targeted.
-      # @param user_id [Long] The ID of the user whose content will be promoted.
+      # @param campaign_daily_budget_amount_local_micro [Long] Daily budget in micros.
       # @param opts [Hash] A Hash of extended options.
       #
-      # @option opts [String] :bid_type The bidding mechanism.
       # @option opts [Long] :bid_amount_local_micro Bid amount in local currency micros.
+      # @option opts [String] :bid_type The bidding mechanism.
       # @option opts [String] :currency ISO-4217 Currency code for bid amount.
       # @option opts [String] :followers_of_users Comma-separated user IDs.
       # @option opts [String] :similar_to_followers_of_users Comma-separated user IDs.
@@ -44,14 +44,20 @@ module TwitterAds
       # @option opts [String] :campaign engagement Campaign ID for Tweet Engager Retargeting.
       # @option opts [String] :user_engagement Promoted User ID for Tweet Engager Retargeting.
       # @option opts [String] :engagement_type engagement type for Tweet Engager Retargeting.
+      # @option opts [String] :network_operators Network operators to target
+      # @option opts [String] :app_store_categories App store categories to target.
+      # @option opts [String] :app_store_categories_expanded App store categories with lookalikes.
       #
       # @return [Hash] A hash containing count and infinite_bid_count.
       #
       # @since 0.2.0
-      # @see https://dev.twitter.com/ads/reference/get/accounts/%3Aaccount_id/reach_estimate
-      def fetch(account, product_type, objective, user_id, opts = {})
-        resource = "/0/accounts/#{account.id}/reach_estimate"
-        params = { product_type: product_type, objective: objective, user_id: user_id }.merge!(opts)
+      # @see https://dev.twitter.com/ads/reference/1/get/accounts/%3Aaccount_id/reach_estimate
+      def fetch(account, product_type, objective, campaign_daily_budget,
+                opts = {})
+        resource = "/1/accounts/#{account.id}/reach_estimate"
+        params = { product_type: product_type, objective: objective,
+                   campaign_daily_budget_amount_local_micro: campaign_daily_budget
+                 }.merge!(opts)
 
         # The response value count is "bid sensitive", we default to bid_type=AUTO here to preserve
         # expected behavior despite an API change that occurred in December 2015.
@@ -59,7 +65,8 @@ module TwitterAds
           params = { bid_type: 'AUTO' }.merge!(params)
         end
 
-        response = TwitterAds::Request.new(account.client, :get, resource, params: params).perform
+        response = TwitterAds::Request.new(account.client, :get,
+                                           resource, params: params).perform
         response.body[:data]
       end
 

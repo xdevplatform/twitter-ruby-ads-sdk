@@ -13,7 +13,7 @@ module TwitterAds
     property :created_at, read_only: true
     property :updated_at, read_only: true
 
-    RESOURCE_COLLECTION = '/0/targeting_criteria/behavior_taxonomies'.freeze # @api private
+    RESOURCE_COLLECTION = '/1/targeting_criteria/behavior_taxonomies'.freeze # @api private
 
     def initialize(account)
       @account = account
