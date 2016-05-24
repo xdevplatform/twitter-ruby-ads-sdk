@@ -103,9 +103,9 @@ module TwitterAds
       load_resource(PromotableUser, id, opts)
     end
 
-    # Returns a collection of promotable users available to the current account.
+    # Returns a collection of promoted tweets available to the current account.
     #
-    # @param id [String] The PromotableTweet ID value.
+    # @param id [String] The PromotedTweet ID value.
     # @param opts [Hash] A Hash of extended options.
     # @option opts [String] :line_item_ids Scope the result to collection of line item IDs.
     # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
