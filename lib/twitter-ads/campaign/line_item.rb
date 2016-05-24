@@ -39,7 +39,7 @@ module TwitterAds
     property :tracking_tags
 
     RESOURCE_COLLECTION = '/1/accounts/%{account_id}/line_items'.freeze # @api private
-    RESOURCE_STATS      = '/0/stats/accounts/%{account_id}/line_items'.freeze # @api private
+    RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
     RESOURCE            = '/1/accounts/%{account_id}/line_items/%{id}'.freeze # @api private
     RESOURCE_PLACEMENTS = '/1/line_items/placements'.freeze # @api private
 
