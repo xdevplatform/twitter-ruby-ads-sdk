@@ -29,7 +29,8 @@ module TwitterAds
 
     RESOURCE_COLLECTION = '/1/accounts/%{account_id}/campaigns'.freeze # @api private
     RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
-    RESOURCE            = '/1/accounts/%{account_id}/campaigns/%{id}'.freeze # @api private
+    RESOURCE_ASYNC_STATS = '/1/stats/jobs/accounts/%{account_id}'.freeze # @api private
+    RESOURCE = '/1/accounts/%{account_id}/campaigns/%{id}'.freeze # @api private
 
     def initialize(account)
       @account = account
