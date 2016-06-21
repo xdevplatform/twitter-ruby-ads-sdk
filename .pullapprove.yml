@@ -6,6 +6,8 @@ reviewers:
   members:
   - brandonblack
   - jaakko-sf
+  - hwz
+  - jbabichjapan
   name: dpr-ads-leads
   required: 1
 
