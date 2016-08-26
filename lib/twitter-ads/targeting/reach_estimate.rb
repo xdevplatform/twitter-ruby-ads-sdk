@@ -55,9 +55,11 @@ module TwitterAds
       def fetch(account, product_type, objective, campaign_daily_budget,
                 opts = {})
         resource = "/1/accounts/#{account.id}/reach_estimate"
-        params = { product_type: product_type, objective: objective,
-                   campaign_daily_budget_amount_local_micro: campaign_daily_budget
-                 }.merge!(opts)
+        params = {
+          product_type: product_type,
+          objective: objective,
+          campaign_daily_budget_amount_local_micro: campaign_daily_budget
+        }.merge!(opts)
 
         # The response value count is "bid sensitive", we default to bid_type=AUTO here to preserve
         # expected behavior despite an API change that occurred in December 2015.
