@@ -67,7 +67,7 @@ module TwitterAds
 
       def stats(account, ids, metric_groups, opts = {})
         # set default metric values
-        end_time          = opts.fetch(:end_time, Date.today.to_time)
+        end_time          = opts.fetch(:end_time, (Time.now - Time.now.sec - (60 * Time.now.min)))
         start_time        = opts.fetch(:start_time, end_time - 7.days)
         granularity       = opts.fetch(:granularity, :hour)
         placement         = opts.fetch(:placement, Placement::ALL_ON_TWITTER)
@@ -114,7 +114,7 @@ module TwitterAds
 
       def create_async_job(account, ids, metric_groups, opts = {})
         # set default metric values
-        end_time          = opts.fetch(:end_time, Date.today.to_time)
+        end_time          = opts.fetch(:end_time, (Time.now - Time.now.sec - (60 * Time.now.min)))
         start_time        = opts.fetch(:start_time, end_time - 7.days)
         granularity       = opts.fetch(:granularity, :hour)
         placement         = opts.fetch(:placement, Placement::ALL_ON_TWITTER)
