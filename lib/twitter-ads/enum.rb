@@ -7,13 +7,14 @@ module TwitterAds
   module Enum
 
     module Objective
-      APP_ENGAGEMENTS   = 'APP_ENGAGEMENTS'.freeze
-      APP_INSTALLS      = 'APP_INSTALLS'.freeze
-      FOLLOWERS         = 'FOLLOWERS'.freeze
-      LEAD_GENERATION   = 'LEAD_GENERATION'.freeze
-      TWEET_ENGAGEMENTS = 'TWEET_ENGAGEMENTS'.freeze
-      VIDEO_VIEWS       = 'VIDEO_VIEWS'.freeze
-      WEBSITE_CLICKS    = 'WEBSITE_CLICKS'.freeze
+      APP_ENGAGEMENTS     = 'APP_ENGAGEMENTS'.freeze
+      APP_INSTALLS        = 'APP_INSTALLS'.freeze
+      FOLLOWERS           = 'FOLLOWERS'.freeze
+      LEAD_GENERATION     = 'LEAD_GENERATION'.freeze
+      TWEET_ENGAGEMENTS   = 'TWEET_ENGAGEMENTS'.freeze
+      VIDEO_VIEWS         = 'VIDEO_VIEWS'.freeze
+      WEBSITE_CLICKS      = 'WEBSITE_CLICKS'.freeze
+      WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'.freeze
 
     end
 
