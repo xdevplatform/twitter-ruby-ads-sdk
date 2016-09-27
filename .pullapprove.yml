@@ -5,6 +5,8 @@ reset_on_push: false
 reviewers:
   members:
   - jaakko-sf
+  - hwz
+  - jbabichjapan
   name: dpr-ads-leads
   required: 1
 
