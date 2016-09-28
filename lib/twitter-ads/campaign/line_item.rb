@@ -89,7 +89,7 @@ module TwitterAds
       params = super
 
       # If automatically_set_bid is set, bid_type must not be set.
-      params.delete(:bid_type) if params.has_key?(:automatically_select_bid)
+      params.delete(:bid_type) if params.key?(:automatically_select_bid)
 
       # If set to true, bid_amount_local_micro must be NULL
       params.store(:bid_amount_local_micro, nil) if params[:automatically_select_bid] && !self.id.nil?
