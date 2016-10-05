@@ -9,6 +9,8 @@ module TwitterAds
 
     ANALYTICS_MAP = {
       'TwitterAds::Campaign' => 'CAMPAIGN'.freeze,
+      'TwitterAds::FundingInstrument' => 'FUNDING_INSTRUMENT'.freeze,
+      'TwitterAds::Account' => 'ACCOUNT'.freeze,
       'TwitterAds::LineItem' => 'LINE_ITEM'.freeze,
       'TwitterAds::OrganicTweet' => 'ORGANIC_TWEET'.freeze,
       'TwitterAds::Creative::PromotedTweet' => 'PROMOTED_TWEET'.freeze
