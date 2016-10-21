@@ -9,11 +9,9 @@ module TwitterAds
     include TwitterAds::Persistence
 
     property :id, read_only: true
-    property :name
     property :account_id
     property :app_store_identifier
     property :os_type
-    property :status, read_only: true
     property :conversion_type
     property :provider_app_event_id
     property :provider_app_event_name
