@@ -231,6 +231,10 @@ module TwitterAds
       load_resource(WebEventTag, id, opts)
     end
 
+    def app_event_tags(id = nil, opts = {})
+      load_resource(AppEventTag, id, opts)
+    end
+
     private
 
     def load_resource(klass, id = nil, opts = {})
