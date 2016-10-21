@@ -70,4 +70,6 @@ require 'twitter-ads/creative/video'
 
 require 'twitter-ads/targeting/reach_estimate'
 
+require 'twitter-ads/measurement/web_event_tag'
+
 require 'twitter-ads/legacy.rb'
