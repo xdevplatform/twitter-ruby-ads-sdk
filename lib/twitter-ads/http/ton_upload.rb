@@ -71,7 +71,7 @@ module TwitterAds
           end
         end
 
-        location
+        location.split("?")[0]
       end
     end
 
