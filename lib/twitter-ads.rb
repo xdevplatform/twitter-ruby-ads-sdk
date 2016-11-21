@@ -37,6 +37,7 @@ require 'twitter-ads/campaign/targeting_criteria'
 require 'twitter-ads/campaign/tweet'
 require 'twitter-ads/campaign/organic_tweet'
 require 'twitter-ads/campaign/iab_category'
+require 'twitter-ads/campaign/organic_tweet'
 
 require 'twitter-ads/enum'
 
