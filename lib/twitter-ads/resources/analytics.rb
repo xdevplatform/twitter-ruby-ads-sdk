@@ -120,6 +120,8 @@ module TwitterAds
         granularity       = opts.fetch(:granularity, :hour)
         placement         = opts.fetch(:placement, Placement::ALL_ON_TWITTER)
         segmentation_type = opts.fetch(:segmentation_type, nil)
+        country = opts.fetch(:country, nil)
+        platform = opts.fetch(:platform, nil)
 
         params = {
           metric_groups: metric_groups.join(','),
@@ -127,8 +129,10 @@ module TwitterAds
           end_time: TwitterAds::Utils.to_time(end_time, granularity),
           granularity: granularity.to_s.upcase,
           entity: ANALYTICS_MAP[name],
-          placement: placement
-        }
+          placement: placement,
+          country: country,
+          platform: platform
+        }.compact
 
         params[:segmentation_type] = segmentation_type.to_s.upcase if segmentation_type
         params['entity_ids'] = ids.join(',')
