@@ -10,7 +10,7 @@ module TwitterAds
     DEFAULT_RESOURCE = '/1.1/ton/bucket/'.freeze # @api private
     DEFAULT_BUCKET   = 'ta_partner'.freeze # @api private
     DEFAULT_EXPIRE   = (Time.now + 10 * 24 * 60 * 60).httpdate # @api private
-    MIN_FILE_SIZE    = 1024 * 1024 * 1 # @api private
+    MIN_FILE_SIZE    = 1024 * 1024 * 64 # @api private
 
     private_constant :DEFAULT_DOMAIN,
                      :DEFAULT_BUCKET,
@@ -71,7 +71,7 @@ module TwitterAds
           end
         end
 
-        location
+        location.split('?')[0]
       end
     end
 
