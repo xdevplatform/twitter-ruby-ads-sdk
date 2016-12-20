@@ -17,6 +17,7 @@ require 'twitter-ads/resources/dsl'
 require 'twitter-ads/resources/resource'
 require 'twitter-ads/resources/persistence'
 require 'twitter-ads/resources/analytics'
+require 'twitter-ads/resources/batch'
 
 require 'twitter-ads/client'
 require 'twitter-ads/cursor'
