@@ -8,7 +8,7 @@ CONSUMER_KEY        = 'your consumer key'.freeze
 CONSUMER_SECRET     = 'your consumer secret'.freeze
 ACCESS_TOKEN        = 'user access token'.freeze
 ACCESS_TOKEN_SECRET = 'user access token secret'.freeze
-ADS_ACCOUNT         = 'ads account id'.freeze
+ACCOUNT_ID          = 'ads account id'.freeze
 
 # initialize the client
 client = TwitterAds::Client.new(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
