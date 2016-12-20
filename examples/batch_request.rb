@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# Copyright (C) 2015 Twitter, Inc.
+
 require 'twitter-ads'
 include TwitterAds::Enum
 
