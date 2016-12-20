@@ -8,6 +8,7 @@ module TwitterAds
     include TwitterAds::Resource
     include TwitterAds::Persistence
     include TwitterAds::Analytics
+    include TwitterAds::Batch
 
     attr_reader :account
 
@@ -39,9 +40,13 @@ module TwitterAds
     property :bid_type
     property :tracking_tags
 
+    # sdk only
+    property :to_delete, type: :bool
+
     RESOURCE_COLLECTION = '/1/accounts/%{account_id}/line_items'.freeze # @api private
     RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
     RESOURCE_ASYNC_STATS = '/1/stats/jobs/accounts/%{account_id}'.freeze # @api private
+    RESOURCE_BATCH      = '/1/batch/accounts/%{account_id}/line_items'.freeze # @api private
     RESOURCE            = '/1/accounts/%{account_id}/line_items/%{id}'.freeze # @api private
     RESOURCE_PLACEMENTS = '/1/line_items/placements'.freeze # @api private
 
