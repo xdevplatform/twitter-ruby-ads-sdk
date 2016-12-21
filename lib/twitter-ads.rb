@@ -17,6 +17,7 @@ require 'twitter-ads/resources/dsl'
 require 'twitter-ads/resources/resource'
 require 'twitter-ads/resources/persistence'
 require 'twitter-ads/resources/analytics'
+require 'twitter-ads/resources/batch'
 
 require 'twitter-ads/client'
 require 'twitter-ads/cursor'
@@ -35,6 +36,8 @@ require 'twitter-ads/campaign/line_item'
 require 'twitter-ads/campaign/promotable_user'
 require 'twitter-ads/campaign/targeting_criteria'
 require 'twitter-ads/campaign/tweet'
+require 'twitter-ads/campaign/organic_tweet'
+require 'twitter-ads/campaign/iab_category'
 
 require 'twitter-ads/enum'
 
@@ -68,5 +71,8 @@ require 'twitter-ads/creative/website_card'
 require 'twitter-ads/creative/video'
 
 require 'twitter-ads/targeting/reach_estimate'
+
+require 'twitter-ads/measurement/web_event_tag'
+require 'twitter-ads/measurement/app_event_tag'
 
 require 'twitter-ads/legacy.rb'

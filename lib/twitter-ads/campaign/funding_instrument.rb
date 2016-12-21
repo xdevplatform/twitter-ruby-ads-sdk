@@ -20,6 +20,10 @@ module TwitterAds
     property :created_at, type: :time, read_only: true
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
+    property :able_to_fund, type: :bool, read_only: true
+    property :paused, type: :bool, read_only: true
+    property :io_header, read_only: true
+    property :reasons_not_able_to_fund, read_only: true
 
     RESOURCE_COLLECTION = '/1/accounts/%{account_id}/funding_instruments'.freeze # @api private
     RESOURCE = '/1/accounts/%{account_id}/funding_instruments/%{id}'.freeze # @api private

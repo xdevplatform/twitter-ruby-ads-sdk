@@ -28,7 +28,7 @@ params   = { feature_keys: 'AGE_TARGETING,CPI_CHARGING' }
 
 # build and execute the request
 response = TwitterAds::Request.new(client, :get, resource, params: params).perform
-response['data'].first
+response.body[:data].first
 
 # you can also manually construct requests to be
 # used in TwitterAds::Cursor object.
