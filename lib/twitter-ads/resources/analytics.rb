@@ -156,9 +156,9 @@ module TwitterAds
 
       def check_async_job_status(account, opts = {})
         # set default values
-        job_id = opts.fetch(:job_id, nil)
+        job_ids = opts.fetch(:job_ids, nil)
         params = {}
-        params[:job_id] = job_id if job_id
+        params[:job_ids] = Array.wrap(job_ids).join(',') if job_ids
 
         resource = self::RESOURCE_ASYNC_STATS % { account_id: account.id }
         request = Request.new(account.client, :get, resource, params: params)
