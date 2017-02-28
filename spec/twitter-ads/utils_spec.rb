@@ -46,8 +46,8 @@ describe TwitterAds::Utils do
         expect(subject.to_time(time, :hour)).to eq(expected_result)
       end
 
-      it 'returns the ISO 8601 formatted string for :day rounded to the day' do
-        expected_result = Time.new(time.year, time.month, time.day).iso8601
+      it 'returns the ISO 8601 formatted string for :day rounded to the hour' do
+        expected_result = Time.new(time.year, time.month, time.day, time.hour).iso8601
         expect(subject.to_time(time, :day)).to eq(expected_result)
       end
 
