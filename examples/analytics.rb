@@ -32,7 +32,7 @@ line_items = account.line_items(nil, count: 10)[0..9]
 
 # the list of metric groups we want to fetch, for a full list of possible metrics
 # see: https://dev.twitter.com/ads/analytics/metrics-and-segmentation
-metrics = ["ENGAGEMENT", "VIDEO"]
+metrics = %W(ENGAGEMENT VIDEO)
 
 # fetching stats on the instance
 line_items.first.stats(metrics)
