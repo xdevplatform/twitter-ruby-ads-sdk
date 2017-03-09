@@ -30,9 +30,9 @@ account = client.accounts(ADS_ACCOUNT)
 # limit request count and grab the first 10 line items from TwitterAds::Cursor
 line_items = account.line_items(nil, count: 10)[0..9]
 
-# the list of metrics we want to fetch, for a full list of possible metrics
+# the list of metric groups we want to fetch, for a full list of possible metrics
 # see: https://dev.twitter.com/ads/analytics/metrics-and-segmentation
-metrics = [:billed_engagements, :billed_follows]
+metrics = ["ENGAGEMENT", "VIDEO"]
 
 # fetching stats on the instance
 line_items.first.stats(metrics)
