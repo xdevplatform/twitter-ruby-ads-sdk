@@ -71,12 +71,14 @@ module TwitterAds
         end_time          = opts.fetch(:end_time, (Time.now - Time.now.sec - (60 * Time.now.min)))
         start_time        = opts.fetch(:start_time, end_time - 604_800) # 7 days ago
         granularity       = opts.fetch(:granularity, :hour)
+        start_utc_offset  = opts[:start_utc_offset] || opts[:utc_offset]
+        end_utc_offset    = opts[:end_utc_offset] || opts[:utc_offset]
         placement         = opts.fetch(:placement, Placement::ALL_ON_TWITTER)
 
         params = {
           metric_groups: metric_groups.join(','),
-          start_time: TwitterAds::Utils.to_time(start_time, granularity),
-          end_time: TwitterAds::Utils.to_time(end_time, granularity),
+          start_time: TwitterAds::Utils.to_time(start_time, granularity, start_utc_offset),
+          end_time: TwitterAds::Utils.to_time(end_time, granularity, end_utc_offset),
           granularity: granularity.to_s.upcase,
           entity: ANALYTICS_MAP[name],
           placement: placement
@@ -118,6 +120,8 @@ module TwitterAds
         end_time          = opts.fetch(:end_time, (Time.now - Time.now.sec - (60 * Time.now.min)))
         start_time        = opts.fetch(:start_time, end_time - 604_800) # 7 days ago
         granularity       = opts.fetch(:granularity, :hour)
+        start_utc_offset  = opts[:start_utc_offset] || opts[:utc_offset]
+        end_utc_offset    = opts[:end_utc_offset] || opts[:utc_offset]
         placement         = opts.fetch(:placement, Placement::ALL_ON_TWITTER)
         segmentation_type = opts.fetch(:segmentation_type, nil)
         country = opts.fetch(:country, nil)
@@ -125,8 +129,8 @@ module TwitterAds
 
         params = {
           metric_groups: metric_groups.join(','),
-          start_time: TwitterAds::Utils.to_time(start_time, granularity),
-          end_time: TwitterAds::Utils.to_time(end_time, granularity),
+          start_time: TwitterAds::Utils.to_time(start_time, granularity, start_utc_offset),
+          end_time: TwitterAds::Utils.to_time(end_time, granularity, end_utc_offset),
           granularity: granularity.to_s.upcase,
           entity: ANALYTICS_MAP[name],
           placement: placement,
