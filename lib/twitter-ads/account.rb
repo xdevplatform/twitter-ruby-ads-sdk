@@ -5,6 +5,7 @@ module TwitterAds
   class Account
 
     include TwitterAds::DSL
+    include TwitterAds::Analytics
 
     attr_reader :client
 
@@ -22,6 +23,8 @@ module TwitterAds
     FEATURES            = '/1/accounts/%{id}/features'.freeze # @api private
     SCOPED_TIMELINE     = '/1/accounts/%{id}/scoped_timeline'.freeze # @api private
     AUTHENTICATED_USER_ACCESS = '/1/accounts/%{id}/authenticated_user_access'.freeze # @api private
+    RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
+    RESOURCE_ASYNC_STATS = '/1/stats/jobs/accounts/%{account_id}'.freeze # @api private
 
     def initialize(client)
       @client = client

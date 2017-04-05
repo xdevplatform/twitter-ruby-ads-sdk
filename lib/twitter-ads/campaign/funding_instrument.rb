@@ -6,6 +6,7 @@ module TwitterAds
 
     include TwitterAds::DSL
     include TwitterAds::Resource
+    include TwitterAds::Analytics
 
     attr_reader :account
 
@@ -27,6 +28,8 @@ module TwitterAds
 
     RESOURCE_COLLECTION = '/1/accounts/%{account_id}/funding_instruments'.freeze # @api private
     RESOURCE = '/1/accounts/%{account_id}/funding_instruments/%{id}'.freeze # @api private
+    RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
+    RESOURCE_ASYNC_STATS = '/1/stats/jobs/accounts/%{account_id}'.freeze # @api private
 
     def initialize(account)
       @account = account
