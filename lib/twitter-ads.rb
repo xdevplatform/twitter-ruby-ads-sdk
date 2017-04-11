@@ -42,8 +42,6 @@ require 'twitter-ads/campaign/iab_category'
 require 'twitter-ads/enum'
 
 require 'twitter-ads/targeting_criteria/tv_market'
-require 'twitter-ads/targeting_criteria/tv_channel'
-require 'twitter-ads/targeting_criteria/tv_genre'
 require 'twitter-ads/targeting_criteria/tv_show'
 require 'twitter-ads/targeting_criteria/event'
 require 'twitter-ads/targeting_criteria/device'
