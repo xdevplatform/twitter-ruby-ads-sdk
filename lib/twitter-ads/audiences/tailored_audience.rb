@@ -153,25 +153,31 @@ module TwitterAds
       Cursor.new(nil, request).to_a.select { |change| change[:tailored_audience_id] == id }
     end
 
-    # This real-time API will enable partners to upload batched tailored audience information to Twitter for processing in real-time.
+    # This is a private API and requires whitelisting from Twitter.
+    #
+    # This real-time API will enable partners to upload batched tailored audience information
+    # to Twitter for processing in real-time
     #
     # @example
-    #   TailoredAudience.memberships([
-    #     {
-    #       "operation_type" => "Update",
-    #       "params" => {
-    #         "user_identifier" => "IUGKJHG-UGJHVHJ",
-    #         "user_identifier_type":"TAWEB_PARTNER_USER_ID",
-    #         "audience_names" => "Recent Site Visitors, Recent Sign-ups"
-    #         "advertiser_account_id" => "43853bhii879"
-    #       }
-    #     }
-    #   ])
+    #   TailoredAudience.memberships(
+    #     account,
+    #     [
+    #       {
+    #         "operation_type": "Update",
+    #         "params": {
+    #           "user_identifier": "IUGKJHG-UGJHVHJ",
+    #           "user_identifier_type": "TAWEB_PARTNER_USER_ID",
+    #           "audience_names": "Recent Site Visitors, Recent Sign-ups",
+    #           "advertiser_account_id": "43853bhii879"
+    #         }
+    #       },
+    #     ]
+    #   )
     #
     # @return success_count, total_count
     def self.memberships(account, params)
       resource = RESOURCE_MEMBERSHIPS
-      headers = { 'Content-Type' => 'application/json' }
+      headers = { 'Content-Type': 'application/json' }
       response = TwitterAds::Request.new(account.client,
                                          :post,
                                          resource,
@@ -180,7 +186,7 @@ module TwitterAds
       success_count = response.body[:data][0][:success_count]
       total_count = response.body[:request][0][:total_count]
 
-      return success_count, total_count
+      [success_count, total_count]
     end
 
     private
