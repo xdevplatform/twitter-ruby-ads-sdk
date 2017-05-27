@@ -163,12 +163,12 @@ module TwitterAds
     #     account,
     #     [
     #       {
-    #         "operation_type": "Update",
-    #         "params": {
-    #           "user_identifier": "IUGKJHG-UGJHVHJ",
-    #           "user_identifier_type": "TAWEB_PARTNER_USER_ID",
-    #           "audience_names": "Recent Site Visitors, Recent Sign-ups",
-    #           "advertiser_account_id": "43853bhii879"
+    #         "operation_type" => "Update",
+    #         "params" => {
+    #           "user_identifier" => "IUGKJHG-UGJHVHJ",
+    #           "user_identifier_type" => "TAWEB_PARTNER_USER_ID",
+    #           "audience_names" => "Recent Site Visitors, Recent Sign-ups",
+    #           "advertiser_account_id" => "43853bhii879"
     #         }
     #       },
     #     ]
@@ -177,7 +177,7 @@ module TwitterAds
     # @return success_count, total_count
     def self.memberships(account, params)
       resource = RESOURCE_MEMBERSHIPS
-      headers = { 'Content-Type': 'application/json' }
+      headers = { 'Content-Type' => 'application/json' }
       response = TwitterAds::Request.new(account.client,
                                          :post,
                                          resource,
