@@ -66,8 +66,8 @@ module TwitterAds
       # @since 0.3.0
       #
       # @return [TailoredAudience] The newly created tailored audience instance.
-      def create(account, file_path, name, list_type)
-        upload = TwitterAds::TONUpload.new(account.client, file_path)
+      def create(account, file_path, name, list_type, opts = {})
+        upload = TwitterAds::TONUpload.new(account.client, file_path, opts)
 
         audience = new(account)
         audience.send(:create_audience, name, list_type)
