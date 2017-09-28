@@ -28,9 +28,9 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/targeting_criteria'.freeze # @api private
-    RESOURCE_BATCH      = '/1/batch/accounts/%{account_id}/targeting_criteria'.freeze # @api private
-    RESOURCE            = '/1/accounts/%{account_id}/targeting_criteria/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/targeting_criteria".freeze # @api private
+    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/batch/accounts/%{account_id}/targeting_criteria".freeze # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/targeting_criteria/%{id}".freeze # @api private
 
     def initialize(account)
       @account = account

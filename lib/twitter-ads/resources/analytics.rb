@@ -11,6 +11,7 @@ module TwitterAds
       'TwitterAds::Campaign' => 'CAMPAIGN'.freeze,
       'TwitterAds::LineItem' => 'LINE_ITEM'.freeze,
       'TwitterAds::OrganicTweet' => 'ORGANIC_TWEET'.freeze,
+      'TwitterAds::Creative::PromotedAccount' => 'ACCOUNT'.freeze,
       'TwitterAds::Creative::PromotedTweet' => 'PROMOTED_TWEET'.freeze
     }.freeze
 
@@ -93,7 +94,7 @@ module TwitterAds
 
       # Create an asynchronous analytics job for a given ads account.
       # A job_id is returned, which you can use to poll the
-      # GET /1/stats/jobs/accounts/:account_id endpoint, checking until the job is successful.
+      # GET /#{TwitterAds::API_VERSION}/stats/jobs/accounts/:account_id endpoint, checking until the job is successful.
       #
       # @example
       #   ids = ['7o4em', 'oc9ce', '1c5lji']
@@ -148,7 +149,7 @@ module TwitterAds
       end
 
       # Check async job status.
-      # GET /1/stats/jobs/accounts/:account_id
+      # GET /#{TwitterAds::API_VERSION}/stats/jobs/accounts/:account_id
       #
       # @example
       #   TwitterAds::LineItem.check_async_job_status(account, job_id: '1357343438724431305')

@@ -17,11 +17,11 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
 
-    RESOURCE_COLLECTION = '/1/accounts'.freeze # @api private
-    RESOURCE            = '/1/accounts/%{id}'.freeze # @api private
-    FEATURES            = '/1/accounts/%{id}/features'.freeze # @api private
-    SCOPED_TIMELINE     = '/1/accounts/%{id}/scoped_timeline'.freeze # @api private
-    AUTHENTICATED_USER_ACCESS = '/1/accounts/%{id}/authenticated_user_access'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts".freeze # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/accounts/%{id}".freeze # @api private
+    FEATURES            = "/#{TwitterAds::API_VERSION}/accounts/%{id}/features".freeze # @api private
+    SCOPED_TIMELINE     = "/#{TwitterAds::API_VERSION}/accounts/%{id}/scoped_timeline".freeze # @api private
+    AUTHENTICATED_USER_ACCESS = '/#{TwitterAds::API_VERSION}/accounts/%{id}/authenticated_user_access".freeze # @api private
 
     def initialize(client)
       @client = client

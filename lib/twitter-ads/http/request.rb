@@ -23,7 +23,7 @@ module TwitterAds
     # Creates a new Request object instance.
     #
     # @example
-    #   request = Request.new(client, :get, '/1/accounts')
+    #   request = Request.new(client, :get, "/#{TwitterAds::API_VERSION}/accounts")
     #
     # @param client [Client] The Client object instance.
     # @param method [Symbol] The HTTP method to be used.
@@ -47,7 +47,7 @@ module TwitterAds
     # Executes the current Request object.
     #
     # @example
-    #   request = Request.new(client, :get, '/1/accounts')
+    #   request = Request.new(client, :get, "/#{TwitterAds::API_VERSION}/accounts")
     #   request.perform
     #
     # @since  0.1.0

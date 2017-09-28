@@ -13,7 +13,7 @@ module TwitterAds
     property :name, read_only: true
     property :parent_id, read_only: true
 
-    RESOURCE_COLLECTION = '/1/iab_categories'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/iab_categories".freeze # @api private
 
     def initialize(account)
       @account = account

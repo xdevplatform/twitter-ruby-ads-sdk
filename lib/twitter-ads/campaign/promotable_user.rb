@@ -16,8 +16,8 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
 
-    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/promotable_users'.freeze # @api private
-    RESOURCE            = '/1/accounts/%{account_id}/promotable_users/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/promotable_users".freeze # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/promotable_users/%{id}".freeze # @api private
 
     def initialize(account)
       @account = account

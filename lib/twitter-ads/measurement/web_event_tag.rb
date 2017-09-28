@@ -18,7 +18,7 @@ module TwitterAds
     property :embed_code, read_only: true
     property :click_window
 
-    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/web_event_tags'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/web_event_tags".freeze # @api private
 
     def initialize(account)
       @account = account
