@@ -118,6 +118,21 @@ module TwitterAds
       load_resource(Creative::PromotedTweet, id, opts)
     end
 
+    # Returns a collection of promoted accounts available to the current account.
+    #
+    # @param id [String] The PromotedAccount ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [String] :line_item_ids Scope the result to collection of line item IDs.
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    #
+    # @since 1.0.0
+    def promotable_accounts(id = nil, opts = {})
+      load_resource(Creative::PromotedAccount, id, opts)
+    end
+
     # Returns a collection of funding instruments available to the current account.
     #
     # @param id [String] The FundingInstrument ID value.
