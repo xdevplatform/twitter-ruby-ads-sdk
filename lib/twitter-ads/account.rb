@@ -21,7 +21,7 @@ module TwitterAds
     RESOURCE            = "/#{TwitterAds::API_VERSION}/accounts/%{id}".freeze # @api private
     FEATURES            = "/#{TwitterAds::API_VERSION}/accounts/%{id}/features".freeze # @api private
     SCOPED_TIMELINE     = "/#{TwitterAds::API_VERSION}/accounts/%{id}/scoped_timeline".freeze # @api private
-    AUTHENTICATED_USER_ACCESS = '/#{TwitterAds::API_VERSION}/accounts/%{id}/authenticated_user_access".freeze # @api private
+    AUTHENTICATED_USER_ACCESS = "/#{TwitterAds::API_VERSION}/accounts/%{id}/authenticated_user_access".freeze # @api private
 
     def initialize(client)
       @client = client
