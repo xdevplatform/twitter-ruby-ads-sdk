@@ -10,13 +10,13 @@ module TwitterAds
     DEFAULT_RESOURCE = '/1.1/ton/bucket/'.freeze # @api private
     DEFAULT_BUCKET   = 'ta_partner'.freeze # @api private
     DEFAULT_EXPIRE   = (Time.now + 10 * 24 * 60 * 60).httpdate # @api private
-    MIN_FILE_SIZE    = 1024 * 1024 * 64 # @api private
+    MAX_FILE_SIZE    = 1024 * 1024 * 64 # @api private
 
     private_constant :DEFAULT_DOMAIN,
                      :DEFAULT_BUCKET,
                      :DEFAULT_EXPIRE,
                      :DEFAULT_RESOURCE,
-                     :MIN_FILE_SIZE
+                     :MAX_FILE_SIZE
 
     # Creates a new TONUpload object instance.
     #
@@ -53,13 +53,13 @@ module TwitterAds
     #
     # @return [String] The upload location provided by the TON API.
     def perform
-      if @file_size < MIN_FILE_SIZE
+      if @file_size < MAX_FILE_SIZE
         resource = "#{DEFAULT_RESOURCE}#{@bucket}"
         response = upload(resource, File.read(@file_path))
         response.headers['location'][0]
       else
         response   = init_chunked_upload
-        chunk_size = response.headers['x-ton-min-chunk-size'][0].to_i
+        chunk_size = response.headers['x-ton-max-chunk-size'][0].to_i
         location   = response.headers['location'][0]
 
         File.open(@file_path) do |file|
@@ -67,7 +67,7 @@ module TwitterAds
           while bytes = file.read(chunk_size)
             bytes_start = bytes_read
             bytes_read += bytes.size
-            upload_chunk(location, chunk_size, bytes, bytes_start, bytes_read)
+            upload_chunk(location, bytes, bytes_start, bytes_read)
           end
         end
 
@@ -112,10 +112,10 @@ module TwitterAds
     end
 
     # uploads a single chunk of a multi-chunk upload
-    def upload_chunk(resource, chunk_size, bytes, bytes_start, bytes_read)
+    def upload_chunk(resource, bytes, bytes_start, bytes_read)
       headers = {
         'content-type'   => content_type,
-        'content-length' => [chunk_size, @file_size - bytes_read].min,
+        'content-length' => bytes.size,
         'content-range'  => "bytes #{bytes_start}-#{bytes_read - 1}/#{@file_size}"
       }
       TwitterAds::Request.new(
