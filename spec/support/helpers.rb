@@ -35,8 +35,8 @@ module Helpers
   # @param name [String] The fixture name.
   # @param url [String] The URL match pattern or regular expression.
   # @param status [Integer] The response code to return with the fixture.
-  def stub_fixture(method, name, url, status = 200)
-    stub_request(method, url).to_return(body: fixture(name), status: status)
+  def stub_fixture(method, name, url, status: 200, headers: {})
+    stub_request(method, url).to_return(body: fixture(name), status: status, headers: headers)
   end
 
 end
