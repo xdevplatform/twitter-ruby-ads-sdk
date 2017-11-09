@@ -16,7 +16,7 @@ describe TwitterAds::TONUpload do
       :post, :no_content, "#{TON_API}/1.1/ton/bucket/#{bucket_name}?resumable=true",
       headers: {
         'location' => "#{location_path}?resumable=true&resumeId=1234567",
-        'x-ton-max-chunk-size' => '67108864'
+        'x-ton-min-chunk-size' => '1048576'
       }
     )
   end

@@ -6,17 +6,22 @@ module TwitterAds
   # Specialized request class for TON API uploads.
   class TONUpload
 
-    DEFAULT_DOMAIN   = 'https://ton.twitter.com'.freeze # @api private
+    DEFAULT_DOMAIN = 'https://ton.twitter.com'.freeze # @api private
     DEFAULT_RESOURCE = '/1.1/ton/bucket/'.freeze # @api private
-    DEFAULT_BUCKET   = 'ta_partner'.freeze # @api private
-    DEFAULT_EXPIRE   = (Time.now + 10 * 24 * 60 * 60).httpdate # @api private
-    MAX_FILE_SIZE    = 1024 * 1024 * 64 # @api private
+    DEFAULT_BUCKET = 'ta_partner'.freeze # @api private
+    DEFAULT_EXPIRE = (Time.now + 10 * 24 * 60 * 60).httpdate # @api private
+    DEFAULT_CHUNK_SIZE = 64 # @api private
+    SINGLE_UPLOAD_MAX = 1024 * 1024 * DEFAULT_CHUNK_SIZE # @api private
+    # target response time (ref. https://github.com/twitterdev/twitter-ruby-ads-sdk/pull/161)
+    RESPONSE_TIME_MAX = 5000 # @api private
 
     private_constant :DEFAULT_DOMAIN,
+                     :DEFAULT_RESOURCE,
                      :DEFAULT_BUCKET,
                      :DEFAULT_EXPIRE,
-                     :DEFAULT_RESOURCE,
-                     :MAX_FILE_SIZE
+                     :DEFAULT_CHUNK_SIZE,
+                     :SINGLE_UPLOAD_MAX,
+                     :RESPONSE_TIME_MAX
 
     # Creates a new TONUpload object instance.
     #
@@ -53,21 +58,29 @@ module TwitterAds
     #
     # @return [String] The upload location provided by the TON API.
     def perform
-      if @file_size < MAX_FILE_SIZE
+      if @file_size < SINGLE_UPLOAD_MAX
         resource = "#{DEFAULT_RESOURCE}#{@bucket}"
         response = upload(resource, File.read(@file_path))
         response.headers['location'][0]
       else
-        response   = init_chunked_upload
-        chunk_size = response.headers['x-ton-max-chunk-size'][0].to_i
-        location   = response.headers['location'][0]
+        response = init_chunked_upload
+        bytes_per_chunk_size = response.headers['x-ton-min-chunk-size'][0].to_i
+        location = response.headers['location'][0]
 
+        bytes_read = 0
+        chunk_bytes = bytes_per_chunk_size * DEFAULT_CHUNK_SIZE
         File.open(@file_path) do |file|
-          bytes_read = 0
-          while bytes = file.read(chunk_size)
+          while bytes = file.read(chunk_bytes)
             bytes_start = bytes_read
             bytes_read += bytes.size
-            upload_chunk(location, bytes, bytes_start, bytes_read)
+            upload_chunk(location, bytes, bytes_start, bytes_read) do |res|
+              # Determines the chunk bytes based on response times
+              response_time = res.headers['x-response-time'][0].to_f
+              response_based_chunk_size =
+                (DEFAULT_CHUNK_SIZE * (RESPONSE_TIME_MAX / response_time)).to_i
+              next_chunk_size = [DEFAULT_CHUNK_SIZE, [1, response_based_chunk_size].max].min
+              chunk_bytes = bytes_per_chunk_size * next_chunk_size
+            end
           end
         end
 
@@ -118,8 +131,11 @@ module TwitterAds
         'content-length' => bytes.size,
         'content-range'  => "bytes #{bytes_start}-#{bytes_read - 1}/#{@file_size}"
       }
-      TwitterAds::Request.new(
+      response = TwitterAds::Request.new(
         @client, :put, resource, domain: DEFAULT_DOMAIN, headers: headers, body: bytes).perform
+
+      yield(response)
+      response
     end
 
     def content_type
