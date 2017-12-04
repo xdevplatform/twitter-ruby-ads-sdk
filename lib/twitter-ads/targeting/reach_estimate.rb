@@ -51,10 +51,10 @@ module TwitterAds
       # @return [Hash] A hash containing count and infinite_bid_count.
       #
       # @since 1.0.0
-      # @see https://dev.twitter.com/ads/reference/1/get/accounts/%3Aaccount_id/reach_estimate
+      # @see https://dev.twitter.com/ads/reference/#{TwitterAds::API_VERSION}/get/accounts/%3Aaccount_id/reach_estimate
       def fetch(account, product_type, objective, campaign_daily_budget,
                 opts = {})
-        resource = "/1/accounts/#{account.id}/reach_estimate"
+        resource = "/#{TwitterAds::API_VERSION}/accounts/#{account.id}/reach_estimate"
         params = {
           product_type: product_type,
           objective: objective,

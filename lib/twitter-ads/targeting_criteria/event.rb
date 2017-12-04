@@ -22,7 +22,7 @@ module TwitterAds
     property :device_breakdown_percentage, read_only: true
     property :country_breakdown_percentage, read_only: true
 
-    RESOURCE_COLLECTION = '/1/targeting_criteria/events'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/targeting_criteria/events".freeze # @api private
 
     def initialize(account)
       @account = account

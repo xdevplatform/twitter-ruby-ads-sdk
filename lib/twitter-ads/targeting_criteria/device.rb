@@ -14,7 +14,7 @@ module TwitterAds
     property :platform, read_only: true
     property :manufacturer, read_only: true
 
-    RESOURCE_COLLECTION = '/1/targeting_criteria/devices'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/targeting_criteria/devices".freeze # @api private
 
     def initialize(account)
       @account = account

@@ -25,8 +25,8 @@ module TwitterAds
     property :io_header, read_only: true
     property :reasons_not_able_to_fund, read_only: true
 
-    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/funding_instruments'.freeze # @api private
-    RESOURCE = '/1/accounts/%{account_id}/funding_instruments/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/funding_instruments".freeze # @api private
+    RESOURCE = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/funding_instruments/%{id}".freeze # @api private
 
     def initialize(account)
       @account = account

@@ -3,6 +3,8 @@
 
 module TwitterAds
 
+  API_VERSION = '2'.freeze
+
   # The Ads API Client class which functions as a
   # container for basic API consumer information.
   class Client

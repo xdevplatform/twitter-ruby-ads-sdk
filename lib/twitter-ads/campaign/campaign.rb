@@ -32,11 +32,11 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION = '/1/accounts/%{account_id}/campaigns'.freeze # @api private
-    RESOURCE_STATS      = '/1/stats/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_ASYNC_STATS = '/1/stats/jobs/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_BATCH      = '/1/batch/accounts/%{account_id}/campaigns'.freeze # @api private
-    RESOURCE            = '/1/accounts/%{account_id}/campaigns/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/campaigns".freeze # @api private
+    RESOURCE_STATS      = "/#{TwitterAds::API_VERSION}/stats/accounts/%{account_id}".freeze # @api private
+    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/stats/jobs/accounts/%{account_id}".freeze # @api private
+    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/batch/accounts/%{account_id}/campaigns".freeze # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/campaigns/%{id}".freeze # @api private
 
     def initialize(account)
       @account = account
