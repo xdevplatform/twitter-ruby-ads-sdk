@@ -32,8 +32,10 @@ module TwitterAds
       property :image_media_id
       property :video_id
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/cards/video_app_download".freeze # @api private
-      RESOURCE = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/cards/video_app_download/%{id}".freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                            'accounts/%{account_id}/cards/video_app_download'.freeze # @api private
+      RESOURCE = "/#{TwitterAds::API_VERSION}/" +
+                 'accounts/%{account_id}/cards/video_app_download/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account
