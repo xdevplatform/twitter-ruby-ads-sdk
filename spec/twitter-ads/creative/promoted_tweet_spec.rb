@@ -23,8 +23,8 @@ describe TwitterAds::Creative::PromotedTweet do
 
   # check model properties
   subject { described_class.new(account) }
-  read  = %w(id approval_status created_at updated_at deleted)
-  write = %w(line_item_id tweet_id paused)
+  read  = %w(id approval_status created_at updated_at deleted paused)
+  write = %w(line_item_id tweet_id)
   include_examples 'object property check', read, write
 
   describe '#save' do

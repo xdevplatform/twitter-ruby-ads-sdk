@@ -23,7 +23,7 @@ module TwitterAds
     property :funding_instrument_id
     property :end_time, type: :time
     property :start_time, type: :time
-    property :paused, type: :bool
+    property :entity_status
     property :currency
     property :standard_delivery
     property :daily_budget_amount_local_micro

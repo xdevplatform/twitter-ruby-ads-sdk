@@ -34,7 +34,7 @@ describe TwitterAds::LineItem do
     charge_by
     include_sentiment
     objective
-    paused
+    entity_status
     primary_web_event_tag
     product_type
     placements

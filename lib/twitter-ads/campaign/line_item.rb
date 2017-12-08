@@ -25,7 +25,7 @@ module TwitterAds
     property :include_sentiment
     property :objective
     property :optimization
-    property :paused, type: :bool
+    property :entity_status
     property :primary_web_event_tag
     property :product_type
     property :placements
