@@ -18,7 +18,7 @@ module TwitterAds
       property :created_at, type: :time, read_only: true
       property :updated_at, type: :time, read_only: true
       property :deleted, type: :bool, read_only: true
-      property :paused, type: :bool, read_only: true
+      property :entity_status, read_only: true
 
       property :line_item_id
       property :tweet_id
