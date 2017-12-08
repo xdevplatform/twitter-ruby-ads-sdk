@@ -29,8 +29,10 @@ module TwitterAds
       property :thank_you_url
       property :image_media_id
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/cards/image_conversation".freeze # @api private
-      RESOURCE = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/cards/image_conversation/%{id}".freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                            'accounts/%{account_id}/cards/image_conversation'.freeze # @api private
+      RESOURCE = "/#{TwitterAds::API_VERSION}/" +
+                 'accounts/%{account_id}/cards/image_conversation/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account

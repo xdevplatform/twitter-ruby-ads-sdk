@@ -29,8 +29,10 @@ module TwitterAds
       property :app_cta
       property :wide_app_image_media_id
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/cards/image_app_download".freeze # @api private
-      RESOURCE = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/cards/image_app_download/%{id}".freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                            'accounts/%{account_id}/cards/image_app_download'.freeze # @api private
+      RESOURCE = "/#{TwitterAds::API_VERSION}/" +
+                 'accounts/%{account_id}/cards/image_app_download/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account

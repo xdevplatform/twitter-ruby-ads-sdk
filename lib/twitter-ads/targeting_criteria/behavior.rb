@@ -16,7 +16,8 @@ module TwitterAds
     property :partner_source, read_only: true
     property :targetable_type, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/targeting_criteria/behaviors".freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                          'targeting_criteria/behaviors'.freeze # @api private
 
     def initialize(account)
       @account = account
