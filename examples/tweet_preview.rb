@@ -24,17 +24,17 @@ account = client.accounts(ADS_ACCOUNT)
 TwitterAds::Tweet.preview(account, id: 634798319504617472)
 
 # preview a new tweet
-TwitterAds::Tweet.preview(account, status: 'Moose bites can be deadly')
+TwitterAds::Tweet.preview(account, text: 'Moose bites can be deadly')
 
 # preview a new tweet with embedded card
 card = TwitterAds::Creative::WebsiteCard.all(account).first
-TwitterAds::Tweet.preview(account, status: 'Moose PSA Website', card_id: card.id)
+TwitterAds::Tweet.preview(account, text: 'Moose PSA Website', card_id: card.id)
 
 # preview a new tweet an image
 TwitterAds::Tweet.preview(
-  account, status: 'Public Moosenemy #1', media_ids: 634458428836962304)
+  account, text: 'Public Moosenemy #1', media_ids: 634458428836962304)
 
 # preview a new tweet multiple images (up to 4)
 images = [634458428836962305, 634458428836962306, 634458428836962307, 634458428836962308]
 TwitterAds::Tweet.preview(
-  account, status: 'Here are some moose pictures. Beware.', media_ids: images)
+  account, text: 'Here are some moose pictures. Beware.', media_ids: images)

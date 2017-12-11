@@ -12,18 +12,22 @@ module TwitterAds
 
       attr_reader :account
 
-      property :id, read_only: true
-      property :tweeted, type: :bool, read_only: true
-      property :ready_to_tweet, type: :bool, read_only: true
-      property :duration, read_only: true
-      property :reasons_not_servable, read_only: true
-      property :preview_url, read_only: true
+      property :aspect_ratio, read_only: true
       property :created_at, type: :time, read_only: true
-      property :updated_at, type: :time, read_only: true
       property :deleted, type: :bool, read_only: true
+      property :duration, read_only: true
+      property :id, read_only: true
+      property :media_key, read_only: true
+      property :poster_url, read_only: true
+      property :preview_url, read_only: true
+      property :ready_to_tweet, type: :bool, read_only: true
+      property :reasons_not_servable, read_only: true
+      property :tweeted, type: :bool, read_only: true
+      property :updated_at, type: :time, read_only: true
 
-      property :title
       property :description
+      property :poster_image_media_id
+      property :title
       property :video_media_id
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +

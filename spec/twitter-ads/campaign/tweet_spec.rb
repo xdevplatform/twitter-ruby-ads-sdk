@@ -43,7 +43,7 @@ describe TwitterAds::Tweet do
     context 'when previewing a new tweet' do
 
       it 'url encodes the status content' do
-        params = { status: 'Hello World!', card_id: '19v69' }
+        params = { text: 'Hello World!', card_id: '19v69' }
         expect(URI).to receive(:escape).at_least(:once).and_call_original
         result = subject.preview(account, params)
         expect(result.size).not_to be_nil
@@ -52,12 +52,12 @@ describe TwitterAds::Tweet do
 
       it 'allows a single value for the media_ids param' do
         resource = "/#{TwitterAds::API_VERSION}/accounts/#{account.id}/tweet/preview"
-        expected = { status: 'Hello%20World!', media_ids: 634458428836962304 }
+        expected = { text: 'Hello%20World!', media_ids: 634458428836962304 }
 
         expect(TwitterAds::Request).to receive(:new).with(
           account.client, :get, resource, params: expected).and_call_original
 
-        params = { status: 'Hello World!', media_ids: 634458428836962304 }
+        params = { text: 'Hello World!', media_ids: 634458428836962304 }
         result = subject.preview(account, params)
         expect(result.size).not_to be_nil
         expect(result).to all(include(:platform, :preview))
@@ -65,12 +65,12 @@ describe TwitterAds::Tweet do
 
       it 'allows an array of values for the media_ids param' do
         resource = "/#{TwitterAds::API_VERSION}/accounts/#{account.id}/tweet/preview"
-        expected = { status: 'Hello%20World!', media_ids: '634458428836962304,634458428836962305' }
+        expected = { text: 'Hello%20World!', media_ids: '634458428836962304,634458428836962305' }
 
         expect(TwitterAds::Request).to receive(:new).with(
           account.client, :get, resource, params: expected).and_call_original
 
-        params = { status: 'Hello World!', media_ids: [634458428836962304, 634458428836962305] }
+        params = { text: 'Hello World!', media_ids: [634458428836962304, 634458428836962305] }
         result = subject.preview(account, params)
         expect(result.size).not_to be_nil
         expect(result).to all(include(:platform, :preview))
