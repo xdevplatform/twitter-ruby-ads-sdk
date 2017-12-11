@@ -107,7 +107,7 @@ module TwitterAds
         'content-type'   => content_type
       }
       TwitterAds::Request.new(
-        @client, :post, resource, domain:  DEFAULT_DOMAIN, headers: headers, body: bytes).perform
+        @client, :post, resource, domain: DEFAULT_DOMAIN, headers: headers, body: bytes).perform
     end
 
     # initialization for a multi-chunk upload

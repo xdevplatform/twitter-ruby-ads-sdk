@@ -25,8 +25,8 @@ account = client.accounts(ADS_ACCOUNT)
 campaign = TwitterAds::Campaign.new(account)
 campaign.funding_instrument_id = account.funding_instruments.first.id
 campaign.daily_budget_amount_local_micro = 1_000_000
-campaign.name       = 'my first campaign'
-campaign.paused     = true
+campaign.name = 'my first campaign'
+campaign.entity_status = EntityStatus::PAUSED
 campaign.start_time = Time.now.utc
 campaign.save
 
@@ -38,7 +38,7 @@ line_item.product_type           = Product::PROMOTED_TWEETS
 line_item.placements             = [Placement::ALL_ON_TWITTER]
 line_item.objective              = Objective::TWEET_ENGAGEMENTS
 line_item.bid_amount_local_micro = 10_000
-line_item.paused                 = true
+line_item.entity_status          = EntityStatus::PAUSED
 line_item.save
 
 # add targeting criteria

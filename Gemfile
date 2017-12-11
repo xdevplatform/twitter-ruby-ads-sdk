@@ -5,16 +5,18 @@ gemspec
 gem 'rake'
 
 group :development, :test do
-  gem 'faker'
-  gem 'rubocop', '0.38.0' # locked for style changes
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'webmock'
   gem 'codeclimate-test-reporter', platforms: :mri
+  gem 'cucumber'
+  gem 'faker'
+  gem 'rspec'
+  gem 'rubocop', '~> 0.48.0'
   gem 'simplecov', '0.10' # fix for breaking change in simplecov
+  gem 'webmock'
 end
 
 group :development do
+  gem 'guard-bundler', platforms: :mri
+  gem 'guard-rspec', platforms: :mri
   gem 'pry-nav', require: true
   gem 'pry-rescue', require: true
 
@@ -23,14 +25,12 @@ group :development do
   gem 'rb-inotify', require: false # Linux
   gem 'terminal-notifier-guard'
 
-  gem 'guard-bundler', platforms: :mri
-  gem 'guard-rspec', platforms: :mri
   gem 'ruby-prof', platforms: :mri
 end
 
 group :release do
+  gem 'colorize'
+  gem 'git'
   gem 'redcarpet', platforms: :mri
   gem 'yard'
-  gem 'git'
-  gem 'colorize'
 end
