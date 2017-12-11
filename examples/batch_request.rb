@@ -20,15 +20,15 @@ account = client.accounts(ACCOUNT_ID)
 campaign_1 = TwitterAds::Campaign.new(account)
 campaign_1.funding_instrument_id = account.funding_instruments.first.id
 campaign_1.daily_budget_amount_local_micro = 1_000_000
-campaign_1.name       = 'my first campaign'
-campaign_1.paused     = true
+campaign_1.name = 'my first campaign'
+campaign_1.entity_status = EntityStatus::PAUSED
 campaign_1.start_time = Time.now.utc
 
 campaign_2 = TwitterAds::Campaign.new(account)
 campaign_2.funding_instrument_id = account.funding_instruments.first.id
 campaign_2.daily_budget_amount_local_micro = 2_000_000
 campaign_2.name = 'my second campaign'
-campaign_2.paused = true
+campaign_2.entity_status = EntityStatus::PAUSED
 campaign_2.start_time = Time.now.utc
 
 campaigns_list = [campaign_1, campaign_2]
@@ -48,7 +48,7 @@ line_item_1.product_type = TwitterAds::Product::PROMOTED_TWEETS
 line_item_1.placements = [TwitterAds::Placement::ALL_ON_TWITTER]
 line_item_1.objective = TwitterAds::Objective::TWEET_ENGAGEMENTS
 line_item_1.bid_amount_local_micro = 10_000
-line_item_1.paused = true
+line_item_1.entity_status = EntityStatus::PAUSED
 
 line_item_2 = TwitterAds::LineItem.new(account)
 line_item_2.campaign_id = campaign_1.id
@@ -57,7 +57,7 @@ line_item_2.product_type = TwitterAds::Product::PROMOTED_TWEETS
 line_item_2.placements = [TwitterAds::Placement::ALL_ON_TWITTER]
 line_item_2.objective = TwitterAds::Objective::TWEET_ENGAGEMENTS
 line_item_2.bid_amount_local_micro = 20_000
-line_item_2.paused = true
+line_item_2.entity_status = EntityStatus::PAUSED
 
 line_items_list = [line_item_1, line_item_2]
 TwitterAds::LineItem.batch_save(account, line_items_list)
