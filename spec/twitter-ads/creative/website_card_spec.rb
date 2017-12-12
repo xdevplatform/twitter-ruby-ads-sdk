@@ -23,15 +23,21 @@ describe TwitterAds::Creative::WebsiteCard do
 
   # check model properties
   subject { described_class.new(account) }
-  read  = %w(id preview_url created_at updated_at deleted)
-  write = %w(name website_title website_url website_cta image_media_id)
+  read = %w(
+    card_type
+    card_uri
+    created_at
+    deleted
+    id
+    image
+    image_display_height
+    image_display_width
+    preview_url
+    website_dest_url
+    website_display_url
+    updated_at
+  )
+  write = %w(image_media_id name website_title website_url)
   include_examples 'object property check', read, write
-
-  it 'raises a warning message each time website_cta is set' do
-    expect(TwitterAds::Utils).to receive(:deprecated).with(
-      'TwitterAds::Creative::WebsiteCard#website_cta',
-      refer: 'https://t.co/deprecated-website-card-cta')
-    subject.website_cta = 'any value'
-  end
 
 end
