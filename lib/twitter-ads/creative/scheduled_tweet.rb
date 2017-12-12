@@ -41,7 +41,7 @@ module TwitterAds
       def preview(account, opts = {})
         if @id
           resource = self.class::PREVIEW % { account_id: account.id, id: id }
-          response = TwitterAds::Request.new(account.client, :post, resource, params: opts).perform
+          response = TwitterAds::Request.new(account.client, :get, resource, params: opts).perform
           response.body[:data]
         end
       end

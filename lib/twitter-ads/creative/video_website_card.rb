@@ -30,6 +30,7 @@ module TwitterAds
       property :video_url, read_only: true
       property :video_width, read_only: true
       property :website_display_url, read_only: true
+      property :website_dest_url, read_only: true      
 
       property :name
       property :title
