@@ -210,13 +210,6 @@ module TwitterAds
         :video,
         :other
       ],
-      qualified_views: [
-        :engagement,
-        :media,
-        :spend,
-        :video,
-        :other
-      ],
       video_views: [
         :engagement,
         :spend,
