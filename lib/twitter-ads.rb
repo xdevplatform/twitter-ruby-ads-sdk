@@ -55,7 +55,6 @@ require 'twitter-ads/targeting_criteria/behavior'
 require 'twitter-ads/targeting_criteria/behavior_taxonomy'
 require 'twitter-ads/targeting_criteria/app_store_category'
 
-require 'twitter-ads/creative/app_download_card'
 require 'twitter-ads/creative/account_media'
 require 'twitter-ads/creative/image_app_download_card'
 require 'twitter-ads/creative/image_conversation_card'
