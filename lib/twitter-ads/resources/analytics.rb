@@ -211,7 +211,7 @@ module TwitterAds
             audience_type: audience_type
         }
 
-        resource = self::RESOURCE_STATS % { account_id: account.id }
+        resource = self::RESOURCE_INSIGHTS % { account_id: account.id }
         response = Request.new(account.client, :get, resource, params: params).perform
         response.body[:data]
       end
