@@ -199,12 +199,11 @@ module TwitterAds
         end
       end
 
-
       # https://developer.twitter.com/en/docs/ads/audiences/api-reference/insights
       def insights(account, opts = {})
         # set default metric values
-        interaction_type = 'IMPRESSION' # 'ENGAGEMENT', 'CONVERSION'
-        audience_type = opts.fetch(:audience_type, Placement::ALL_ON_TWITTER)
+        interaction_type = opts.fetch(:interaction_type, InteractionType::IMPRESSION)
+        audience_type = opts.fetch(:audience_type, AudienceType::ALL_ON_TWITTER)
 
         params = {
             interaction_type: interaction_type,
