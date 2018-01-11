@@ -193,13 +193,6 @@ module TwitterAds
         :video,
         :other
       ],
-      lead_generation: [
-        :conversion,
-        :engagement,
-        :spend,
-        :twitter_audience_platform,
-        :other
-      ],
       preroll_views: [
         :engagement,
         :media,
@@ -211,13 +204,6 @@ module TwitterAds
       ],
       tweet_engagements: [
         :conversion,
-        :engagement,
-        :media,
-        :spend,
-        :video,
-        :other
-      ],
-      qualified_views: [
         :engagement,
         :media,
         :spend,
@@ -327,7 +313,7 @@ module TwitterAds
 
     def create_client
       if File.exist?(File.expand_path('~/.twurlrc'))
-        twurl_config    = YAML.load(File.read(File.expand_path('~/.twurlrc')))
+        twurl_config    = YAML.safe_load(File.read(File.expand_path('~/.twurlrc')))
         profile_name    = twurl_config['configuration']['default_profile'][0]
         profile_key     = twurl_config['configuration']['default_profile'][1]
         default_profile = twurl_config['profiles'][profile_name][profile_key]

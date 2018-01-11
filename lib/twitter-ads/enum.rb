@@ -110,9 +110,22 @@ module TwitterAds
       ORGANIC_TWEET      = 'ORGANIC_TWEET'.freeze
     end
 
+    module EntityStatus
+      ACTIVE = 'ACTIVE'.freeze
+      DRAFT  = 'DRAFT'.freeze
+      PAUSED = 'PAUSED'.freeze
+    end
+
     module CreativeType
-      BANNER       = 'BANNER'.freeze
-      INTERSTITIAL = 'INTERSTITIAL'.freeze
+      BANNER                        = 'BANNER'.freeze
+      INTERSTITIAL                  = 'INTERSTITIAL'.freeze
+      PREROLL                       = 'PREROLL'.freeze
+      VAST_PREROLL                  = 'VAST_PREROLL'.freeze
+      MEDIUM_RECTANGLE              = 'MEDIUM_RECTANGLE'.freeze
+      BANNER_TABLET                 = 'BANNER_TABLET'.freeze
+      INTERSTITIAL_LANDSCAPE        = 'INTERSTITIAL_LANDSCAPE'.freeze
+      INTERSTITIAL_TABLET           = 'INTERSTITIAL_TABLET'.freeze
+      INTERSTITIAL_LANDSCAPE_TABLET = 'INTERSTITIAL_LANDSCAPE_TABLET'.freeze
     end
 
     module Optimizations
@@ -127,20 +140,26 @@ module TwitterAds
     end
 
     module AgeBucket
-      AGE_13_TO_17 = 'AGE_13_TO_17'.freeze
-      AGE_18_TO_24 = 'AGE_18_TO_24'.freeze
-      AGE_25_TO_34 = 'AGE_25_TO_34'.freeze
-      AGE_35_TO_44 = 'AGE_35_TO_44'.freeze
-      AGE_45_TO_54 = 'AGE_45_TO_54'.freeze
-      AGE_55_TO_64 = 'AGE_55_TO_64'.freeze
-      AGE_OVER_65  = 'AGE_OVER_65'.freeze
-    end
-
-    module AgeBucketCoarse
+      AGE_13_TO_24 = 'AGE_13_TO_24'.freeze
+      AGE_13_TO_34 = 'AGE_13_TO_34'.freeze
+      AGE_13_TO_49 = 'AGE_13_TO_49'.freeze
+      AGE_13_TO_54 = 'AGE_13_TO_54'.freeze
+      AGE_OVER_13  = 'AGE_OVER_13'.freeze
       AGE_18_TO_34 = 'AGE_18_TO_34'.freeze
       AGE_18_TO_49 = 'AGE_18_TO_49'.freeze
-      AGE_25_TO_54 = 'AGE_25_TO_54'.freeze
+      AGE_18_TO_54 = 'AGE_18_TO_54'.freeze
+      AGE_OVER_18  = 'AGE_OVER_18'.freeze
+      AGE_21_TO_34 = 'AGE_21_TO_34'.freeze
+      AGE_21_TO_49 = 'AGE_21_TO_49'.freeze
+      AGE_21_TO_54 = 'AGE_21_TO_54'.freeze
       AGE_OVER_21  = 'AGE_OVER_21'.freeze
+      AGE_25_TO_49 = 'AGE_25_TO_49'.freeze
+      AGE_25_TO_54 = 'AGE_25_TO_54'.freeze
+      AGE_OVER_25  = 'AGE_OVER_25'.freeze
+      AGE_35_TO_49 = 'AGE_35_TO_49'.freeze
+      AGE_35_TO_54 = 'AGE_35_TO_54'.freeze
+      AGE_OVER_35  = 'AGE_OVER_35'.freeze
+      AGE_OVER_50  = 'AGE_OVER_50'.freeze
     end
 
     module Events

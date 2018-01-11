@@ -12,7 +12,8 @@ module TwitterAds
     property :targeting_value, read_only: true
     property :location_type, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/targeting_criteria/locations".freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                          'targeting_criteria/locations'.freeze # @api private
 
     def initialize(account)
       @account = account

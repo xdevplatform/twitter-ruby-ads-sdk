@@ -12,7 +12,8 @@ module TwitterAds
     property :estimated_users, read_only: true
     property :genre, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/targeting_criteria/tv_shows".freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                          'targeting_criteria/tv_shows'.freeze # @api private
 
     def initialize(account)
       @account = account

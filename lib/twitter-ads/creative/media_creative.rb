@@ -12,19 +12,21 @@ module TwitterAds
 
       attr_reader :account
 
-      property :id, read_only: true
-      property :deleted, type: :bool, read_only: true
-      property :created_at, type: :time, read_only: true
-      property :updated_at, type: :time, read_only: true
       property :approval_status, read_only: true
+      property :created_at, type: :time, read_only: true
+      property :deleted, type: :bool, read_only: true
+      property :id, read_only: true
       property :serving_status, read_only: true
+      property :updated_at, type: :time, read_only: true
 
-      property :line_item_id
       property :account_media_id
+      property :line_item_id
       property :landing_url
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/media_creatives".freeze # @api private
-      RESOURCE = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/media_creatives/%{id}".freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                            'accounts/%{account_id}/media_creatives'.freeze # @api private
+      RESOURCE            = "/#{TwitterAds::API_VERSION}/" +
+                            'accounts/%{account_id}/media_creatives/%{id}'.freeze # @api private
 
       def initialize(account)
         @account = account

@@ -99,7 +99,8 @@ describe TwitterAds::Client do
       let!(:account_id) { '2iqph' }
 
       before(:all) do
-        stub_fixture(:get, :accounts_load, /(.*\/#{TwitterAds::API_VERSION}\/accounts\/)([a-zA-Z0-9]*)\z/)
+        stub_fixture(:get, :accounts_load,
+                     /(.*\/#{TwitterAds::API_VERSION}\/accounts\/)([a-zA-Z0-9]*)\z/)
       end
 
       it 'returns a specific Account object' do

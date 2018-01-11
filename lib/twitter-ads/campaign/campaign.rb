@@ -23,7 +23,7 @@ module TwitterAds
     property :funding_instrument_id
     property :end_time, type: :time
     property :start_time, type: :time
-    property :paused, type: :bool
+    property :entity_status
     property :currency
     property :standard_delivery
     property :daily_budget_amount_local_micro
@@ -32,11 +32,16 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/campaigns".freeze # @api private
-    RESOURCE_STATS      = "/#{TwitterAds::API_VERSION}/stats/accounts/%{account_id}".freeze # @api private
-    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/stats/jobs/accounts/%{account_id}".freeze # @api private
-    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/batch/accounts/%{account_id}/campaigns".freeze # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/campaigns/%{id}".freeze # @api private
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
+                           'accounts/%{account_id}/campaigns'.freeze # @api private
+    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" +
+                           'stats/accounts/%{account_id}'.freeze # @api private
+    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" +
+                           'stats/jobs/accounts/%{account_id}'.freeze # @api private
+    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" +
+                           'batch/accounts/%{account_id}/campaigns'.freeze # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
+                           'accounts/%{account_id}/campaigns/%{id}'.freeze # @api private
 
     def initialize(account)
       @account = account

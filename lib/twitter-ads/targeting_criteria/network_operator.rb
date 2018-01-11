@@ -12,7 +12,8 @@ module TwitterAds
     property :targeting_value, read_only: true
     property :country_code, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/targeting_criteria/network_operators".freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                          'targeting_criteria/network_operators'.freeze # @api private
 
     def initialize(account)
       @account = account

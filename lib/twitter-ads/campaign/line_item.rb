@@ -25,7 +25,7 @@ module TwitterAds
     property :include_sentiment
     property :objective
     property :optimization
-    property :paused, type: :bool
+    property :entity_status
     property :primary_web_event_tag
     property :product_type
     property :placements
@@ -43,12 +43,18 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/line_items".freeze # @api private
-    RESOURCE_STATS      = "/#{TwitterAds::API_VERSION}/stats/accounts/%{account_id}".freeze # @api private
-    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/stats/jobs/accounts/%{account_id}".freeze # @api private
-    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/batch/accounts/%{account_id}/line_items".freeze # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/line_items/%{id}".freeze # @api private
-    RESOURCE_PLACEMENTS = "/#{TwitterAds::API_VERSION}/line_items/placements".freeze # @api private
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
+                           'accounts/%{account_id}/line_items'.freeze # @api private
+    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" +
+                           'stats/accounts/%{account_id}'.freeze # @api private
+    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" +
+                           'stats/jobs/accounts/%{account_id}'.freeze # @api private
+    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" +
+                           'batch/accounts/%{account_id}/line_items'.freeze # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
+                           'accounts/%{account_id}/line_items/%{id}'.freeze # @api private
+    RESOURCE_PLACEMENTS  = "/#{TwitterAds::API_VERSION}/" +
+                           'line_items/placements'.freeze # @api private
 
     def initialize(account)
       @account = account

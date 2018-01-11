@@ -11,7 +11,8 @@ module TwitterAds
     property :targeting_type, read_only: true
     property :targeting_value, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/targeting_criteria/languages".freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                          'targeting_criteria/languages'.freeze # @api private
 
     def initialize(account)
       @account = account
