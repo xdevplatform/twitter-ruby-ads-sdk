@@ -5,3 +5,5 @@
 TwitterAds::Objective = TwitterAds::Enum::Objective
 TwitterAds::Product = TwitterAds::Enum::Product
 TwitterAds::Placement = TwitterAds::Enum::Placement
+TwitterAds::InteractionType = TwitterAds::Enum::InteractionType
+TwitterAds::AudienceType = TwitterAds::Enum::AudienceType
