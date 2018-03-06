@@ -11,7 +11,6 @@ module TwitterAds
 
     property :id, read_only: true
     property :name, read_only: true
-    property :cancelled, read_only: true
     property :credit_limit_local_micro, read_only: true
     property :currency, read_only: true
     property :description, read_only: true
@@ -21,7 +20,7 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
     property :able_to_fund, type: :bool, read_only: true
-    property :paused, type: :bool, read_only: true
+    property :entity_status, read_only: true
     property :io_header, read_only: true
     property :reasons_not_able_to_fund, read_only: true
 
