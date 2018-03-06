@@ -198,5 +198,18 @@ module TwitterAds
       DOUBLE_CLICK = 'DOUBLE_CLICK'.freeze
     end
 
+    module InteractionType
+      IMPRESSION = 'IMPRESSION'.freeze
+      ENGAGEMENT = 'ENGAGEMENT'.freeze
+      CONVERSION = 'CONVERSION'.freeze
+    end
+
+    module AudienceType
+      ALL_ON_TWITTER = 'ALL_ON_TWITTER'
+      APP = 'APP'
+      CAMPAIGN = 'CAMPAIGN'
+      ORGANIC = 'ORGANIC'
+    end
+
   end
 end

@@ -199,6 +199,36 @@ module TwitterAds
         end
       end
 
+      # Pulls insights data for a marketing account.
+      # Only works for PromotedAccount entity.
+      #
+      # @example
+      #   TwitterAds::Creative::PromotedAccount.stats(account)
+      #
+      # @param account [Account] The Account object instance.
+      # @option opts [Symbol] :interaction_type The interaction type (default: IMPRESSION).
+      # @option opts [Symbol] :audience_type The audience type to use (default: ALL_ON_TWITTER).
+      #
+      # @return [Hash] A collection of insights data.
+      #
+      # @see https://developer.twitter.com/en/docs/ads/audiences/api-reference/insights
+      # @since 2.0.0
+
+      def insights(account, opts = {})
+        # set default metric values
+        interaction_type = opts.fetch(:interaction_type, InteractionType::IMPRESSION)
+        audience_type = opts.fetch(:audience_type, AudienceType::ALL_ON_TWITTER)
+
+        params = {
+            interaction_type: interaction_type,
+            audience_type: audience_type
+        }
+
+        resource = self::RESOURCE_INSIGHTS % { account_id: account.id }
+        response = Request.new(account.client, :get, resource, params: params).perform
+        response.body[:data]
+      end
+
     end
 
   end
