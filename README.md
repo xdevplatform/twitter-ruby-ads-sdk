@@ -24,7 +24,7 @@ account = client.accounts('c3won9gy')
 
 # load and update a specific campaign
 campaign = account.campaigns('4m0gjms')
-campaign.paused = true
+campaign.entity_status = EntityStatus::PAUSED
 campaign.save
 
 # iterate through campaigns
