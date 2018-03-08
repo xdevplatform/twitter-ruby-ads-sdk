@@ -55,10 +55,12 @@ module TwitterAds
         targeting_inputs: targeting_inputs
       }
       resource = RESOURCE_DEMOGRAPHICS % { account_id: account.id }
-      response = Request.new(account.client, :post,
-         resource,
-         body: params.to_json,
-         headers: headers).perform
+      response = Request.new(
+        account.client,
+        :post,
+        resource,
+        body: params.to_json,
+        headers: headers).perform
       response.body[:data]
       # cannot use cursor here given that the response "keys" are dynmaic based on input values
     end
