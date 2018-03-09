@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+# Copyright (C) 2015 Twitter, Inc.
 require 'twitter-ads'
 
 CONSUMER_KEY        = 'your consumer key'.freeze
@@ -15,41 +17,41 @@ client = TwitterAds::Client.new(
 )
 
 # load up the account instance, campaign and line item
-account   = client.accounts(ADS_ACCOUNT)
-
+account = client.accounts(ADS_ACCOUNT)
 
 audience_conversations = TwitterAds::AudienceIntelligence.new(account)
 audience_conversations.conversation_type = TwitterAds::Enum::ConversationType::HASHTAG
-audience_conversations.audience_definition = TwitterAds::Enum::AudienceDefinition::TARGETING_CRITERIA
-targeting_inputs = 
+audience_conversations.audience_definition = TwitterAds::Enum::AudienceDefinition \
+  ::TARGETING_CRITERIA
+targeting_inputs =
   [{
-    targeting_type: "GENDER",
-    targeting_value: "2"
+    targeting_type: 'GENDER',
+    targeting_value: '2'
   }, {
-    targeting_type: "AGEBUCKET",
-    targeting_value: "AGE_OVER_50"
+    targeting_type: 'AGEBUCKET',
+    targeting_value: 'AGE_OVER_50'
   }]
 
 audience_conversations.targeting_inputs = targeting_inputs
 # returns a cursor instance
-response = audience_conversations.conversations()
+response = audience_conversations.conversations
 response.each do |ai|
-	puts ai.localized[:targeting_type]
-	puts ai.localized[:targeting_value]
-	puts "\n"
+  puts ai.localized[:targeting_type]
+  puts ai.localized[:targeting_value]
+  puts '\n'
 end
 
 audience_demographics = TwitterAds::AudienceIntelligence.new(account)
 audience_demographics.audience_definition = TwitterAds::Enum::AudienceDefinition::KEYWORD_AUDIENCE
-audience_demographics.targeting_inputs = 
-	[{
-		targeting_type: "BROAD_MATCH_KEYWORD",
-		targeting_value: "womensmarch2018",
-		start_time: "2017-12-31"
-	}]
-# returns raw response body 
-demographics = audience_demographics.demographics()
+audience_demographics.targeting_inputs =
+  [{
+    targeting_type: 'BROAD_MATCH_KEYWORD',
+    targeting_value: 'womensmarch2018',
+    start_time: '2017-12-31'
+  }]
+# returns raw response body
+demographics = audience_demographics.demographics
 demographics.each do |demo|
-	puts demo
-	puts "\n"
+  puts demo
+  puts "\n"
 end
