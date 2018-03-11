@@ -198,5 +198,15 @@ module TwitterAds
       DOUBLE_CLICK = 'DOUBLE_CLICK'.freeze
     end
 
+    module ConversationType
+      EVENT = 'EVENT'.freeze
+      HANDLE = 'HANDLE'.freeze
+      HASHTAG = 'HASHTAG'.freeze
+    end
+
+    module AudienceDefinition
+      TARGETING_CRITERIA = 'TARGETING_CRITERIA'.freeze
+      KEYWORD_AUDIENCE = 'KEYWORD_AUDIENCE'.freeze
+    end
   end
 end
