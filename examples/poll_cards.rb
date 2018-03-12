@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 
-require_relative '../lib/twitter-ads'
-require_relative '../lib/twitter-ads/creative/poll_cards.rb'
-require_relative '../lib/twitter-ads/creative/media_library.rb'
-require_relative '../lib/twitter-ads/enum.rb'
-require_relative '../lib/twitter-ads/version.rb'
+require 'twitter-ads'
 
-CONSUMER_KEY        = 'S7JRickwIaCFAxvbHp5IklyeZ'.freeze
-CONSUMER_SECRET     = 'TODBTfo4kiERkhmBvdV3ruEhztmOnOgtOI9uu5Rd4UzpQMDttm'.freeze
-ACCESS_TOKEN        = '3271358660-e2D1lQU6CI8ZLIcKRRiKPMSdRFxtcBOQVODZ7N6'.freeze
-ACCESS_TOKEN_SECRET = '68S2N3NCayoQY0LWQk46wNjJ7Sw8tb7pymAOmutakbaiX'.freeze
-ADS_ACCOUNT         = '18ce54bgxky'.freeze
+CONSUMER_KEY        = 'your consumer key'.freeze
+CONSUMER_SECRET     = 'your consumer secret'.freeze
+ACCESS_TOKEN        = 'user access token'.freeze
+ACCESS_TOKEN_SECRET = 'user access token secret'.freeze
+ADS_ACCOUNT         = 'ads account id'.freeze
 
 # initialize the twitter ads api client
 client = TwitterAds::Client.new(
