@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
 require 'twitter-ads'
+include TwitterAds::Enum
 
 CONSUMER_KEY        = 'your consumer key'.freeze
 CONSUMER_SECRET     = 'your consumer secret'.freeze
@@ -20,9 +21,9 @@ client = TwitterAds::Client.new(
 account = client.accounts(ADS_ACCOUNT)
 
 audience_conversations = TwitterAds::AudienceIntelligence.new(account)
-audience_conversations.conversation_type = TwitterAds::Enum::ConversationType::HASHTAG
-audience_conversations.audience_definition = TwitterAds::Enum::AudienceDefinition \
-  ::TARGETING_CRITERIA
+audience_conversations.conversation_type = ConversationType::HASHTAG
+audience_conversations.audience_definition = AudienceDefinition::TARGETING_CRITERIA
+
 targeting_inputs =
   [{
     targeting_type: 'GENDER',
@@ -42,7 +43,7 @@ response.each do |ai|
 end
 
 audience_demographics = TwitterAds::AudienceIntelligence.new(account)
-audience_demographics.audience_definition = TwitterAds::Enum::AudienceDefinition::KEYWORD_AUDIENCE
+audience_demographics.audience_definition = AudienceDefinition::KEYWORD_AUDIENCE
 audience_demographics.targeting_inputs =
   [{
     targeting_type: 'BROAD_MATCH_KEYWORD',
