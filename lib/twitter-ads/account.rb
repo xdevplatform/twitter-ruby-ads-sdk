@@ -94,6 +94,20 @@ module TwitterAds
       response.body[:data]
     end
 
+    # Returns a collection of media creatives available to the current account.
+    #
+    # @param id [String] The MediaCreative ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [String] :line_item_id Scope the result to a line item ID.
+    # @option opts [String] :campaign_id Scope the result to a campaign ID.
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    def media_creatives(id = nil, opts = {})
+      load_resource(Creative::MediaCreative, id, opts)
+    end
+
     # Returns a collection of promotable users available to the current account.
     #
     # @param id [String] The PromotableUser ID value.

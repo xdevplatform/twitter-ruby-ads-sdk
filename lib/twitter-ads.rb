@@ -27,6 +27,7 @@ require 'twitter-ads/http/request'
 require 'twitter-ads/http/response'
 require 'twitter-ads/http/ton_upload'
 
+require 'twitter-ads/audiences/audience_intelligence'
 require 'twitter-ads/audiences/tailored_audience'
 
 require 'twitter-ads/campaign/app_list'
@@ -56,9 +57,11 @@ require 'twitter-ads/targeting_criteria/behavior_taxonomy'
 require 'twitter-ads/targeting_criteria/app_store_category'
 
 require 'twitter-ads/creative/account_media'
+require 'twitter-ads/creative/cards_fetch'
 require 'twitter-ads/creative/image_app_download_card'
 require 'twitter-ads/creative/image_conversation_card'
 require 'twitter-ads/creative/media_creative'
+require 'twitter-ads/creative/media_library'
 require 'twitter-ads/creative/promoted_account'
 require 'twitter-ads/creative/promoted_tweet'
 require 'twitter-ads/creative/scheduled_tweet'
@@ -67,6 +70,7 @@ require 'twitter-ads/creative/video_conversation_card'
 require 'twitter-ads/creative/video_website_card'
 require 'twitter-ads/creative/website_card'
 require 'twitter-ads/creative/video'
+require 'twitter-ads/creative/poll_cards'
 
 require 'twitter-ads/targeting/reach_estimate'
 
