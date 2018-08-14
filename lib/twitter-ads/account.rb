@@ -108,6 +108,32 @@ module TwitterAds
       load_resource(Creative::MediaCreative, id, opts)
     end
 
+    # Returns a collection of account media available to the current account.
+    #
+    # @param id [String] The Account Media ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [String] :account_media_ids Comma separated account media ids
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    def account_media(id = nil, opts = {})
+      load_resource(Creative::AccountMedia, id, opts)
+    end
+
+    # Returns a collection of videos available to the current account.
+    #
+    # @param id [String] The Video ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [String] :video_ids Comma separated video ids
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    def videos(id = nil, opts = {})
+      load_resource(Creative::Video, id, opts)
+    end
+
     # Returns a collection of promotable users available to the current account.
     #
     # @param id [String] The PromotableUser ID value.
