@@ -208,20 +208,6 @@ module TwitterAds
       load_resource(TailoredAudience, id, opts)
     end
 
-    # Returns a collection of videos available to the current account.
-    #
-    # @param id [String] The Video ID value.
-    # @param opts [Hash] A Hash of extended options.
-    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
-    # @option opts [String] :sort_by The object param to sort the API response by.
-    #
-    # @since 0.3.0
-    #
-    # @return A Cursor or object instance.
-    def videos(id = nil, opts = {})
-      load_resource(Video, id, opts)
-    end
-
     # Returns the most recent promotable Tweets created by one or more specified Twitter users.
     #
     # @param ids [Array] An Array of Twitter user IDs.
