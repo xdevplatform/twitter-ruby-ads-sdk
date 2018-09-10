@@ -25,7 +25,7 @@ module TwitterAds
       property :video_poster_url, read_only: true
       property :video_url, read_only: true
 
-      property :app_country_code
+      property :country_code
       property :app_cta
       property :image_media_id
       property :ipad_app_id
