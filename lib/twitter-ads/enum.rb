@@ -221,5 +221,10 @@ module TwitterAds
       TARGETING_CRITERIA = 'TARGETING_CRITERIA'.freeze
       KEYWORD_AUDIENCE = 'KEYWORD_AUDIENCE'.freeze
     end
+
+    module LookalikeExpansion
+      DEFINED = 'DEFINED'.freeze
+      EXPANDED = 'EXPANDED'.freeze
+    end
   end
 end

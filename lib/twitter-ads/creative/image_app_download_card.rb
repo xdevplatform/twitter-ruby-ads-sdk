@@ -23,7 +23,7 @@ module TwitterAds
       property :updated_at, type: :time, read_only: true
       property :wide_app_image, read_only: true
 
-      property :app_country_code
+      property :country_code
       property :app_cta
       property :googleplay_app_id
       property :googleplay_deep_link
