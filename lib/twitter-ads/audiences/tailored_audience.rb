@@ -243,6 +243,8 @@ module TwitterAds
     #     ]
     #   )
     #
+    # @param params [JSON object] A hash containing the list of users to be added/removed/updated
+    #
     # @since 4.0
     #
     # @return success_count, total_count
