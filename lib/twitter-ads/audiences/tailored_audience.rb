@@ -234,26 +234,5 @@ module TwitterAds
       [success_count, total_count]
     end
 
-    private
-
-    def create_audience(name, list_type)
-      params = { name: name, list_type: list_type }
-      resource = RESOURCE_COLLECTION % { account_id: account.id }
-      response = Request.new(account.client, :post, resource, params: params).perform
-      from_response(response.body[:data])
-    end
-
-    def update_audience(audience, location, list_type, operation)
-      params = {
-        tailored_audience_id: audience.id,
-        input_file_path: location,
-        list_type: list_type,
-        operation: operation
-      }
-
-      resource = RESOURCE_UPDATE % { account_id: audience.account.id }
-      Request.new(audience.account.client, :post, resource, params: params).perform
-    end
-
   end
 end
