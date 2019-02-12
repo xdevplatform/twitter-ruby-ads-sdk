@@ -33,8 +33,9 @@ module TwitterAds
                            'accounts/%{account_id}/tailored_audience_changes'.freeze # @api private
     RESOURCE_MEMBERSHIPS = "/#{TwitterAds::API_VERSION}/" +
                            'tailored_audience_memberships'.freeze # @api private
-    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audiences/%{id}/users'.freeze # @api private
+    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/ \
+                           accounts/%{account_id}/tailored_audiences/ \
+                           %{id}/users".freeze # @api private
     # @api private
     GLOBAL_OPT_OUT = "/#{TwitterAds::API_VERSION}/" +
                      'accounts/%{account_id}/tailored_audiences/global_opt_out'.freeze
@@ -217,7 +218,8 @@ module TwitterAds
 
     # This is a private API and requires whitelisting from Twitter.
     #
-    # This endpoint will allow partners to add, update and remove users from a given tailored_audience_id.
+    # This endpoint will allow partners to add, update and remove users from a given
+    # tailored_audience_id.
     # The endpoint will also accept multiple user identifier types per user as well.
     #
     # @example
