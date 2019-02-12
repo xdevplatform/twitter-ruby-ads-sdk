@@ -58,7 +58,7 @@ account <span class="pl-k">=</span> client.accounts(<span class="pl-s"><span cla
 
 <span class="pl-c"># load and update a specific campaign</span>
 campaign <span class="pl-k">=</span> account.campaigns(<span class="pl-s"><span class="pl-pds">'</span>4m0gjms<span class="pl-pds">'</span></span>)
-campaign.entity_status = EntityStatus::PAUSED <span class="pl-k">=</span> <span class="pl-c1">true</span>
+campaign.entity_status <span class="pl-k">=</span> EntityStatus::PAUSED
 campaign.save
 
 <span class="pl-c"># iterate through campaigns</span>
