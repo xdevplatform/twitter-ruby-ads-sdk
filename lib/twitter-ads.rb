@@ -76,4 +76,7 @@ require 'twitter-ads/targeting/reach_estimate'
 require 'twitter-ads/measurement/web_event_tag'
 require 'twitter-ads/measurement/app_event_tag'
 
+require 'twitter-ads/settings/user'
+require 'twitter-ads/settings/tax'
+
 require 'twitter-ads/legacy.rb'
