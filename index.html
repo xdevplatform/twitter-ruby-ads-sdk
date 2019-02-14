@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Twitter Ads SDK for Ruby</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 style="text-align: center;">Twitter Ads SDK<br/><span style="font-weight: 100;">for Ruby</span></h1>
+        <img alt="A Twitter supported and maintained Ads API SDK for Ruby." style="width: 270px;" src="ruby-sdk.png" />
+        <br/><br/>
+        <p>
+          <a href="https://github.com/twitterdev/twitter-ruby-ads-sdk/tree/master/examples">Examples &amp; Guides</a><br/>
+          <a href="https://twitterdev.github.io/twitter-ruby-ads-sdk/reference/index.html">Twitter Ads SDK Documentation</a><br/>
+          <a href="https://developer.twitter.com/en/docs/ads/general/overview">Twitter Ads API Documentation</a><br/>
+          <a href="https://twittercommunity.com/c/advertiser-api">Twitter Community (Ads API)</a><br/>
+        </p>
+        <ul>
+          <li><a href="https://github.com/twitterdev/twitter-ruby-ads-sdk/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/twitterdev/twitter-ruby-ads-sdk/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/twitterdev/twitter-ruby-ads-sdk">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<h5>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h5>
+
+<div class="highlight highlight-bash"><pre><span class="pl-c"># installing the latest signed release</span>
+gem install twitter-ads</pre></div>
+
+<h5>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start</h5>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">'</span>twitter-ads<span class="pl-pds">'</span></span>
+
+<span class="pl-c"># initialize the client</span>
+client <span class="pl-k">=</span> <span class="pl-c1">TwitterAds</span>::<span class="pl-c1">Client</span>.<span class="pl-k">new</span>(
+  <span class="pl-c1">CONSUMER_KEY</span>,
+  <span class="pl-c1">CONSUMER_SECRET</span>,
+  <span class="pl-c1">ACCESS_TOKEN</span>,
+  <span class="pl-c1">ACCESS_TOKEN_SECRET</span>
+)
+
+<span class="pl-c"># load the advertiser account instance</span>
+account <span class="pl-k">=</span> client.accounts(<span class="pl-s"><span class="pl-pds">'</span>c3won9gy<span class="pl-pds">'</span></span>)
+
+<span class="pl-c"># load and update a specific campaign</span>
+campaign <span class="pl-k">=</span> account.campaigns(<span class="pl-s"><span class="pl-pds">'</span>4m0gjms<span class="pl-pds">'</span></span>)
+campaign.entity_status <span class="pl-k">=</span> EntityStatus::PAUSED
+campaign.save
+
+<span class="pl-c"># iterate through campaigns</span>
+account.campaigns.each <span class="pl-k">do </span>|<span class="pl-smi">camp</span>|
+  <span class="pl-c"># do stuff</span>
+<span class="pl-k">end</span></pre></div>
+
+<h5>
+<a id="command-line-helper" class="anchor" href="#command-line-helper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command Line Helper</h5>
+
+<div class="highlight highlight-bash"><pre><span class="pl-c"># The twitter-ads command launches an interactive session for testing purposes</span>
+<span class="pl-c"># with a client instance automatically loaded from your .twurlrc file.</span>
+
+<span class="pl-k">~</span> ❯ twitter-ads
+2.0.0 (twitter-ads):0 <span class="pl-k">&gt;</span> CLIENT
+=<span class="pl-k">&gt;</span> <span class="pl-c">#&lt;TwitterAds::Client:0x70101526238580 consumer_key="Fy90KQy57152sn5Mv7axji9409"&gt;</span>
+2.0.0 (twitter-ads):0 <span class="pl-k">&gt;</span> CLIENT.accounts.first
+=<span class="pl-k">&gt;</span> <span class="pl-c">#&lt;TwitterAds::Account:0x70101527905720 id="4lvtcum"&gt;</span></pre></div>
+
+<p>For more help please see our <a href="https://github.com/twitterdev/twitter-ruby-ads-sdk/tree/master/examples">Examples and Guides</a> or check the online <a href="http://twitterdev.github.io/twitter-ruby-ads-sdk/reference/index.html">Reference Documentation</a>.</p>
+
+<h2>
+<a id="compatibility--versioning" class="anchor" href="#compatibility--versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compatibility &amp; Versioning</h2>
+
+<p>This project is designed to work with Ruby 2.0.0 or greater. While it may work on other version of Ruby, below are the platform and runtime versions we officially support and regularly test against.</p>
+
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Versions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MRI</td>
+<td>2.0.0, 2.1.x, 2.2.x, 2.3.x</td>
+</tr>
+<tr>
+<td>JRuby</td>
+<td>1.7.x, 9.0.0.0 (JDK7, JDK8, OpenJDK)</td>
+</tr>
+<tr>
+<td>Rubinius</td>
+<td>2.4.x, 2.5.x</td>
+</tr>
+</tbody>
+</table>
+
+<p>All releases adhere to strict <a href="http://semver.org">semantic versioning</a>. For Example, major.minor.patch-pre (aka. stick.carrot.oops-peek).</p>
+
+<h2>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development</h2>
+
+<p>If you'd like to contribute to the project or try an unreleased development version of this project locally, you can do so quite easily by following the examples below.</p>
+
+<div class="highlight highlight-bash"><pre><span class="pl-c"># clone the repository</span>
+git clone git@github.com:twitterdev/twitter-ruby-ads-sdk.git
+<span class="pl-c1">cd</span> twitter-ruby-ads-sdk
+
+<span class="pl-c"># install dependencies</span>
+bundle install
+
+rake docs <span class="pl-c"># building documentation</span>
+rake spec <span class="pl-c"># run all tests</span>
+
+<span class="pl-c"># installing a local unsigned release</span>
+gem build twitter-ads.gemspec <span class="pl-k">&amp;</span> gem install twitter-ads-X.X.X.gem</pre></div>
+
+<p>We love community contributions! If you're planning to send us a pull request, please make sure read our <a href="https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/CONTRIBUTING.md">Contributing Guidelines</a> first.</p>
+
+<h2>
+<a id="feedback-and-bug-reports" class="anchor" href="#feedback-and-bug-reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feedback and Bug Reports</h2>
+
+<p>Found an issue?<br/>Please open up a <a href="https://github.com/twitterdev/twitter-ruby-ads-sdk/issues">GitHub issue</a> or even better yet <a href="https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/CONTRIBUTING.md">send us</a>  a pull request.</p>
+<p>Have a question? Want to discuss a new feature?<br/>Come chat with us in the <a href="https://twittercommunity.com/c/advertiser-api">Twitter Community Forums</a>.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (C) 2015 Twitter, Inc.</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+      </section>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
