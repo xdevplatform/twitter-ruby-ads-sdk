@@ -121,17 +121,17 @@ module TwitterAds
       load_resource(Creative::AccountMedia, id, opts)
     end
 
-    # Returns a collection of videos available to the current account.
+    # Returns a collection of media library available to the current account.
     #
-    # @param id [String] The Video ID value.
+    # @param id [String] The Media key value.
     # @param opts [Hash] A Hash of extended options.
-    # @option opts [String] :video_ids Comma separated video ids
+    # @option opts [String] :media_type can be VIDEO, IMAGE or GIF
     # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
     # @option opts [String] :sort_by The object param to sort the API response by.
     #
     # @return A Cursor or object instance.
-    def videos(id = nil, opts = {})
-      load_resource(Creative::Video, id, opts)
+    def media_library(id = nil, opts = {})
+      load_resource(Creative::MediaLibrary, id, opts)
     end
 
     # Returns a collection of promotable users available to the current account.
