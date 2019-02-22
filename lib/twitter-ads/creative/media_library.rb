@@ -22,6 +22,7 @@ module TwitterAds
       property :media_url, read_only: true
       property :tweeted, type: :bool, read_only: true
       property :updated_at, type: :time, read_only: true
+      property :poster_image_url, read_only: true
 
       # writable
       property :media_category
