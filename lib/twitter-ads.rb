@@ -69,12 +69,14 @@ require 'twitter-ads/creative/video_app_download_card'
 require 'twitter-ads/creative/video_conversation_card'
 require 'twitter-ads/creative/video_website_card'
 require 'twitter-ads/creative/website_card'
-require 'twitter-ads/creative/video'
 require 'twitter-ads/creative/poll_cards'
 
 require 'twitter-ads/targeting/reach_estimate'
 
 require 'twitter-ads/measurement/web_event_tag'
 require 'twitter-ads/measurement/app_event_tag'
+
+require 'twitter-ads/settings/user'
+require 'twitter-ads/settings/tax'
 
 require 'twitter-ads/legacy.rb'

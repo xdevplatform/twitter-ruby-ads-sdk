@@ -275,41 +275,4 @@ describe TwitterAds::Account do
 
   end
 
-  describe '#videos' do
-
-    let!(:video_id) { 'd5e3ae4d-34c4-4f49-894e-0c17735916a4' }
-
-    before(:each) do
-      resource_collection = "#{ADS_API}/accounts/#{account.id}/videos"
-      stub_fixture(:get, :videos_all, resource_collection)
-
-      resource = "#{ADS_API}/accounts/#{account.id}/videos/#{video_id}"
-      stub_fixture(:get, :videos_load, /#{resource}\?.*/)
-    end
-
-    context 'with an id specified' do
-
-      it 'successfully loads the specified video' do
-        result = account.videos(video_id)
-        expect(result).not_to be_nil
-        expect(result.class).to eq(TwitterAds::Video)
-        expect(result.id).to eq(video_id)
-      end
-
-    end
-
-    context 'without an id specified' do
-
-      it 'succesfully returns a cursor with all videos' do
-        result = account.videos
-        expect(result.to_a.size).to eq(3)
-        expect(result.class).to eq(TwitterAds::Cursor)
-        expect(result.first.class).to eq(TwitterAds::Video)
-        expect(result.first.id).to eq(video_id)
-      end
-
-    end
-
-  end
-
 end

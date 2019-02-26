@@ -26,7 +26,7 @@ describe TwitterAds::Creative::VideoAppDownloadCard do
   read  = %w(id preview_url video_url video_poster_url deleted created_at updated_at)
   write = %w(
     name
-    app_country_code
+    country_code
     iphone_app_id
     iphone_deep_link
     ipad_app_id

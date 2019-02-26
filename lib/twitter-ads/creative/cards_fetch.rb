@@ -12,7 +12,7 @@ module TwitterAds
 
       attr_reader :account
 
-      property :app_country_code, read_only: true
+      property :country_code, read_only: true
       property :app_cta, read_only: true
       property :card_type, read_only: true
       property :card_uri, read_only: true

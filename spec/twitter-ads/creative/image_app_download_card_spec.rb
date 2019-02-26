@@ -27,7 +27,7 @@ describe TwitterAds::Creative::ImageAppDownloadCard do
 
   write = %w(
     name
-    app_country_code
+    country_code
     iphone_app_id
     iphone_deep_link
     ipad_app_id

@@ -33,6 +33,9 @@ module TwitterAds
                            'accounts/%{account_id}/tailored_audience_changes'.freeze # @api private
     RESOURCE_MEMBERSHIPS = "/#{TwitterAds::API_VERSION}/" +
                            'tailored_audience_memberships'.freeze # @api private
+    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/ \
+                           accounts/%{account_id}/tailored_audiences/ \
+                           %{id}/users".freeze # @api private
     # @api private
     GLOBAL_OPT_OUT = "/#{TwitterAds::API_VERSION}/" +
                      'accounts/%{account_id}/tailored_audiences/global_opt_out'.freeze
@@ -84,6 +87,25 @@ module TwitterAds
           audience.delete!
           raise e
         end
+      end
+
+      # Creates a new tailored audience.
+      #
+      # @example
+      #   audience = TailoredAudience.create_instance(account, 'my list')
+      #
+      # @param account [Account] The account object instance.
+      # @param name [String] The tailored audience name.
+      #
+      # @since 4.0
+      #
+      # @return [TailoredAudience] The newly created tailored audience instance.
+      def create_instance(account, name)
+        audience = new(account)
+        params = { name: name }
+        resource = RESOURCE_COLLECTION % { account_id: account.id }
+        response = Request.new(account.client, :post, resource, params: params).perform
+        audience.from_response(response.body[:data])
       end
 
       # Updates the global opt-out list for the specified advertiser account.
@@ -190,6 +212,50 @@ module TwitterAds
                                          body: params.to_json).perform
       success_count = response.body[:data][0][:success_count]
       total_count = response.body[:request][0][:total_count]
+
+      [success_count, total_count]
+    end
+
+    # This is a private API and requires whitelisting from Twitter.
+    #
+    # This endpoint will allow partners to add, update and remove users from a given
+    # tailored_audience_id.
+    # The endpoint will also accept multiple user identifier types per user as well.
+    #
+    # @example
+    #   tailored_audience.users(
+    #     account,
+    #     [
+    #       {
+    #         "operation_type": "Update",
+    #         "params": {
+    #           "effective_at": "2018-05-15T00:00:00Z",
+    #           "expires_at": "2019-01-01T07:00:00Z",
+    #           "users": [
+    #             {
+    #               "twitter_id": [
+    #                 "4798b8bbdcf6f2a52e527f46a3d7a7c9aefb541afda03af79c74809ecc6376f3"
+    #               ]
+    #             }
+    #           ]
+    #         }
+    #       }
+    #     ]
+    #   )
+    #
+    # @since 4.0
+    #
+    # @return success_count, total_count
+    def users(params)
+      resource = RESOURCE_USERS % { account_id: account.id, id: id }
+      headers = { 'Content-Type' => 'application/json' }
+      response = TwitterAds::Request.new(account.client,
+                                         :post,
+                                         resource,
+                                         headers: headers,
+                                         body: params.to_json).perform
+      success_count = response.body[:data][:success_count]
+      total_count = response.body[:data][:total_count]
 
       [success_count, total_count]
     end

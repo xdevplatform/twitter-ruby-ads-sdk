@@ -39,6 +39,7 @@ module TwitterAds
     property :advertiser_user_id
     property :bid_type
     property :tracking_tags
+    property :lookalike_expansion
 
     # sdk only
     property :to_delete, type: :bool
