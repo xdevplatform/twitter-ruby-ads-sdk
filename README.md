@@ -84,7 +84,7 @@ Have a question? Want to discuss a new feature? Come chat with us in the [Twitte
 
 Like the [Response](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/lib/twitter-ads/http/response.rb) and [Request](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/lib/twitter-ads/http/request.rb) classes, the Ads API SDK fully models all [error objects](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/master/lib/twitter-ads/error.rb) for easy error handling.
 
-<img src="http://i.imgur.com/opbv7Nh.png"/ alt="Error Hierarchy">
+<img src="http://i.imgur.com/opbv7Nh.png" alt="Error Hierarchy">
 
 ## License
 
