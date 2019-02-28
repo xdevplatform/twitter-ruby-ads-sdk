@@ -5,10 +5,12 @@ unless RUBY_PLATFORM =~ /java/ || RUBY_ENGINE =~ /rbx/
   require 'simplecov'
   require 'codeclimate-test-reporter'
 
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-    SimpleCov::Formatter::HTMLFormatter,
-    CodeClimate::TestReporter::Formatter
-  ]
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::HTMLFormatter,
+      CodeClimate::TestReporter::Formatter
+    ]
+  )
 
   SimpleCov.start do
     add_filter '/spec/'

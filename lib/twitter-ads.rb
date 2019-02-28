@@ -1,7 +1,7 @@
-# rubocop:disable Style/FileName
+# rubocop:disable Naming/FileName
 # frozen_string_literal: true
 # Copyright (C) 2015 Twitter, Inc.
-# rubocop:enable Style/FileName
+# rubocop:enable Naming/FileName
 
 require 'time'
 require 'oauth'

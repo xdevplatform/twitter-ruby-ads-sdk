@@ -77,7 +77,7 @@ module TwitterAds
     #
     # @return [String] The object instance detail.
     def inspect
-      str = String.new("#<#{self.class.name}:0x#{object_id}")
+      str = +"#<#{self.class.name}:0x#{object_id}"
       str << " id=\"#{@id}\"" if @id
       str << '>'
     end

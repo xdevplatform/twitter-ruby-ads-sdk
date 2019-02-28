@@ -8,6 +8,13 @@ AllCops:
 Lint/AssignmentInCondition:
   Enabled: false
 
+Lint/Void:
+  Enabled: false
+
+# Disable for now
+Lint/UriEscapeUnescape:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 100
 
@@ -33,6 +40,10 @@ Metrics/ParameterLists:
 Performance/Casecmp:
   Enabled: false
 
+# Disable for now
+Performance/HashEachMethods:
+  Enabled: false
+
 Style/MixinGrouping:
   Enabled: false
 
@@ -52,12 +63,18 @@ Style/StringLiterals:
 Style/NumericLiterals:
   Enabled: false
 
+Style/FormatStringToken:
+  Enabled: false
+
 Style/Copyright:
   Enabled: true
   Notice: 'Copyright (\(C\) )?2015 Twitter, Inc.'
   AutocorrectNotice: "# Copyright (C) 2015 Twitter, Inc.\n"
   Exclude:
     - Gemfile
+
+Style/NegatedIf:
+  Enabled: false
 
 Style/RaiseArgs:
   Enabled: false
@@ -90,6 +107,9 @@ Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
 Style/FormatString:
+  Enabled: false
+
+Style/SafeNavigation:
   Enabled: false
 
 Style/SymbolArray:

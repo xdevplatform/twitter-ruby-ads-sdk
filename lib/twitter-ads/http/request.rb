@@ -80,7 +80,8 @@ module TwitterAds
 
     def http_request
       request_url = @resource
-      unless @options[:params]&.empty?
+
+      if @options[:params] && !@options[:params].empty?
         request_url += "?#{URI.encode_www_form(@options[:params])}"
       end
 

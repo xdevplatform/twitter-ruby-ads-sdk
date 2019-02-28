@@ -13,8 +13,7 @@ module TwitterAds
                   :consumer_secret,
                   :access_token,
                   :access_token_secret,
-                  :options,
-                  :logger
+                  :options
 
     # Creates a new Ads API client instance.
     #
