@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Resource
@@ -40,7 +40,7 @@ module TwitterAds
       #
       # @since 0.1.0
       def inspect
-        str = String.new("#<#{self.class.name}:0x#{object_id}")
+        str = +"#<#{self.class.name}:0x#{object_id}"
         str << " id=\"#{@id}\"" if @id
         str << ' deleted="true"' if @deleted
         str << '>'

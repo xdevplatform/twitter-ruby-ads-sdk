@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require File.expand_path('../lib/twitter-ads/version', __FILE__)
 
@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.description = 'The officially supported Twitter Ads API SDK for Ruby.'
   s.summary     = s.description
 
-  s.required_ruby_version     = '>= 2.0.0'
-  s.required_rubygems_version = '>= 2.0.0'
+  s.required_ruby_version     = '>= 2.3.0'
+  s.required_rubygems_version = '>= 2.3.0'
 
   if File.exist?('private.pem')
     s.signing_key = 'private.pem'

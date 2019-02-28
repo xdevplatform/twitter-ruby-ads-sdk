@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Utils
@@ -64,7 +64,7 @@ module TwitterAds
       # @api private
       # @since 0.3.2
       def deprecated(name, opts = {})
-        message = String.new("[DEPRECATED] #{name} has been deprecated")
+        message = +"[DEPRECATED] #{name} has been deprecated"
         message += opts[:replacement] ? " (please use #{opts[:replacement]})." : '.'
         message += " Please see #{opts[:refer]} for more info." if opts[:refer]
         warn message

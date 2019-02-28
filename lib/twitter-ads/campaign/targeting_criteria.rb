@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class TargetingCriteria
@@ -28,12 +28,12 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/targeting_criteria'.freeze # @api private
-    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/" +
-                          'batch/accounts/%{account_id}/targeting_criteria'.freeze # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/targeting_criteria/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/targeting_criteria' # @api private
+    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/" \
+                          'batch/accounts/%{account_id}/targeting_criteria' # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/targeting_criteria/%{id}' # @api private
 
     def initialize(account)
       @account = account
