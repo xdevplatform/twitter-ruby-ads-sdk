@@ -69,7 +69,7 @@ Style/FormatStringToken:
 Style/Copyright:
   Enabled: true
   Notice: 'Copyright (\(C\) )?2015 Twitter, Inc.'
-  AutocorrectNotice: "# Copyright (C) 2015 Twitter, Inc.\n"
+  AutocorrectNotice: "# Copyright (C) 2019 Twitter, Inc.\n"
   Exclude:
     - Gemfile
 

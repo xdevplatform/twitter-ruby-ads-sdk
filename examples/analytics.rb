@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 # note: the following is just a simple example. before making any stats calls, make
 # sure to read our best practices for analytics which can be found here:

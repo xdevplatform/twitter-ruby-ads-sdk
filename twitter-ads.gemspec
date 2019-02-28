@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require File.expand_path('../lib/twitter-ads/version', __FILE__)
 
