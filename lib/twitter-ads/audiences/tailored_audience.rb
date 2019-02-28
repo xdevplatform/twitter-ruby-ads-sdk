@@ -25,19 +25,6 @@ module TwitterAds
     property :targetable, type: :bool, read_only: true
     property :targetable_types, read_only: true
 
-<<<<<<< HEAD
-    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audiences'.freeze # @api private
-    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audiences/%{id}'.freeze # @api private
-    RESOURCE_UPDATE      = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audience_changes'.freeze # @api private
-    RESOURCE_MEMBERSHIPS = "/#{TwitterAds::API_VERSION}/" +
-                           'tailored_audience_memberships'.freeze # @api private
-    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audiences/' +
-                           '%{id}/users'.freeze # @api private
-=======
     RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" \
                            'accounts/%{account_id}/tailored_audiences' # @api private
     RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
@@ -49,7 +36,7 @@ module TwitterAds
     RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/ \
                            accounts/%{account_id}/tailored_audiences/ \
                            %{id}/users" # @api private
->>>>>>> 38b47d3575e567730d600af6991526d5e2856f5a
+
     # @api private
     GLOBAL_OPT_OUT = "/#{TwitterAds::API_VERSION}/" \
                      'accounts/%{account_id}/tailored_audiences/global_opt_out'

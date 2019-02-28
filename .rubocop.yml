@@ -41,12 +41,10 @@ Metrics/ParameterLists:
 Performance/Casecmp:
   Enabled: false
 
-<<<<<<< HEAD
 Style/LineEndConcatenation:
-=======
+  Enabled: false
 # Disable for now
 Performance/HashEachMethods:
->>>>>>> 38b47d3575e567730d600af6991526d5e2856f5a
   Enabled: false
 
 Style/MixinGrouping:
