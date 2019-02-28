@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.description = 'The officially supported Twitter Ads API SDK for Ruby.'
   s.summary     = s.description
 
-  s.required_ruby_version     = '>= 2.0.0'
-  s.required_rubygems_version = '>= 2.0.0'
+  s.required_ruby_version     = '>= 2.3.0'
+  s.required_rubygems_version = '>= 2.3.0'
 
   if File.exist?('private.pem')
     s.signing_key = 'private.pem'

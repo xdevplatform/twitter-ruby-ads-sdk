@@ -1,8 +1,9 @@
 # Style & Quality Overrides
 AllCops:
-  TargetRubyVersion: 2.0
+  TargetRubyVersion: 2.3
   Exclude:
     - 'bin/**/*'
+    - 'vendor/bundle/**/*'
 
 Lint/AssignmentInCondition:
   Enabled: false
@@ -35,7 +36,7 @@ Performance/Casecmp:
 Style/MixinGrouping:
   Enabled: false
 
-Style/MultilineMethodCallBraceLayout:
+Layout/MultilineMethodCallBraceLayout:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
@@ -79,13 +80,13 @@ Style/Documentation:
 Style/SignalException:
   Enabled: false
 
-Style/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody:
   Enabled: false
 
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   Enabled: false
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
 Style/FormatString:
@@ -100,7 +101,7 @@ Style/TernaryParentheses:
 Style/PercentLiteralDelimiters:
   Enabled: false
 
-Style/VariableNumber:
+Naming/VariableNumber:
   Enabled: false
 
 Style/MultilineIfModifier:
@@ -109,7 +110,7 @@ Style/MultilineIfModifier:
 Style/IdenticalConditionalBranches:
   Enabled: false
 
-Style/EmptyLineAfterMagicComment:
+Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
 Metrics/BlockLength:

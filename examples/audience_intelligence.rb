@@ -3,11 +3,11 @@
 require 'twitter-ads'
 include TwitterAds::Enum
 
-CONSUMER_KEY        = 'your consumer key'.freeze
-CONSUMER_SECRET     = 'your consumer secret'.freeze
-ACCESS_TOKEN        = 'user access token'.freeze
-ACCESS_TOKEN_SECRET = 'user access token secret'.freeze
-ADS_ACCOUNT         = 'ads account id'.freeze
+CONSUMER_KEY        = 'your consumer key'
+CONSUMER_SECRET     = 'your consumer secret'
+ACCESS_TOKEN        = 'user access token'
+ACCESS_TOKEN_SECRET = 'user access token secret'
+ADS_ACCOUNT         = 'ads account id'
 
 # initialize the twitter ads api client
 client = TwitterAds::Client.new(

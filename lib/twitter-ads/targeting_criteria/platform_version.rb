@@ -13,8 +13,8 @@ module TwitterAds
     property :number, read_only: true
     property :platform, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'targeting_criteria/platform_versions'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'targeting_criteria/platform_versions' # @api private
 
     def initialize(account)
       @account = account

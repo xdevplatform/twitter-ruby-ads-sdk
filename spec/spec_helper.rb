@@ -28,9 +28,9 @@ include TwitterAds
 # Require All Support Files
 Dir['./spec/support/*.rb'].sort.each { |file| require file }
 
-ADS_API    = "https://ads-api.twitter.com/#{TwitterAds::API_VERSION}".freeze
-TON_API    = 'https://ton.twitter.com'.freeze
-UPLOAD_API = 'https://upload.twitter.com/1.1'.freeze
+ADS_API    = "https://ads-api.twitter.com/#{TwitterAds::API_VERSION}"
+TON_API    = 'https://ton.twitter.com'
+UPLOAD_API = 'https://upload.twitter.com/1.1'
 
 RSpec.configure do |config|
   # Helpers & Custom Matchers

@@ -6,9 +6,9 @@ module TwitterAds
   # Specialized request class for TON API uploads.
   class TONUpload
 
-    DEFAULT_DOMAIN = 'https://ton.twitter.com'.freeze # @api private
-    DEFAULT_RESOURCE = '/1.1/ton/bucket/'.freeze # @api private
-    DEFAULT_BUCKET = 'ta_partner'.freeze # @api private
+    DEFAULT_DOMAIN = 'https://ton.twitter.com' # @api private
+    DEFAULT_RESOURCE = '/1.1/ton/bucket/' # @api private
+    DEFAULT_BUCKET = 'ta_partner' # @api private
     DEFAULT_EXPIRE = (Time.now + 10 * 24 * 60 * 60).httpdate # @api private
     DEFAULT_CHUNK_SIZE = 64 # @api private
     SINGLE_UPLOAD_MAX = 1024 * 1024 * DEFAULT_CHUNK_SIZE # @api private

@@ -19,8 +19,8 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE = "/#{TwitterAds::API_VERSION}/" +
-               'accounts/%{account_id}/user_settings/%{id}'.freeze # @api private
+    RESOURCE = "/#{TwitterAds::API_VERSION}/" \
+               'accounts/%{account_id}/user_settings/%{id}' # @api private
 
     def initialize(account)
       @account = account
