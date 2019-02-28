@@ -46,7 +46,6 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
 unless ENV['CI']
-
   # Release and Deployment
   desc 'Builds the latest SDK docs locally'
   task :docs do
