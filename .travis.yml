@@ -1,12 +1,19 @@
 language: ruby
 
 install: ruby -S bundle install --without development
-script: bundle exec rake
 
 branches:
   only:
     - master
     - stable
+
+jobs:
+  include:
+    - stage: test
+      script: bundle exec rubocop
+      script: bundle exec rake
+
+
 
 matrix:
   fast_finish: true
