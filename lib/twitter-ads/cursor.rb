@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class Cursor
@@ -113,7 +113,7 @@ module TwitterAds
       @next_cursor = response.body[:next_cursor]
       @total_count = response.body[:total_count].to_i if response.body.key?(:total_count)
       response.body.fetch(:data, []).each do |object|
-        @collection << if @klass && @klass.method_defined?(:from_response)
+        @collection << if @klass&.method_defined?(:from_response)
                          @klass.new(
                            *@options[:init_with]).from_response(object)
                        else

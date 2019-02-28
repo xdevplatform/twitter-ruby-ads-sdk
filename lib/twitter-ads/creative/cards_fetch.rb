@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Creative
@@ -72,10 +72,10 @@ module TwitterAds
       property :wide_app_image, read_only: true
       property :id, read_only: true
 
-      FETCH_URI = "/#{TwitterAds::API_VERSION}/" +
-                  'accounts/%{account_id}/cards'.freeze # @api private
-      FETCH_ID  = "/#{TwitterAds::API_VERSION}/" +
-                  'accounts/%{account_id}/cards/all/%{id}'.freeze # @api private
+      FETCH_URI = "/#{TwitterAds::API_VERSION}/" \
+                  'accounts/%{account_id}/cards' # @api private
+      FETCH_ID  = "/#{TwitterAds::API_VERSION}/" \
+                  'accounts/%{account_id}/cards/all/%{id}' # @api private
 
       def all(*)
         raise ArgumentError.new(

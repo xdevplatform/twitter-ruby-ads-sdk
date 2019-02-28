@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  VERSION = '4.0.1'.freeze
+  VERSION = '4.0.1'
 end
