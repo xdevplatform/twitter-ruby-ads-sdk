@@ -81,4 +81,5 @@ unless ENV['CI']
       git.branch(current_branch).checkout
     end
   end
+
 end
