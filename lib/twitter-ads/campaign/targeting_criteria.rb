@@ -56,7 +56,7 @@ module TwitterAds
       # @see Cursor
       # @see https://dev.twitter.com/ads/basics/sorting Sorting
       def all(account, line_item_ids, opts = {})
-        params = { line_item_ids: line_item_ids }.merge!(opts)
+        params = { line_item_ids: Array(line_item_ids).join(',') }.merge!(opts)
         resource = RESOURCE_COLLECTION % { account_id: account.id }
         request = Request.new(account.client, :get, resource, params: params)
         Cursor.new(self, request, init_with: [account])
