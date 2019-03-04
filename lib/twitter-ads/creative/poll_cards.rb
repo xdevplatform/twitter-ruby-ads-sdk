@@ -22,7 +22,6 @@ module TwitterAds
       property :image, read_only: true
       property :image_display_height, read_only: true
       property :image_display_width, read_only: true
-      property :preview_url, read_only: true
       property :start_time, type: :time, read_only: true
       property :updated_at, type: :time, read_only: true
       property :video_height, read_only: true

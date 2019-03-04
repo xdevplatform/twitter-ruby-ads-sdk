@@ -40,7 +40,6 @@ module TwitterAds
       property :iphone_app_id, read_only: true
       property :iphone_deep_link, read_only: true
       property :name, read_only: true
-      property :preview_url, read_only: true
       property :recipient_user_id, read_only: true
       property :second_choice, read_only: true
       property :second_cta, read_only: true
