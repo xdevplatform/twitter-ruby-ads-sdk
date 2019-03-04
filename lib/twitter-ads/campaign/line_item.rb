@@ -34,6 +34,7 @@ module TwitterAds
     property :bid_amount_local_micro
     property :total_budget_amount_local_micro
     property :target_cpa_local_micro
+    property :with_draft, type: :bool
 
     # beta (not yet generally available)
     property :advertiser_user_id
