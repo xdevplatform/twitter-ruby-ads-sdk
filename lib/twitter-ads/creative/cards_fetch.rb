@@ -92,12 +92,12 @@ module TwitterAds
         end
 
         if card_uris
-          params = { card_uris: Array(card_uris).join(',') }.merge!(opts)
+          params = { card_uris: Array(card_uris).join(',') }.merge!(opts).merge!(params)
           resource = FETCH_URI % { account_id: account.id }
           request = Request.new(account.client, :get, resource, params: params)
           return Cursor.new(self.class, request, init_with: [account])
         else
-          params = { card_id: card_id }.merge!(opts)
+          params = { card_id: card_id }.merge!(opts).merge!(params)
           resource = FETCH_ID % { account_id: account.id, id: card_id }
           response = Request.new(account.client, :get, resource, params: params).perform
           return from_response(response.body[:data])
