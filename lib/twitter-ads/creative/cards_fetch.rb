@@ -83,7 +83,7 @@ module TwitterAds
 
       def load(account, card_uris = nil, card_id = nil, with_deleted = nil, opts = {})
         if (card_uris && card_id) || (card_uris.nil? && card_id.nil?)
-          raise ArgumentError.new('card_uri and card_id are exclusive parameters. ' \
+          raise ArgumentError.new('card_uris and card_id are exclusive parameters. ' \
                              'Please supply one or the other, but not both.')
         end
 
