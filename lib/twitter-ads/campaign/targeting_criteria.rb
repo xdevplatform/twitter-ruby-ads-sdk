@@ -45,7 +45,7 @@ module TwitterAds
       # Returns a Cursor instance for a given resource.
       #
       # @param account [Account] The Account object instance.
-      # @param line_item_id [String] The line item ID string.
+      # @param line_item_ids [String] A String or String array of Line Item IDs.
       # @param opts [Hash] An optional Hash of extended options.
       # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
       # @option opts [String] :sort_by The object param to sort the API response by.
