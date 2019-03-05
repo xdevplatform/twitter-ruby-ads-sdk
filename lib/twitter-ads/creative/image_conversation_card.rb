@@ -18,7 +18,6 @@ module TwitterAds
       property :deleted, type: :bool, read_only: true
       property :id, read_only: true
       property :image, read_only: true
-      property :preview_url, read_only: true
       property :updated_at, type: :time, read_only: true
 
       property :cover_image_id

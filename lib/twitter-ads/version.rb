@@ -2,5 +2,5 @@
 # Copyright (C) 2015 Twitter, Inc.
 
 module TwitterAds
-  VERSION = '4.0.1'.freeze
+  VERSION = '5.0.0'.freeze
 end
