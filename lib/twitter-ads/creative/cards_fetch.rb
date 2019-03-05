@@ -40,7 +40,6 @@ module TwitterAds
       property :iphone_app_id, read_only: true
       property :iphone_deep_link, read_only: true
       property :name, read_only: true
-      property :preview_url, read_only: true
       property :recipient_user_id, read_only: true
       property :second_choice, read_only: true
       property :second_cta, read_only: true
@@ -73,7 +72,7 @@ module TwitterAds
       property :id, read_only: true
 
       FETCH_URI = "/#{TwitterAds::API_VERSION}/" +
-                  'accounts/%{account_id}/cards'.freeze # @api private
+                  'accounts/%{account_id}/cards/all'.freeze # @api private
       FETCH_ID  = "/#{TwitterAds::API_VERSION}/" +
                   'accounts/%{account_id}/cards/all/%{id}'.freeze # @api private
 
@@ -82,26 +81,27 @@ module TwitterAds
           "'CardsFetch' object has no attribute 'all'")
       end
 
-      def load(account, card_uri = nil, card_id = nil, with_deleted = nil, opts = {})
-        if (card_uri && card_id) || (card_uri.nil? && card_id.nil?)
-          raise ArgumentError.new('card_uri and card_id are exclusive parameters. ' \
+      def load(account, card_uris = nil, card_id = nil, with_deleted = nil, opts = {})
+        if (card_uris && card_id) || (card_uris.nil? && card_id.nil?)
+          raise ArgumentError.new('card_uris and card_id are exclusive parameters. ' \
                              'Please supply one or the other, but not both.')
-        end
-
-        if card_uri
-          params = { card_uri: card_uri }.merge!(opts)
-          resource = FETCH_URI % { account_id: account.id }
-        else
-          params = { card_id: card_id }.merge!(opts)
-          resource = FETCH_ID % { account_id: account.id, id: card_id }
         end
 
         if with_deleted && TwitterAds::Utils.to_bool(with_deleted)
           params = { with_deleted: true }.merge!(opts)
         end
 
-        response = Request.new(account.client, :get, resource, params: params).perform
-        from_response(response.body[:data])
+        if card_uris
+          params = { card_uris: Array(card_uris).join(',') }.merge!(opts).merge!(params)
+          resource = FETCH_URI % { account_id: account.id }
+          request = Request.new(account.client, :get, resource, params: params)
+          return Cursor.new(self.class, request, init_with: [account])
+        else
+          params = { card_id: card_id }.merge!(opts).merge!(params)
+          resource = FETCH_ID % { account_id: account.id, id: card_id }
+          response = Request.new(account.client, :get, resource, params: params).perform
+          return from_response(response.body[:data])
+        end
       end
 
       def reload!

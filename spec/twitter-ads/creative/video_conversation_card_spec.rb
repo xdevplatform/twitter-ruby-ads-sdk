@@ -26,7 +26,6 @@ describe TwitterAds::Creative::VideoConversationCard do
 
   read = %w(
     id
-    preview_url
     video_url
     video_poster_url
     deleted

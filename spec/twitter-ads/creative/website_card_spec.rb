@@ -32,7 +32,6 @@ describe TwitterAds::Creative::WebsiteCard do
     image
     image_display_height
     image_display_width
-    preview_url
     website_dest_url
     website_display_url
     updated_at

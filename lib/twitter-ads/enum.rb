@@ -108,6 +108,7 @@ module TwitterAds
       LINE_ITEM          = 'LINE_ITEM'.freeze
       PROMOTED_TWEET     = 'PROMOTED_TWEET'.freeze
       ORGANIC_TWEET      = 'ORGANIC_TWEET'.freeze
+      MEDIA_CREATIVE     = 'MEDIA_CREATIVE'.freeze
     end
 
     module EntityStatus
