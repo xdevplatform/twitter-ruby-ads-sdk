@@ -29,12 +29,12 @@ uri = response.body[:card_uri] # 54ytn
 
 # fetch by card_uri
 cf = TwitterAds::Creative::CardsFetch.new(account)
-card = cf.load(account, uri)
-card.card_type # IMAGE_APP_DOWNLOAD
-card.id # '54ytn'
+card = cf.load(account, uri).first
+puts card.card_type # IMAGE_APP_DOWNLOAD
+puts card.id # '54ytn'
 
 # fetch by card_id
 cf = TwitterAds::Creative::CardsFetch.new(account)
 same_card = cf.load(account, nil, card.id)
-same_card.card_type # IMAGE_APP_DOWNLOAD
-same_card.card_uri # 'card://942628629552406533'
+puts same_card.card_type # IMAGE_APP_DOWNLOAD
+puts same_card.card_uri # 'card://942628629552406533'

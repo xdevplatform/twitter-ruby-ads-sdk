@@ -17,7 +17,6 @@ module TwitterAds
       property :created_at, type: :time, read_only: true
       property :deleted, type: :bool, read_only: true
       property :id, read_only: true
-      property :preview_url, read_only: true
       property :updated_at, type: :time, read_only: true
       property :video_content_id, read_only: true
       property :video_hls_url, read_only: true

@@ -108,6 +108,7 @@ module TwitterAds
       LINE_ITEM          = 'LINE_ITEM'
       PROMOTED_TWEET     = 'PROMOTED_TWEET'
       ORGANIC_TWEET      = 'ORGANIC_TWEET'
+      MEDIA_CREATIVE     = 'MEDIA_CREATIVE'
     end
 
     module EntityStatus
