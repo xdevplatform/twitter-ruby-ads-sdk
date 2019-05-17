@@ -64,35 +64,7 @@ module TwitterAds
       # Creates a new tailored audience.
       #
       # @example
-      #   audience = TailoredAudience.create(account, '/path/to/file', 'my list', 'EMAIL')
-      #
-      # @param account [Account] The account object instance.
-      # @param file_path [String] The path to the file to be uploaded.
-      # @param name [String] The tailored audience name.
-      # @param list_type [String] The tailored audience list type.
-      #
-      # @since 0.3.0
-      #
-      # @return [TailoredAudience] The newly created tailored audience instance.
-      def create(account, file_path, name, list_type)
-        upload = TwitterAds::TONUpload.new(account.client, file_path)
-
-        audience = new(account)
-        audience.send(:create_audience, name, list_type)
-
-        begin
-          audience.send(:update_audience, audience, upload.perform, list_type, 'ADD')
-          audience.reload!
-        rescue TwitterAds::ClientError => e
-          audience.delete!
-          raise e
-        end
-      end
-
-      # Creates a new tailored audience.
-      #
-      # @example
-      #   audience = TailoredAudience.create_instance(account, 'my list')
+      #   audience = TailoredAudience.create(account, 'my list')
       #
       # @param account [Account] The account object instance.
       # @param name [String] The tailored audience name.
@@ -100,7 +72,7 @@ module TwitterAds
       # @since 4.0
       #
       # @return [TailoredAudience] The newly created tailored audience instance.
-      def create_instance(account, name)
+      def create(account, name)
         audience = new(account)
         params = { name: name }
         resource = RESOURCE_COLLECTION % { account_id: account.id }
@@ -243,6 +215,8 @@ module TwitterAds
     #     ]
     #   )
     #
+    # @param params [JSON object] A hash containing the list of users to be added/removed/updated
+    #
     # @since 4.0
     #
     # @return success_count, total_count
@@ -258,27 +232,6 @@ module TwitterAds
       total_count = response.body[:data][:total_count]
 
       [success_count, total_count]
-    end
-
-    private
-
-    def create_audience(name, list_type)
-      params = { name: name, list_type: list_type }
-      resource = RESOURCE_COLLECTION % { account_id: account.id }
-      response = Request.new(account.client, :post, resource, params: params).perform
-      from_response(response.body[:data])
-    end
-
-    def update_audience(audience, location, list_type, operation)
-      params = {
-        tailored_audience_id: audience.id,
-        input_file_path: location,
-        list_type: list_type,
-        operation: operation
-      }
-
-      resource = RESOURCE_UPDATE % { account_id: audience.account.id }
-      Request.new(audience.account.client, :post, resource, params: params).perform
     end
 
   end
