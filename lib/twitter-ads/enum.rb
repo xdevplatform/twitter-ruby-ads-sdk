@@ -227,5 +227,11 @@ module TwitterAds
       DEFINED = 'DEFINED'.freeze
       EXPANDED = 'EXPANDED'.freeze
     end
+
+    module TweetType
+      DRAFT = 'DRAFT'
+      PUBLISHED = 'PUBLISHED'
+      SCHEDULED = 'SCHEDULED'
+    end
   end
 end
