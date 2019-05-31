@@ -6,6 +6,7 @@ module TwitterAds
 
     include TwitterAds::DSL
     include TwitterAds::Resource
+    include TwitterAds::Analytics
 
     attr_reader :account
 

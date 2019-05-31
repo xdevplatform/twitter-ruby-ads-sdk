@@ -9,10 +9,6 @@ module TwitterAds
 
     RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
                            'accounts/%{account_id}/tweet/preview'.freeze # @api private
-    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/jobs/accounts/%{account_id}'.freeze # @api private
     RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
                            'accounts/%{account_id}/tweet/preview/%{id}'.freeze # @api private
     RESOURCE_CREATE      = "/#{TwitterAds::API_VERSION}/" +
