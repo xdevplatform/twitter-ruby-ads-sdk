@@ -17,23 +17,24 @@ module TwitterAds
     property :created_at, type: :time, read_only: true
     property :updated_at, type: :time, read_only: true
 
-    property :name
-    property :campaign_id
     property :advertiser_domain
-    property :categories
-    property :charge_by
-    property :include_sentiment
-    property :objective
-    property :optimization
-    property :entity_status
-    property :primary_web_event_tag
-    property :product_type
-    property :placements
-    property :bid_unit
     property :automatically_select_bid
     property :bid_amount_local_micro
+    property :bid_unit
+    property :campaign_id
+    property :categories
+    property :charge_by
+    property :end_time, type: :time
+    property :entity_status
+    property :include_sentiment
+    property :name
+    property :objective
+    property :optimization
+    property :placements
+    property :primary_web_event_tag
+    property :product_type
+    property :start_time, type: :time
     property :total_budget_amount_local_micro
-    property :target_cpa_local_micro
 
     # beta (not yet generally available)
     property :advertiser_user_id

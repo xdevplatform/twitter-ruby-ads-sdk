@@ -25,7 +25,6 @@ require 'twitter-ads/account'
 
 require 'twitter-ads/http/request'
 require 'twitter-ads/http/response'
-require 'twitter-ads/http/ton_upload'
 
 require 'twitter-ads/audiences/audience_intelligence'
 require 'twitter-ads/audiences/tailored_audience'
