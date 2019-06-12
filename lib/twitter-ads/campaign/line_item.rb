@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class LineItem
@@ -45,14 +45,14 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/line_items'.freeze # @api private
-    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" +
-                           'batch/accounts/%{account_id}/line_items'.freeze # @api private
-    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/line_items/%{id}'.freeze # @api private
-    RESOURCE_PLACEMENTS  = "/#{TwitterAds::API_VERSION}/" +
-                           'line_items/placements'.freeze # @api private
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/line_items' # @api private
+    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" \
+                           'batch/accounts/%{account_id}/line_items' # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/line_items/%{id}' # @api private
+    RESOURCE_PLACEMENTS  = "/#{TwitterAds::API_VERSION}/" \
+                           'line_items/placements' # @api private
 
     def initialize(account)
       @account = account

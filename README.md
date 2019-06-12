@@ -48,11 +48,11 @@ For more help please see our [Examples and Guides](https://github.com/twitterdev
 
 ## Compatibility & Versioning
 
-This project is designed to work with Ruby 2.0.0 or greater. While it may work on other version of Ruby, below are the platform and runtime versions we officially support and regularly test against.
+This project is designed to work with Ruby 2.3.0 or greater. While it may work on other version of Ruby, below are the platform and runtime versions we officially support and regularly test against.
 
 Platform | Versions
 -------- | --------
-MRI | 2.0.0, 2.1.x, 2.2.x, 2.3.x
+MRI | 2.3.0, 2.4.x, 2.5.x, 2.6.x
 JRuby | 1.7.x, 9.0.0.0 (JDK7, JDK8, OpenJDK)
 Rubinius | 2.4.x, 2.5.x
 
@@ -90,7 +90,7 @@ Like the [Response](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/mast
 
 The MIT License (MIT)
 
-Copyright (C) 2015 Twitter, Inc.
+Copyright (C) 2019 Twitter, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

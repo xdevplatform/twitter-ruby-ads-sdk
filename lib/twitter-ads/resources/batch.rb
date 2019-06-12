@@ -1,13 +1,13 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Batch
 
     CLASS_ID_MAP = {
-      'TwitterAds::LineItem'                => 'LINE_ITEM'.freeze,
-      'TwitterAds::Campaign'                => 'CAMPAIGN'.freeze,
-      'TwitterAds::TargetingCriteria'       => 'TARGETING_CRITERION'.freeze
+      'TwitterAds::LineItem'                => 'LINE_ITEM',
+      'TwitterAds::Campaign'                => 'CAMPAIGN',
+      'TwitterAds::TargetingCriteria'       => 'TARGETING_CRITERION'
     }.freeze # @api private
 
     def self.included(klass)

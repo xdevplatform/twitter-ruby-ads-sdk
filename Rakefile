@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 require 'rubygems'
 
@@ -46,7 +46,6 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
 unless ENV['CI']
-
   # Release and Deployment
   desc 'Builds the latest SDK docs locally'
   task :docs do
