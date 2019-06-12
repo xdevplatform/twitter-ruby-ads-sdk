@@ -29,17 +29,9 @@ module TwitterAds
                            'accounts/%{account_id}/tailored_audiences' # @api private
     RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
                            'accounts/%{account_id}/tailored_audiences/%{id}' # @api private
-    RESOURCE_UPDATE      = "/#{TwitterAds::API_VERSION}/" \
-                           'accounts/%{account_id}/tailored_audience_changes' # @api private
-    RESOURCE_MEMBERSHIPS = "/#{TwitterAds::API_VERSION}/" \
-                           'tailored_audience_memberships' # @api private
     RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/ \
                            accounts/%{account_id}/tailored_audiences/ \
                            %{id}/users" # @api private
-
-    # @api private
-    GLOBAL_OPT_OUT = "/#{TwitterAds::API_VERSION}/" \
-                     'accounts/%{account_id}/tailored_audiences/global_opt_out'
 
     LIST_TYPES = %w(
       EMAIL
