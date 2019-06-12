@@ -1,7 +1,7 @@
-# rubocop:disable Style/FileName
+# rubocop:disable Naming/FileName
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
-# rubocop:enable Style/FileName
+# Copyright (C) 2019 Twitter, Inc.
+# rubocop:enable Naming/FileName
 
 require 'time'
 require 'oauth'
@@ -25,7 +25,6 @@ require 'twitter-ads/account'
 
 require 'twitter-ads/http/request'
 require 'twitter-ads/http/response'
-require 'twitter-ads/http/ton_upload'
 
 require 'twitter-ads/audiences/audience_intelligence'
 require 'twitter-ads/audiences/tailored_audience'

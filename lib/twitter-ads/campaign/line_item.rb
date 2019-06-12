@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class LineItem
@@ -17,23 +17,24 @@ module TwitterAds
     property :created_at, type: :time, read_only: true
     property :updated_at, type: :time, read_only: true
 
-    property :name
-    property :campaign_id
     property :advertiser_domain
-    property :categories
-    property :charge_by
-    property :include_sentiment
-    property :objective
-    property :optimization
-    property :entity_status
-    property :primary_web_event_tag
-    property :product_type
-    property :placements
-    property :bid_unit
     property :automatically_select_bid
     property :bid_amount_local_micro
+    property :bid_unit
+    property :campaign_id
+    property :categories
+    property :charge_by
+    property :end_time, type: :time
+    property :entity_status
+    property :include_sentiment
+    property :name
+    property :objective
+    property :optimization
+    property :placements
+    property :primary_web_event_tag
+    property :product_type
+    property :start_time, type: :time
     property :total_budget_amount_local_micro
-    property :target_cpa_local_micro
 
     # beta (not yet generally available)
     property :advertiser_user_id
@@ -44,18 +45,18 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/line_items'.freeze # @api private
-    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/jobs/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" +
-                           'batch/accounts/%{account_id}/line_items'.freeze # @api private
-    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/line_items/%{id}'.freeze # @api private
-    RESOURCE_PLACEMENTS  = "/#{TwitterAds::API_VERSION}/" +
-                           'line_items/placements'.freeze # @api private
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/line_items' # @api private
+    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" \
+                           'stats/accounts/%{account_id}' # @api private
+    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" \
+                           'stats/jobs/accounts/%{account_id}' # @api private
+    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" \
+                           'batch/accounts/%{account_id}/line_items' # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/line_items/%{id}' # @api private
+    RESOURCE_PLACEMENTS  = "/#{TwitterAds::API_VERSION}/" \
+                           'line_items/placements' # @api private
 
     def initialize(account)
       @account = account

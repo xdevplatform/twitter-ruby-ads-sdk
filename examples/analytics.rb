@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 # note: the following is just a simple example. before making any stats calls, make
 # sure to read our best practices for analytics which can be found here:
@@ -10,11 +10,11 @@
 
 require 'twitter-ads'
 
-CONSUMER_KEY        = 'your consumer key'.freeze
-CONSUMER_SECRET     = 'your consumer secret'.freeze
-ACCESS_TOKEN        = 'user access token'.freeze
-ACCESS_TOKEN_SECRET = 'user access token secret'.freeze
-ADS_ACCOUNT         = 'ads account id'.freeze
+CONSUMER_KEY        = 'your consumer key'
+CONSUMER_SECRET     = 'your consumer secret'
+ACCESS_TOKEN        = 'user access token'
+ACCESS_TOKEN_SECRET = 'user access token secret'
+ADS_ACCOUNT         = 'ads account id'
 
 # initialize the twitter ads api client
 client = TwitterAds::Client.new(

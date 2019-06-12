@@ -9,8 +9,8 @@ group :development, :test do
   gem 'cucumber'
   gem 'faker'
   gem 'rspec'
-  gem 'rubocop', '~> 0.48.0'
-  gem 'simplecov', '0.10' # fix for breaking change in simplecov
+  gem 'rubocop', '~> 0.50.0'
+  gem 'simplecov', '~> 0.13' # fix for breaking change in simplecov
   gem 'webmock'
 end
 

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class WebEventTag
@@ -18,8 +18,8 @@ module TwitterAds
     property :embed_code, read_only: true
     property :click_window
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/web_event_tags'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/web_event_tags' # @api private
 
     def initialize(account)
       @account = account

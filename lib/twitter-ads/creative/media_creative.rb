@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Creative
@@ -23,10 +23,10 @@ module TwitterAds
       property :line_item_id
       property :landing_url
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                            'accounts/%{account_id}/media_creatives'.freeze # @api private
-      RESOURCE            = "/#{TwitterAds::API_VERSION}/" +
-                            'accounts/%{account_id}/media_creatives/%{id}'.freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                            'accounts/%{account_id}/media_creatives' # @api private
+      RESOURCE            = "/#{TwitterAds::API_VERSION}/" \
+                            'accounts/%{account_id}/media_creatives/%{id}' # @api private
 
       def initialize(account)
         @account = account

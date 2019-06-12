@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Creative
@@ -31,12 +31,12 @@ module TwitterAds
       property :scheduled_at, type: :time
       property :text
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                            'accounts/%{account_id}/scheduled_tweets'.freeze # @api private
-      RESOURCE = "/#{TwitterAds::API_VERSION}/" +
-                 'accounts/%{account_id}/scheduled_tweets/%{id}'.freeze # @api private
-      PREVIEW  = "/#{TwitterAds::API_VERSION}/" +
-                 'accounts/%{account_id}/scheduled_tweets/preview/%{id}'.freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                            'accounts/%{account_id}/scheduled_tweets' # @api private
+      RESOURCE = "/#{TwitterAds::API_VERSION}/" \
+                 'accounts/%{account_id}/scheduled_tweets/%{id}' # @api private
+      PREVIEW  = "/#{TwitterAds::API_VERSION}/" \
+                 'accounts/%{account_id}/scheduled_tweets/preview/%{id}' # @api private
 
       def preview(account, opts = {})
         if @id

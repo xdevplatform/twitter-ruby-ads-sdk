@@ -1,14 +1,16 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 unless RUBY_PLATFORM =~ /java/ || RUBY_ENGINE =~ /rbx/
   require 'simplecov'
   require 'codeclimate-test-reporter'
 
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-    SimpleCov::Formatter::HTMLFormatter,
-    CodeClimate::TestReporter::Formatter
-  ]
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::HTMLFormatter,
+      CodeClimate::TestReporter::Formatter
+    ]
+  )
 
   SimpleCov.start do
     add_filter '/spec/'
@@ -28,9 +30,8 @@ include TwitterAds
 # Require All Support Files
 Dir['./spec/support/*.rb'].sort.each { |file| require file }
 
-ADS_API    = "https://ads-api.twitter.com/#{TwitterAds::API_VERSION}".freeze
-TON_API    = 'https://ton.twitter.com'.freeze
-UPLOAD_API = 'https://upload.twitter.com/1.1'.freeze
+ADS_API    = "https://ads-api.twitter.com/#{TwitterAds::API_VERSION}"
+UPLOAD_API = 'https://upload.twitter.com/1.1'
 
 RSpec.configure do |config|
   # Helpers & Custom Matchers
