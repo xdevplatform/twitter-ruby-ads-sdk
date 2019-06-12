@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class Device
@@ -14,8 +14,8 @@ module TwitterAds
     property :platform, read_only: true
     property :manufacturer, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'targeting_criteria/devices'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'targeting_criteria/devices' # @api private
 
     def initialize(account)
       @account = account

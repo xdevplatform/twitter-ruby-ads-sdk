@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class Account
@@ -17,16 +17,16 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts'.freeze # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{id}'.freeze # @api private
-    FEATURES            = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{id}/features'.freeze # @api private
-    SCOPED_TIMELINE     = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{id}/scoped_timeline'.freeze # @api private
-    AUTHENTICATED_USER_ACCESS = "/#{TwitterAds::API_VERSION}/" +
-                                'accounts/%{id}/authenticated_user_access'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts' # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{id}' # @api private
+    FEATURES            = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{id}/features' # @api private
+    SCOPED_TIMELINE     = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{id}/scoped_timeline' # @api private
+    AUTHENTICATED_USER_ACCESS = "/#{TwitterAds::API_VERSION}/" \
+                                'accounts/%{id}/authenticated_user_access' # @api private
 
     def initialize(client)
       @client = client
@@ -77,7 +77,7 @@ module TwitterAds
     #
     # @return [String] The object instance detail.
     def inspect
-      str = String.new("#<#{self.class.name}:0x#{object_id}")
+      str = +"#<#{self.class.name}:0x#{object_id}"
       str << " id=\"#{@id}\"" if @id
       str << '>'
     end

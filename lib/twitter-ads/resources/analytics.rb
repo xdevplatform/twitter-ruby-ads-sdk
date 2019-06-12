@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 require 'zlib'
 require 'open-uri'
@@ -8,11 +8,11 @@ module TwitterAds
   module Analytics
 
     ANALYTICS_MAP = {
-      'TwitterAds::Campaign' => 'CAMPAIGN'.freeze,
-      'TwitterAds::LineItem' => 'LINE_ITEM'.freeze,
-      'TwitterAds::OrganicTweet' => 'ORGANIC_TWEET'.freeze,
-      'TwitterAds::Creative::PromotedAccount' => 'ACCOUNT'.freeze,
-      'TwitterAds::Creative::PromotedTweet' => 'PROMOTED_TWEET'.freeze
+      'TwitterAds::Campaign' => 'CAMPAIGN',
+      'TwitterAds::LineItem' => 'LINE_ITEM',
+      'TwitterAds::OrganicTweet' => 'ORGANIC_TWEET',
+      'TwitterAds::Creative::PromotedAccount' => 'ACCOUNT',
+      'TwitterAds::Creative::PromotedTweet' => 'PROMOTED_TWEET'
     }.freeze
 
     def self.included(klass)

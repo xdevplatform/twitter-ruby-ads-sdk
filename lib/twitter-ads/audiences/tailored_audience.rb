@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class TailoredAudience
@@ -25,13 +25,13 @@ module TwitterAds
     property :targetable, type: :bool, read_only: true
     property :targetable_types, read_only: true
 
-    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audiences'.freeze # @api private
-    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audiences/%{id}'.freeze # @api private
-    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tailored_audiences/' +
-                           '%{id}/users'.freeze # @api private
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tailored_audiences' # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tailored_audiences/%{id}' # @api private
+    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/ \
+                           accounts/%{account_id}/tailored_audiences/ \
+                           %{id}/users" # @api private
 
     LIST_TYPES = %w(
       EMAIL

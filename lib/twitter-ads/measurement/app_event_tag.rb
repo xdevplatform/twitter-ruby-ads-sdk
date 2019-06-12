@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class AppEventTag
@@ -19,8 +19,8 @@ module TwitterAds
     property :post_view_attribution_window
     property :post_engagement_attribution_window
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/app_event_tags'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/app_event_tags' # @api private
 
     def initialize(account)
       @account = account

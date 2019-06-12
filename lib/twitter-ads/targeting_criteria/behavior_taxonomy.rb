@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class BehaviorTaxonomy
@@ -13,8 +13,8 @@ module TwitterAds
     property :created_at, read_only: true
     property :updated_at, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'targeting_criteria/behavior_taxonomies'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'targeting_criteria/behavior_taxonomies' # @api private
 
     def initialize(account)
       @account = account

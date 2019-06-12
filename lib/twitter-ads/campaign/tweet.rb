@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Tweet
@@ -7,16 +7,16 @@ module TwitterAds
     # cannot instaniate Tweet, only including class methods for stats
     extend TwitterAds::Analytics::ClassMethods
 
-    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tweet/preview'.freeze # @api private
-    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/jobs/accounts/%{account_id}'.freeze # @api private
-    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tweet/preview/%{id}'.freeze # @api private
-    RESOURCE_CREATE      = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/tweet'.freeze # @api private
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tweet/preview' # @api private
+    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" \
+                           'stats/accounts/%{account_id}' # @api private
+    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" \
+                           'stats/jobs/accounts/%{account_id}' # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tweet/preview/%{id}' # @api private
+    RESOURCE_CREATE      = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tweet' # @api private
 
     class << self
 
