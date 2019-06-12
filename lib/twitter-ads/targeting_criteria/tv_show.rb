@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class TVShow
@@ -12,8 +12,8 @@ module TwitterAds
     property :estimated_users, read_only: true
     property :genre, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'targeting_criteria/tv_shows'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'targeting_criteria/tv_shows' # @api private
 
     def initialize(account)
       @account = account
