@@ -13,7 +13,7 @@ require 'twitter-ads'
 
 include TwitterAds::Enum
 
-CCONSUMER_KEY        = 'your consumer key'
+CCONSUMER_KEY       = 'your consumer key'
 CONSUMER_SECRET     = 'your consumer secret'
 ACCESS_TOKEN        = 'user access token'
 ACCESS_TOKEN_SECRET = 'user access token secret'
@@ -83,7 +83,7 @@ def date_range(data)
     0,
     '+00:00') + (60 * 60 * 24) # +1 day
 
-  return start_time, end_time
+  [start_time, end_time]
 end
 
 start_time, end_time = date_range(active_entities)
