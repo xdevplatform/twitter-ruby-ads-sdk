@@ -8,14 +8,20 @@ Gem::Specification.new do |s|
   s.version     = TwitterAds::VERSION
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
-  s.authors     = ['Brandon Black', 'John Babich', 'Jacob Petrie']
+  s.authors     = [
+    'John Babich',
+    'Tushar Bhushan',
+    'Juan Shishido',
+    'Thomas Osowski',
+    'Shohei Maeda'
+  ]
   s.email       = ['twitterdev-ads@twitter.com']
   s.homepage    = 'https://github.com/twitterdev/twitter-ruby-ads-sdk'
   s.description = 'The officially supported Twitter Ads API SDK for Ruby.'
   s.summary     = s.description
 
-  s.required_ruby_version     = '>= 2.3.0'
-  s.required_rubygems_version = '>= 2.3.0'
+  s.required_ruby_version     = '>= 2.4.0'
+  s.required_rubygems_version = '>= 2.6.0'
 
   if File.exist?('private.pem')
     s.signing_key = 'private.pem'
