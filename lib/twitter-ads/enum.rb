@@ -227,5 +227,11 @@ module TwitterAds
       DEFINED = 'DEFINED'
       EXPANDED = 'EXPANDED'
     end
+
+    module TweetType
+      DRAFT = 'DRAFT'
+      PUBLISHED = 'PUBLISHED'
+      SCHEDULED = 'SCHEDULED'
+    end
   end
 end
