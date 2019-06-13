@@ -7,13 +7,23 @@ require 'open-uri'
 module TwitterAds
   module Analytics
 
+    include TwitterAds::Enum
+
     ANALYTICS_MAP = {
-      'TwitterAds::Campaign' => 'CAMPAIGN',
-      'TwitterAds::LineItem' => 'LINE_ITEM',
-      'TwitterAds::OrganicTweet' => 'ORGANIC_TWEET',
-      'TwitterAds::Creative::PromotedAccount' => 'ACCOUNT',
-      'TwitterAds::Creative::PromotedTweet' => 'PROMOTED_TWEET'
+      'TwitterAds::Campaign' => Entity::CAMPAIGN,
+      'TwitterAds::LineItem' => Entity::LINE_ITEM,
+      'TwitterAds::OrganicTweet' => Entity::ORGANIC_TWEET,
+      'TwitterAds::Creative::PromotedAccount' => Entity::ACCOUNT,
+      'TwitterAds::Creative::PromotedTweet' => Entity::PROMOTED_TWEET,
+      'TwitterAds::Creative::MediaCreative' => Entity::MEDIA_CREATIVE
     }.freeze
+
+    RESOURCE_STATS            = "/#{TwitterAds::API_VERSION}/" +
+                                'stats/accounts/%{account_id}' # @api private
+    RESOURCE_ASYNC_STATS      = "/#{TwitterAds::API_VERSION}/" +
+                                'stats/jobs/accounts/%{account_id}' # @api private
+    RESOURCE_ACTIVE_ENTITIES  = "/#{TwitterAds::API_VERSION}/" +
+                                'stats/accounts/%{account_id}/active_entities' # @api private
 
     def self.included(klass)
       klass.send :include, InstanceMethods
@@ -70,7 +80,7 @@ module TwitterAds
       def stats(account, ids, metric_groups, opts = {})
         # set default metric values
         end_time          = opts.fetch(:end_time, (Time.now - Time.now.sec - (60 * Time.now.min)))
-        start_time        = opts.fetch(:start_time, end_time - 604_800) # 7 days ago
+        start_time        = opts.fetch(:start_time, end_time - (60 * 60 * 24 * 7)) # 7 days ago
         granularity       = opts.fetch(:granularity, :hour)
         start_utc_offset  = opts[:start_utc_offset] || opts[:utc_offset]
         end_utc_offset    = opts[:end_utc_offset] || opts[:utc_offset]
@@ -199,7 +209,27 @@ module TwitterAds
         end
       end
 
-    end
+      def active_entities(account, start_time:, end_time:, **opts)
+        entity_type = name
+        granularity       = opts.fetch(:granularity, nil)
+        start_utc_offset  = opts[:start_utc_offset] || opts[:utc_offset]
+        end_utc_offset    = opts[:end_utc_offset] || opts[:utc_offset]
 
+        if entity_type == 'OrganicTweet'
+          raise "'OrganicTweet' not support with 'active_entities'"
+        end
+
+        params = {
+          entity: ANALYTICS_MAP[entity_type],
+          start_time: TwitterAds::Utils.to_time(start_time, granularity, start_utc_offset),
+          end_time: TwitterAds::Utils.to_time(end_time, granularity, end_utc_offset)
+        }.merge!(opts)
+
+        resource = self::RESOURCE_ACTIVE_ENTITIES % { account_id: account.id }
+        response = Request.new(account.client, :get, resource, params: params).perform
+        response.body[:data]
+      end
+
+    end
   end
 end

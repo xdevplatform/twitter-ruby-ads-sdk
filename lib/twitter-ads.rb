@@ -12,16 +12,17 @@ require 'logger'
 require 'twitter-ads/version'
 require 'twitter-ads/utils'
 require 'twitter-ads/error'
-
+require 'twitter-ads/enum'
 require 'twitter-ads/resources/dsl'
-require 'twitter-ads/resources/resource'
-require 'twitter-ads/resources/persistence'
-require 'twitter-ads/resources/analytics'
-require 'twitter-ads/resources/batch'
 
 require 'twitter-ads/client'
 require 'twitter-ads/cursor'
 require 'twitter-ads/account'
+
+require 'twitter-ads/resources/resource'
+require 'twitter-ads/resources/persistence'
+require 'twitter-ads/resources/analytics'
+require 'twitter-ads/resources/batch'
 
 require 'twitter-ads/http/request'
 require 'twitter-ads/http/response'
@@ -38,8 +39,6 @@ require 'twitter-ads/campaign/targeting_criteria'
 require 'twitter-ads/campaign/tweet'
 require 'twitter-ads/campaign/organic_tweet'
 require 'twitter-ads/campaign/iab_category'
-
-require 'twitter-ads/enum'
 
 require 'twitter-ads/targeting_criteria/tv_market'
 require 'twitter-ads/targeting_criteria/tv_show'
