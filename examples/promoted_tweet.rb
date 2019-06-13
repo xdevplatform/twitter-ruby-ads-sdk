@@ -20,23 +20,27 @@ client = TwitterAds::Client.new(
 # load up the account instance, campaign and line item
 account   = client.accounts(ADS_ACCOUNT)
 campaign  = account.campaigns.first
-line_item = account.line_items(nil, params: { campaign_id: campaign.id }).first
+line_item = account.line_items(nil, campaign_ids: campaign.id).first
 
 # create request for a simple nullcasted tweet
-tweet1 = TwitterAds::Tweet.create(account, 'There can be only one...')
+tweet1 = TwitterAds::Tweet.create(account, text: 'There can be only one...')
 
 # promote the tweet using our line item
 promoted_tweet = TwitterAds::Creative::PromotedTweet.new(account)
 promoted_tweet.line_item_id = line_item.id
-promoted_tweet.tweet_id     = tweet1.body[:data][:id]
+promoted_tweet.tweet_id     = tweet1[:id_str]
 promoted_tweet.save
 
 # create request for a nullcasted tweet with a website card
 website_card = TwitterAds::Creative::WebsiteCard.all(account).first
-tweet2 = TwitterAds::Tweet.create(account, "Fine. There can be two. #{website_card.preview_url}")
+tweet2 = TwitterAds::Tweet.create(
+  account,
+  text: 'Fine. There can be two.',
+  card_uri: website_card.card_uri
+)
 
 # promote the tweet using our line item
 promoted_tweet = TwitterAds::Creative::PromotedTweet.new(account)
 promoted_tweet.line_item_id = line_item.id
-promoted_tweet.tweet_id     = tweet2.body[:data][:id]
+promoted_tweet.tweet_id     = tweet2[:id_str]
 promoted_tweet.save
