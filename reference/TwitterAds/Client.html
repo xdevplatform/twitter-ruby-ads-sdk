@@ -6,7 +6,7 @@
 <title>
   Class: TwitterAds::Client
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -102,8 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>The Ads API Client class which functions as a container for basic API
-consumer information.</p>
+<p>The Ads API Client class which functions as a container for basic API consumer information.</p>
 
 
   </div>
@@ -229,33 +228,6 @@ consumer information.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#logger-instance_method" title="#logger (instance method)">#<strong>logger</strong>  &#x21d2; Logger </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the Logger instance for request logging.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#options-instance_method" title="#options (instance method)">#<strong>options</strong>  &#x21d2; Object </a>
     
 
@@ -311,8 +283,7 @@ consumer information.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns a collection of advertiser Accounts available to the current access
-token.</p>
+<p>Returns a collection of advertiser Accounts available to the current access token.</p>
 </div></span>
   
 </li>
@@ -363,6 +334,30 @@ token.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns an inspection string for the current Client instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#logger-instance_method" title="#logger (instance method)">#<strong>logger</strong>  &#x21d2; Logger </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the Logger instance for request logging.</p>
 </div></span>
   
 </li>
@@ -545,6 +540,7 @@ token.</p>
       <pre class="lines">
 
 
+32
 33
 34
 35
@@ -552,11 +548,10 @@ token.</p>
 37
 38
 39
-40
-41</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_consumer_key'>consumer_key</span><span class='comma'>,</span> <span class='id identifier rubyid_consumer_secret'>consumer_secret</span><span class='comma'>,</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_access_token_secret'>access_token_secret</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@consumer_key</span>        <span class='op'>=</span> <span class='id identifier rubyid_consumer_key'>consumer_key</span>
@@ -750,83 +745,6 @@ token.</p>
 </div>
     
       
-      <span id="logger=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="logger-instance_method">
-  
-    #<strong>logger</strong>  &#x21d2; <tt>Logger</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the Logger instance for request logging.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Logger</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The logger instance.</p>
-</div>
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Since:</p>
-<ul class="since">
-  
-    <li>
-      
-      
-      
-      
-        
-        <div class='inline'>
-<p>0.2.0</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-48
-49
-50</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 48</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_logger'>logger</span>
-  <span class='ivar'>@logger</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="options=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="options-instance_method">
@@ -888,8 +806,7 @@ token.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a collection of advertiser Accounts available to the current access
-token.</p>
+<p>Returns a collection of advertiser Accounts available to the current access token.</p>
 
 
   </div>
@@ -1027,12 +944,12 @@ token.</p>
       <pre class="lines">
 
 
+80
 81
-82
-83</pre>
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_accounts'>accounts</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_id'>id</span> <span class='op'>?</span> <span class='const'><span class='object_link'><a href="Account.html" title="TwitterAds::Account (class)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_load'><span class='object_link'><a href="Account.html#load-class_method" title="TwitterAds::Account.load (method)">load</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="Account.html" title="TwitterAds::Account (class)">Account</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'><span class='object_link'><a href="Account.html#all-class_method" title="TwitterAds::Account.all (method)">all</a></span></span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1110,15 +1027,94 @@ token.</p>
       <pre class="lines">
 
 
+61
 62
-63
-64</pre>
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_object_id'>object_id</span><span class='embexpr_end'>}</span><span class='tstring_content'> consumer_key=\&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@consumer_key</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="logger-instance_method">
+  
+    #<strong>logger</strong>  &#x21d2; <tt>Logger</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the Logger instance for request logging.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Logger</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The logger instance.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.2.0</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/twitter-ads/client.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_logger'>logger</span>
+  <span class='ivar'>@logger</span> <span class='op'>||=</span> <span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>STDOUT</span><span class='rparen'>)</span>
+  <span class='ivar'>@logger</span><span class='period'>.</span><span class='id identifier rubyid_progname'>progname</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>twitter-ads</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='ivar'>@logger</span><span class='period'>.</span><span class='id identifier rubyid_progname'>progname</span>
+  <span class='ivar'>@logger</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1130,9 +1126,9 @@ token.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 14 15:51:14 2019 by
+  Generated on Fri Jun 14 13:05:01 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.12 (ruby-2.3.0).
+  0.9.19 (ruby-2.6.1).
 </div>
 
     </div>

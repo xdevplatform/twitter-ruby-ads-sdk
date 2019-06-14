@@ -6,7 +6,7 @@
 <title>
   Module: TwitterAds::Analytics
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -71,12 +71,17 @@
   
   
   
+  <dl>
+      <dt>Includes:</dt>
+      <dd><span class='object_link'><a href="Enum.html" title="TwitterAds::Enum (module)">Enum</a></span></dd>
+  </dl>
+  
   
 
   
   <dl>
     <dt>Included in:</dt>
-    <dd><span class='object_link'><a href="Campaign.html" title="TwitterAds::Campaign (class)">Campaign</a></span>, <span class='object_link'><a href="Creative/PromotedAccount.html" title="TwitterAds::Creative::PromotedAccount (class)">Creative::PromotedAccount</a></span>, <span class='object_link'><a href="Creative/PromotedTweet.html" title="TwitterAds::Creative::PromotedTweet (class)">Creative::PromotedTweet</a></span>, <span class='object_link'><a href="LineItem.html" title="TwitterAds::LineItem (class)">LineItem</a></span>, <span class='object_link'><a href="OrganicTweet.html" title="TwitterAds::OrganicTweet (class)">OrganicTweet</a></span></dd>
+    <dd><span class='object_link'><a href="Campaign.html" title="TwitterAds::Campaign (class)">Campaign</a></span>, <span class='object_link'><a href="Creative/MediaCreative.html" title="TwitterAds::Creative::MediaCreative (class)">Creative::MediaCreative</a></span>, <span class='object_link'><a href="Creative/PromotedAccount.html" title="TwitterAds::Creative::PromotedAccount (class)">Creative::PromotedAccount</a></span>, <span class='object_link'><a href="Creative/PromotedTweet.html" title="TwitterAds::Creative::PromotedTweet (class)">Creative::PromotedTweet</a></span>, <span class='object_link'><a href="FundingInstrument.html" title="TwitterAds::FundingInstrument (class)">FundingInstrument</a></span>, <span class='object_link'><a href="LineItem.html" title="TwitterAds::LineItem (class)">LineItem</a></span>, <span class='object_link'><a href="OrganicTweet.html" title="TwitterAds::OrganicTweet (class)">OrganicTweet</a></span></dd>
   </dl>
   
 
@@ -99,21 +104,72 @@
   
 </p>
 
-  <h2>Constant Summary</h2>
-  <dl class="constants">
-    
-      <dt id="ANALYTICS_MAP-constant" class="">ANALYTICS_MAP =
-        
-      </dt>
-      <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::Campaign</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CAMPAIGN</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span>
-  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::LineItem</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>LINE_ITEM</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span>
-  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::OrganicTweet</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ORGANIC_TWEET</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span>
-  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::Creative::PromotedAccount</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ACCOUNT</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span>
-  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::Creative::PromotedTweet</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>PROMOTED_TWEET</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="ANALYTICS_MAP-constant" class="">ANALYTICS_MAP =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::Campaign</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="Enum/Entity.html" title="TwitterAds::Enum::Entity (module)">Entity</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Enum/Entity.html#CAMPAIGN-constant" title="TwitterAds::Enum::Entity::CAMPAIGN (constant)">CAMPAIGN</a></span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::LineItem</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="Enum/Entity.html" title="TwitterAds::Enum::Entity (module)">Entity</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Enum/Entity.html#LINE_ITEM-constant" title="TwitterAds::Enum::Entity::LINE_ITEM (constant)">LINE_ITEM</a></span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::OrganicTweet</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="Enum/Entity.html" title="TwitterAds::Enum::Entity (module)">Entity</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Enum/Entity.html#ORGANIC_TWEET-constant" title="TwitterAds::Enum::Entity::ORGANIC_TWEET (constant)">ORGANIC_TWEET</a></span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::Creative::PromotedAccount</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="Enum/Entity.html" title="TwitterAds::Enum::Entity (module)">Entity</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Enum/Entity.html#ACCOUNT-constant" title="TwitterAds::Enum::Entity::ACCOUNT (constant)">ACCOUNT</a></span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::Creative::PromotedTweet</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="Enum/Entity.html" title="TwitterAds::Enum::Entity (module)">Entity</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Enum/Entity.html#PROMOTED_TWEET-constant" title="TwitterAds::Enum::Entity::PROMOTED_TWEET (constant)">PROMOTED_TWEET</a></span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TwitterAds::Creative::MediaCreative</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='const'><span class='object_link'><a href="Enum/Entity.html" title="TwitterAds::Enum::Entity (module)">Entity</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Enum/Entity.html#MEDIA_CREATIVE-constant" title="TwitterAds::Enum::Entity::MEDIA_CREATIVE (constant)">MEDIA_CREATIVE</a></span></span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-    
-  </dl>
+      
+        <dt id="RESOURCE_STATS-constant" class="">RESOURCE_STATS =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="../TwitterAds.html" title="TwitterAds (module)">TwitterAds</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../TwitterAds.html#API_VERSION-constant" title="TwitterAds::API_VERSION (constant)">API_VERSION</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+<span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stats/accounts/%{account_id}</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="RESOURCE_ASYNC_STATS-constant" class="">RESOURCE_ASYNC_STATS =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="../TwitterAds.html" title="TwitterAds (module)">TwitterAds</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../TwitterAds.html#API_VERSION-constant" title="TwitterAds::API_VERSION (constant)">API_VERSION</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+<span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stats/jobs/accounts/%{account_id}</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="RESOURCE_ACTIVE_ENTITIES-constant" class="">RESOURCE_ACTIVE_ENTITIES =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="../TwitterAds.html" title="TwitterAds (module)">TwitterAds</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../TwitterAds.html#API_VERSION-constant" title="TwitterAds::API_VERSION (constant)">API_VERSION</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+<span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>stats/accounts/%{account_id}/active_entities</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -122,13 +178,19 @@
 
 
 
+  
+  
+  
+  
+  
+  
 
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 14 15:51:13 2019 by
+  Generated on Fri Jun 14 13:05:00 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.12 (ruby-2.3.0).
+  0.9.19 (ruby-2.6.1).
 </div>
 
     </div>
