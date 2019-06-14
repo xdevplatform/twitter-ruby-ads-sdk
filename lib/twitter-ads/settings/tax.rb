@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class TaxSettings
@@ -40,8 +40,8 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE = "/#{TwitterAds::API_VERSION}/" +
-               'accounts/%{account_id}/user_settings/%{id}'.freeze # @api private
+    RESOURCE = "/#{TwitterAds::API_VERSION}/" \
+               'accounts/%{account_id}/user_settings/%{id}' # @api private
 
     def initialize(account)
       @account = account

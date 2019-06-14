@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class AppStoreCategory
@@ -12,8 +12,8 @@ module TwitterAds
     property :targeting_type, read_only: true
     property :targeting_value, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'targeting_criteria/app_store_categories'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'targeting_criteria/app_store_categories' # @api private
 
     def initialize(account)
       @account = account

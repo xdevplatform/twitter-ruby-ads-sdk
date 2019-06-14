@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 require 'spec_helper'
 
@@ -32,7 +32,6 @@ describe TwitterAds::Creative::WebsiteCard do
     image
     image_display_height
     image_display_width
-    preview_url
     website_dest_url
     website_display_url
     updated_at

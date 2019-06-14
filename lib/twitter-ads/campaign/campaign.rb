@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class Campaign
@@ -32,16 +32,12 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/campaigns'.freeze # @api private
-    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/jobs/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" +
-                           'batch/accounts/%{account_id}/campaigns'.freeze # @api private
-    RESOURCE             = "/#{TwitterAds::API_VERSION}/" +
-                           'accounts/%{account_id}/campaigns/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/campaigns' # @api private
+    RESOURCE_BATCH       = "/#{TwitterAds::API_VERSION}/" \
+                           'batch/accounts/%{account_id}/campaigns' # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/campaigns/%{id}' # @api private
 
     def initialize(account)
       @account = account

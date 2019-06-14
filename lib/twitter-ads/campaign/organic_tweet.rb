@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 # Author Bob, Nugit
 
 module TwitterAds
@@ -7,9 +7,5 @@ module TwitterAds
 
     include TwitterAds::Analytics
 
-    RESOURCE_STATS       = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/accounts/%{account_id}'.freeze # @api private
-    RESOURCE_ASYNC_STATS = "/#{TwitterAds::API_VERSION}/" +
-                           'stats/jobs/accounts/%{account_id}'.freeze # @api private
   end
 end

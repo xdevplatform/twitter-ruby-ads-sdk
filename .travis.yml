@@ -1,22 +1,23 @@
 language: ruby
 
-install: ruby -S bundle install --without development
+before_install:
+  - bundle config without 'development'
+
+install: bundle install
 script: bundle exec rake
 
 branches:
   only:
     - master
-    - stable
 
 matrix:
   fast_finish: true
   allow_failures:
     - rvm: ruby-head
-    - rvm: rbx
+    - rvm: rbx-2
   include:
-    - rvm: 2.0.0
-    - rvm: 2.1
-    - rvm: 2.2
-    - rvm: 2.3.0
+    - rvm: 2.6.3
+    - rvm: 2.5.5
+    - rvm: 2.4.6
     - rvm: ruby-head
-    - rvm: rbx
+    - rvm: rbx-2

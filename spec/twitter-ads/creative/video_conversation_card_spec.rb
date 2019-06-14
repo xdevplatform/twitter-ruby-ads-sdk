@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 require 'spec_helper'
 
@@ -26,7 +26,6 @@ describe TwitterAds::Creative::VideoConversationCard do
 
   read = %w(
     id
-    preview_url
     video_url
     video_poster_url
     deleted
