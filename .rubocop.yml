@@ -138,3 +138,6 @@ Layout/EmptyLineAfterMagicComment:
 
 Metrics/BlockLength:
   Enabled: false
+
+Performance/RegexpMatch:
+  Enabled: false
