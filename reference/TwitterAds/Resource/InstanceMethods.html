@@ -6,7 +6,7 @@
 <title>
   Module: TwitterAds::Resource::InstanceMethods
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -239,7 +239,7 @@
       <pre class="code"><span class="info file"># File 'lib/twitter-ads/resources/resource.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-  <span class='id identifier rubyid_str'>str</span> <span class='op'>=</span> <span class='const'>String</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_object_id'>object_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_str'>str</span> <span class='op'>=</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_object_id'>object_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> id=\&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@id</span>
   <span class='id identifier rubyid_str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> deleted=&quot;true&quot;</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@deleted</span>
   <span class='id identifier rubyid_str'>str</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&#39;</span></span>
@@ -263,8 +263,7 @@
     
 <p>Reloads all attributes for the current object instance from the API.</p>
 
-<p>Note: calls to this method dispose of any unsaved data on the object
-instance.</p>
+<p>Note: calls to this method dispose of any unsaved data on the object instance.</p>
 
 
   </div>
@@ -370,9 +369,9 @@ instance.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Feb 14 15:51:13 2019 by
+  Generated on Fri Jun 14 13:05:00 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.12 (ruby-2.3.0).
+  0.9.19 (ruby-2.6.1).
 </div>
 
     </div>

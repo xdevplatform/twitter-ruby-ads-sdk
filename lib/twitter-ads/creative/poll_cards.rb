@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Creative
@@ -22,7 +22,6 @@ module TwitterAds
       property :image, read_only: true
       property :image_display_height, read_only: true
       property :image_display_width, read_only: true
-      property :preview_url, read_only: true
       property :start_time, type: :time, read_only: true
       property :updated_at, type: :time, read_only: true
       property :video_height, read_only: true
@@ -41,10 +40,10 @@ module TwitterAds
       property :third_choice
       property :fourth_choice
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                            'accounts/%{account_id}/cards/poll'.freeze # @api private
-      RESOURCE = "/#{TwitterAds::API_VERSION}/" +
-                 'accounts/%{account_id}/cards/poll/%{id}'.freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                            'accounts/%{account_id}/cards/poll' # @api private
+      RESOURCE = "/#{TwitterAds::API_VERSION}/" \
+                 'accounts/%{account_id}/cards/poll/%{id}' # @api private
 
       def initialize(account)
         @account = account

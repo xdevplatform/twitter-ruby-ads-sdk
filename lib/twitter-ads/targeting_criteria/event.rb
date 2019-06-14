@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class Event
@@ -22,8 +22,8 @@ module TwitterAds
     property :device_breakdown_percentage, read_only: true
     property :country_breakdown_percentage, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'targeting_criteria/events'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'targeting_criteria/events' # @api private
 
     def initialize(account)
       @account = account

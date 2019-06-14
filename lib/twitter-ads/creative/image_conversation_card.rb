@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   module Creative
@@ -18,7 +18,6 @@ module TwitterAds
       property :deleted, type: :bool, read_only: true
       property :id, read_only: true
       property :image, read_only: true
-      property :preview_url, read_only: true
       property :updated_at, type: :time, read_only: true
 
       property :cover_image_id
@@ -36,10 +35,10 @@ module TwitterAds
       property :third_cta_tweet
       property :title
 
-      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                            'accounts/%{account_id}/cards/image_conversation'.freeze # @api private
-      RESOURCE = "/#{TwitterAds::API_VERSION}/" +
-                 'accounts/%{account_id}/cards/image_conversation/%{id}'.freeze # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                            'accounts/%{account_id}/cards/image_conversation' # @api private
+      RESOURCE = "/#{TwitterAds::API_VERSION}/" \
+                 'accounts/%{account_id}/cards/image_conversation/%{id}' # @api private
 
       def initialize(account)
         @account = account

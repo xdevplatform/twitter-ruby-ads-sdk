@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 require 'spec_helper'
 
@@ -23,7 +23,7 @@ describe TwitterAds::Creative::ImageConversationCard do
 
   # check model properties
   subject { described_class.new(account) }
-  read  = %w(id preview_url image deleted created_at updated_at)
+  read  = %w(id image deleted created_at updated_at)
   write = %w(
     name
     title

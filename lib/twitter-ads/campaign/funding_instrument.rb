@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class FundingInstrument
 
     include TwitterAds::DSL
     include TwitterAds::Resource
+    include TwitterAds::Analytics
 
     attr_reader :account
 
@@ -24,10 +25,10 @@ module TwitterAds
     property :io_header, read_only: true
     property :reasons_not_able_to_fund, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/funding_instruments'.freeze # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/funding_instruments/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/funding_instruments' # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/funding_instruments/%{id}' # @api private
 
     def initialize(account)
       @account = account

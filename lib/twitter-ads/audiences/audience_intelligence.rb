@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class AudienceIntelligence
@@ -26,10 +26,10 @@ module TwitterAds
 
     RESOURCE_CONVERSATIONS  = "/#{TwitterAds::API_VERSION}/" \
                               'accounts/%{account_id}/audience_intelligence/' \
-                              'conversations'.freeze # @api private
+                              'conversations' # @api private
     RESOURCE_DEMOGRAPHICS   = "/#{TwitterAds::API_VERSION}/" \
                               'accounts/%{account_id}/audience_intelligence/' \
-                              'demographics'.freeze # @api private
+                              'demographics' # @api private
 
     def initialize(account)
       @account = account

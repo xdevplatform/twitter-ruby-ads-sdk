@@ -1,7 +1,7 @@
-# rubocop:disable Style/FileName
+# rubocop:disable Naming/FileName
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
-# rubocop:enable Style/FileName
+# Copyright (C) 2019 Twitter, Inc.
+# rubocop:enable Naming/FileName
 
 require 'time'
 require 'oauth'
@@ -12,20 +12,20 @@ require 'logger'
 require 'twitter-ads/version'
 require 'twitter-ads/utils'
 require 'twitter-ads/error'
-
+require 'twitter-ads/enum'
 require 'twitter-ads/resources/dsl'
-require 'twitter-ads/resources/resource'
-require 'twitter-ads/resources/persistence'
-require 'twitter-ads/resources/analytics'
-require 'twitter-ads/resources/batch'
 
 require 'twitter-ads/client'
 require 'twitter-ads/cursor'
 require 'twitter-ads/account'
 
+require 'twitter-ads/resources/resource'
+require 'twitter-ads/resources/persistence'
+require 'twitter-ads/resources/analytics'
+require 'twitter-ads/resources/batch'
+
 require 'twitter-ads/http/request'
 require 'twitter-ads/http/response'
-require 'twitter-ads/http/ton_upload'
 
 require 'twitter-ads/audiences/audience_intelligence'
 require 'twitter-ads/audiences/tailored_audience'
@@ -39,8 +39,6 @@ require 'twitter-ads/campaign/targeting_criteria'
 require 'twitter-ads/campaign/tweet'
 require 'twitter-ads/campaign/organic_tweet'
 require 'twitter-ads/campaign/iab_category'
-
-require 'twitter-ads/enum'
 
 require 'twitter-ads/targeting_criteria/tv_market'
 require 'twitter-ads/targeting_criteria/tv_show'
@@ -70,6 +68,7 @@ require 'twitter-ads/creative/video_conversation_card'
 require 'twitter-ads/creative/video_website_card'
 require 'twitter-ads/creative/website_card'
 require 'twitter-ads/creative/poll_cards'
+require 'twitter-ads/creative/tweet_previews'
 
 require 'twitter-ads/targeting/reach_estimate'
 

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
 
-  API_VERSION = '3'.freeze
+  API_VERSION = '5'
 
   # The Ads API Client class which functions as a
   # container for basic API consumer information.
@@ -13,8 +13,7 @@ module TwitterAds
                   :consumer_secret,
                   :access_token,
                   :access_token_secret,
-                  :options,
-                  :logger
+                  :options
 
     # Creates a new Ads API client instance.
     #

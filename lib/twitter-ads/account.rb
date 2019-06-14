@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class Account
@@ -17,16 +17,16 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts'.freeze # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{id}'.freeze # @api private
-    FEATURES            = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{id}/features'.freeze # @api private
-    SCOPED_TIMELINE     = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{id}/scoped_timeline'.freeze # @api private
-    AUTHENTICATED_USER_ACCESS = "/#{TwitterAds::API_VERSION}/" +
-                                'accounts/%{id}/authenticated_user_access'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts' # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{id}' # @api private
+    FEATURES            = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{id}/features' # @api private
+    SCOPED_TIMELINE     = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{id}/scoped_timeline' # @api private
+    AUTHENTICATED_USER_ACCESS = "/#{TwitterAds::API_VERSION}/" \
+                                'accounts/%{id}/authenticated_user_access' # @api private
 
     def initialize(client)
       @client = client
@@ -77,7 +77,7 @@ module TwitterAds
     #
     # @return [String] The object instance detail.
     def inspect
-      str = String.new("#<#{self.class.name}:0x#{object_id}")
+      str = +"#<#{self.class.name}:0x#{object_id}"
       str << " id=\"#{@id}\"" if @id
       str << '>'
     end
@@ -92,6 +92,46 @@ module TwitterAds
       resource = FEATURES % { id: @id }
       response = Request.new(client, :get, resource).perform
       response.body[:data]
+    end
+
+    # Returns a collection of media creatives available to the current account.
+    #
+    # @param id [String] The MediaCreative ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [String] :line_item_id Scope the result to a line item ID.
+    # @option opts [String] :campaign_id Scope the result to a campaign ID.
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    def media_creatives(id = nil, opts = {})
+      load_resource(Creative::MediaCreative, id, opts)
+    end
+
+    # Returns a collection of account media available to the current account.
+    #
+    # @param id [String] The Account Media ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [String] :account_media_ids Comma separated account media ids
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    def account_media(id = nil, opts = {})
+      load_resource(Creative::AccountMedia, id, opts)
+    end
+
+    # Returns a collection of media library available to the current account.
+    #
+    # @param id [String] The Media key value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [String] :media_type can be VIDEO, IMAGE or GIF
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    def media_library(id = nil, opts = {})
+      load_resource(Creative::MediaLibrary, id, opts)
     end
 
     # Returns a collection of promotable users available to the current account.

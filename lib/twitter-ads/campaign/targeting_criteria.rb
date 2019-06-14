@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# Copyright (C) 2015 Twitter, Inc.
+# Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
   class TargetingCriteria
@@ -28,12 +28,12 @@ module TwitterAds
     # sdk only
     property :to_delete, type: :bool
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/targeting_criteria'.freeze # @api private
-    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/" +
-                          'batch/accounts/%{account_id}/targeting_criteria'.freeze # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/" +
-                          'accounts/%{account_id}/targeting_criteria/%{id}'.freeze # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/targeting_criteria' # @api private
+    RESOURCE_BATCH      = "/#{TwitterAds::API_VERSION}/" \
+                          'batch/accounts/%{account_id}/targeting_criteria' # @api private
+    RESOURCE            = "/#{TwitterAds::API_VERSION}/" \
+                          'accounts/%{account_id}/targeting_criteria/%{id}' # @api private
 
     def initialize(account)
       @account = account
@@ -45,7 +45,7 @@ module TwitterAds
       # Returns a Cursor instance for a given resource.
       #
       # @param account [Account] The Account object instance.
-      # @param line_item_id [String] The line item ID string.
+      # @param line_item_ids [String] A String or String array of Line Item IDs.
       # @param opts [Hash] An optional Hash of extended options.
       # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
       # @option opts [String] :sort_by The object param to sort the API response by.
@@ -55,8 +55,8 @@ module TwitterAds
       # @since 0.3.1
       # @see Cursor
       # @see https://dev.twitter.com/ads/basics/sorting Sorting
-      def all(account, line_item_id, opts = {})
-        params = { line_item_id: line_item_id }.merge!(opts)
+      def all(account, line_item_ids, opts = {})
+        params = { line_item_ids: Array(line_item_ids).join(',') }.merge!(opts)
         resource = RESOURCE_COLLECTION % { account_id: account.id }
         request = Request.new(account.client, :get, resource, params: params)
         Cursor.new(self, request, init_with: [account])
