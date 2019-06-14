@@ -48,12 +48,11 @@ For more help please see our [Examples and Guides](https://github.com/twitterdev
 
 ## Compatibility & Versioning
 
-This project is designed to work with Ruby 2.3.0 or greater. While it may work on other version of Ruby, below are the platform and runtime versions we officially support and regularly test against.
+This project is designed to work with Ruby 2.4.0 or greater. While it may work on other version of Ruby, below are the platform and runtime versions we officially support and regularly test against.
 
 Platform | Versions
 -------- | --------
-MRI | 2.3.0, 2.4.x, 2.5.x, 2.6.x
-JRuby | 1.7.x, 9.0.0.0 (JDK7, JDK8, OpenJDK)
+MRI | 2.4.x, 2.5.x, 2.6.x
 Rubinius | 2.4.x, 2.5.x
 
 All releases adhere to strict [semantic versioning](http://semver.org). For Example, major.minor.patch-pre (aka. stick.carrot.oops-peek).
