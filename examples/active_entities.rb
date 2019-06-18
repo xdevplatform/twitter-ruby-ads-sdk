@@ -13,7 +13,7 @@ require 'twitter-ads'
 
 include TwitterAds::Enum
 
-CCONSUMER_KEY       = 'your consumer key'
+CONSUMER_KEY        = 'your consumer key'
 CONSUMER_SECRET     = 'your consumer secret'
 ACCESS_TOKEN        = 'user access token'
 ACCESS_TOKEN_SECRET = 'user access token secret'

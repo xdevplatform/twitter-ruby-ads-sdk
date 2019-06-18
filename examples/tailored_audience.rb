@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # Copyright (C) 2019 Twitter, Inc.
 
+require 'digest'
 require 'twitter-ads'
 include TwitterAds::Enum
 
@@ -21,19 +22,26 @@ client = TwitterAds::Client.new(
 # load up the account instance
 account = client.accounts(ADS_ACCOUNT)
 
-# create a new tailored audience
+# create a new placeholder tailored audience
 audience =
-  TwitterAds::TailoredAudience.create(account, '/path/to/file', 'my list', TAListTypes::Email)
+  TwitterAds::TailoredAudience.create(account, 'Test TA')
 
-# check the processing status
-audience.status
+# sample user
+# all values musth be sha256 hashede except 'partner_user_id'
+email_hash = Digest::SHA256.hexdigest 'test-email@test.com'
+
+# create payload
+user = [{
+  operation_type: 'Update',
+  params: {
+    users: [{
+      email: [
+        email_hash
+      ]
+    }]
+  }
+}]
 
 # update the tailored audience
-audience.update('/path/to/file', 'TWITTER_ID', TAOperations::REMOVE)
-audience.update('/path/to/file', 'PHONE_NUMBER', TAOperations::ADD)
-
-# delete the tailored audience
-audience.delete!
-
-# add users to the account's global opt-out list
-TwitterAds::TailoredAudience.opt_out(account, '/path/to/file', TAListTypes::HANDLE)
+success_count, total_count = audience.users(user)
+print "Successfully added #{total_count} users" if success_count == total_count

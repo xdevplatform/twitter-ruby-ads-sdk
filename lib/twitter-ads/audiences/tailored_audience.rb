@@ -29,9 +29,9 @@ module TwitterAds
                            'accounts/%{account_id}/tailored_audiences' # @api private
     RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
                            'accounts/%{account_id}/tailored_audiences/%{id}' # @api private
-    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/ \
-                           accounts/%{account_id}/tailored_audiences/ \
-                           %{id}/users" # @api private
+    RESOURCE_USERS       = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tailored_audiences/' \
+                           '%{id}/users' # @api private
 
     LIST_TYPES = %w(
       EMAIL
