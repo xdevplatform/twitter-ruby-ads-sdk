@@ -138,4 +138,99 @@ module TwitterAds
     end
 
   end
+
+  class TailoredAudiencePermission
+
+    include TwitterAds::DSL
+    include TwitterAds::Resource
+
+    attr_reader :account
+
+    # read-only
+    property :created_at, type: :time, read_only: true
+    property :updated_at, type: :time, read_only: true
+    property :deleted, type: :bool, read_only: true
+
+    property :id
+    property :tailored_audience_id
+    property :granted_account_id
+    property :permission_level
+
+    RESOURCE_COLLECTION  = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tailored_audiences/' \
+                           '%{tailored_audience_id}/permissions' # @api private
+    RESOURCE             = "/#{TwitterAds::API_VERSION}/" \
+                           'accounts/%{account_id}/tailored_audiences/' \
+                           '%{tailored_audience_id}/permissions/%{id}' # @api private
+
+    def initialize(account)
+      @account = account
+      self
+    end
+
+    class << self
+
+      # Retrieve details for some or
+      # all permissions associated with the specified tailored audience.
+      #
+      # @exapmle
+      #   permissions = TailoredAudiencePermission.all(account, '36n4f')
+      #
+      # @param account [Account] The account object instance.
+      # @param tailored_audience_id [String] The tailored audience id.
+      #
+      # @since 5.2.0
+      #
+      # @return [TailoredAudiencePermission] The tailored audience permission instance.
+      def all(account, tailored_audience_id, opts = {})
+        params = {}.merge!(opts)
+        resource = RESOURCE_COLLECTION % {
+          account_id: account.id,
+          tailored_audience_id: tailored_audience_id
+        }
+        request = Request.new(account.client, :get, resource, params: params)
+        Cursor.new(self, request, init_with: [account])
+      end
+
+    end
+
+    # Saves or updates the current object instance
+    # depending on the presence of `object.tailored_audience_id`.
+    #
+    # @exapmle
+    #   object.save
+    #
+    # @since 5.2.0
+    #
+    # @return [self] Returns the instance refreshed from the API.
+    def save
+      resource = RESOURCE_COLLECTION % {
+        account_id: account.id,
+        tailored_audience_id: tailored_audience_id
+      }
+      params = to_params
+      response = Request.new(account.client, :post, resource, params: params).perform
+      from_response(response.body[:data])
+    end
+
+    # Deletes the current or specified tailored audience permission.
+    #
+    # @example
+    #   object.delete!
+    #
+    # Note: calls to this method are destructive and irreverisble.
+    #
+    # @since 5.2.0
+    #
+    # @return [self] Returns the instance refreshed from the API.
+    def delete!
+      resource = RESOURCE % {
+        account_id: account.id,
+        tailored_audience_id: tailored_audience_id,
+        id: @id
+      }
+      response = Request.new(account.client, :delete, resource).perform
+      from_response(response.body[:data])
+    end
+  end
 end
