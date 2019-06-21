@@ -41,12 +41,24 @@ module TwitterAds
     property :to_delete, type: :bool
 
     RESOURCE = "/#{TwitterAds::API_VERSION}/" \
-               'accounts/%{account_id}/user_settings/%{id}' # @api private
+               'accounts/%{account_id}/tax_settings' # @api private
 
     def initialize(account)
       @account = account
       self
     end
 
+    def self.load(account)
+      resource = RESOURCE % { account_id: account.id }
+      response = Request.new(account.client, :get, resource).perform
+      new(account).from_response(response.body[:data])
+    end
+
+    def save
+      resource = RESOURCE % { account_id: account.id }
+      params = to_params
+      response = Request.new(account.client, :put, resource, params: params).perform
+      from_response(response.body[:data])
+    end
   end
 end
