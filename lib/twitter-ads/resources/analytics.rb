@@ -223,7 +223,15 @@ module TwitterAds
           entity: ANALYTICS_MAP[entity_type],
           start_time: TwitterAds::Utils.to_time(start_time, granularity, start_utc_offset),
           end_time: TwitterAds::Utils.to_time(end_time, granularity, end_utc_offset)
-        }.merge!(opts)
+        }
+
+        opts.each { |k, v|
+          params[k] = if v.instance_of?(Array)
+                        v.join(',')
+                      else
+                        v
+                      end
+        }
 
         resource = self::RESOURCE_ACTIVE_ENTITIES % { account_id: account.id }
         response = Request.new(account.client, :get, resource, params: params).perform
