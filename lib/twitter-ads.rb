@@ -27,7 +27,6 @@ require 'twitter-ads/resources/batch'
 require 'twitter-ads/http/request'
 require 'twitter-ads/http/response'
 
-require 'twitter-ads/audiences/audience_intelligence'
 require 'twitter-ads/audiences/tailored_audience'
 
 require 'twitter-ads/campaign/app_list'

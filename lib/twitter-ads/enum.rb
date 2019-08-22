@@ -218,11 +218,6 @@ module TwitterAds
       HASHTAG = 'HASHTAG'
     end
 
-    module AudienceDefinition
-      TARGETING_CRITERIA = 'TARGETING_CRITERIA'
-      KEYWORD_AUDIENCE = 'KEYWORD_AUDIENCE'
-    end
-
     module LookalikeExpansion
       DEFINED = 'DEFINED'
       EXPANDED = 'EXPANDED'
