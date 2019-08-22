@@ -35,16 +35,6 @@ module TwitterAds
                             'accounts/%{account_id}/scheduled_tweets' # @api private
       RESOURCE = "/#{TwitterAds::API_VERSION}/" \
                  'accounts/%{account_id}/scheduled_tweets/%{id}' # @api private
-      PREVIEW  = "/#{TwitterAds::API_VERSION}/" \
-                 'accounts/%{account_id}/scheduled_tweets/preview/%{id}' # @api private
-
-      def preview(account, opts = {})
-        if @id
-          resource = self.class::PREVIEW % { account_id: account.id, id: id }
-          response = TwitterAds::Request.new(account.client, :get, resource, params: opts).perform
-          response.body[:data]
-        end
-      end
 
       def initialize(account)
         @account = account

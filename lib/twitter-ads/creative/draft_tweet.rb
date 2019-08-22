@@ -30,25 +30,10 @@ module TwitterAds
                             'accounts/%{account_id}/draft_tweets' # @api private
       RESOURCE = "/#{TwitterAds::API_VERSION}/" \
                  'accounts/%{account_id}/draft_tweets/%{id}' # @api private
-      PREVIEW  = "/#{TwitterAds::API_VERSION}/" \
-               'accounts/%{account_id}/draft_tweets/preview/%{id}' # @api private
 
       def initialize(account)
         @account = account
         self
-      end
-
-      def preview(account: @account, draft_tweet_id: nil)
-        if !draft_tweet_id.nil?
-          resource = self.class::PREVIEW % { account_id: account.id, id: draft_tweet_id }
-        elsif @id
-          resource = self.class::PREVIEW % { account_id: account.id, id: id }
-        else
-          raise ArgumentError.new(
-            "object has no 'draft_tweet_id' to preview")
-        end
-        response = TwitterAds::Request.new(account.client, :post, resource).perform
-        response.body
       end
 
     end
