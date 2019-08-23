@@ -7,7 +7,7 @@ gem 'rake'
 group :development, :test do
   gem 'codeclimate-test-reporter', platforms: :mri
   gem 'cucumber'
-  gem 'faker'
+  gem 'faker', '~> 1.0'      # fix for breaking change in faker 2.x
   gem 'rspec'
   gem 'rubocop', '~> 0.50.0'
   gem 'simplecov', '~> 0.13' # fix for breaking change in simplecov
