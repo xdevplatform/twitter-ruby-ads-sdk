@@ -59,18 +59,7 @@ module TwitterAds
 
   # Server Errors (5XX)
   class ServerError < Error; end
-
-  class ServiceUnavailable < ServerError
-    attr_reader :retry_after
-
-    def initialize(object)
-      super object
-      if object.headers['retry-after']
-        @retry_after = object.headers['retry-after']
-      end
-      self
-    end
-  end
+  class ServiceUnavailable < ServerError; end
 
   # Client Errors (4XX)
   class ClientError < Error; end
@@ -80,12 +69,13 @@ module TwitterAds
   class BadRequest < ClientError; end
 
   class RateLimit < ClientError
-    attr_reader :reset_at, :retry_after
+    attr_reader :reset_at
 
     def initialize(object)
       super object
-      @retry_after = object.headers['retry-after']
-      @reset_at = object.headers['rate_limit_reset']
+      header = object.headers.fetch('x-account-rate-limit-reset', nil) ||
+               object.headers.fetch('x-rate-limit-reset', nil)
+      @reset_at = header.first.to_i
       self
     end
   end

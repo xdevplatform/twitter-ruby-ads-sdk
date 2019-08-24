@@ -124,6 +124,9 @@ Style/TernaryParentheses:
 Style/PercentLiteralDelimiters:
   Enabled: false
 
+Style/BracesAroundHashParameters:
+  Enabled: false
+
 Naming/VariableNumber:
   Enabled: false
 

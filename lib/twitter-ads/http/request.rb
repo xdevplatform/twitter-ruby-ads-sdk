@@ -71,8 +71,37 @@ module TwitterAds
       token    = OAuth::AccessToken.new(consumer, @client.access_token, @client.access_token_secret)
       request.oauth!(consumer.http, consumer, token)
 
+      handle_rate_limit = @client.options.fetch(:handle_rate_limit, false)
+      retry_max         = @client.options.fetch(:retry_max, 0)
+      retry_delay       = @client.options.fetch(:retry_delay, 1500)
+      retry_on_status   = @client.options.fetch(:retry_on_status, [500, 503])
+      retry_count       = 0
+      retry_after       = nil
+
       write_log(request) if @client.options[:trace]
-      response = consumer.http.request(request)
+      while retry_count <= retry_max
+        response = consumer.http.request(request)
+        status_code = response.code.to_i
+        break if status_code >= 200 && status_code < 300
+
+        if handle_rate_limit && retry_after.nil?
+          rate_limit_reset = response.fetch('x-account-rate-limit-reset', nil) ||
+                             response.fetch('x-rate-limit-reset', nil)
+          if status_code == 429
+            retry_after = rate_limit_reset.to_i - Time.now.to_i
+            @client.logger.warn('Request reached Rate Limit: resume in %d seconds' % retry_after)
+            sleep(retry_after + 5)
+            next
+          end
+        end
+
+        if retry_max.positive?
+          break unless retry_on_status.include?(status_code)
+          sleep(retry_delay / 1000)
+        end
+
+        retry_count += 1
+      end
       write_log(response) if @client.options[:trace]
 
       Response.new(response.code, response.each {}, response.body)
