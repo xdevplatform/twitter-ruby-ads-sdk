@@ -9,9 +9,7 @@ module TwitterAds
     attr_reader :code,
                 :headers,
                 :raw_body,
-                :body,
-                :rate_limit_remaining,
-                :rate_limit_reset
+                :body
 
     # Creates a new Response object instance.
     #
@@ -35,16 +33,6 @@ module TwitterAds
         @body = TwitterAds::Utils.symbolize!(MultiJson.load(body))
       rescue MultiJson::ParseError
         @body = raw_body
-      end
-
-      if headers.key?('x-rate-limit-reset')
-        @rate_limit           = headers['x-rate-limit-limit'].first
-        @rate_limit_remaining = headers['x-rate-limit-remaining'].first
-        @rate_limit_reset     = headers['x-rate-limit-reset'].first.to_i
-      elsif headers.key?('x-cost-rate-limit-reset')
-        @rate_limit           = headers['x-cost-rate-limit-limit'].first
-        @rate_limit_remaining = headers['x-cost-rate-limit-remaining'].first
-        @rate_limit_reset     = Time.at(headers['x-cost-rate-limit-reset'].first.to_i)
       end
 
       self
