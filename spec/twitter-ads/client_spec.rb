@@ -55,8 +55,24 @@ describe TwitterAds::Client do
 
     it 'allows additional options' do
       expect {
-        Client.new(consumer_key, consumer_secret, access_token, {})
+        Client.new(consumer_key, consumer_secret, access_token, access_token_secret, options: {})
       }.not_to raise_error
+    end
+
+    it 'test client options' do
+      client = Client.new(
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_token_secret,
+        options: {
+          handle_rate_limit: true,
+          retry_max: 1,
+          retry_delay: 3000,
+          retry_on_status: [404, 500, 503]
+        }
+      )
+      expect(client.options.length).to eq 4
     end
 
   end
