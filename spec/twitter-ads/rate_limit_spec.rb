@@ -10,6 +10,16 @@ describe TwitterAds::Campaign do
     stub_fixture(:get, :accounts_load, "#{ADS_API}/accounts/2iqph")
   end
 
+  let(:client) do
+    Client.new(
+      Faker::Lorem.characters(40),
+      Faker::Lorem.characters(40),
+      Faker::Lorem.characters(40),
+      Faker::Lorem.characters(40)
+    )
+  end
+  let(:account) { client_simple.accounts('2iqph') }
+
   let(:client_simple) do
     Client.new(
       Faker::Lorem.characters(40),
@@ -153,6 +163,49 @@ describe TwitterAds::Campaign do
     cusor = described_class.all(account2)
     expect(cusor.instance_of?(Cursor))
     expect(stub).to have_been_requested.times(3)
+  end
+
+  it 'test rate-limit header access from cusor class' do
+    stub_request(:get, "#{ADS_API}/accounts/2iqph/campaigns").to_return(
+      {
+        body: fixture(:campaigns_all),
+        status: 200,
+        headers: {
+          'x-account-rate-limit-limit': 10000,
+          'x-account-rate-limit-remaining': 9999,
+          'x-account-rate-limit-reset': 4102444800
+        }
+      }
+    )
+    cusor = described_class.all(account)
+    expect(cusor).to be_instance_of(Cursor)
+    expect(cusor.account_rate_limit_limit).to eq 10000
+    expect(cusor.account_rate_limit_remaining).to eq 9999
+    expect(cusor.account_rate_limit_reset).to eq 4102444800
+  end
+
+  it 'test rate-limit header access from resource class' do
+    stub_request(:any, /accounts\/2iqph\/campaigns\/2wap7/).to_return(
+      {
+        body: fixture(:campaigns_load),
+        status: 200,
+        headers: {
+          'x-account-rate-limit-limit': 10000,
+          'x-account-rate-limit-remaining': 9999,
+          'x-account-rate-limit-reset': 4102444800
+        }
+      }
+    )
+
+    campaign = described_class.load(account, '2wap7')
+    resource = "/#{TwitterAds::API_VERSION}/accounts/2iqph/campaigns/2wap7"
+    params   = {}
+    response = TwitterAds::Request.new(client, :get, resource, params: params).perform
+    data     = campaign.from_response(response.body[:data], response.headers)
+    expect(data).to be_instance_of(Campaign)
+    expect(data.account_rate_limit_limit).to eq 10000
+    expect(data.account_rate_limit_remaining).to eq 9999
+    expect(data.account_rate_limit_reset).to eq 4102444800
   end
 
 end
