@@ -66,7 +66,7 @@ describe TwitterAds::Campaign do
       }
     )
     cusor = described_class.all(account1)
-    expect(cusor.instance_of?(Cursor))
+    expect(cusor).to be_instance_of(Cursor)
     expect(stub).to have_been_requested.times(2)
   end
 
@@ -96,7 +96,7 @@ describe TwitterAds::Campaign do
     rescue RateLimit => e
       cusor = e
     end
-    expect(cusor.instance_of?(RateLimit))
+    expect(cusor).to be_instance_of(RateLimit)
     expect(stub).to have_been_requested.times(2)
     expect(cusor.reset_at).to eq 4102444800
   end
@@ -129,7 +129,7 @@ describe TwitterAds::Campaign do
       }
     )
     cusor = described_class.all(account2)
-    expect(cusor.instance_of?(Cursor))
+    expect(cusor).to be_instance_of(Cursor)
     expect(stub).to have_been_requested.times(3)
   end
 
@@ -161,7 +161,7 @@ describe TwitterAds::Campaign do
       }
     )
     cusor = described_class.all(account2)
-    expect(cusor.instance_of?(Cursor))
+    expect(cusor).to be_instance_of(Cursor)
     expect(stub).to have_been_requested.times(3)
   end
 

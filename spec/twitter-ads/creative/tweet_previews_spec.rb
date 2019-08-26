@@ -32,7 +32,7 @@ describe TwitterAds::Creative::TweetPreview do
       tweet_ids: %w(1130942781109596160 1101254234031370240),
       tweet_type: TweetType::PUBLISHED)
 
-    expect(preview.instance_of?(Cursor))
+    expect(preview).to be_instance_of(Cursor)
     expect(preview.count).to eq 2
     tweet = preview.first
     expect(tweet.tweet_id).to eq '1130942781109596160'

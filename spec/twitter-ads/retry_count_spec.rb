@@ -37,7 +37,7 @@ describe TwitterAds::Campaign do
       }
     )
     cusor = described_class.all(account)
-    expect(cusor.instance_of?(Cursor))
+    expect(cusor).to be_instance_of(Cursor)
     expect(stub).to have_been_requested.times(2)
   end
 
@@ -54,7 +54,7 @@ describe TwitterAds::Campaign do
     rescue NotFound => e
       cusor = e
     end
-    expect(cusor.instance_of?(NotFound))
+    expect(cusor).to be_instance_of(NotFound)
     expect(stub).to have_been_requested.times(2)
   end
 
