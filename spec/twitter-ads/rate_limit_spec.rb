@@ -208,4 +208,40 @@ describe TwitterAds::Campaign do
     expect(data.account_rate_limit_reset).to eq 4102444800
   end
 
+  it 'test rate-limit header access check instance variables not conflicting' do
+    stub_request(:get, "#{ADS_API}/accounts/2iqph/campaigns").to_return(
+      {
+        body: fixture(:campaigns_all),
+        status: 200,
+        headers: {
+          'x-account-rate-limit-limit': 10000,
+          'x-account-rate-limit-remaining': 9999,
+          'x-account-rate-limit-reset': 4102444800
+        }
+      },
+      {
+        body: fixture(:campaigns_all),
+        status: 200,
+        headers: {
+          'x-account-rate-limit-limit': 10000,
+          'x-account-rate-limit-remaining': 9998,
+          'x-account-rate-limit-reset': 4102444800
+        }
+      }
+    )
+
+    campaign_first = described_class.all(account)
+    campaign_second = described_class.all(account)
+
+    expect(campaign_first).to be_instance_of(Cursor)
+    expect(campaign_first.account_rate_limit_limit).to eq 10000
+    expect(campaign_first.account_rate_limit_remaining).to eq 9999
+    expect(campaign_first.account_rate_limit_reset).to eq 4102444800
+
+    expect(campaign_second).to be_instance_of(Cursor)
+    expect(campaign_second.account_rate_limit_limit).to eq 10000
+    expect(campaign_second.account_rate_limit_remaining).to eq 9998
+    expect(campaign_second.account_rate_limit_reset).to eq 4102444800
+  end
+
 end
