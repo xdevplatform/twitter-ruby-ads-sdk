@@ -20,7 +20,14 @@ module TwitterAds
       # @return [self] A fully hydrated instance of the current class.
       #
       # @since 0.1.0
-      def from_response(object)
+      def from_response(object, headers = nil)
+        if !headers.nil?
+          TwitterAds::Utils.extract_response_headers(headers).each { |key, value|
+            singleton_class.class_eval { attr_accessor key }
+            instance_variable_set("@#{key}", value)
+          }
+        end
+
         self.class.properties.each do |name, type|
           value = nil
           if type == :time && object[name] && !object[name].empty?

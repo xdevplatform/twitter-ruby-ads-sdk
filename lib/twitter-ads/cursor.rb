@@ -112,6 +112,12 @@ module TwitterAds
     def from_response(response)
       @next_cursor = response.body[:next_cursor]
       @total_count = response.body[:total_count].to_i if response.body.key?(:total_count)
+
+      TwitterAds::Utils.extract_response_headers(response.headers).each { |key, value|
+        singleton_class.class_eval { attr_accessor key }
+        instance_variable_set("@#{key}", value)
+      }
+
       response.body.fetch(:data, []).each do |object|
         @collection << if @klass&.method_defined?(:from_response)
                          @klass.new(
