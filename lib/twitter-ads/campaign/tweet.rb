@@ -2,10 +2,7 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  module Tweet
-
-    # cannot instaniate Tweet, only including class methods for stats
-    extend TwitterAds::Analytics::ClassMethods
+  class Tweet < Analytics
 
     RESOURCE_CREATE = "/#{TwitterAds::API_VERSION}/" \
                       'accounts/%{account_id}/tweet' # @api private

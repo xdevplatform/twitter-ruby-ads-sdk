@@ -3,9 +3,7 @@
 # Author Bob, Nugit
 
 module TwitterAds
-  class OrganicTweet
-
-    include TwitterAds::Analytics
+  class OrganicTweet < Analytics
 
   end
 end
