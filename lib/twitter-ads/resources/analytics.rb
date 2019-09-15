@@ -33,7 +33,7 @@ module TwitterAds
       'TwitterAds::Campaign' => Entity::CAMPAIGN,
       'TwitterAds::LineItem' => Entity::LINE_ITEM,
       'TwitterAds::OrganicTweet' => Entity::ORGANIC_TWEET,
-      'TwitterAds::Creative::PromotedAccount' => Entity::ACCOUNT,
+      'TwitterAds::Creative::PromotedAccount' => Entity::PROMOTED_ACCOUNT,
       'TwitterAds::Creative::PromotedTweet' => Entity::PROMOTED_TWEET,
       'TwitterAds::Creative::MediaCreative' => Entity::MEDIA_CREATIVE
     }.freeze
