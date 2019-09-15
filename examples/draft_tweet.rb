@@ -20,6 +20,9 @@ client = TwitterAds::Client.new(
 # load up the account instance, campaign and line item
 account = client.accounts(ADS_ACCOUNT)
 
+# get user_id for as_user_id parameter
+user_id = TwitterRestApi::UserIdLookup.load(account, screen_name: 'your_twitter_handle_name').id
+
 # fetch draft tweets from a given account
 tweets = TwitterAds::Creative::DraftTweet.all(account)
 tweets.each { |tweet|
@@ -30,6 +33,7 @@ tweets.each { |tweet|
 # create a new draft tweet
 draft_tweet = TwitterAds::Creative::DraftTweet.new(account)
 draft_tweet.text = 'draft tweet - new'
+draft_tweet.as_user_id = user_id
 draft_tweet.save
 p draft_tweet.id_str
 p draft_tweet.text
@@ -52,7 +56,7 @@ draft_tweet.preview
 # draft_tweet.preview(draft_tweet_id: '1142048306194862080')
 
 # create a nullcasted tweet using draft tweet metadata
-tweet = TwitterAds::Tweet.create(account, text: draft_tweet.text)
+tweet = TwitterAds::Tweet.create(account, text: draft_tweet.text, as_user_id: user_id)
 p tweet
 
 # delete draft tweet
