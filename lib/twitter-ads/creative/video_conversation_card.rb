@@ -18,14 +18,14 @@ module TwitterAds
       property :deleted, type: :bool, read_only: true
       property :id, read_only: true
       property :updated_at, type: :time, read_only: true
-      property :video_url, read_only: true
-      property :video_poster_url, read_only: true
+      property :media_url, read_only: true
+      property :poster_media_url, read_only: true
 
-      property :cover_image_id
-      property :cover_video_id
+      property :unlocked_image_media_key
+      property :unlocked_video_media_key
       property :fourth_cta
       property :fourth_cta_tweet
-      property :image_media_id
+      property :poster_media_key
       property :first_cta
       property :first_cta_tweet
       property :name
@@ -36,7 +36,7 @@ module TwitterAds
       property :third_cta
       property :third_cta_tweet
       property :title
-      property :video_id
+      property :media_key
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
                             'accounts/%{account_id}/cards/video_conversation' # @api private

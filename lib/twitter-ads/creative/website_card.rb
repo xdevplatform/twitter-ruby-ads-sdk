@@ -17,14 +17,14 @@ module TwitterAds
       property :created_at, type: :time, read_only: true
       property :deleted, type: :bool, read_only: true
       property :id, read_only: true
-      property :image, read_only: true
+      property :media_url, read_only: true
       property :image_display_height, read_only: true
       property :image_display_width, read_only: true
       property :updated_at, type: :time, read_only: true
       property :website_dest_url, read_only: true
       property :website_display_url, read_only: true
 
-      property :image_media_id
+      property :media_key
       property :name
       property :website_title
       property :website_url

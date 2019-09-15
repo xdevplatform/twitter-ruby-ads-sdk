@@ -12,15 +12,13 @@ module TwitterAds
 
       attr_reader :account
 
-      property :created_at, type: :time, read_only: true
       property :deleted, type: :bool, read_only: true
-      property :id, read_only: true
-      property :media_url, read_only: true
+      property :created_at, type: :time, read_only: true
       property :updated_at, type: :time, read_only: true
-
-      property :creative_type
-      property :media_id
-      property :video_id
+      property :id, read_only: true
+      property :creative_type, read_only: true
+      property :media_key, read_only: true
+      property :media_url, read_only: true
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
                             'accounts/%{account_id}/account_media' # @api private
