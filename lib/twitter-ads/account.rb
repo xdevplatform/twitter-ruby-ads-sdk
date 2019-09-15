@@ -17,14 +17,13 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
     property :deleted, type: :bool, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
-                          'accounts' # @api private
-    RESOURCE            = "/#{TwitterAds::API_VERSION}/" \
-                          'accounts/%{id}' # @api private
-    FEATURES            = "/#{TwitterAds::API_VERSION}/" \
-                          'accounts/%{id}/features' # @api private
-    SCOPED_TIMELINE     = "/#{TwitterAds::API_VERSION}/" \
-                          'accounts/%{id}/scoped_timeline' # @api private
+    RESOURCE_COLLECTION       = "/#{TwitterAds::API_VERSION}/" \
+                                'accounts' # @api private
+    RESOURCE                  = "/#{TwitterAds::API_VERSION}/" \
+                                'accounts/%{id}' # @api private
+    FEATURES                  = "/#{TwitterAds::API_VERSION}/" \
+                                'accounts/%{id}/features' # @api private
+    SCOPED_TIMELINE           = '/5/accounts/%{id}/scoped_timeline' # @api private
     AUTHENTICATED_USER_ACCESS = "/#{TwitterAds::API_VERSION}/" \
                                 'accounts/%{id}/authenticated_user_access' # @api private
 
@@ -257,6 +256,8 @@ module TwitterAds
     #
     # @since 0.2.3
     def scoped_timeline(id, opts = {})
+      TwitterAds::Utils.deprecated(
+        'Scoped Timeline')
       params   = { user_id: id }.merge!(opts)
       resource = SCOPED_TIMELINE % { id: @id }
       request  = Request.new(client, :get, resource, params: params)
