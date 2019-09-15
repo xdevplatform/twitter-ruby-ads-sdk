@@ -144,7 +144,10 @@ module TwitterAds
     end
 
     module Optimizations
+      APP_CLICKS          = 'APP_CLICKS'
+      APP_INSTALLS        = 'APP_INSTALLS'
       DEFAULT             = 'DEFAULT'
+      ENGAGEMENTS         = 'ENGAGEMENTS'
       WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'
     end
 
