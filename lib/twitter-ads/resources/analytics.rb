@@ -53,7 +53,7 @@ module TwitterAds
     # Pulls a list of metrics for the current object instance.
     #
     # @example
-    #   metric_groups = [:promoted_tweet_timeline_clicks, :promoted_tweet_search_clicks]
+    #   metric_groups = [MetricGroup::MOBILE_CONVERSION, MetricGroup::ENGAGEMENT]
     #   object.stats(metrics)
     #
     # @param metric_groups [Array] A collection of metric groups to fetch.
@@ -76,7 +76,7 @@ module TwitterAds
       #
       # @example
       #   ids = ['7o4em', 'oc9ce', '1c5lji']
-      #   metric_groups = [MetricGroups.MOBILE_CONVERSION, MetricGroups.ENGAGEMENT]
+      #   metric_groups = [MetricGroup::MOBILE_CONVERSION, MetricGroup::ENGAGEMENT]
       #   object.stats(account, ids, metric_groups)
       #
       # @param account [Account] The Account object instance.
@@ -124,7 +124,7 @@ module TwitterAds
       #
       # @example
       #   ids = ['7o4em', 'oc9ce', '1c5lji']
-      #   metric_groups = [MetricGroups.MOBILE_CONVERSION, MetricGroups.ENGAGEMENT]
+      #   metric_groups = [MetricGroup::MOBILE_CONVERSION, MetricGroup::ENGAGEMENT]
       #   object.create_async_job(account, ids, metric_groups)
       #
       # @param account [Account] The Account object instance.
@@ -178,10 +178,10 @@ module TwitterAds
       # GET /#{TwitterAds::API_VERSION}/stats/jobs/accounts/:account_id
       #
       # @example
-      #   TwitterAds::LineItem.check_async_job_status(account, job_id: '1357343438724431305')
+      #   TwitterAds::LineItem.check_async_job_status(account, job_ids: ['1357343438724431305'])
       #
       # @param account [Account] The Account object instance.
-      # @option opts [String] :job_id The starting time to use (default: 7 days ago).
+      # @option opts [Array] :job_ids A collection of job IDs to fetch.
       #
       # @return A cursor of job statuses
 
@@ -200,7 +200,7 @@ module TwitterAds
       # Raises HTTP 404 exception, otherwise retries up to 5 times with exponential backoff.
       #
       # @example
-      #   response_data = TwitterAds::LineItem.fetch_async_job_data(account, file_url)
+      #   response_data = TwitterAds::LineItem.fetch_async_job_data(account, data_url)
       #
       # @param data_url [String] The URL from the successful completion of an async job.
       #
@@ -232,7 +232,7 @@ module TwitterAds
         end_utc_offset    = opts[:end_utc_offset] || opts[:utc_offset]
 
         if entity == 'OrganicTweet'
-          raise "'OrganicTweet' not support with 'active_entities'"
+          raise "'OrganicTweet' is not supported with 'active_entities'"
         end
 
         params = {
