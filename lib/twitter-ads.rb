@@ -71,6 +71,7 @@ require 'twitter-ads/creative/video_website_card'
 require 'twitter-ads/creative/website_card'
 require 'twitter-ads/creative/poll_cards'
 require 'twitter-ads/creative/tweet_previews'
+require 'twitter-ads/creative/tweets'
 
 require 'twitter-ads/targeting/reach_estimate'
 

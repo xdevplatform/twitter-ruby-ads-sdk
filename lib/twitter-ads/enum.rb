@@ -232,5 +232,11 @@ module TwitterAds
       PUBLISHED = 'PUBLISHED'
       SCHEDULED = 'SCHEDULED'
     end
+
+    module TimelineType
+      ALL = 'ALL'
+      NULLCAST = 'NULLCAST'
+      ORGANIC = 'ORGANIC'
+    end
   end
 end
