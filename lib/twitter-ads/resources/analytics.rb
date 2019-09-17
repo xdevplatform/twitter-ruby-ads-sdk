@@ -86,7 +86,7 @@ module TwitterAds
       # @option opts [Time] :start_time The starting time to use (default: 7 days ago).
       # @option opts [Time] :end_time The end time to use (default: now).
       # @option opts [Symbol] :granularity The granularity to use (default: :hour).
-      # @option opts [Symbol] :placement The placement of entity (default: ALL_ON_TWITTER).
+      # @option opts [String] :placement The placement of entity (default: ALL_ON_TWITTER).
       #
       # @return [Array] The collection of stats requested.
       #
@@ -134,13 +134,13 @@ module TwitterAds
       # @option opts [Time] :start_time The starting time to use (default: 7 days ago).
       # @option opts [Time] :end_time The end time to use (default: now).
       # @option opts [Symbol] :granularity The granularity to use (default: :hour).
-      # @option opts [Symbol] :placement The placement of entity (default: ALL_ON_TWITTER).
-      # @option opts [Symbol] :segmentation_type The segmentation type to use (default: none).
+      # @option opts [String] :placement The placement of entity (default: ALL_ON_TWITTER).
+      # @option opts [String] :segmentation_type The segmentation type to use (default: none).
       #
       # @return The response of creating job
       #
       # @see https://dev.twitter.com/ads/analytics/metrics-and-segmentation
-      # @sync 1.0.0
+      # @since 1.0.0
 
       def create_async_job(account, ids, metric_groups, opts = {})
         # set default metric values
@@ -224,6 +224,34 @@ module TwitterAds
           end
         end
       end
+
+      # Retrieve details about which entities' analytics metrics
+      # have changed in a given time period.
+      #
+      # @example
+      #   time = Time.now
+      #   utc_offset = '+09:00'
+      #   start_time = time - (60 * 60 * 24) # -1 day
+      #   end_time = time
+      #   active_entities = TwitterAds::LineItem.active_entities(
+      #     account,
+      #     line_item_ids: %w(exrfs),
+      #     start_time: start_time,
+      #     end_time:   end_time,
+      #     utc_offset: utc_offset,
+      #     granularity: :day)
+      #
+      # @param account [Account] The Account object instance.
+      # @param entity [String] The entity type to retrieve data for.
+      # @param start_time [Time] Scopes the retrieved data to the specified start time.
+      # @param end_time [Time] Scopes the retrieved data to the specified end time.
+      # @option opts [Array] :campaign_ids A collection of IDs to be fetched.
+      # @option opts [Array] :funding_instrument_ids A collection of IDs to be fetched.
+      # @option opts [Array] :line_item_ids A collection of IDs to be fetched.
+      #
+      # @return A list of entity details.
+      #
+      # @see https://developer.twitter.com/en/docs/ads/analytics/api-reference/active-entities
 
       def active_entities(account, start_time:, end_time:, **opts)
         entity            = opts.fetch(:entity, name)
