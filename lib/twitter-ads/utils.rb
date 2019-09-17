@@ -82,6 +82,17 @@ module TwitterAds
         values
       end
 
+      def flatten_params(args)
+        params = args
+        params.each { |key, value|
+          if value.is_a?(Array)
+            next if value.empty?
+            params[key] = value.join(',')
+          end
+        }
+        params
+      end
+
     end
 
   end
