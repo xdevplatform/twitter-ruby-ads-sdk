@@ -106,6 +106,7 @@ module TwitterAds
       FUNDING_INSTRUMENT = 'FUNDING_INSTRUMENT'
       CAMPAIGN           = 'CAMPAIGN'
       LINE_ITEM          = 'LINE_ITEM'
+      PROMOTED_ACCOUNT   = 'PROMOTED_ACCOUNT'
       PROMOTED_TWEET     = 'PROMOTED_TWEET'
       ORGANIC_TWEET      = 'ORGANIC_TWEET'
       MEDIA_CREATIVE     = 'MEDIA_CREATIVE'
@@ -143,7 +144,10 @@ module TwitterAds
     end
 
     module Optimizations
+      APP_CLICKS          = 'APP_CLICKS'
+      APP_INSTALLS        = 'APP_INSTALLS'
       DEFAULT             = 'DEFAULT'
+      ENGAGEMENTS         = 'ENGAGEMENTS'
       WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'
     end
 
@@ -227,6 +231,12 @@ module TwitterAds
       DRAFT = 'DRAFT'
       PUBLISHED = 'PUBLISHED'
       SCHEDULED = 'SCHEDULED'
+    end
+
+    module TimelineType
+      ALL = 'ALL'
+      NULLCAST = 'NULLCAST'
+      ORGANIC = 'ORGANIC'
     end
   end
 end

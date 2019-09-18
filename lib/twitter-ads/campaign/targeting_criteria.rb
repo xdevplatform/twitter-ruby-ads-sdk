@@ -22,7 +22,6 @@ module TwitterAds
     property :targeting_type
     property :targeting_value
     property :tailored_audience_expansion, type: :bool
-    property :tailored_audience_type
     property :location_type
 
     # sdk only

@@ -17,7 +17,6 @@ module TwitterAds
       property :created_at, type: :time, read_only: true
       property :id, read_only: true
       property :id_str, read_only: true
-      property :media_keys, read_only: true
       property :scheduled_status, read_only: true
       property :tweet_id, read_only: true
       property :updated_at, type: :time, read_only: true
@@ -26,7 +25,7 @@ module TwitterAds
       # writable
       property :as_user_id
       property :card_uri
-      property :media_ids
+      property :media_keys
       property :nullcast, type: :bool
       property :scheduled_at, type: :time
       property :text

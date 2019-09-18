@@ -22,17 +22,15 @@ module TwitterAds
       property :media_url, read_only: true
       property :tweeted, type: :bool, read_only: true
       property :updated_at, type: :time, read_only: true
-      property :poster_image_url, read_only: true
+      property :poster_media_url, read_only: true
 
       # writable
-      property :media_category
-      property :media_id
       property :media_key
       property :description
       property :file_name
       property :name
       property :poster_image_media_id
-      property :poster_image_media_key
+      property :poster_media_key
       property :title
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \

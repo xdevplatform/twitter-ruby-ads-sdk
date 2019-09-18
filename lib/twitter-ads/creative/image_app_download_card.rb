@@ -20,7 +20,7 @@ module TwitterAds
       property :image_display_height, read_only: true
       property :image_display_width, read_only: true
       property :updated_at, type: :time, read_only: true
-      property :wide_app_image, read_only: true
+      property :media_url, read_only: true
 
       property :country_code
       property :app_cta
@@ -31,7 +31,7 @@ module TwitterAds
       property :ipad_app_id
       property :ipad_deep_link
       property :name
-      property :wide_app_image_media_id
+      property :media_key
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
                             'accounts/%{account_id}/cards/image_app_download' # @api private

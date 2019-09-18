@@ -2,10 +2,7 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  module Tweet
-
-    # cannot instaniate Tweet, only including class methods for stats
-    extend TwitterAds::Analytics::ClassMethods
+  class Tweet < Analytics
 
     RESOURCE_CREATE = "/#{TwitterAds::API_VERSION}/" \
                       'accounts/%{account_id}/tweet' # @api private
@@ -17,10 +14,9 @@ module TwitterAds
       # @param opts [Hash] A hash of options.
       #
       # @option opts [String] :text The main Tweet body.
-      # @option opts [Array] :media_ids A list of up to four media IDs to associate with the Tweet.
+      # @option opts [Array] :media_keys A list of media keys (up to 4) to associate with the Tweet.
       # @option opts [Integer] :as_user_id The user ID whom you are posting the Tweet on behalf of.
       # @option opts [Boolean] :trim_user Excludes the user object from the hydrated Tweet response.
-      # @option opts [String] :video_id The Video UUID to be associated with thie Tweet.
       # @option opts [String] :video_title An optional title to be included.
       # @option opts [String] :video_description An optional description to be included.
       # @option opts [String] :video_cta An optional CTA value for the associated video.

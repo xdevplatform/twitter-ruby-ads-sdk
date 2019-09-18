@@ -2,12 +2,11 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  class Campaign
+  class Campaign < Analytics
 
     include TwitterAds::DSL
     include TwitterAds::Resource
     include TwitterAds::Persistence
-    include TwitterAds::Analytics
     include TwitterAds::Batch
 
     attr_reader :account

@@ -22,8 +22,11 @@ account   = client.accounts(ADS_ACCOUNT)
 campaign  = account.campaigns.first
 line_item = account.line_items(nil, campaign_ids: campaign.id).first
 
+# get user_id for as_user_id parameter
+user_id = TwitterRestApi::UserIdLookup.load(account, screen_name: 'your_twitter_handle_name').id
+
 # create request for a simple nullcasted tweet
-tweet1 = TwitterAds::Tweet.create(account, text: 'There can be only one...')
+tweet1 = TwitterAds::Tweet.create(account, text: 'There can be only one...', as_user_id: user_id)
 
 # promote the tweet using our line item
 promoted_tweet = TwitterAds::Creative::PromotedTweet.new(account)
@@ -36,7 +39,8 @@ website_card = TwitterAds::Creative::WebsiteCard.all(account).first
 tweet2 = TwitterAds::Tweet.create(
   account,
   text: 'Fine. There can be two.',
-  card_uri: website_card.card_uri
+  card_uri: website_card.card_uri,
+  as_user_id: user_id
 )
 
 # promote the tweet using our line item

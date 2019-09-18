@@ -4,12 +4,11 @@
 module TwitterAds
   module Creative
 
-    class PromotedAccount
+    class PromotedAccount < Analytics
 
       include TwitterAds::DSL
       include TwitterAds::Resource
       include TwitterAds::Persistence
-      include TwitterAds::Analytics
 
       attr_reader :account
 

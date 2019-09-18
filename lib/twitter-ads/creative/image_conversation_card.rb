@@ -19,13 +19,14 @@ module TwitterAds
       property :id, read_only: true
       property :image, read_only: true
       property :updated_at, type: :time, read_only: true
+      property :media_url, read_only: true
 
-      property :cover_image_id
+      property :unlocked_image_media_key
       property :first_cta
       property :first_cta_tweet
       property :fourth_cta
       property :fourth_cta_tweet
-      property :image_media_id
+      property :media_key
       property :name
       property :second_cta
       property :second_cta_tweet

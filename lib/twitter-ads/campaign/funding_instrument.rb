@@ -2,11 +2,10 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  class FundingInstrument
+  class FundingInstrument < Analytics
 
     include TwitterAds::DSL
     include TwitterAds::Resource
-    include TwitterAds::Analytics
 
     attr_reader :account
 

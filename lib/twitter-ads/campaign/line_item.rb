@@ -2,12 +2,11 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  class LineItem
+  class LineItem < Analytics
 
     include TwitterAds::DSL
     include TwitterAds::Resource
     include TwitterAds::Persistence
-    include TwitterAds::Analytics
     include TwitterAds::Batch
 
     attr_reader :account
@@ -40,7 +39,7 @@ module TwitterAds
     property :advertiser_user_id
     property :bid_type
     property :tracking_tags
-    property :lookalike_expansion
+    property :audience_expansion
 
     # sdk only
     property :to_delete, type: :bool

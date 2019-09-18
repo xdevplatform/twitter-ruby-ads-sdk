@@ -19,21 +19,19 @@ module TwitterAds
       property :deleted, type: :bool, read_only: true
       property :id, read_only: true
       property :updated_at, type: :time, read_only: true
-      property :video_content_id, read_only: true
       property :video_height, read_only: true
-      property :video_hls_url, read_only: true
       property :video_owner_id, read_only: true
       property :video_poster_height, read_only: true
-      property :video_poster_url, read_only: true
+      property :poster_media_url, read_only: true
       property :video_poster_width, read_only: true
-      property :video_url, read_only: true
+      property :media_url, read_only: true
       property :video_width, read_only: true
       property :website_display_url, read_only: true
       property :website_dest_url, read_only: true
 
       property :name
       property :title
-      property :video_id
+      property :media_key
       property :website_url
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/accounts/%{account_id}/cards/video_website"

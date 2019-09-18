@@ -31,7 +31,6 @@ describe TwitterAds::TargetingCriteria do
     targeting_type
     targeting_value
     tailored_audience_expansion
-    tailored_audience_type
   )
 
   include_examples 'object property check', read, write
