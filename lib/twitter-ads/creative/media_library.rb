@@ -29,7 +29,6 @@ module TwitterAds
       property :description
       property :file_name
       property :name
-      property :poster_image_media_id
       property :poster_media_key
       property :title
 
@@ -46,15 +45,17 @@ module TwitterAds
         end
       end
 
-      def save
+      def add
         params = to_params
-        if @media_key
-          resource = self.class::RESOURCE % { account_id: account.id, id: media_key }
-          response = Request.new(account.client, :put, resource, params: params).perform
-        else
-          resource = self.class::RESOURCE_COLLECTION % { account_id: account.id }
-          response = Request.new(account.client, :post, resource, params: params).perform
-        end
+        resource = self.class::RESOURCE_COLLECTION % { account_id: account.id }
+        response = Request.new(account.client, :post, resource, params: params).perform
+        from_response(response.body[:data])
+      end
+
+      def update
+        params = to_params
+        resource = self.class::RESOURCE % { account_id: account.id, id: media_key }
+        response = Request.new(account.client, :put, resource, params: params).perform
         from_response(response.body[:data])
       end
 
