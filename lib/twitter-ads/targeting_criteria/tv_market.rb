@@ -7,7 +7,6 @@ module TwitterAds
     include TwitterAds::DSL
     include TwitterAds::Resource
 
-    property :id, read_only: true
     property :name, read_only: true
     property :locale, read_only: true
     property :country_code, read_only: true

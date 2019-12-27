@@ -11,7 +11,7 @@ module TwitterAds
     property :name, read_only: true
     property :targeting_type, read_only: true
     property :targeting_value, read_only: true
-    property :platform, read_only: true
+    property :os_type, read_only: true
     property :manufacturer, read_only: true
 
     RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \

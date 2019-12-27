@@ -7,7 +7,7 @@ module TwitterAds
     include TwitterAds::DSL
     include TwitterAds::Resource
 
-    property :id, read_only: true
+    property :targeting_value, read_only: true
     property :name, read_only: true
     property :reach, read_only: true
     property :start_time, read_only: true
