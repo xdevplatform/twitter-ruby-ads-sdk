@@ -11,6 +11,9 @@ branches:
   only:
     - master
 
+after_success:
+  - bundle exec codeclimate-test-reporter
+
 matrix:
   fast_finish: true
   allow_failures:
