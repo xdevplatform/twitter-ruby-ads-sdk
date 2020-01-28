@@ -25,7 +25,6 @@ module TwitterAds
     property :charge_by
     property :end_time, type: :time
     property :entity_status
-    property :include_sentiment
     property :name
     property :objective
     property :optimization
