@@ -32,7 +32,6 @@ describe TwitterAds::LineItem do
     advertiser_domain
     categories
     charge_by
-    include_sentiment
     objective
     entity_status
     primary_web_event_tag
