@@ -13,7 +13,8 @@ module TwitterAds
     property :name, read_only: true
     property :iab_categories, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/advertiser_business_categories" # @api private
+    # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/advertiser_business_categories"
 
     def initialize(account)
       @account = account

@@ -3,13 +3,12 @@
 
 require 'spec_helper'
 
-include TwitterAds::Enum
-
-describe TwitterAds::Creative::MediaCreative do
+describe TwitterAds::AudienceSummary do
 
   before(:each) do
     stub_fixture(:get, :accounts_all, "#{ADS_API}/accounts")
     stub_fixture(:get, :accounts_load, "#{ADS_API}/accounts/2iqph")
+    stub_fixture(:post, :audience_summary, "#{ADS_API}/accounts/2iqph/audience_summary")
   end
 
   let(:client) do
@@ -22,11 +21,21 @@ describe TwitterAds::Creative::MediaCreative do
   end
 
   let(:account) { client.accounts.first }
+  let(:params) {
+    {
+      targeting_criteria: [{
+        targeting_type: 'LOCATION',
+        targeting_value: '96683cc9126741d1'
+      }]
+    }
+  }
 
   # check model properties
-  subject { described_class.new(account) }
-  read  = %w(id created_at updated_at deleted approval_status entity_status)
-  write = %w(account_media_id line_item_id landing_url)
-  include_examples 'object property check', read, write
+  subject { described_class.fetch(account, params) }
+
+  it 'has all the correct properties' do
+    expect(subject[:audience_size][:min]).to eq(41133600)
+    expect(subject[:audience_size][:max]).to eq(50274400)
+  end
 
 end
