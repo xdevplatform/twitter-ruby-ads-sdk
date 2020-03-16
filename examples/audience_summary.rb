@@ -20,25 +20,25 @@ client = TwitterAds::Client.new(
 account = client.accounts(ADS_ACCOUNT)
 
 # targeting criteria params
-params = { 
-        targeting_criteria: [
-          {
-            targeting_type: 'LOCATION', 
-            targeting_value: '96683cc9126741d1'
-          },
-          {
-            targeting_type: 'BROAD_KEYWORD', 
-            targeting_value: 'cats'
-          },
-          {
-            targeting_type: 'SIMILAR_TO_FOLLOWERS_OF_USER', 
-            targeting_value: '14230524'
-          },
-          {
-            targeting_type: 'SIMILAR_TO_FOLLOWERS_OF_USER', 
-            targeting_value: '90420314'
-          }
-        ]
+params = {
+  targeting_criteria: [
+    {
+      targeting_type: 'LOCATION',
+      targeting_value: '96683cc9126741d1'
+    },
+    {
+      targeting_type: 'BROAD_KEYWORD',
+      targeting_value: 'cats'
+    },
+    {
+      targeting_type: 'SIMILAR_TO_FOLLOWERS_OF_USER',
+      targeting_value: '14230524'
+    },
+    {
+      targeting_type: 'SIMILAR_TO_FOLLOWERS_OF_USER',
+      targeting_value: '90420314'
+    }
+  ]
 }
 
 audience_summary = TwitterAds::AudienceSummary.fetch(account, params)
