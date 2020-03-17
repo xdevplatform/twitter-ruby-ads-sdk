@@ -3,12 +3,10 @@
 
 unless RUBY_PLATFORM =~ /java/ || RUBY_ENGINE =~ /rbx/
   require 'simplecov'
-  require 'codeclimate-test-reporter'
 
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
     [
-      SimpleCov::Formatter::HTMLFormatter,
-      CodeClimate::TestReporter::Formatter
+      SimpleCov::Formatter::HTMLFormatter
     ]
   )
 
@@ -22,7 +20,6 @@ require 'rubocop'
 require 'faker'
 
 require 'webmock/rspec'
-WebMock.disable_net_connect!(allow: 'codeclimate.com')
 
 require 'twitter-ads'
 include TwitterAds
