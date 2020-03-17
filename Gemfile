@@ -5,7 +5,6 @@ gemspec
 gem 'rake'
 
 group :development, :test do
-  gem 'codeclimate-test-reporter', platforms: :mri
   gem 'cucumber'
   gem 'faker', '~> 1.0'      # fix for breaking change in faker 2.x
   gem 'rspec'
