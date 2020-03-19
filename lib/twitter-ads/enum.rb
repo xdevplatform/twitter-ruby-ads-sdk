@@ -24,10 +24,15 @@ module TwitterAds
     end
 
     module Placement
-      ALL_ON_TWITTER    = 'ALL_ON_TWITTER'
-      TWITTER_SEARCH    = 'TWITTER_SEARCH'
-      TWITTER_TIMELINE  = 'TWITTER_TIMELINE'
-      PUBLISHER_NETWORK = 'PUBLISHER_NETWORK'
+      ALL_ON_TWITTER     = 'ALL_ON_TWITTER'
+      TWITTER_SEARCH     = 'TWITTER_SEARCH'
+      TWITTER_TIMELINE   = 'TWITTER_TIMELINE'
+      PUBLISHER_NETWORK  = 'PUBLISHER_NETWORK'
+      TAP_FULL           = 'TAP_FULL'
+      TAP_FULL_LANDSCAPE = 'TAP_FULL_LANDSCAPE'
+      TAP_BANNER         = 'TAP_BANNER'
+      TAP_NATIVE         = 'TAP_NATIVE'
+      TAP_MRECT          = 'TAP_MRECT'
     end
 
     module Placement
