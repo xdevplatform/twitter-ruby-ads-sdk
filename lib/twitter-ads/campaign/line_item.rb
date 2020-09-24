@@ -17,6 +17,7 @@ module TwitterAds
     property :updated_at, type: :time, read_only: true
 
     property :advertiser_domain
+    property :android_app_store_identifier
     property :automatically_select_bid
     property :bid_amount_local_micro
     property :bid_unit
@@ -25,6 +26,7 @@ module TwitterAds
     property :charge_by
     property :end_time, type: :time
     property :entity_status
+    property :ios_app_store_identifier
     property :name
     property :objective
     property :optimization
