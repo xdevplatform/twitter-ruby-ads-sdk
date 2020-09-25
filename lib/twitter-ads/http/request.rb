@@ -107,11 +107,17 @@ module TwitterAds
       Response.new(response.code, response.each {}, response.body)
     end
 
+    def escape_params(input)
+      input.map do |key, value|
+        "#{CGI.escape key.to_s}=#{CGI.escape value.to_s}"
+      end.join('&')
+    end
+
     def http_request
       request_url = @resource
 
       if @options[:params] && !@options[:params].empty?
-        request_url += "?#{URI.encode_www_form(@options[:params])}"
+        request_url += "?#{escape_params(@options[:params])}"
       end
 
       request      = HTTP_METHOD[@method].new(request_url)
