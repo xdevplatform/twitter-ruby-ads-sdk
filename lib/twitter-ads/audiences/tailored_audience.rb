@@ -20,6 +20,7 @@ module TwitterAds
     property :audience_size, read_only: true
     property :audience_type, read_only: true
     property :metadata, read_only: true
+    property :owner_account_id, read_only: true
     property :partner_source, read_only: true
     property :reasons_not_targetable, read_only: true
     property :targetable, type: :bool, read_only: true
