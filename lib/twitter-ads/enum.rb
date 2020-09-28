@@ -9,13 +9,12 @@ module TwitterAds
     module Objective
       APP_ENGAGEMENTS     = 'APP_ENGAGEMENTS'
       APP_INSTALLS        = 'APP_INSTALLS'
+      ENGAGEMENTS         = 'ENGAGEMENTS'
       FOLLOWERS           = 'FOLLOWERS'
-      LEAD_GENERATION     = 'LEAD_GENERATION'
-      TWEET_ENGAGEMENTS   = 'TWEET_ENGAGEMENTS'
+      PREROLL_VIEWS       = 'PREROLL_VIEWS'
+      REACH               = 'REACH'
       VIDEO_VIEWS         = 'VIDEO_VIEWS'
       WEBSITE_CLICKS      = 'WEBSITE_CLICKS'
-      WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'
-
     end
 
     module Product
