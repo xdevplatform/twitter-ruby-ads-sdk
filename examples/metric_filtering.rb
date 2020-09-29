@@ -202,7 +202,7 @@ module TwitterAds
         :video,
         :other
       ],
-      tweet_engagements: [
+      engagements: [
         :conversion,
         :engagement,
         :media,
