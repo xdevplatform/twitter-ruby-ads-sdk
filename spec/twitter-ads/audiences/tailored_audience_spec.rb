@@ -29,6 +29,7 @@ describe TwitterAds::TailoredAudience do
     created_at
     updated_at
     deleted
+    owner_account_id
     audience_size
     audience_type
     metadata
