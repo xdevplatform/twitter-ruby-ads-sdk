@@ -2,19 +2,18 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  class BehaviorTaxonomy
+  class ContentCategories
 
     include TwitterAds::DSL
     include TwitterAds::Resource
 
+    attr_reader :account
+
     property :id, read_only: true
     property :name, read_only: true
-    property :parent_id, read_only: true
-    property :created_at, read_only: true
-    property :updated_at, read_only: true
+    property :iab_categories, read_only: true
 
-    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
-                          'targeting_criteria/behavior_taxonomies' # @api private
+    RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/content_categories" # @api private
 
     def initialize(account)
       @account = account

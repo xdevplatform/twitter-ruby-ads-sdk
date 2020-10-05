@@ -23,7 +23,6 @@ module TwitterAds
                                 'accounts/%{id}' # @api private
     FEATURES                  = "/#{TwitterAds::API_VERSION}/" \
                                 'accounts/%{id}/features' # @api private
-    SCOPED_TIMELINE           = '/5/accounts/%{id}/scoped_timeline' # @api private
     AUTHENTICATED_USER_ACCESS = "/#{TwitterAds::API_VERSION}/" \
                                 'accounts/%{id}/authenticated_user_access' # @api private
 
@@ -245,24 +244,6 @@ module TwitterAds
     # @return A Cursor or object instance.
     def tailored_audiences(id = nil, opts = {})
       load_resource(TailoredAudience, id, opts)
-    end
-
-    # Returns the most recent promotable Tweets created by one or more specified Twitter users.
-    #
-    # @param ids [Array] An Array of Twitter user IDs.
-    # @param opts [Hash] A Hash of extended options.
-    #
-    # @return [Array] An Array of Tweet objects.
-    #
-    # @since 0.2.3
-    def scoped_timeline(id, opts = {})
-      TwitterAds::Utils.deprecated(
-        'Scoped Timeline')
-      params   = { user_id: id }.merge!(opts)
-      resource = SCOPED_TIMELINE % { id: @id }
-      request  = Request.new(client, :get, resource, params: params)
-      response = request.perform
-      response.body[:data]
     end
 
     def authenticated_user_access

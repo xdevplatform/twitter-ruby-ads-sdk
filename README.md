@@ -1,4 +1,4 @@
-Getting Started [![Build Status](https://travis-ci.org/twitterdev/twitter-ruby-ads-sdk.svg?branch=master)](https://travis-ci.org/twitterdev/twitter-ruby-ads-sdk) [![Code Climate](https://codeclimate.com/github/twitterdev/twitter-ruby-ads-sdk/badges/gpa.svg)](https://codeclimate.com/github/twitterdev/twitter-ruby-ads-sdk) [![Test Coverage](https://codeclimate.com/github/twitterdev/twitter-ruby-ads-sdk/badges/coverage.svg)](https://codeclimate.com/github/twitterdev/twitter-ruby-ads-sdk/coverage) [![Gem Version](https://badge.fury.io/rb/twitter-ads.svg)](http://badge.fury.io/rb/twitter-ads)
+Getting Started [![Build Status](https://travis-ci.org/twitterdev/twitter-ruby-ads-sdk.svg?branch=master)](https://travis-ci.org/twitterdev/twitter-ruby-ads-sdk)[![Gem Version](https://badge.fury.io/rb/twitter-ads.svg)](http://badge.fury.io/rb/twitter-ads)
 ------
 
 ##### Installation
