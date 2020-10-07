@@ -48,7 +48,12 @@ describe TwitterAds::Creative::PromotedTweet do
       allow(request).to receive(:perform).and_return(response)
       expected_params = { params: { line_item_id: '12345', tweet_ids: 99999999999999999999 } }
 
-      expect(Request).to receive(:new).with(client, :post, "/#{TwitterAds::API_VERSION}/accounts/#{account.id}/promoted_tweets", expected_params).and_return(request)
+      expect(Request).to receive(:new).with(
+        client,
+        :post,
+        "/#{TwitterAds::API_VERSION}/accounts/#{account.id}/promoted_tweets",
+        expected_params
+      ).and_return(request)
 
       subject.line_item_id = '12345'
       subject.tweet_id = 99999999999999999999
