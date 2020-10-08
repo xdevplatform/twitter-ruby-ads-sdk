@@ -41,7 +41,7 @@ describe TwitterAds::Creative::PromotedTweet do
       expect { subject.save }.to raise_error(TwitterAds::ClientError)
     end
 
-    it 'converts params[:tweet_id] to params[:tweet_ids]' do
+    it 'sets params[:tweet_ids] from params[:tweet_id]' do
       request = double('request')
       response = double('response')
       allow(response).to receive(:body).and_return({ data: [{}] })
