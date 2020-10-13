@@ -48,7 +48,7 @@ module TwitterAds
 
         # convert to `tweet_ids` param
         params = to_params
-        params[:tweet_ids] = *params.delete(:tweet_id) if params.key?(:tweet_id)
+        params[:tweet_ids] = params.delete(:tweet_id) if params.key?(:tweet_id)
 
         if @id
           raise TwitterAds::NotFound.new(nil, 'Method PUT not allowed.', 404)
