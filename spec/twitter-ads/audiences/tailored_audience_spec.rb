@@ -7,7 +7,6 @@ describe TwitterAds::TailoredAudience do
 
   before(:each) do
     stub_fixture(:get, :accounts_all, "#{ADS_API}/accounts")
-    # stub_fixture(:get, :accounts_load, "#{ADS_API}/accounts/2iqph")
     stub_fixture(:get,
                  :tailored_audiences_load,
                  "#{ADS_API}/accounts/2iqph/tailored_audiences/abc2?with_deleted=true")
