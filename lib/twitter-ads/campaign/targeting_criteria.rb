@@ -21,6 +21,7 @@ module TwitterAds
     property :line_item_id
     property :targeting_type
     property :targeting_value
+    property :operator_type
     property :tailored_audience_expansion, type: :bool
     property :location_type
 

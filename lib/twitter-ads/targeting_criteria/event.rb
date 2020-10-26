@@ -21,6 +21,7 @@ module TwitterAds
     property :gender_breakdown_percentage, read_only: true
     property :device_breakdown_percentage, read_only: true
     property :country_breakdown_percentage, read_only: true
+    property :targeting_value, read_only: true
 
     RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
                           'targeting_criteria/events' # @api private
