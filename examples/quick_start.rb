@@ -36,7 +36,7 @@ line_item.campaign_id            = campaign.id
 line_item.name                   = 'my first ad'
 line_item.product_type           = Product::PROMOTED_TWEETS
 line_item.placements             = [Placement::ALL_ON_TWITTER]
-line_item.objective              = Objective::TWEET_ENGAGEMENTS
+line_item.objective              = Objective::ENGAGEMENTS
 line_item.bid_amount_local_micro = 10_000
 line_item.entity_status          = EntityStatus::PAUSED
 line_item.save

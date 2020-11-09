@@ -20,6 +20,7 @@ module TwitterAds
     property :audience_size, read_only: true
     property :audience_type, read_only: true
     property :metadata, read_only: true
+    property :owner_account_id, read_only: true
     property :partner_source, read_only: true
     property :reasons_not_targetable, read_only: true
     property :targetable, type: :bool, read_only: true
@@ -91,7 +92,7 @@ module TwitterAds
       from_response(response.body[:data])
     end
 
-    # This is a private API and requires whitelisting from Twitter.
+    # This is a private API and requires allowlisting from Twitter.
     #
     # This endpoint will allow partners to add, update and remove users from a given
     # tailored_audience_id.
@@ -137,6 +138,60 @@ module TwitterAds
       [success_count, total_count]
     end
 
+    # Retrieves the entites targeting the current tailored audience instance.
+    #
+    # @example
+    #   audience.targeted(with_active=true)
+    #
+    # @param with_active [bool] Include active/inactive
+    #
+    # @since 8.0.0
+    #
+    # @return [self] Returns a Cursor instance of the targeted entities.
+    def targeted(opts = {})
+      validate_loaded
+      params = {}.merge!(opts)
+      TargetedTailoredAudience.load(account, id, params)
+    end
+
+    def validate_loaded
+      raise ArgumentError.new(
+        "Error! #{self.class} object not yet initialized, " \
+        "call #{self.class}.load first") if id.nil?
+    end
+  end
+
+  class TargetedTailoredAudience
+
+    include TwitterAds::DSL
+    include TwitterAds::Resource
+
+    attr_reader :account
+
+    # read-only
+    property :campaign_id, read_only: true
+    property :campaign_name, read_only: true
+    property :line_items, read_only: true
+
+    RESOURCE_TARGETED = "/#{TwitterAds::API_VERSION}/" \
+                        'accounts/%{account_id}/tailored_audiences/%{id}/targeted' # @api private
+
+    def initialize(account)
+      @account = account
+      self
+    end
+
+    class << self
+
+      def load(account, tailored_audience_id, params)
+        resource = RESOURCE_TARGETED % { account_id: account.id, id: tailored_audience_id }
+        request = TwitterAds::Request.new(account.client,
+                                          :get,
+                                          resource,
+                                          params: params)
+        Cursor.new(self, request, init_with: [account])
+      end
+    end
   end
 
   class TailoredAudiencePermission

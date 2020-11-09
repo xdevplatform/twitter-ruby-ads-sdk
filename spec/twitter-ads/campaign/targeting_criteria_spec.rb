@@ -30,6 +30,7 @@ describe TwitterAds::TargetingCriteria do
     line_item_id
     targeting_type
     targeting_value
+    operator_type
     tailored_audience_expansion
   )
 
