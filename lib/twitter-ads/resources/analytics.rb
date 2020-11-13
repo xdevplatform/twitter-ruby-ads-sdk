@@ -30,6 +30,7 @@ module TwitterAds
     property :metric_groups, read_only: true
 
     ANALYTICS_MAP = {
+      'TwitterAds::Account' => Entity::ACCOUNT,
       'TwitterAds::Campaign' => Entity::CAMPAIGN,
       'TwitterAds::LineItem' => Entity::LINE_ITEM,
       'TwitterAds::OrganicTweet' => Entity::ORGANIC_TWEET,
