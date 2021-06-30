@@ -18,8 +18,10 @@ module TwitterAds
 
     property :advertiser_domain
     property :android_app_store_identifier
+    property :audience_expansion
     property :automatically_select_bid
     property :bid_amount_local_micro
+    property :bid_strategy
     property :campaign_id
     property :categories
     property :end_time, type: :time
@@ -37,9 +39,7 @@ module TwitterAds
 
     # beta (not yet generally available)
     property :advertiser_user_id
-    property :bid_strategy
     property :tracking_tags
-    property :audience_expansion
 
     # sdk only
     property :to_delete, type: :bool
