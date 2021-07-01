@@ -30,17 +30,21 @@ describe TwitterAds::LineItem do
     name
     campaign_id
     advertiser_domain
+    android_app_store_identifier
+    audience_expansion
     categories
-    charge_by
+    pay_by
     objective
     entity_status
     primary_web_event_tag
     product_type
     placements
-    bid_unit
+    bid_strategy
     automatically_select_bid
     bid_amount_local_micro
     total_budget_amount_local_micro
+    goal
+    ios_app_store_identifier
   )
   include_examples 'object property check', read, write
 
