@@ -29,7 +29,7 @@ require 'twitter-ads/http/response'
 
 require 'twitter-ads/restapi.rb'
 
-require 'twitter-ads/audiences/tailored_audience'
+require 'twitter-ads/audiences/custom_audience'
 
 require 'twitter-ads/campaign/app_list'
 require 'twitter-ads/campaign/campaign'
@@ -58,6 +58,7 @@ require 'twitter-ads/targeting_criteria/app_store_category'
 
 require 'twitter-ads/creative/account_media'
 require 'twitter-ads/creative/cards_fetch'
+require 'twitter-ads/creative/cards'
 require 'twitter-ads/creative/image_app_download_card'
 require 'twitter-ads/creative/image_conversation_card'
 require 'twitter-ads/creative/media_creative'

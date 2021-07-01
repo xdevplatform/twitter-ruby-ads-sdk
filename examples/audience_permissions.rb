@@ -22,10 +22,10 @@ client = TwitterAds::Client.new(
 # load up the account instance
 account = client.accounts(ADS_ACCOUNT)
 
-tailored_audience_id = '36n4f'
+custom_audience_id = '36n4f'
 
 # fetch all permissions
-permissions = TwitterAds::TailoredAudiencePermission.all(account, tailored_audience_id)
+permissions = TwitterAds::CustomAudiencePermission.all(account, custom_audience_id)
 
 permissions.each { |data|
   p data.id
@@ -34,10 +34,10 @@ permissions.each { |data|
 }
 
 # create instance
-permission = TwitterAds::TailoredAudiencePermission.new(account)
+permission = TwitterAds::CustomAudiencePermission.new(account)
 
 # set required params
-permission.tailored_audience_id = tailored_audience_id
+permission.custom_audience_id = custom_audience_id
 permission.granted_account_id = '18ce54uvbwu'
 permission.permission_level = PermissionLevel::READ_ONLY
 
