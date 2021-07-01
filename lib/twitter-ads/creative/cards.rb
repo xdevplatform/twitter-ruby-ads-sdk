@@ -19,11 +19,10 @@ module TwitterAds
       # these are writable, but not in the sense that they can be set on an object and then saved
       property :name, read_only: true
       property :components, read_only: true
-      
 
       RESOURCE = "/#{TwitterAds::API_VERSION}/" +
-                  'accounts/%{account_id}/cards' # @api private
-      
+                 'accounts/%{account_id}/cards' # @api private
+
       def load(*)
         raise ArgumentError.new(
           "'Cards' object has no attribute 'load'")
@@ -36,14 +35,14 @@ module TwitterAds
 
       def create(account, name, components)
         resource = RESOURCE % { account_id: account.id }
-        params = { 'name': name,  'components': components }
+        params = { 'name': name, 'components': components }
         headers = { 'Content-Type' => 'application/json' }
         response = Request.new(account.client,
-          :post,
-          resource,
-          headers: headers,
-          body: params.to_json).perform
-        return from_response(response.body[:data])
+                               :post,
+                               resource,
+                               headers: headers,
+                               body: params.to_json).perform
+        from_response(response.body[:data])
       end
 
       def initialize(account)

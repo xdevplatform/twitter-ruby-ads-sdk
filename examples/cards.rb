@@ -23,22 +23,21 @@ account = client.accounts(ADS_ACCOUNT)
 name = 'video website card'
 components = [
   {
-    type: "MEDIA",
-    media_key: "13_794652834998325248"
+    type: 'MEDIA',
+    media_key: '13_794652834998325248'
   },
   {
-    type: "DETAILS",
-    title: "Twitter",
+    type: 'DETAILS',
+    title: 'Twitter',
     destination: {
-      type: "WEBSITE",
-      url: "http://twitter.com/"
+      type: 'WEBSITE',
+      url: 'http://twitter.com/'
     }
   }
 ]
 
 vwc = TwitterAds::Creative::Cards.new(account)
 video_website_card = vwc.create(account, name, components)
-
 
 # get user_id for as_user_id parameter
 user_id = TwitterRestApi::UserIdLookup.load(account, screen_name: 'your_screen_name').id

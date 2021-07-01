@@ -240,22 +240,22 @@ describe TwitterAds::Account do
 
   end
 
-  describe '#tailored_audiences' do
+  describe '#custom_audiences' do
 
     before(:each) do
-      resource_collection = "#{ADS_API}/accounts/#{account.id}/tailored_audiences"
-      stub_fixture(:get, :tailored_audiences_all, resource_collection)
+      resource_collection = "#{ADS_API}/accounts/#{account.id}/custom_audiences"
+      stub_fixture(:get, :custom_audiences_all, resource_collection)
 
-      resource = "#{ADS_API}/accounts/#{account.id}/tailored_audiences/abc2"
-      stub_fixture(:get, :tailored_audiences_load, /#{resource}\?.*/)
+      resource = "#{ADS_API}/accounts/#{account.id}/custom_audiences/abc2"
+      stub_fixture(:get, :custom_audiences_load, /#{resource}\?.*/)
     end
 
     context 'with an id specified' do
 
-      it 'successfully loads the specified tailored audience' do
-        result = account.tailored_audiences('abc2')
+      it 'successfully loads the specified custom audience' do
+        result = account.custom_audiences('abc2')
         expect(result).not_to be_nil
-        expect(result.class).to eq(TwitterAds::TailoredAudience)
+        expect(result.class).to eq(TwitterAds::CustomAudience)
         expect(result.id).to eq('abc2')
       end
 
@@ -263,11 +263,11 @@ describe TwitterAds::Account do
 
     context 'without an id specified' do
 
-      it 'succesfully returns a cursor with all tailored audiences' do
-        result = account.tailored_audiences
+      it 'succesfully returns a cursor with all custom audiences' do
+        result = account.custom_audiences
         expect(result.to_a.size).to eq(3)
         expect(result.class).to eq(TwitterAds::Cursor)
-        expect(result.first.class).to eq(TwitterAds::TailoredAudience)
+        expect(result.first.class).to eq(TwitterAds::CustomAudience)
         expect(result.first.id).to eq('abc2')
       end
 

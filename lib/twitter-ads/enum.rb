@@ -61,11 +61,11 @@ module TwitterAds
     end
 
     module Goal
-      APP_CLICKS   = 'APP_CLICKS'
+      APP_CLICKS = 'APP_CLICKS'
       APP_INSTALLS = 'APP_INSTALLS'
-      ENGAGEMENT  = 'ENGAGEMENT'
-      FOLLOWERS      = 'FOLLOWERS'
-      LINK_CLICKS  = 'LINK_CLICKS'
+      ENGAGEMENT = 'ENGAGEMENT'
+      FOLLOWERS = 'FOLLOWERS'
+      LINK_CLICKS = 'LINK_CLICKS'
       MAX_REACH = 'MAX_REACH'
       PREROLL = 'PREROLL'
       PREROLL_STARTS = 'PREROLL_STARTS'
@@ -84,7 +84,7 @@ module TwitterAds
     end
 
     module PayBy
-      APP_CLICK   = 'APP_CLICK'
+      APP_CLICK = 'APP_CLICK'
     end
 
     module MetricGroup
