@@ -19,11 +19,6 @@ module TwitterAds
 
     property :audience_size, read_only: true
     property :audience_type, read_only: true
-<<<<<<< HEAD:lib/twitter-ads/audiences/custom_audience.rb
-=======
-    property :metadata, read_only: true
-    property :owner_account_id, read_only: true
->>>>>>> 1827d32c0301960d68b15530b1831ec8b8eed273:lib/twitter-ads/audiences/tailored_audience.rb
     property :partner_source, read_only: true
     property :reasons_not_targetable, read_only: true
     property :targetable, type: :bool, read_only: true
