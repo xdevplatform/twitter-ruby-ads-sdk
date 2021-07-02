@@ -59,32 +59,31 @@ module TwitterAds
       end
     end
 
-    module BidUnit
-      APP_CLICK   = 'APP_CLICK'
-      APP_INSTALL = 'APP_INSTALL'
-      ENGAGEMENT  = 'ENGAGEMENT'
-      FOLLOW      = 'FOLLOW'
-      LEAD        = 'LEAD'
-      LINK_CLICK  = 'LINK_CLICK'
-      VIEW        = 'VIEW'
+    module Goal
+      APP_CLICKS = 'APP_CLICKS'
+      APP_INSTALLS = 'APP_INSTALLS'
+      ENGAGEMENT = 'ENGAGEMENT'
+      FOLLOWERS = 'FOLLOWERS'
+      LINK_CLICKS = 'LINK_CLICKS'
+      MAX_REACH = 'MAX_REACH'
+      PREROLL = 'PREROLL'
+      PREROLL_STARTS = 'PREROLL_STARTS'
+      REACH_WITH_ENGAGEMENT = 'REACH_WITH_ENGAGEMENT'
+      VIDEO_VIEW = 'VIDEO_VIEW'
       VIEW_3S_100PCT = 'VIEW_3S_100PCT'
+      VIEW_6S = 'VIEW_6S'
+      VIEW_15S = 'VIEW_15S'
+      WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'
     end
 
-    module BidType
+    module BidStrategy
       MAX    = 'MAX'
       AUTO   = 'AUTO'
       TARGET = 'TARGET'
     end
 
-    module ChargeBy
-      APP_CLICK   = 'APP_CLICK'
-      APP_INSTALL = 'APP_INSTALL'
-      ENGAGEMENT  = 'ENGAGEMENT'
-      FOLLOW      = 'FOLLOW'
-      LEAD        = 'LEAD'
-      LINK_CLICK  = 'LINK_CLICK'
-      VIEW        = 'VIEW'
-      VIEW_3S_100PCT = 'VIEW_3S_100PCT'
+    module PayBy
+      APP_CLICK = 'APP_CLICK'
     end
 
     module MetricGroup
@@ -145,14 +144,6 @@ module TwitterAds
       GIF   = 'GIF'
       IMAGE = 'IMAGE'
       VIDEO = 'VIDEO'
-    end
-
-    module Optimizations
-      APP_CLICKS          = 'APP_CLICKS'
-      APP_INSTALLS        = 'APP_INSTALLS'
-      DEFAULT             = 'DEFAULT'
-      ENGAGEMENTS         = 'ENGAGEMENTS'
-      WEBSITE_CONVERSIONS = 'WEBSITE_CONVERSIONS'
     end
 
     module Granularity
