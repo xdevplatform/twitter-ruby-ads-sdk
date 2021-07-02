@@ -41,6 +41,24 @@ describe TwitterAds::Creative::PromotedTweet do
       expect { subject.save }.to raise_error(TwitterAds::ClientError)
     end
 
+    it 'sets params[:tweet_ids] from params[:tweet_id]' do
+      request = double('request')
+      response = double('response')
+      allow(response).to receive(:body).and_return({ data: [{}] })
+      allow(request).to receive(:perform).and_return(response)
+      expected_params = { params: { line_item_id: '12345', tweet_ids: 99999999999999999999 } }
+
+      expect(Request).to receive(:new).with(
+        client,
+        :post,
+        "/#{TwitterAds::API_VERSION}/accounts/#{account.id}/promoted_tweets",
+        expected_params
+      ).and_return(request)
+
+      subject.line_item_id = '12345'
+      subject.tweet_id = 99999999999999999999
+      subject.save
+    end
   end
 
 end
