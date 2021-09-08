@@ -21,9 +21,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby_version: [head, 2.7, 2.6.4, 2.5.6, 2.4.7]
+        ruby_version: [2.7, 2.6.4, 2.5.6, 2.4.7]
         os: [ubuntu, macos]
-
+         
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
