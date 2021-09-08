@@ -40,7 +40,6 @@ describe TwitterAds::LineItem do
     product_type
     placements
     bid_strategy
-    automatically_select_bid
     bid_amount_local_micro
     total_budget_amount_local_micro
     goal
