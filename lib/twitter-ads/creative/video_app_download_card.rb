@@ -25,10 +25,8 @@ module TwitterAds
       property :country_code
       property :app_cta
       property :poster_media_key
-      property :ipad_app_id
-      property :ipad_deep_link
-      property :iphone_app_id
-      property :iphone_deep_link
+      property :ios_app_store_identifier
+      property :ios_deep_link
       property :googleplay_app_id
       property :googleplay_deep_link
       property :name
