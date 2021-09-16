@@ -10,7 +10,6 @@ module TwitterAds
 
     property :id, read_only: true
     property :name, read_only: true
-    property :salt, read_only: true
     property :timezone, read_only: true
     property :timezone_switch_at, type: :time, read_only: true
     property :created_at, type: :time, read_only: true
