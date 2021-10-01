@@ -58,7 +58,7 @@ Rubinius | 2.4.x, 2.5.x
 All releases adhere to strict [semantic versioning](http://semver.org). For Example, major.minor.patch-pre (aka. stick.carrot.oops-peek).
 
 ## Development
-If you'd like to contribute to the project or try an unreleased development version of this project locally, you can do so quite easily by following the examples below.
+If you'd like to contribute to the project or try an unreleased development version of this project locally, you can do so quite easily by following the examples you can help us by  below.
 ```bash
 # clone the repository
 git clone git@github.com:twitterdev/twitter-ruby-ads-sdk.git
