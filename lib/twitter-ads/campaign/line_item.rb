@@ -38,7 +38,6 @@ module TwitterAds
 
     # beta (not yet generally available)
     property :advertiser_user_id
-    property :tracking_tags
 
     # sdk only
     property :to_delete, type: :bool
