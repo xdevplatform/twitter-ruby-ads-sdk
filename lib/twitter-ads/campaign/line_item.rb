@@ -19,7 +19,6 @@ module TwitterAds
     property :advertiser_domain
     property :android_app_store_identifier
     property :audience_expansion
-    property :automatically_select_bid
     property :bid_amount_local_micro
     property :bid_strategy
     property :campaign_id

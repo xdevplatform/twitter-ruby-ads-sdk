@@ -75,7 +75,7 @@ require 'twitter-ads/creative/poll_cards'
 require 'twitter-ads/creative/tweet_previews'
 require 'twitter-ads/creative/tweets'
 
-require 'twitter-ads/targeting/audience_summary'
+require 'twitter-ads/targeting/audience_estimate'
 
 require 'twitter-ads/measurement/web_event_tag'
 require 'twitter-ads/measurement/app_event_tag'

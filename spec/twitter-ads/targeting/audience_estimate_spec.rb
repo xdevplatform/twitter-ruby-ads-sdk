@@ -3,12 +3,12 @@
 
 require 'spec_helper'
 
-describe TwitterAds::AudienceSummary do
+describe TwitterAds::AudienceEstimate do
 
   before(:each) do
     stub_fixture(:get, :accounts_all, "#{ADS_API}/accounts")
     stub_fixture(:get, :accounts_load, "#{ADS_API}/accounts/2iqph")
-    stub_fixture(:post, :audience_summary, "#{ADS_API}/accounts/2iqph/audience_summary")
+    stub_fixture(:post, :audience_estimate, "#{ADS_API}/accounts/2iqph/audience_estimate")
   end
 
   let(:client) do

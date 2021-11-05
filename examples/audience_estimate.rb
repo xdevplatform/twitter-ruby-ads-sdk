@@ -41,5 +41,5 @@ params = {
   ]
 }
 
-audience_summary = TwitterAds::AudienceSummary.fetch(account, params)
-puts audience_summary
+audience_estimate = TwitterAds::AudienceEstimate.fetch(account, params)
+puts audience_estimate
