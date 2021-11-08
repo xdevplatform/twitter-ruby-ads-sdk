@@ -22,9 +22,9 @@ client = TwitterAds::Client.new(
 # load up the account instance
 account = client.accounts(ADS_ACCOUNT)
 
-# create a new placeholder tailored audience
+# create a new placeholder custom audience
 audience =
-  TwitterAds::TailoredAudience.create(account, 'Test TA')
+  TwitterAds::CustomAudience.create(account, 'Test TA')
 
 # sample user
 # all values musth be sha256 hashede except 'partner_user_id'
@@ -42,6 +42,6 @@ user = [{
   }
 }]
 
-# update the tailored audience
+# update the custom audience
 success_count, total_count = audience.users(user)
 print "Successfully added #{total_count} users" if success_count == total_count

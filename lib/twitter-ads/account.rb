@@ -232,9 +232,9 @@ module TwitterAds
       load_resource(AppList, id, opts)
     end
 
-    # Returns a collection of tailored audiences available to the current account.
+    # Returns a collection of custom audiences available to the current account.
     #
-    # @param id [String] The TailoredAudience ID value.
+    # @param id [String] The CustomAudience ID value.
     # @param opts [Hash] A Hash of extended options.
     # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
     # @option opts [String] :sort_by The object param to sort the API response by.
@@ -242,8 +242,8 @@ module TwitterAds
     # @since 0.3.0
     #
     # @return A Cursor or object instance.
-    def tailored_audiences(id = nil, opts = {})
-      load_resource(TailoredAudience, id, opts)
+    def custom_audiences(id = nil, opts = {})
+      load_resource(CustomAudience, id, opts)
     end
 
     def authenticated_user_access
