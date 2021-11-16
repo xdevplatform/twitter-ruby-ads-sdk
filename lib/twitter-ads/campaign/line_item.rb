@@ -92,5 +92,8 @@ module TwitterAds
       id ? TargetingCriteria.load(account, id, opts) : TargetingCriteria.all(account, @id, opts)
     end
 
+    def tracking_tags(id = nil, opts = {})
+      id ? TrackingTag.load(account, id, opts) : TrackingTag.all(account, @id, opts)
+    end
   end
 end
