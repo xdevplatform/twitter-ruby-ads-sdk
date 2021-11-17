@@ -19,8 +19,6 @@ module TwitterAds
     property :tracking_tag_type
     property :tracking_tag_url
 
-
-
     # sdk only
     property :to_delete, type: :bool
 
@@ -50,7 +48,7 @@ module TwitterAds
       # @see Cursor
       # @see https://dev.twitter.com/ads/basics/sorting Sorting
       def all(account, line_item_ids, opts = {})
-        if (!line_item_ids.empty? )
+        if !line_item_ids.empty?
           params = { line_item_ids: Array(line_item_ids).join(',') }.merge!(opts)
         end
         resource = RESOURCE_COLLECTION % { account_id: account.id }
@@ -77,7 +75,6 @@ module TwitterAds
       end
 
     end
-
 
   end
 end
