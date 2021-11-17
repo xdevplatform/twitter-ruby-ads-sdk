@@ -32,6 +32,23 @@ module TwitterAds
       self
     end
 
+    # Creates a new Tracking Tag
+    #
+    # @param line_item_id [String] The line item id to create tags for.
+    # @param tracking_tag_url [String] tracking tag URL.
+    #
+    # @return [self] Returns the instance refreshed from the API
+    def create(line_item_id, tracking_tag_url)
+      resource = self.class::RESOURCE_COLLECTION % { account_id: account.id }
+      params = to_params.merge!(
+        line_item_id: line_item_id,
+        tracking_tag_url: tracking_tag_url,
+        tracking_tag_type: 'IMPRESSION_TAG'
+      )
+      response = Request.new(account.client, :post, resource, params: params).perform
+      from_response(response.body[:data])
+    end
+
     class << self
 
       # Returns a Cursor instance for a given resource.
