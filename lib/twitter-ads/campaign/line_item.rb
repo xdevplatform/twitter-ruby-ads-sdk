@@ -19,7 +19,6 @@ module TwitterAds
     property :advertiser_domain
     property :android_app_store_identifier
     property :audience_expansion
-    property :automatically_select_bid
     property :bid_amount_local_micro
     property :bid_strategy
     property :campaign_id
@@ -39,7 +38,6 @@ module TwitterAds
 
     # beta (not yet generally available)
     property :advertiser_user_id
-    property :tracking_tags
 
     # sdk only
     property :to_delete, type: :bool
@@ -94,5 +92,8 @@ module TwitterAds
       id ? TargetingCriteria.load(account, id, opts) : TargetingCriteria.all(account, @id, opts)
     end
 
+    def tracking_tags(id = nil, opts = {})
+      id ? TrackingTag.load(account, id, opts) : TrackingTag.all(account, @id, opts)
+    end
   end
 end

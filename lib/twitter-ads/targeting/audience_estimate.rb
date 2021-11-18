@@ -2,13 +2,13 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  module AudienceSummary
+  module AudienceEstimate
 
     include TwitterAds::DSL
     include TwitterAds::Resource
 
     RESOURCE = "/#{TwitterAds::API_VERSION}/" \
-                           'accounts/%{account_id}/audience_summary'
+                           'accounts/%{account_id}/audience_estimate'
 
     property :audience_size, read_only: true
 
@@ -17,7 +17,7 @@ module TwitterAds
       # Get an audience summary for the specified targeting criteria.
       #
       # @example
-      #   TwitterAds::AudienceSummary.fetch(
+      #   TwitterAds::AudienceEstimate.fetch(
       #     account,
       #     params: {targeting_criteria:[{targeting_type:'LOCATION',
       #             targeting_value:'96683cc9126741d1'}]}

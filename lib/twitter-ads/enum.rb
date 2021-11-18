@@ -84,6 +84,7 @@ module TwitterAds
 
     module PayBy
       APP_CLICK = 'APP_CLICK'
+      IMPRESSION = 'IMPRESSION'
     end
 
     module MetricGroup
