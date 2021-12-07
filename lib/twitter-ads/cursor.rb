@@ -56,13 +56,13 @@ module TwitterAds
     # @return [Cursor] The current Cursor instance.
     #
     # @since 0.1.0
-    def each(offset = 0)
+    def each(offset = 0, &block)
       return to_enum(:each, offset) unless block_given?
       @collection[offset..-1].each { |element| yield(element) }
       unless exhausted?
         offset = [@collection.size, offset].max
         fetch_next
-        each(offset, &Proc.new)
+        each(offset, &block)
       end
       self
     end
