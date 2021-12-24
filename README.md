@@ -52,7 +52,7 @@ This project is designed to work with Ruby 2.4.0 or greater. While it may work o
 
 Platform | Versions
 -------- | --------
-MRI | 2.4.x, 2.5.x, 2.6.x
+MRI | 2.4.x, 2.5.x, 2.6.x, 2.7, 3.0
 Rubinius | 2.4.x, 2.5.x
 
 All releases adhere to strict [semantic versioning](http://semver.org). For Example, major.minor.patch-pre (aka. stick.carrot.oops-peek).
@@ -89,7 +89,7 @@ Like the [Response](https://github.com/twitterdev/twitter-ruby-ads-sdk/blob/mast
 
 The MIT License (MIT)
 
-Copyright (C) 2019 Twitter, Inc.
+Copyright (C) 2021 Twitter, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

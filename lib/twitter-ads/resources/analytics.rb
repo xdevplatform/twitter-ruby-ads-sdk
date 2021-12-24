@@ -211,7 +211,7 @@ module TwitterAds
         tries = 0
         begin
           tries += 1
-          raw_file = open(data_url)
+          raw_file = URI.open(data_url)
           unzipped_file = Zlib::GzipReader.new(raw_file)
           response_data = unzipped_file.read
           response = JSON.parse(response_data)
