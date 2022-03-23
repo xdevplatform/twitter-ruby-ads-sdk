@@ -35,10 +35,8 @@ module TwitterAds
       property :image, read_only: true
       property :image_display_height, read_only: true
       property :image_display_width, read_only: true
-      property :ipad_app_id, read_only: true
-      property :ipad_deep_link, read_only: true
-      property :iphone_app_id, read_only: true
-      property :iphone_deep_link, read_only: true
+      property :ios_app_store_identifier, read_only: true
+      property :ios_deep_link, read_only: true
       property :name, read_only: true
       property :recipient_user_id, read_only: true
       property :second_choice, read_only: true

@@ -1,0 +1,17 @@
+{
+  "request": {
+    "params": {
+      "tracking_tag_id": "7035",
+      "account_id": "18ce54uhdu0"
+    }
+  },
+  "data": {
+    "line_item_id": "dmbc0",
+    "tracking_tag_url": "https://ad.doubleclick.net/ddm/trackimp/N1234.2061500TWITTER-OFFICIAL/B9156151.125630439;dc_trk_aid=1355;dc_trk_cid=8675309",
+    "tracking_tag_type": "IMPRESSION_TAG",
+    "id": "7035",
+    "created_at": "2021-11-16T00:12:26Z",
+    "updated_at": "2021-11-16T00:12:26Z",
+    "deleted": false
+  }
+}

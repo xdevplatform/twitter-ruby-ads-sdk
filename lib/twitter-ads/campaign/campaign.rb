@@ -23,6 +23,7 @@ module TwitterAds
     property :end_time, type: :time
     property :start_time, type: :time
     property :entity_status
+    property :effective_status
     property :currency
     property :standard_delivery
     property :daily_budget_amount_local_micro

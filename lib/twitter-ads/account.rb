@@ -10,7 +10,6 @@ module TwitterAds
 
     property :id, read_only: true
     property :name, read_only: true
-    property :salt, read_only: true
     property :timezone, read_only: true
     property :timezone_switch_at, type: :time, read_only: true
     property :created_at, type: :time, read_only: true
@@ -216,6 +215,23 @@ module TwitterAds
     # @since 0.1.0
     def line_items(id = nil, opts = {})
       load_resource(LineItem, id, opts)
+    end
+
+    # Returns a collection of tracking tags available to the
+    # current account.
+    #
+    # @param id [String] The LineItem ID value.
+    # @param opts [Hash] A Hash of extended options.
+    # @option opts [Boolean] :with_deleted Indicates if deleted items should be included.
+    # @option opts [String] :sort_by The object param to sort the API response by.
+    # @option opts [String] :line_item_ids The object param to sort the API response by.
+    # @option opts [String] :tracking_tag_ids The object param to sort the API response by.
+    #
+    # @return A Cursor or object instance.
+    #
+    # @since 10.0.0
+    def tracking_tags(id = nil, opts = {})
+      load_resource(TrackingTag, id, opts)
     end
 
     # Returns a collection of app lists available to the current account.
