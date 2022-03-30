@@ -35,9 +35,8 @@ module TwitterAds
     property :product_type
     property :start_time, type: :time
     property :total_budget_amount_local_micro
-
-    # beta (not yet generally available)
     property :advertiser_user_id
+    property :standard_delivery, type :bool
 
     # sdk only
     property :to_delete, type: :bool

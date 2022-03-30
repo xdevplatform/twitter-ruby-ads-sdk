@@ -28,6 +28,7 @@ module TwitterAds
     property :standard_delivery
     property :daily_budget_amount_local_micro
     property :total_budget_amount_local_micro
+    property :budget_optimization
 
     # sdk only
     property :to_delete, type: :bool

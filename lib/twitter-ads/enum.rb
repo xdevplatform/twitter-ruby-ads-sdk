@@ -234,5 +234,9 @@ module TwitterAds
       NULLCAST = 'NULLCAST'
       ORGANIC = 'ORGANIC'
     end
+
+    module BudgetOptimization
+      CAMPAIGN = 'CAMPAIGN'
+    end
   end
 end
