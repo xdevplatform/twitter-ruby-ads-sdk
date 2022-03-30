@@ -45,10 +45,10 @@ vwc.save
 puts vwc.name # vwc - ruby sdk
 
 # fetch all
-card = TwitterAds::Creative::Cards.all(account, card_ids: "1508693734346485761").first
+# card = TwitterAds::Creative::Cards.all(account, card_ids: '1508693734346485761').first
 
 # fetch by card-id
-card = TwitterAds::Creative::Cards.load(account, "1508693734346485761")
+# card = TwitterAds::Creative::Cards.load(account, '1508693734346485761')
 
 # get user_id for as_user_id parameter
 user_id = TwitterRestApi::UserIdLookup.load(account, screen_name: 'your_screen_name').id
