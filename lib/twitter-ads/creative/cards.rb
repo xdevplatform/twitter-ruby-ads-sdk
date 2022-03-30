@@ -27,16 +27,6 @@ module TwitterAds
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
                             'accounts/%{account_id}/cards' # @api private
 
-      # def load(*)
-      #   raise ArgumentError.new(
-      #     "'Cards' object has no attribute 'load'")
-      # end
-
-      # def reload(*)
-      #   raise ArgumentError.new(
-      #     "'Cards' object has no attribute 'reload'")
-      # end
-
       def save
         headers = { 'Content-Type' => 'application/json' }
         params = { 'name': name, 'components': components }
