@@ -3,7 +3,7 @@
 
 module TwitterAds
 
-  API_VERSION = '10'
+  API_VERSION = '11'
 
   # The Ads API Client class which functions as a
   # container for basic API consumer information.
