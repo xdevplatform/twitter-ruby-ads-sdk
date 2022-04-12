@@ -20,8 +20,6 @@ module TwitterAds
 
     property :name
     property :funding_instrument_id
-    property :end_time, type: :time
-    property :start_time, type: :time
     property :entity_status
     property :effective_status
     property :currency
