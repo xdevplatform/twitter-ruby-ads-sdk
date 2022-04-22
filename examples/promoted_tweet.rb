@@ -31,7 +31,7 @@ tweet1 = TwitterAds::Tweet.create(account, text: 'There can be only one...', as_
 # promote the tweet using our line item
 promoted_tweet = TwitterAds::Creative::PromotedTweet.new(account)
 promoted_tweet.line_item_id = line_item.id
-promoted_tweet.tweet_id     = tweet1[:id_str]
+promoted_tweet.tweet_id     = tweet1[:id]
 promoted_tweet.save
 
 # create request for a nullcasted tweet with a website card
@@ -46,5 +46,5 @@ tweet2 = TwitterAds::Tweet.create(
 # promote the tweet using our line item
 promoted_tweet = TwitterAds::Creative::PromotedTweet.new(account)
 promoted_tweet.line_item_id = line_item.id
-promoted_tweet.tweet_id     = tweet2[:id_str]
+promoted_tweet.tweet_id     = tweet2[:id]
 promoted_tweet.save

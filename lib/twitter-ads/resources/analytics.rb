@@ -14,7 +14,6 @@ module TwitterAds
     attr_reader :account
 
     property :id, read_only: true
-    property :id_str, read_only: true
     property :status, read_only: true
     property :url, read_only: true
     property :created_at, type: :time, read_only: true
