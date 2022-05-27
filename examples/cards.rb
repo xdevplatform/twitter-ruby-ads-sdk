@@ -37,7 +37,18 @@ components = [
 ]
 
 vwc = TwitterAds::Creative::Cards.new(account)
-video_website_card = vwc.create(account, name, components)
+vwc.name = name
+vwc.components = components
+vwc.save
+vwc.name = 'vwc - ruby sdk'
+vwc.save
+puts vwc.name # vwc - ruby sdk
+
+# fetch all
+# card = TwitterAds::Creative::Cards.all(account, card_ids: '1508693734346485761').first
+
+# fetch by card-id
+# card = TwitterAds::Creative::Cards.load(account, '1508693734346485761')
 
 # get user_id for as_user_id parameter
 user_id = TwitterRestApi::UserIdLookup.load(account, screen_name: 'your_screen_name').id
@@ -46,5 +57,5 @@ user_id = TwitterRestApi::UserIdLookup.load(account, screen_name: 'your_screen_n
 tweet = TwitterAds::Creative::DraftTweet.new(account)
 tweet.text = 'Created from SDK'
 tweet.as_user_id = user_id
-tweet.card_uri = video_website_card.card_uri
+tweet.card_uri = vwc.card_uri
 tweet.save

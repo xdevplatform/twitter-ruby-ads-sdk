@@ -14,7 +14,6 @@ module TwitterAds
 
       # read-only
       property :id, read_only: true
-      property :id_str, read_only: true
       property :created_at, type: :time, read_only: true
       property :updated_at, type: :time, read_only: true
       property :user_id, read_only: true

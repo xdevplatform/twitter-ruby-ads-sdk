@@ -26,7 +26,7 @@ user_id = TwitterRestApi::UserIdLookup.load(account, screen_name: 'your_twitter_
 # fetch draft tweets from a given account
 tweets = TwitterAds::Creative::DraftTweet.all(account)
 tweets.each { |tweet|
-  p tweet.id_str
+  p tweet.id
   p tweet.text
 }
 
@@ -35,19 +35,19 @@ draft_tweet = TwitterAds::Creative::DraftTweet.new(account)
 draft_tweet.text = 'draft tweet - new'
 draft_tweet.as_user_id = user_id
 draft_tweet.save
-p draft_tweet.id_str
+p draft_tweet.id
 p draft_tweet.text
 
 # fetch single draft tweet metadata
-tweet_id = draft_tweet.id_str
+tweet_id = draft_tweet.id
 draft_tweet = TwitterAds::Creative::DraftTweet.load(account, tweet_id)
-p draft_tweet.id_str
+p draft_tweet.id
 p draft_tweet.text
 
 # update (PUT) metadata
 draft_tweet.text = 'draft tweet - update'
 draft_tweet = draft_tweet.save
-p draft_tweet.id_str
+p draft_tweet.id
 p draft_tweet.text
 
 # preview draft tweet of current instance (send notification)

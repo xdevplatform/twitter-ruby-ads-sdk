@@ -44,6 +44,7 @@ describe TwitterAds::LineItem do
     total_budget_amount_local_micro
     goal
     ios_app_store_identifier
+    standard_delivery
   )
   include_examples 'object property check', read, write
 

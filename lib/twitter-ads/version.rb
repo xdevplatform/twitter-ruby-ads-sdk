@@ -2,5 +2,5 @@
 # Copyright (C) 2019 Twitter, Inc.
 
 module TwitterAds
-  VERSION = '10.1.0'
+  VERSION = '11.0.0'
 end

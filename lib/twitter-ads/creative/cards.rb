@@ -12,36 +12,46 @@ module TwitterAds
 
       attr_reader :account
 
+      property :id, read_only: true
+      property :card_type, read_only: true
       property :card_uri, read_only: true
       property :created_at, type: :time, read_only: true
       property :deleted, type: :bool, read_only: true
       property :updated_at, type: :time, read_only: true
       # these are writable, but not in the sense that they can be set on an object and then saved
-      property :name, read_only: true
-      property :components, read_only: true
+      property :name
+      property :components
 
       RESOURCE = "/#{TwitterAds::API_VERSION}/" +
-                 'accounts/%{account_id}/cards' # @api private
+                 'accounts/%{account_id}/cards/%{id}' # @api private
+      RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" +
+                            'accounts/%{account_id}/cards' # @api private
 
-      def load(*)
-        raise ArgumentError.new(
-          "'Cards' object has no attribute 'load'")
-      end
-
-      def reload(*)
-        raise ArgumentError.new(
-          "'Cards' object has no attribute 'reload'")
-      end
-
-      def create(account, name, components)
-        resource = RESOURCE % { account_id: account.id }
-        params = { 'name': name, 'components': components }
+      def save
         headers = { 'Content-Type' => 'application/json' }
-        response = Request.new(account.client,
-                               :post,
-                               resource,
-                               headers: headers,
-                               body: params.to_json).perform
+        params = { 'name': name, 'components': components }
+        if @id
+          resource = RESOURCE % {
+            account_id: account.id,
+            id: id
+          }
+          request = Request.new(account.client,
+                                :put,
+                                resource,
+                                headers: headers,
+                                body: params.to_json)
+        else
+          resource = RESOURCE_COLLECTION % {
+            account_id: account.id
+          }
+          request = Request.new(account.client,
+                                :post,
+                                resource,
+                                headers: headers,
+                                body: params.to_json)
+        end
+
+        response = request.perform
         from_response(response.body[:data])
       end
 
@@ -49,7 +59,6 @@ module TwitterAds
         @account = account
         self
       end
-
     end
 
   end

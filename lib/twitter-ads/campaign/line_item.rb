@@ -34,9 +34,8 @@ module TwitterAds
     property :primary_web_event_tag
     property :product_type
     property :start_time, type: :time
+    property :standard_delivery, type: :bool
     property :total_budget_amount_local_micro
-
-    # beta (not yet generally available)
     property :advertiser_user_id
 
     # sdk only
