@@ -23,6 +23,7 @@ module TwitterAds
       property :media_keys
       property :nullcast, type: :bool
       property :text
+      property :name
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
                             'accounts/%{account_id}/draft_tweets' # @api private
