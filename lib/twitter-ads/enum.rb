@@ -174,6 +174,19 @@ module TwitterAds
       AGE_35_TO_54 = 'AGE_35_TO_54'
       AGE_OVER_35  = 'AGE_OVER_35'
       AGE_OVER_50  = 'AGE_OVER_50'
+      AGE_13_TO_19 = 'AGE_13_TO_19'
+      AGE_13_TO_29 = 'AGE_13_TO_29'
+      AGE_13_TO_39 = 'AGE_13_TO_39'
+      AGE_20_TO_29 = 'AGE_20_TO_29'
+      AGE_20_TO_34 = 'AGE_20_TO_34'
+      AGE_20_TO_39 = 'AGE_20_TO_39'
+      AGE_20_TO_49 = 'AGE_20_TO_49'
+      AGE_OVER_20 = 'AGE_OVER_20'
+      AGE_30_TO_39 = 'AGE_30_TO_39'
+      AGE_30_TO_49 = 'AGE_30_TO_49'
+      AGE_OVER_30 = 'AGE_OVER_30'
+      AGE_40_TO_49 = 'AGE_40_TO_49'
+      AGE_OVER_40 = 'AGE_OVER_40'
     end
 
     module Events
