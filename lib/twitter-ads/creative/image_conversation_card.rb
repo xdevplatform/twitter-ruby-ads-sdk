@@ -35,6 +35,8 @@ module TwitterAds
       property :third_cta
       property :third_cta_tweet
       property :title
+      property :image_display_height
+      property :image_display_width
 
       RESOURCE_COLLECTION = "/#{TwitterAds::API_VERSION}/" \
                             'accounts/%{account_id}/cards/image_conversation' # @api private
